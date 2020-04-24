@@ -11,3 +11,5 @@ flake8-mypy==17.8.0
 flake8==3.7.9
 isort==4.3.21
 mypy==0.770
+numpy==1.18.1
+responses==0.10.14
