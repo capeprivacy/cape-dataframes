@@ -1,0 +1,13 @@
+grpcio==1.28.1
+requests==2.23.0
+pandas==1.0.3
+protobuf==3.11.3
+pytest==5.4.1
+pytest-mock==3.1.0
+black==19.10b
+flake8-black==0.1.1
+flake8-isort==3.0.0
+flake8-mypy==17.8.0
+flake8==3.7.9
+isort==4.3.21
+mypy==0.770
