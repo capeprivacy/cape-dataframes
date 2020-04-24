@@ -1,0 +1,110 @@
+
+syntax = "proto3";
+
+package cape;
+
+option go_package = ".;proto";
+
+import "google/protobuf/timestamp.proto";
+
+service DataConnector {
+  rpc Query(QueryRequest) returns (stream Record);
+  rpc Version(VersionRequest) returns (VersionResponse);
+}
+
+message QueryRequest {
+  string data_source = 1; // Label of the data source we’re targeting
+  string query = 2;
+  int64 limit = 3;
+  int64 offset = 4;
+}
+
+message Record {
+  // Schema is only available on the first message
+  Schema schema = 1;
+
+  // Each field value goes over the wire and the number of values maps to the number of fields in the Schema.
+  repeated Field fields = 2;
+}
+
+enum RecordType {
+  DOCUMENT = 0;
+}
+
+message Field {
+  oneof value {
+    int32 int32 = 1;
+    int64 int64 = 2;
+    google.protobuf.Timestamp timestamp = 3;
+    float float = 4;
+    double double = 5;
+    string string = 6;
+    bytes bytes = 7;
+    bool bool = 8;
+  }
+}
+
+// Schema contains information
+message Schema {
+  string data_source = 1; // label of data source data is being returned from
+  string target = 2; // the target used to select the collection that we’re returning records from
+  RecordType type = 3;
+  repeated FieldInfo fields = 4;
+}
+
+// FieldInfo represents all information about a field including its type, the number of bits or bytes, and the fields name.
+message FieldInfo {
+  FieldType field = 1;
+  int64 size = 2;
+  string name = 3;
+}
+
+// We need to know the exact field type so the client can convert the data into the appropriate field type.
+enum FieldType {
+  BIGINT = 0;
+  BIT = 2;
+  VARBIT = 3;
+  BOOL = 4;
+  BOX = 5;
+  BYTEA = 6;
+  CHAR = 7;
+  VARCHAR = 8;
+  CIDR = 9;
+  CIRCLE = 10;
+  DATE = 11;
+  DOUBLE = 12;
+  INET = 13;
+  INT = 14;
+  INTERVAL = 15;
+  JSON = 16;
+  JSONB = 17;
+  LINE = 18;
+  LSEG = 19;
+  MACADDR = 20;
+  MACADDR8 = 21;
+  MONEY = 22;
+  NUMERIC = 23;
+  PATH = 24;
+  PGLSN = 25;
+  POINT = 26;
+  POLYGON = 27;
+  REAL = 28;
+  SMALLINT = 29;
+  TEXT = 32;
+  TIME = 33;
+  TIMETZ = 34;
+  TIMESTAMP = 35;
+  TIMESTAMPTZ = 36;
+  TSQUERY = 37;
+  TSVECTOR = 38;
+  TXIDSNAPSHOT = 39;
+  UUID = 40;
+  XML = 41;
+}
+
+message VersionRequest{};
+
+message VersionResponse{
+  string version = 1;
+  string build_date = 2;
+}

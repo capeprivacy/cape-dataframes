@@ -1,0 +1,20 @@
+name: Main
+on: [push]
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+    steps:
+      - name: Setup python ${{ matrix.python-version }} Environment
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Run Make CI
+        run: |
+          make bootstrap
+          make ci
