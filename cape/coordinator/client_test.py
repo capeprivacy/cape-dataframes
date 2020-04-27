@@ -1,5 +1,10 @@
+import json
+
 import pytest
 import responses
+
+from cape.auth import derive_private_key
+from cape.utils import base64
 
 from .client import Client
 from .client import GraphQLException
@@ -73,8 +78,8 @@ def test_service_endpoint():
 
 @responses.activate
 def test_create_login_session():
-    exp_token = "ABCDEFGH"
-    exp_creds = Credentials("SALTSALTSALTSALT", "EDDSA")
+    exp_token = "ABCDEFE"
+    exp_creds = Credentials(base64.from_string("SALTSALTSALTSALT"), "EDDSA")
 
     responses.add(
         responses.POST,
@@ -83,7 +88,7 @@ def test_create_login_session():
             "data": {
                 "createLoginSession": {
                     "token": exp_token,
-                    "credentials": {"salt": exp_creds.salt, "alg": exp_creds.alg},
+                    "credentials": {"salt": str(exp_creds.salt), "alg": exp_creds.alg},
                 }
             }
         },
@@ -93,13 +98,13 @@ def test_create_login_session():
 
     token, creds = c.create_login_session("justin@capeprivacy.com")
 
-    assert token == bytes(exp_token, "ascii")
+    assert str(token) == exp_token
     assert creds == exp_creds
 
 
 @responses.activate
 def test_create_auth_session():
-    exp_token = "ABCDEFG"
+    exp_token = "ABCDEFE"
 
     responses.add(
         responses.POST,
@@ -111,4 +116,49 @@ def test_create_auth_session():
 
     token = c.create_auth_session(b"ABCDEFG")
 
-    assert token == exp_token
+    assert str(token) == exp_token
+
+
+@responses.activate
+def test_login():
+    exp_login_token = "ABCDEFE"
+    exp_session_token = "ABCDEFE"
+    email = "hey@hey.com"
+    password = b"whatsupcape"
+    salt = "SALTSALTSALTSALT"
+
+    pkey = derive_private_key(password, base64.from_string(salt))
+    pub_key = pkey.private_key.verify_key
+
+    def cb(request):
+        payload = json.loads(request.body)
+        query = payload["query"]
+        variables = payload["variables"]
+
+        resp_body = {}
+        if "createLoginSession" in query:
+            resp_body = {
+                "data": {
+                    "createLoginSession": {
+                        "token": exp_login_token,
+                        "credentials": {"salt": salt, "alg": "EDDSA"},
+                    }
+                }
+            }
+        elif "createAuthSession" in query:
+            sig = base64.from_string(variables["signature"])
+            msg = base64.from_string(exp_login_token)
+
+            pub_key.verify(bytes(msg), bytes(sig))
+
+            resp_body = {"data": {"createAuthSession": {"token": exp_session_token}}}
+
+        return 200, {}, json.dumps(resp_body)
+
+    responses.add_callback(responses.POST, f"{host}/v1/query", cb)
+
+    c = Client(host)
+
+    c.login(email, password)
+
+    assert str(c.token) == exp_session_token
