@@ -63,13 +63,17 @@ test: pythoncheck
 lint: pythoncheck
 	flake8 cape
 
-ci: lint test
+ci: lint test coverage
 
 fmt: pythoncheck
 	isort --atomic --recursive cape
 	black cape
 
-.PHONY: lint fmt test typecheck
+coverage:
+	coverage run -m pytest
+	coverage report --fail-under=90
+
+.PHONY: lint fmt test coverage
 
 # ###############################################
 # Version Derivation
