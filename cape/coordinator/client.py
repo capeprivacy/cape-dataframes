@@ -3,7 +3,10 @@ from typing import Dict
 
 import requests
 
+from cape import connector
 from cape.auth import derive_private_key
+from cape.auth.api_token import APIToken
+from cape.connector.stream import Stream
 from cape.utils import base64
 
 from .credentails import Credentials
@@ -28,7 +31,8 @@ class GraphQLException(Exception):
 # As the graphql spec is quite simple we're starting off here by writing
 # the graphql queries directly as POST requests using the library requests.
 class Client:
-    def __init__(self, host: str):
+    def __init__(self, host: str, root_certificates: str = ""):
+        self.root_certificates = root_certificates
         self.host = f"{host}/v1/query"
         self.token: str = ""
 
@@ -132,3 +136,23 @@ class Client:
         sig = pkey.sign(token)
 
         self.token = self.create_auth_session(sig)
+
+    def pull(self, source: str, query: str, limit: int, offset: int) -> Stream:
+        id = self.service_id_from_source(source)
+        endpoint = self.service_endpoint(id)
+
+        cl = connector.Client(
+            endpoint, self.token, root_certificates=self.root_certificates
+        )
+
+        return cl.pull(source, query, limit, offset)
+
+
+def login(token: str, root_certificates="") -> Client:
+    api_token = APIToken(token)
+
+    c = Client(api_token.url, root_certificates=root_certificates)
+
+    c.login(api_token.email, api_token.secret)
+
+    return c
