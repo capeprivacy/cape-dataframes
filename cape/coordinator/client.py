@@ -3,6 +3,9 @@ from typing import Dict
 
 import requests
 
+from cape.auth import derive_private_key
+from cape.utils import base64
+
 from .credentails import Credentials
 
 
@@ -30,14 +33,21 @@ class Client:
         self.token: str = ""
 
     def graphql_request(self, query: str, variables: Dict[str, str]):
-        r = requests.post(
-            self.host,
-            headers={"Authorization": f"Bearer {self.token}"},
-            json={"query": query, "variables": variables},
-        )
-        r.raise_for_status()
+        headers = {}
+        if self.token != "":
+            headers["Authorization"] = f"Bearer {self.token}"
 
-        j = r.json()
+        r = requests.post(
+            self.host, headers=headers, json={"query": query, "variables": variables},
+        )
+
+        # attempt to get json so we can get the errors
+        # if an error has occurred, if json doesn't exist
+        # just raise the error
+        try:
+            j = r.json()
+        except ValueError:
+            r.raise_for_status()
 
         if "errors" in j:
             raise GraphQLException(j["errors"])
@@ -74,7 +84,7 @@ class Client:
 
         return res["service"]["endpoint"]
 
-    def create_login_session(self, email: str) -> (bytes, Credentials):
+    def create_login_session(self, email: str) -> (base64.Base64, Credentials):
         query = """
         mutation CreateLoginSession($email: Email!) {
             createLoginSession(input: { email: $email }) {
@@ -91,13 +101,13 @@ class Client:
 
         res = self.graphql_request(query, variables)
 
-        token = bytes(res["createLoginSession"]["token"], "ascii")
-        salt = res["createLoginSession"]["credentials"]["salt"]
+        token = base64.from_string(res["createLoginSession"]["token"])
+        salt = base64.from_string(res["createLoginSession"]["credentials"]["salt"])
         alg = res["createLoginSession"]["credentials"]["alg"]
 
         return token, Credentials(salt, alg)
 
-    def create_auth_session(self, signature: bytes) -> bytes:
+    def create_auth_session(self, signature: base64.Base64) -> base64.Base64:
         query = """
         mutation CreateAuthSession($signature: Base64!) {
             createAuthSession(input: { signature: $signature }) {
@@ -106,8 +116,19 @@ class Client:
         }
         """
 
-        variables = {"signature": signature.decode("ascii")}
+        variables = {"signature": str(signature)}
 
         res = self.graphql_request(query, variables)
 
-        return res["createAuthSession"]["token"]
+        return base64.from_string(res["createAuthSession"]["token"])
+
+    def login(self, email: str, secret: bytes):
+        token, creds = self.create_login_session(email)
+
+        self.token = token
+
+        pkey = derive_private_key(secret, creds.salt)
+
+        sig = pkey.sign(token)
+
+        self.token = self.create_auth_session(sig)
