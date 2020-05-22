@@ -70,7 +70,7 @@ fmt: pythoncheck
 	black cape
 
 coverage:
-	coverage run -m pytest
+	pytest --cov-report=xml --cov=cape cape
 	coverage report --fail-under=90
 
 .PHONY: lint fmt test coverage
