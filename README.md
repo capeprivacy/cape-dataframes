@@ -32,7 +32,9 @@ Using the Python API is quite simple. Inside of a juypter notebook or python scr
 ```python
 import cape
 
-cl = cape.login("API TOKEN", root_certificates="<CAPE REPO>/connector/certs/localhost.crt")
+cl = cape.Client("<COORDINATOR URL>", root_certificates="<CAPE REPO>/connector/certs/localhost.crt")
+
+cl.login("<API TOKEN>")
 
 stream = cl.pull("creditcards", "SELECT * FROM transactions", 50, 0)
 

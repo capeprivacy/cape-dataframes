@@ -11,7 +11,7 @@ class Stream:
         self.stream = stream
         self.schema: Schema = None
 
-    def schema(self) -> Schema:
+    def get_schema(self) -> Schema:
         return self.schema
 
     def __iter__(self):
