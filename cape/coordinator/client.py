@@ -4,12 +4,9 @@ from typing import Dict
 import requests
 
 from cape import connector
-from cape.auth import derive_private_key
 from cape.auth.api_token import APIToken
 from cape.connector.stream import Stream
 from cape.utils import base64
-
-from .credentails import Credentials
 
 
 class GraphQLError:
@@ -62,7 +59,9 @@ class Client:
         query = """
         query SourceQuery($label: Label!) {
             sourceByLabel(label: $label) {
-                service_id
+                service {
+                    id
+                }
             }
         }
         """
@@ -71,7 +70,7 @@ class Client:
 
         res = self.graphql_request(query, variables)
 
-        return res["sourceByLabel"]["service_id"]
+        return res["sourceByLabel"]["service"]["id"]
 
     def service_endpoint(self, id):
         query = """
@@ -88,54 +87,27 @@ class Client:
 
         return res["service"]["endpoint"]
 
-    def create_login_session(self, email: str) -> (base64.Base64, Credentials):
+    def login(self, token: str):
+        api_token = APIToken(token)
+
         query = """
-        mutation CreateLoginSession($email: Email!) {
-            createLoginSession(input: { email: $email }) {
-                token
-                credentials {
-                    salt
-                    alg
-                }
-            }
-        }
-        """
-
-        variables = {"email": email}
-
-        res = self.graphql_request(query, variables)
-
-        token = base64.from_string(res["createLoginSession"]["token"])
-        salt = base64.from_string(res["createLoginSession"]["credentials"]["salt"])
-        alg = res["createLoginSession"]["credentials"]["alg"]
-
-        return token, Credentials(salt, alg)
-
-    def create_auth_session(self, signature: base64.Base64) -> base64.Base64:
-        query = """
-        mutation CreateAuthSession($signature: Base64!) {
-            createAuthSession(input: { signature: $signature }) {
+        mutation CreateSession($token_id: ID, $secret: Password!) {
+            createSession(input: { token_id: $token_id, secret: $secret }) {
                 token
             }
         }
         """
 
-        variables = {"signature": str(signature)}
+        variables = {
+            "token_id": api_token.token_id,
+            "secret": str(base64.Base64(api_token.secret)),
+        }
 
         res = self.graphql_request(query, variables)
 
-        return base64.from_string(res["createAuthSession"]["token"])
+        self.token = base64.from_string(res["createSession"]["token"])
 
-    def login(self, email: str, secret: bytes):
-        token, creds = self.create_login_session(email)
-
-        self.token = token
-
-        pkey = derive_private_key(secret, creds.salt)
-
-        sig = pkey.sign(token)
-
-        self.token = self.create_auth_session(sig)
+        return self.token
 
     def pull(self, source: str, query: str, limit: int, offset: int) -> Stream:
         id = self.service_id_from_source(source)
@@ -146,13 +118,3 @@ class Client:
         )
 
         return cl.pull(source, query, limit, offset)
-
-
-def login(token: str, root_certificates="") -> Client:
-    api_token = APIToken(token)
-
-    c = Client(api_token.url, root_certificates=root_certificates)
-
-    c.login(api_token.email, api_token.secret)
-
-    return c

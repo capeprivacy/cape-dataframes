@@ -1,3 +1,3 @@
-from .coordinator import login
+from .coordinator import Client
 
-__all__ = ["login"]
+__all__ = ["Client"]
