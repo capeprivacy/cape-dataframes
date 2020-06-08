@@ -109,7 +109,7 @@ class Client:
 
         return self.token
 
-    def pull(self, source: str, query: str, limit: int, offset: int) -> Stream:
+    def pull(self, source: str, query: str, limit: int = 50, offset: int = 0) -> Stream:
         id = self.service_id_from_source(source)
         endpoint = self.service_endpoint(id)
 
