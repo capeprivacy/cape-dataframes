@@ -36,14 +36,17 @@ cl = cape.Client("<COORDINATOR URL>", root_certificates="<CAPE REPO>/connector/c
 
 cl.login("<API TOKEN>")
 
-stream = cl.pull("creditcards", "SELECT * FROM transactions", 50, 0)
+stream = cl.pull("transactions", "SELECT * FROM transactions", limit=50)
 
 df = stream.to_pandas()
 
 print(df.head())
 ```
 
-Replace `API TOKEN` above with the token gathered in the [Get a API Token](#get-a-api-token) section.
+Replace `<COORDINATOR URL>` with the URL pointing to the coordinator. If cape was setup via the [README.md](https://github.com/capeprivacy/cape/blob/master/README.md)
+then it will most likely be `http://localhost:8080`.
+
+Replace `<API TOKEN>` above with the token gathered in the [Get a API Token](#get-a-api-token) section.
 
 Replace `<CAPE REPO>` with the directory location of the Cape repo so that TLS and grpc work properly.
 
