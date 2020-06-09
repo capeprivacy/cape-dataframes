@@ -1,6 +1,9 @@
 from typing import Iterator
 
+import grpc
 import pandas as pd
+from google.protobuf import struct_pb2
+from grpc_status import rpc_status
 
 from .proto.data_connector_pb2 import Schema
 from .record import Record
@@ -20,7 +23,19 @@ class Stream:
     def __next__(self) -> Record:
         # raises stop iteration when done which will
         # then be caught by whatever is looping over this
-        res = self.stream.__next__()
+        try:
+            res = self.stream.__next__()
+        except grpc.RpcError as rpc_error:
+            status = rpc_status.from_call(rpc_error)
+            for detail in status.details:
+                if detail.Is(struct_pb2.Struct.DESCRIPTOR):
+                    s = struct_pb2.Struct()
+
+                    detail.Unpack(s)
+                    msg = s["messages"].values[0].string_value
+                    raise RuntimeError(f"Error while processing stream: {msg}")
+                else:
+                    raise RuntimeError("Unexpected failure: %s" % detail)
 
         if self.schema is None:
             self.schema = res.schema
