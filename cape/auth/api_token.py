@@ -17,7 +17,7 @@ class APIToken:
 
         token_bytes = bytes(base64.from_string(splits[1]))
         self.version = token_bytes[0]
-        self.secret = token_bytes[1 : SECRET_BYTES + 1]
+        self.secret = token_bytes[1:]
 
 
 def create_api_token(token_id, secret) -> APIToken:
