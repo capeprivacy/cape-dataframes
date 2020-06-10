@@ -66,3 +66,50 @@ where `<identifier>` is replaced with the email you used during Cape environment
 
 This command will print out a token which can then be copied and pasted into
 the [code section above](#using-the-cape-python-api).
+
+#### Example with PySpark
+
+This script is quite similar as above with some minor adjustments to support PySpark.
+
+Before running the PySpark example you'll need to install it with
+
+```bash
+pip install pyspark
+```
+
+If you want to try it out with pyarrow you will also need to install that
+
+```bash
+pip install pyarrow
+```
+
+```python
+import cape
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import udf
+
+cl = cape.Client("<COORDINATOR URL>", root_certificates="<CAPE REPO>/connector/certs/localhost.crt")
+
+cl.login("<API TOKEN>")
+
+stream = cl.pull("transactions", "SELECT * FROM transactions", limit=50)
+
+df = stream.to_pandas()
+
+spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+
+# Will fall back to normal conversion if pyarrow is not installed
+# or used correctly.
+spark.conf.set("spark.sql.execution.arrow.enabled", "true")
+
+sdf = spark.createDataFrame(df)
+
+print(sdf.show())
+```
+
+This example can be run with:
+
+```bash
+ARROW_PRE_0_15_IPC_FORMAT=1 python spark.py
+```
