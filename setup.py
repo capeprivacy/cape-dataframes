@@ -12,6 +12,14 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     author="Cape Privacy",
     author_email="contact@capeprivacy.com",
+    install_requires=[
+        "protobuf==3.12.2",
+        "grpcio==1.29.0",
+        "grpcio-status==1.29.0",
+        "requests==2.23.0",
+        "pandas==1.0.3",
+        "numpy==1.18.1",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
