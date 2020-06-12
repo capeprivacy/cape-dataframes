@@ -19,6 +19,7 @@ setuptools.setup(
         "requests==2.23.0",
         "pandas==1.0.3",
         "numpy==1.18.1",
+        "pyyaml==5.3.1",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

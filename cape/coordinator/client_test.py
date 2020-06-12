@@ -94,3 +94,43 @@ def test_login():
     c.login(token.raw)
 
     assert str(c.token) == exp_token
+
+
+@responses.activate
+def test_me():
+    my_id = "thisisanid"
+    responses.add(
+        responses.POST, f"{host}/v1/query", json={"data": {"me": {"id": my_id}}},
+    )
+
+    c = Client(host)
+
+    id = c.me()
+
+    assert my_id == id
+
+
+@responses.activate
+def test_identity_policies():
+    spec = {
+        "spec": {
+            "rules": {
+                "target": "records:transactions.transactions",
+                "action": "read",
+                "effect": "allow",
+                "transformations": {"field": "test", "function": "plusOne"},
+            }
+        }
+    }
+    responses.add(
+        responses.POST, f"{host}/v1/query", json={"data": {"identityPolicies": [spec]}},
+    )
+
+    c = Client(host)
+
+    policies = c.identity_policies("randomid")
+
+    print(policies)
+
+    assert len(policies) == 1
+    assert policies[0] == spec
