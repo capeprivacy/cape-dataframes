@@ -100,7 +100,7 @@ df = stream.to_pandas()
 spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
 
 # Will fall back to normal conversion if pyarrow is not installed
-# or used correctly.
+# or used incorrectly.
 spark.conf.set("spark.sql.execution.arrow.enabled", "true")
 
 sdf = spark.createDataFrame(df)
@@ -112,4 +112,32 @@ This example can be run with:
 
 ```bash
 ARROW_PRE_0_15_IPC_FORMAT=1 python spark.py
+```
+
+#### Example with Local Transformations
+
+There's a transform in the cape repo that we can use to do a transform. From the cape repo run:
+
+```bash
+cape policies attach --from-file examples/plus_one_value_field plus_one_value_field global
+```
+
+```python
+import pandas as pd
+import numpy as np
+
+import cape
+
+cl = cape.Client("<COORDINATOR URL>", root_certificates="<CAPE REPO>/connector/certs/localhost.crt")
+
+cl.login("<API TOKEN>")
+
+# returns all policies related to the current user
+policies = cl.query_policies()
+
+df = pd.DataFrame(np.ones(5,), columns=["value"])
+
+df = cape.apply_policies(policies, "transactions", df)
+
+print(df.head())
 ```

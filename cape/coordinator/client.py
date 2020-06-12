@@ -109,6 +109,41 @@ class Client:
 
         return self.token
 
+    def identity_policies(self, id: str) -> [Dict[Any, Any]]:
+        query = """
+        query IdentityPolicies($id: ID!) {
+            identityPolicies(identity_id: $id) {
+                spec
+            }
+        }
+        """
+
+        variables = {
+            "id": id,
+        }
+
+        res = self.graphql_request(query, variables)
+
+        return res["identityPolicies"]
+
+    def me(self) -> str:
+        query = """
+        query Me() {
+            me {
+                id
+            }
+        }
+        """
+
+        res = self.graphql_request(query, None)
+
+        return res["me"]["id"]
+
+    def query_policies(self) -> [Dict[Any, Any]]:
+        id = self.me()
+
+        return self.identity_policies(id)
+
     def pull(self, source: str, query: str, limit: int = 50, offset: int = 0) -> Stream:
         id = self.service_id_from_source(source)
         endpoint = self.service_endpoint(id)
