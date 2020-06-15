@@ -3,9 +3,7 @@ from typing import Dict
 
 import requests
 
-from cape import connector
 from cape.auth.api_token import APIToken
-from cape.connector.stream import Stream
 from cape.utils import base64
 
 
@@ -143,13 +141,3 @@ class Client:
         id = self.me()
 
         return self.identity_policies(id)
-
-    def pull(self, source: str, query: str, limit: int = 50, offset: int = 0) -> Stream:
-        id = self.service_id_from_source(source)
-        endpoint = self.service_endpoint(id)
-
-        cl = connector.Client(
-            endpoint, self.token, root_certificates=self.root_certificates
-        )
-
-        return cl.pull(source, query, limit, offset)
