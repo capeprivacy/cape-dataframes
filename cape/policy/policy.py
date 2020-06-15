@@ -2,6 +2,8 @@ import re
 from typing import Any
 from typing import Dict
 
+import yaml
+
 from cape.transformations.transformations import get
 
 TYPE_INDEX = 1
@@ -39,3 +41,12 @@ def apply_policies(
                     df[transform.field] = transform.transform(df[transform.field])
 
     return df
+
+
+def parse_policy(file: str):
+    with open(file) as f:
+        data = f.read()
+
+    policy = yaml.load(data, Loader=yaml.FullLoader)
+
+    return policy

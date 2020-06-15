@@ -5,6 +5,7 @@ import yaml
 
 from .policy import apply_policies
 from .policy import get_transformations
+from .policy import parse_policy
 
 y = """
     id: 2
@@ -49,3 +50,16 @@ def test_apply_policies():
     new_df = apply_policies([d], "transactions", df)
 
     pdt.assert_frame_equal(new_df, expected_df)
+
+
+def test_parse_policy(tmp_path):
+    d = tmp_path / "policy"
+
+    d.mkdir()
+
+    p = d / "policy.yaml"
+    p.write_text(y)
+
+    policy = parse_policy(p.absolute())
+
+    assert policy["label"] == "test_policy"
