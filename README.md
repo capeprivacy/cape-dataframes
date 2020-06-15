@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Next, make sure you have at least Python 3.6 installed. We recommend running it in a virtual environment
+Make sure you have at least Python 3.6 installed. We recommend running it in a virtual environment
 such as with [venv](https://docs.python.org/3/library/venv.html) or
 [conda](https://www.anaconda.com/products/individual).
 
