@@ -33,7 +33,7 @@ import cape
 df = pd.DataFrame(np.ones(5,), columns=["value"])
 
 policy = cape.parse_policy("plus_one_value_field.yaml")
-df = cape.apply_policies(policies, "transactions", df)
+df = cape.apply_policies([policies], "transactions", df)
 
 print(df.head())
 ```

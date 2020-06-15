@@ -5,9 +5,10 @@ import pandas.testing as pdt
 from .transformations import get
 
 
-def test_plus_one():
-    ctor = get("plusOne")
-    transform = ctor("A", {})
+def test_plus_n():
+    ctor = get("plusN")
+    args = {"n": 1}
+    transform = ctor("A", **args)
 
     df = pd.DataFrame(np.ones(5,), columns=["A"])
     expected = pd.DataFrame()
