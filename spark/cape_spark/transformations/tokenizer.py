@@ -1,12 +1,13 @@
 import hashlib
 import uuid
 
+from cape_spark import types
 from cape_spark.transformations import base
 
 
 class Tokenizer(base.Transformation):
     def __init__(self, key=None, **type_kwargs):
-        super().__init__(input_type='string')
+        super().__init__(input_type=types.String)
         self._key = key or uuid.uuid4().hex
         self._type_kwargs = type_kwargs
 

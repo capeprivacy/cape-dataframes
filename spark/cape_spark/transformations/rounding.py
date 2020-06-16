@@ -1,6 +1,7 @@
 import datetime
 from pyspark.sql import functions
 
+from cape_spark import types
 from cape_spark.transformations import base
 
 
@@ -8,9 +9,9 @@ class Rounding(base.Transformation):
     def __init__(self, input_type, **type_kwargs):
         super().__init__(input_type)
         self._type_kwargs = type_kwargs
-        if self.type == 'date':
+        if self.type == types.Date:
             self._caller = self.round_date
-        elif self.type == 'float':
+        elif self.type in types.Numerics:
             self._caller = self.round_numeric
         else:
             raise ValueError
@@ -31,13 +32,14 @@ class Rounding(base.Transformation):
         else:
             raise ValueError
 
+
 class NativeRounding(base.Transformation):
     def __init__(self, input_type, **type_kwargs):
         super().__init__(input_type)
         self._type_kwargs = type_kwargs
-        if self.type == 'date':
+        if self.type == types.Date:
             self._caller = self.round_date
-        elif self.type == 'float':
+        elif self.type in types.Numerics:
             self._caller = self.round_numeric
         else:
             raise ValueError
