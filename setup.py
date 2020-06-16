@@ -20,6 +20,7 @@ setuptools.setup(
         "pandas==1.0.3",
         "numpy==1.18.1",
         "pyyaml==5.3.1",
+        "validators==0.15.0",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

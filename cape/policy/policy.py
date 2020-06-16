@@ -2,6 +2,8 @@ import re
 from typing import Any
 from typing import Dict
 
+import requests
+import validators
 import yaml
 
 from cape.transformations import get
@@ -65,12 +67,16 @@ def apply_policies(
     return df
 
 
-def parse_policy(file: str):
-    with open(file) as f:
-        data = f.read()
+def parse_policy(p: str):
+    data: str
+
+    if validators.url(p):
+        data = requests.get(p).text
+    else:
+        with open(p) as f:
+            data = f.read()
 
     policy = yaml.load(data, Loader=yaml.FullLoader)
-
     return policy
 
 

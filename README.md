@@ -37,3 +37,9 @@ df = cape.apply_policies([policies], "transactions", df)
 
 print(df.head())
 ```
+
+You can also pass a URL to `parse_policy`.
+
+```python
+policy = cape.parse_policy("https://mydomain.com/policy.yaml")
+```
