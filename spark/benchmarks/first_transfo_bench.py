@@ -9,14 +9,14 @@ import pandas as pd
 import pyspark
 from pyspark import sql
 from pyspark.sql import functions
-from pyspark.sql import types
 
 
 parser = argparse.ArgumentParser(description='baseline benchmark')
 parser.add_argument('--runner', type=str)
 parser.add_argument('--run-all', default=False, action='store_true')
 parser.add_argument('--user-task', type=str, default='collect')
-parser.add_argument('--disable-arrow', action='store_true')
+parser.add_argument('--disable-arrow', action='store_true', default=False)
+parser.add_argument('--local', action='store_true', default=False)
 parser.add_argument('--dependency-path', type=str, default='cape_dependency.zip')
 parser.add_argument('--csv-path', type=str, required=False, default='data/application_with_pii.csv')
 parser.add_argument('--runs', type=int, required=False, default=10)
@@ -27,9 +27,11 @@ sess_builder = sess_builder.appName('benchmarks')
 if not args.disable_arrow:
     sess_builder = sess_builder.config('spark.sql.execution.arrow.enabled', 'true')
 sess = sess_builder.getOrCreate()
-sess.sparkContext.addPyFile(args.dependency_path)
+if not args.local:
+  sess.sparkContext.addPyFile(args.dependency_path)
 
 from cape_spark import transformations as tfm
+from cape_spark import types
 
 def time_operation(df, runner, user_task, name):
     # measure & store run time
@@ -52,19 +54,19 @@ def describe_task(df):
 
 
 # Tranformation fn
-perturb = tfm.Perturbation('float',
+perturb = tfm.Perturbation(types.Float,
     low_boundary=-100, high_boundary=100)
-perturb_udf = functions.pandas_udf(perturb, returnType=types.FloatType())
+perturb_udf = functions.pandas_udf(perturb, returnType=types.Float)
 
-rounder = tfm.Rounding('float', number_digits=1)
-round_fn_udf = functions.pandas_udf(rounder, returnType=types.FloatType())
+rounder = tfm.Rounding(types.Float, number_digits=1)
+round_fn_udf = functions.pandas_udf(rounder, returnType=types.Float)
 
-native_rounder = tfm.NativeRounding('float', number_digits=1)
+native_rounder = tfm.NativeRounding(types.Float, number_digits=1)
 
 tokenizer_tfm = tfm.Tokenizer(key='123')
 tokenizer_series = lambda series: series.map(tokenizer_tfm)
 
-tokenizer_udf = functions.pandas_udf(tokenizer_series, returnType=types.StringType())
+tokenizer_udf = functions.pandas_udf(tokenizer_series, returnType=types.String)
 
 
 # Runners for benchmarking
@@ -130,7 +132,7 @@ def main():
         format='csv', header='true', infer_schema='true', sep=',')
     # NOTE with the import above all the columns end up being a string type
     # add to cast for benchmarking
-    df = df.withColumn('AMT_CREDIT', df['AMT_CREDIT'].cast(types.FloatType()))
+    df = df.withColumn('AMT_CREDIT', df['AMT_CREDIT'].cast(types.Float))
     # which transformation (runner) to run
     assert args.run_all or args.runner is not None
     if args.run_all:
