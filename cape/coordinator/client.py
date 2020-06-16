@@ -8,6 +8,13 @@ from cape.utils import base64
 
 
 class GraphQLError:
+    """Represents a graphql error that can be returned by the coordinator.
+
+    Attributes:
+        message: The error message.
+        extensions: Any extra information returned by coordinator.
+    """
+
     message: str
     extensions: Dict[str, Any]
 
@@ -19,19 +26,47 @@ class GraphQLError:
 
 
 class GraphQLException(Exception):
+    """ Exception wrapping a list of GraphQL errors.
+
+    Attributes:
+        errors: List of GraphQL errors.
+    """
+
     def __init__(self, errors):
         self.errors = [GraphQLError(error) for error in errors]
 
 
-# As the graphql spec is quite simple we're starting off here by writing
-# the graphql queries directly as POST requests using the library requests.
 class Client:
-    def __init__(self, host: str, root_certificates: str = ""):
-        self.root_certificates = root_certificates
+    """Coordinator client for making GraphQL requests.
+
+    Implements a simple GraphQL protocol to communicate with the
+    coordinators.
+
+    Attributes:
+        host: The address of the coordinator.
+        token: The token used to authenticate with the coordinator.
+    """
+
+    def __init__(self, host: str):
         self.host = f"{host}/v1/query"
         self.token: str = ""
 
     def graphql_request(self, query: str, variables: Dict[str, str]):
+        """Makes a GraphQL request to the coordinators.
+
+        Adds a authorization header if it exists.
+
+        Arguments:
+            query: The GraphQL query to be passed to the coordinator.
+            variables: The variables to be passed to the coordinator.
+
+        Returns:
+            The coordinators GraphQL data response.
+
+        Raises:
+            GraphQLException: If a GraphQL error occurs.
+        """
+
         headers = {}
         if self.token != "":
             headers["Authorization"] = f"Bearer {self.token}"
@@ -54,6 +89,8 @@ class Client:
         return j["data"]
 
     def service_id_from_source(self, label: str):
+        """Gets the services from the given source label."""
+
         query = """
         query SourceQuery($label: Label!) {
             sourceByLabel(label: $label) {
@@ -71,6 +108,8 @@ class Client:
         return res["sourceByLabel"]["service"]["id"]
 
     def service_endpoint(self, id):
+        """Gets the service endpoint for the given id"""
+
         query = """
         query Service($id: ID!) {
             service(id: $id) {
@@ -86,6 +125,8 @@ class Client:
         return res["service"]["endpoint"]
 
     def login(self, token: str):
+        """Logs in given the token string"""
+
         api_token = APIToken(token)
 
         query = """
@@ -108,6 +149,8 @@ class Client:
         return self.token
 
     def identity_policies(self, id: str) -> [Dict[Any, Any]]:
+        """Returns all policies for the given identity id."""
+
         query = """
         query IdentityPolicies($id: ID!) {
             identityPolicies(identity_id: $id) {
@@ -125,6 +168,8 @@ class Client:
         return res["identityPolicies"]
 
     def me(self) -> str:
+        """Returns the id of the autenticated identity."""
+
         query = """
         query Me() {
             me {
@@ -138,6 +183,8 @@ class Client:
         return res["me"]["id"]
 
     def query_policies(self) -> [Dict[Any, Any]]:
+        """Queries all of the policies for the authenticated identity."""
+
         id = self.me()
 
         return self.identity_policies(id)

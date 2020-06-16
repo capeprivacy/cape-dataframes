@@ -10,6 +10,7 @@ from cape.transformations import get
 
 from .data import Policy
 from .data import Rule
+from .data import Transform
 from .exceptions import NamedTransformNotFound
 from .exceptions import TransformNotFound
 
@@ -18,39 +19,90 @@ COLLECTION_INDEX = 2
 ENTITY_INDEX = 3
 
 
-def get_transformations(policy: Policy, rule: Rule):
-    transforms = []
-    for transform in rule.transformations:
-        if transform.function != "":
-            try:
-                initTransform = get(transform.function)(
-                    transform.field, **transform.args
-                )
-            except KeyError:
-                function = transform.function
-                raise TransformNotFound(f"Could not find builtin transform {function}")
-        elif transform.named != "":
-            try:
-                initTransform = load_named_transform(
-                    policy, transform.named, transform.field
-                )
-            except KeyError:
-                raise NamedTransformNotFound(
-                    f"Could not find named transform {transform.named}"
-                )
-        else:
-            raise KeyError(
-                f"Expected function or named for transform with field {transform.field}"
+def get_transformation(policy: Policy, transform: Transform):
+    """Looks up the correct transform class.
+
+    If the transform is anonymous (i.e. unnamed) then it looks it up from the
+    transform registry. If it is a named transform it used load_named_transform
+    to find it.
+
+    Args:
+        policy: The top level policy.
+        transform: The specific transform to be applied.
+
+    Returns:
+        The initialize transform object.
+
+    Raises:
+        TransformNotFound: The builtin transform cannot be found.
+        NamedTransformNotFound: The named transform cannot be found on the
+        top level policy object.
+        KeyError: If neither a function or named transform exists on the transform arg.
+    """
+    if transform.function is not None:
+        try:
+            initTransform = get(transform.function)(transform.field, **transform.args)
+        except KeyError:
+            raise TransformNotFound(
+                f"Could not find builtin transform {transform.function}"
             )
+    elif transform.named is not None:
+        try:
+            initTransform = load_named_transform(
+                policy, transform.named, transform.field
+            )
+        except KeyError:
+            raise NamedTransformNotFound(
+                f"Could not find named transform {transform.named}"
+            )
+    else:
+        raise KeyError(
+            f"Expected function or named for transform with field {transform.field}"
+        )
 
-        transforms.append(initTransform)
+    return initTransform
 
-    return transforms
+
+def do_transformations(policy: Policy, rule: Rule, df):
+    """Applies a specific rule's transformations to a pandas dataframe.
+
+    For each transform lookup the required transform class and then apply it
+    to the correct column in that dataframe.
+
+    Args:
+        policy: The top level policy.
+        rule: The specific rule to apply.
+        df: A pandas dataframe.
+
+    Returns:
+        The resulting transformed pandas dataframe.
+    """
+    for transform in rule.transformations:
+        initTransform = get_transformation(policy, transform)
+
+        df[transform.field] = initTransform(df[transform.field])
+
+    return df
 
 
 def apply_policies(
     policies: [Policy], entity: str, df,
 ):
+    """Applies a list of policies to a pandas dataframe.
+
+    For each rule in each policy if there is a target matching the
+    entity label passed in then each transform in that rule is applied to
+    the dataframe. If there is a where clause in the rule then each column
+    that matches the where is redacted from the final dataframe.
+
+    Args:
+        policies: List of policy objects to apply
+        entity: The entity label of the dataframe
+        df: A pandas dataframe
+
+    Returns:
+        The resulting transformed pandas dataframe.
+    """
     for policy in policies:
         for rule in policy.spec.rules:
             res = re.match(r"^(.*):(.*)\.(.*)$", rule.target)
@@ -58,15 +110,23 @@ def apply_policies(
                 continue
 
             if res.group(ENTITY_INDEX) == entity:
-                transforms = get_transformations(policy, rule)
-
-                for transform in transforms:
-                    df[transform.field] = transform(df[transform.field])
+                df = do_transformations(policy, rule, df)
 
     return df
 
 
 def parse_policy(p: str):
+    """Parses a policy yaml file.
+
+    The passed in string can either be a local file or a URL pointing to a file.
+    If it is a URL then requests attempts to download it.
+
+    Args:
+        p: a path or a URL string
+
+    Returns:
+        The Policy object initialized by the yaml.
+    """
     data: str
 
     if validators.url(p):
@@ -80,6 +140,23 @@ def parse_policy(p: str):
 
 
 def load_named_transform(policy: Dict[Any, Any], transformLabel: str, field: str):
+    """Attempts to load a named transform from the top level policy.
+
+    Looks at the top level policy object for the named transform given as transformLabel
+    and initializes it from the args pulled from the policy object.
+
+    Args:
+        policy: Top level policy object.
+        transformLabel: The name of the named transform.
+        field: The field to which the transform will be applied to.
+
+    Returns:
+        The initialized transform object.
+
+    Raises:
+        NamedTransformNotFound: The named transform cannot be
+        found in the top level policy object.
+    """
     found = False
 
     named_transforms = policy.transformations
