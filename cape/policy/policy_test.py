@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pandas.testing as pdt
 import pytest
+import requests
 import yaml
 
 from .exceptions import NamedTransformNotFound
@@ -109,7 +110,7 @@ def test_parse_policy(tmp_path):
     p = d / "policy.yaml"
     p.write_text(y)
 
-    policy = parse_policy(p.absolute())
+    policy = parse_policy(str(p.absolute()))
 
     assert policy["label"] == "test_policy"
 
@@ -138,3 +139,20 @@ def test_named_transform_not_found():
         str(e.value)
         == "Could not find transform plusOneThousand in transformations block"
     )
+
+
+def test_parse_policy_url(httpserver):
+    httpserver.expect_request("/policy").respond_with_data(y)
+    url = httpserver.url_for("/policy")
+    policy = parse_policy(url)
+    assert policy["label"] == "test_policy"
+
+
+def test_parse_policy_invalid_url():
+    with pytest.raises(requests.exceptions.ConnectionError):
+        parse_policy("https://notapolicy.here.com/policy")
+
+
+def test_parse_policy_invalid_file():
+    with pytest.raises(FileNotFoundError):
+        parse_policy("iamnotarealthingonthisfilesystem")
