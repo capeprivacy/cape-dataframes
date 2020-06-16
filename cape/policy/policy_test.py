@@ -5,6 +5,7 @@ import pytest
 import requests
 import yaml
 
+from .data import Policy
 from .exceptions import NamedTransformNotFound
 from .policy import apply_policies
 from .policy import get_transformations
@@ -63,7 +64,7 @@ named_not_found_y = """
     label: test_policy
     transformations:
       - name: plusOne
-        function: plusN
+        type: plusN
         args:
           n:
             value: 1
@@ -83,7 +84,9 @@ named_not_found_y = """
 def test_get_transformations():
     d = yaml.load(y, Loader=yaml.FullLoader)
 
-    transforms = get_transformations(d, d["spec"]["rules"][0])
+    p = Policy(**d)
+
+    transforms = get_transformations(p, p.spec.rules[0])
 
     assert len(transforms) == 2
     assert transforms[0].field == "test"
@@ -97,7 +100,9 @@ def test_apply_policies():
 
     expected_df = df + 3
 
-    new_df = apply_policies([d], "transactions", df)
+    p = Policy(**d)
+
+    new_df = apply_policies([p], "transactions", df)
 
     pdt.assert_frame_equal(new_df, expected_df)
 
@@ -112,7 +117,7 @@ def test_parse_policy(tmp_path):
 
     policy = parse_policy(str(p.absolute()))
 
-    assert policy["label"] == "test_policy"
+    assert policy.label == "test_policy"
 
 
 def test_named_transformation():
@@ -122,7 +127,9 @@ def test_named_transformation():
 
     expected_df = df + 3
 
-    new_df = apply_policies([d], "transactions", df)
+    p = Policy(**d)
+
+    new_df = apply_policies([p], "transactions", df)
 
     pdt.assert_frame_equal(new_df, expected_df)
 
@@ -132,8 +139,10 @@ def test_named_transform_not_found():
 
     df = pd.DataFrame(np.ones(5,), columns=["test"])
 
+    p = Policy(**d)
+
     with pytest.raises(NamedTransformNotFound) as e:
-        apply_policies([d], "transactions", df)
+        apply_policies([p], "transactions", df)
 
     assert (
         str(e.value)
@@ -145,7 +154,7 @@ def test_parse_policy_url(httpserver):
     httpserver.expect_request("/policy").respond_with_data(y)
     url = httpserver.url_for("/policy")
     policy = parse_policy(url)
-    assert policy["label"] == "test_policy"
+    assert policy.label == "test_policy"
 
 
 def test_parse_policy_invalid_url():
