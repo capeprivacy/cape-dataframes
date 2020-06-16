@@ -2,7 +2,18 @@ from .utils import yaml_args_to_kwargs
 
 
 class Policy:
-    def __init__(self, label="", spec=None, transformations=[]):
+    """Top level policy object.
+
+    The top level policy object holds the policy label, policy spec
+    and any named transformations.
+
+    Attributes:
+        label: The label of the policy.
+        spec: The policy spec.
+        transformations: The named transformations for this policy.
+    """
+
+    def __init__(self, label, spec=None, transformations=[]):
         self.label = label
         self.spec = PolicySpec(**spec)
 
@@ -12,7 +23,15 @@ class Policy:
 
 
 class PolicySpec:
-    def __init__(self, label="", version=1, rules=[]):
+    """Policy spec contains a list of rules.
+
+    Attributes:
+      label: The label of the policy spec. Often the same as the policy.
+      rules: A list of rules.
+
+    """
+
+    def __init__(self, label, version=1, rules=[]):
         if label == "":
             raise ValueError("Label must be specified for policy specification")
 
@@ -27,19 +46,42 @@ class PolicySpec:
 
 
 class Rule:
-    def __init__(self, target="", effect="allow", action="read", transformations=[]):
+    """A rule contains actionable information of a policy.
+
+    Attributes:
+        target: The name of the target the the rule targets.
+        effect: What effect the rule has. Currently only allow is supported.
+        action: Which action the rule allows. Currently only read is supported.
+        where: The clause that will redact rows if it
+        evaluates to true (e.g. value == 10).
+        transformations: A list of transformations that will be applied.
+    """
+
+    def __init__(
+        self, target, effect="allow", action="read", where=None, transformations=[]
+    ):
         if target == "":
             raise ValueError("Target must be specified for rule")
 
         self.target = target
         self.effect = effect
         self.action = action
+        self.where = where
 
         self.transformations = [Transform(**transform) for transform in transformations]
 
 
 class NamedTransform:
-    def __init__(self, name="", type="", args={}):
+    """A named transformation that captures the args.
+
+    Attributes:
+        name: The name of the named transformation.
+        type: The builtin type (i.e. transform) that the named transform initializes to.
+        args: The args that are captured by the named transform.
+
+    """
+
+    def __init__(self, name, type, args={}):
         if name == "":
             raise ValueError("Name must be specified for named transformation")
 
@@ -57,17 +99,32 @@ class NamedTransform:
 
 
 class Transform:
-    def __init__(self, field="", named="", function="", args={}):
+    """A actual transform that will be applied.
+
+    Either named or function must be passed in here. The process to apply this
+    transform will look at both function and named and apply the relevant one.
+
+    Attributes:
+        field: The field this transform will be applied to.
+        named: The name of the named transform, referenced from
+        the top level policy object.
+        function: The builtin transform that will be initialized.
+        where: The clause that will apply this transform to the specified
+        field if evaluated to true.
+        args: The args that will be passed into the function if specified.
+    """
+
+    def __init__(self, field, named=None, function=None, where=None, args={}):
         if field == "":
             raise ValueError("Field must be specified for transformation")
 
-        if named == "" and function == "":
+        if named is None and function is None:
             raise ValueError(
                 "Either named or function must be specified"
                 + f" for transformation on field {field}"
             )
 
-        if named != "" and function != "":
+        if named is not None and function is not None:
             raise ValueError(
                 "Both named and function cannot be "
                 + "fset for transformation on field {field}"
@@ -76,4 +133,5 @@ class Transform:
         self.field = field
         self.named = named
         self.function = function
+        self.where = where
         self.args = yaml_args_to_kwargs(args)

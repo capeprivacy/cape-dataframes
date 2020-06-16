@@ -8,7 +8,6 @@ import yaml
 from .data import Policy
 from .exceptions import NamedTransformNotFound
 from .policy import apply_policies
-from .policy import get_transformations
 from .policy import parse_policy
 
 y = """
@@ -79,18 +78,6 @@ named_not_found_y = """
                 - field: test
                   named: plusOneThousand
 """
-
-
-def test_get_transformations():
-    d = yaml.load(y, Loader=yaml.FullLoader)
-
-    p = Policy(**d)
-
-    transforms = get_transformations(p, p.spec.rules[0])
-
-    assert len(transforms) == 2
-    assert transforms[0].field == "test"
-    assert transforms[0].function == "plusN"
 
 
 def test_apply_policies():
