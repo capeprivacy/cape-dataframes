@@ -1,0 +1,1 @@
+For scripts using Arrow, be sure your versions don't require an extra environment variable, e.g. [this one](https://spark.apache.org/docs/latest/sql-pyspark-pandas-with-arrow.html#compatibiliy-setting-for-pyarrow--0150-and-spark-23x-24x).
