@@ -1,5 +1,13 @@
 # benchmarks
 
+# Running locally
+Add the `--local` flag to your script command, e.g.
+```sh
+python first_transfo_bench.py --runner round --csv-path data/applicaions_with_pii.csv --runs 5 --local
+```
+
+Note that using `--run-all` will probably not work out-of-the-box, since running `collect` on the full dataframe will cause OOM errors from Java. This might be fixable by increasing the Java heap size on the master Spark executor.
+
 
 # Running on GCP
 Beware a bit of hackery; we can make this cleaner in the future :)
@@ -62,5 +70,5 @@ gcloud dataproc jobs submit pyspark gs://${BUCKET}/${SCRIPT} \
   --runner round \
   --csv-path gs://${BUCKET}/credit/application_with_pii.csv \
   --runs 5 \
-  --dependency-path ${BUCKET}/cape_dependency.zip
+  --dependency-path gs://${BUCKET}/cape_dependency.zip
 ```
