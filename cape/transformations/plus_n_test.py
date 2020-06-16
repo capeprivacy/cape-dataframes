@@ -15,6 +15,6 @@ def test_plus_n():
 
     expected["A"] = df["A"] + 1
 
-    df["A"] = transform.transform(df["A"])
+    df["A"] = transform(df["A"])
 
     pdt.assert_frame_equal(df, expected)

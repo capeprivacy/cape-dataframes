@@ -8,5 +8,5 @@ class PlusN:
         self.n = n
         self.field = field
 
-    def transform(self, column: pd.Series) -> pd.Series:
+    def __call__(self, column: pd.Series) -> pd.Series:
         return column + self.n
