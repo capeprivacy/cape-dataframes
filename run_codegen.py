@@ -12,5 +12,5 @@ protoc.main((
     '-I' + path,
     '--python_out=.',
     '--grpc_python_out=.',
-    '../cape/connector/proto/data_connector.proto',
+    '../pandas/connector/proto/data_connector.proto',
 ))

@@ -1,4 +1,4 @@
-from cape.utils import base64
+from cape_privacy.pandas.utils import base64
 
 SECRET_BYTES = 16
 VERSION = b"\x01"

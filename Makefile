@@ -61,16 +61,16 @@ test: pythoncheck
 	pytest
 
 lint: pythoncheck
-	flake8 cape
+	flake8 cape_privacy/pandas
 
 ci: lint test coverage
 
 fmt: pythoncheck
-	isort --atomic --recursive cape
-	black cape
+	isort --atomic --recursive cape_privacy/pandas
+	black cape_privacy/pandas
 
 coverage:
-	pytest --cov-report=xml --cov=cape cape
+	pytest --cov-report=xml --cov=cape_privacy/pandas cape_privacy/pandas
 	coverage report --fail-under=90
 
 .PHONY: lint fmt test coverage
