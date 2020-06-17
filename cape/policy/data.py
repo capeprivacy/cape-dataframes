@@ -1,3 +1,19 @@
+"""Contains the policy classes that are initialized from a yaml policy file.
+
+There are five main classes with Policy being the top level class. Policy contains
+the PolicySpec and NamedTransformations. PolicySpec contains Rules and Rules
+contain Transformations.
+
+    Typical usage example:
+
+    yaml_str = "...."
+    d = yaml.load(yaml_str, Loader=yaml.FullLoad)
+
+    # **d unpacks the dictionary produced by yaml and
+    # passes them in has keyword arguments.
+    policy = Policy(**d)
+"""
+
 from .utils import yaml_args_to_kwargs
 
 
@@ -49,11 +65,11 @@ class Rule:
     """A rule contains actionable information of a policy.
 
     Attributes:
-        target: The name of the target the the rule targets.
+        target: The name of what this rule targets.
         effect: What effect the rule has. Currently only allow is supported.
         action: Which action the rule allows. Currently only read is supported.
         where: The clause that will redact rows if it
-        evaluates to true (e.g. value == 10).
+               evaluates to true (e.g. value == 10).
         transformations: A list of transformations that will be applied.
     """
 
@@ -107,10 +123,10 @@ class Transform:
     Attributes:
         field: The field this transform will be applied to.
         named: The name of the named transform, referenced from
-        the top level policy object.
+               the top level policy object.
         function: The builtin transform that will be initialized.
         where: The clause that will apply this transform to the specified
-        field if evaluated to true.
+               field if evaluated to true.
         args: The args that will be passed into the function if specified.
     """
 
