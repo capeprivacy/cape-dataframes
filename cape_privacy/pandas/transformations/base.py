@@ -4,7 +4,7 @@ import abc
 class AbstractTransformation(metaclass=abc.ABCMeta):
     @property
     @abc.abstractmethod
-    def type(self):
+    def dtype(self):
         pass
 
     @abc.abstractmethod
@@ -13,9 +13,9 @@ class AbstractTransformation(metaclass=abc.ABCMeta):
 
 
 class Transformation(AbstractTransformation):
-    def __init__(self, input_type):
-        self._type = input_type
+    def __init__(self, dtype):
+        self._dtype = dtype
 
     @property
-    def type(self):
-        return self._type
+    def dtype(self):
+        return self._dtype
