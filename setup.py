@@ -2,12 +2,12 @@
 import setuptools
 
 setuptools.setup(
-    name="cape",
+    name="cape_privacy",
     version="0.0.1",
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     license="Apache License 2.0",
-    url="https://github.com/capeprivacy/cape",
+    url="https://github.com/capeprivacy/cape-python",
     description="Cape manages secure access to all of your data.",
     long_description_content_type="text/markdown",
     author="Cape Privacy",
@@ -21,6 +21,7 @@ setuptools.setup(
         "numpy==1.18.1",
         "pyyaml==5.3.1",
         "validators==0.15.0",
+        "pyspark==3.0.0",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

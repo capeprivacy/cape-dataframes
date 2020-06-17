@@ -3,8 +3,8 @@ from typing import Dict
 
 import requests
 
-from cape.auth.api_token import APIToken
-from cape.utils import base64
+from cape_privacy.pandas.auth.api_token import APIToken
+from cape_privacy.pandas.utils import base64
 
 
 class GraphQLError:
