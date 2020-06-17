@@ -3,7 +3,7 @@
 # Running locally
 Add the `--local` flag to your script command, e.g.
 ```sh
-python first_transfo_bench.py --runner round --csv-path data/applicaions_with_pii.csv --runs 5 --local
+python first_transfo_bench.py --runner round --csv-path data/application_with_pii.csv --runs 5 --local
 ```
 
 Note that using `--run-all` will probably not work out-of-the-box, since running `collect` on the full dataframe will cause OOM errors from Java. This might be fixable by increasing the Java heap size on the master Spark executor.
@@ -23,7 +23,7 @@ First, copy the script to the staging bucket with
 
 ```sh
 BUCKET=dataproc-staging-us-central1-1082497657493-tqtpspxa
-CLUSTER=arrow-dev-test-03
+CLUSTER=arrow-dev-test-01
 PROFILER=profiler-01
 ```
 
@@ -57,7 +57,7 @@ gcloud dataproc jobs submit pyspark gs://${BUCKET}/${SCRIPT} \
   --runner round \
   --csv-path gs://${BUCKET}/credit/application_with_pii.csv \
   --runs 5 \
-  --dependency-path ${BUCKET}/cape_dependency.zip
+  --dependency-path gs://${BUCKET}/cape_dependency.zip
 ```
 
 With profiler:
