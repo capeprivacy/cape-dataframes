@@ -1,4 +1,4 @@
-from .transformations import get
+from cape_privacy.pandas.transformations import get
 
 
 def test_get():

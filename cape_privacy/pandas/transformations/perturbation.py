@@ -1,58 +1,101 @@
+from typing import Optional
+from typing import Tuple
+from typing import Union
+
 import numpy as np
 import pandas as pd
 
-from cape_pandas import types
-from cape_pandas.transformations import base
+from cape_privacy.pandas.transformations import base
+from cape_privacy.pandas.transformations import dtypes
 
-_INT_TO_DTYPE = {
-    types.Byte: np.int8,
-    types.Short: np.int16,
-    types.Integer: np.int32,
-    types.Long: np.int64,
+_FREQUENCY_TO_DELTA_FN = {
+    "YEAR": lambda noise: pd.Timedelta(days=noise * 365),
+    "MONTH": lambda noise: pd.Timedelta(days=noise * 30),
+    "DAY": lambda noise: pd.Timedelta(days=noise),
+    "HOUR": lambda noise: pd.Timedelta(hours=noise),
+    "minutes": lambda noise: pd.Timedelta(minutes=noise),
+    "seconds": lambda noise: pd.Timedelta(seconds=noise),
 }
-_FREQUENCY_TO_TIMEDELTA = {
-    'YEAR': lambda noise: pd.Timedelta(days=noise * 365),
-    'MONTH': lambda noise: pd.Timedelta(days=noise * 30),
-    'DAY': lambda noise: pd.Timedelta(days=noise),
-    'HOUR': lambda noise: pd.Timedelta(hours=noise),
-    'minutes': lambda noise: pd.Timedelta(minutes=noise),
-    'seconds': lambda noise: pd.Timedelta(seconds=noise),
-}
+IntTuple = Union[int, Tuple[int, ...]]
+StrTuple = Union[str, Tuple[str, ...]]
 
 
-class Perturbation(base.Transformation):
-    def __init__(self, input_type, **type_kwargs):
-        super().__init__(input_type)
-        self._type_kwargs = type_kwargs
-        if self.type == types.Date:
-            self._caller = self.add_noise_to_date
-        elif self.type in (types.Float, types.Double):
-            self._caller = self.add_noise_to_float
-        elif self.type in (types.Byte, types.Short, types.Integer, types.Long):
-            dtype = _INT_TO_DTYPE[self.type]
-            self._caller = self.make_int_noise_caller(dtype)
-        else:
-            raise ValueError
+class NumericPerturbation(base.Transformation):
+    def __init__(
+        self,
+        dtype: dtypes.Numerics,
+        min: (int, float),
+        max: (int, float),
+        seed: Optional[int] = None,
+    ):
+        super().__init__(dtype)
+        self._min = min
+        self._max = max
+        self._rng = np.random.default_rng(seed=seed)
 
-    def __call__(self, x):
-        return self._caller(x, **self._type_kwargs)
+    def __call__(self, x: pd.Series):
+        return self._perturb_numeric(x)
 
-    def add_noise_to_float(self, x, low_boundary, high_boundary):
-        noise = np.random.uniform(low_boundary, high_boundary)
+    def _perturb_numeric(self, x: pd.Series):
+        noise = pd.Series(self._rng.uniform(self._min, self._max, size=x.shape))
+        if not isinstance(noise.dtype.type, self.dtype.type):
+            noise = noise.astype(self.dtype)
         return x + noise
 
-    def make_int_noise_caller(self, np_dtype):
-        def add_noise_to_int(x, low_boundary, high_boundary):
-            rng = np.random.default_rng()
-            noise = rng.integers(low_boundary, high_boundary, dtype=np_dtype)
-            return x + noise
 
-        return add_noise_to_int
+class DatePerturbation(base.Transformation):
+    def __init__(
+        self,
+        frequency: StrTuple,
+        min: IntTuple,
+        max: IntTuple,
+        seed: Optional[int] = None,
+    ):
+        super().__init__(dtypes.Date)
+        self._frequency = _check_freq_arg(frequency)
+        self._min = _check_minmax_arg(min)
+        self._max = _check_minmax_arg(max)
+        self._rng = np.random.default_rng(seed)
 
-    def add_noise_to_date(self, date, frequency, low, high):
-        # TODO manage random int dtype better?
-        noise = np.random.randint(low, high)
-        deltamaker = _FREQUENCY_TO_TIMEDELTA.get(frequency, None)
-        if deltamaker is None:
+    def __call__(self, series: pd.Series):
+        return series.apply(lambda x: self._perturb_date(x))
+
+    def _perturb_date(self, x: pd.Timestamp):
+        for f, mn, mx in zip(self._frequency, self._min, self._max):
+            noise = self._rng.integers(mn, mx)
+            delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
+            if delta_fn is None:
+                raise ValueError(
+                    "Frequency {} must be one of {}.".format(
+                        f, list(_FREQUENCY_TO_DELTA_FN.keys())
+                    )
+                )
+            x += delta_fn(noise)
+
+        return x
+
+
+def _check_minmax_arg(arg):
+    """Checks that arg is an integer or a flat collection of integers."""
+    if not isinstance(arg, (tuple, list)):
+        if not isinstance(arg, int):
             raise ValueError
-        return date + deltamaker(noise)
+        return [arg]
+    else:
+        for a in arg:
+            if not isinstance(a, int):
+                raise ValueError
+    return arg
+
+
+def _check_freq_arg(arg):
+    """Checks that arg is string or a flat collection of strings."""
+    if not isinstance(arg, (tuple, list)):
+        if not isinstance(arg, str):
+            raise ValueError
+        return [arg]
+    else:
+        for a in arg:
+            if not isinstance(a, str):
+                raise ValueError
+    return arg

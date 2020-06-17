@@ -1,55 +1,41 @@
 import datetime
-import numpy as np
 
-from cape_pandas import types
-from cape_pandas.transformations import base
+import pandas as pd
+
+from cape_privacy.pandas.transformations import base
+from cape_privacy.pandas.transformations import dtypes
 
 
-class Rounding(base.Transformation):
-    def __init__(self, input_type, **type_kwargs):
-        super().__init__(input_type)
-        self._type_kwargs = type_kwargs
-        if self.type == types.Date:
-            self._caller = self.round_date
-        elif self.type in types.Numerics:
-            self._caller = self.round_numeric
+class NumericRounding(base.Transformation):
+    def __init__(self, dtype: dtypes.Numerics, precision: int):
+        if dtype not in dtypes.Numerics:
+            raise ValueError("NumericRounding requires a Numeric dtype.")
+        super().__init__(dtype)
+        self._precision = precision
+
+    def __call__(self, x: pd.Series):
+        return self.round_numeric(x)
+
+    def round_numeric(self, x: pd.Series):
+        rounded = round(x, self._precision)
+        if isinstance(rounded.dtype.type, self.dtype.type):
+            return rounded
         else:
-            raise ValueError
+            return rounded.astype(self.dtype)
 
-    def __call__(self, x):
-        return self._caller(x, **self._type_kwargs)
 
-    def round_numeric(self, x, number_digits):
-        return round(x, number_digits)
+class DateTruncation(base.Transformation):
+    def __init__(self, frequency: str):
+        super().__init__(dtypes.Date)
+        self._frequency = frequency.lower()
 
-    def round_date(self, x, frequency):
-        # [NOTE] should be reviewed to match a SQL round
-        # https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions136.htm
-        if frequency.upper() == 'YEAR':
-            return datetime.date(x.year, 1, 1)
-        elif frequency.upper() == 'MONTH':
+    def __call__(self, series: pd.Timestamp):
+        return series.apply(lambda x: self.round_date(x))
+
+    def round_date(self, x):
+        if self._frequency == "year":
+            return pd.Timestamp(datetime.date(x.year, 1, 1))
+        elif self._frequency == "month":
             return datetime.date(x.year, x.month, 1)
         else:
             raise ValueError
-
-
-class NativeRounding(base.Transformation):
-    def __init__(self, input_type, **type_kwargs):
-        super().__init__(input_type)
-        self._type_kwargs = type_kwargs
-        if self.type == types.Date:
-            self._caller = self.round_date
-        elif self.type in types.Numerics:
-            self._caller = self.round_numeric
-        else:
-            raise ValueError
-
-    def __call__(self, x):
-        return self._caller(x, **self._type_kwargs)
-
-    def round_numeric(self, x, number_digits):
-        return np.around(x, decimals=number_digits)
-
-    def round_date(self, x, frequency):
-        #TODO: not yet implemented
-        raise NotImplementedError
