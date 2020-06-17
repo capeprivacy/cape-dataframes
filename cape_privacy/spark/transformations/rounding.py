@@ -19,8 +19,8 @@ class Rounding(base.Transformation):
     def __call__(self, x):
         return self._caller(x, **self._type_kwargs)
 
-    def round_numeric(self, x, number_digits):
-        return round(x, number_digits)
+    def round_numeric(self, x, digits):
+        return round(x, digits)
 
     def round_date(self, x, frequency):
         # [NOTE] should be reviewed to match a SQL round
@@ -47,8 +47,8 @@ class NativeRounding(base.Transformation):
     def __call__(self, x):
         return self._caller(x, **self._type_kwargs)
 
-    def round_numeric(self, x, number_digits):
-        return functions.round(x, scale=number_digits)
+    def round_numeric(self, x, digits):
+        return functions.round(x, scale=digits)
     
     def round_date(self, x, frequency):
         return functions.date_trunc(frequency.lower(), x)
