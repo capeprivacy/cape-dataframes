@@ -1,8 +1,8 @@
 import hashlib
 import uuid
 
-from cape_spark import types
-from cape_spark.transformations import base
+from cape_privacy.spark import types
+from cape_privacy.spark.transformations import base
 
 
 class Tokenizer(base.Transformation):
