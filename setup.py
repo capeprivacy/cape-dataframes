@@ -26,7 +26,7 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
-        "Development Status :: 2 - Alpha",
+        "Development Status :: 3 - Alpha",
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Security :: Cryptography",
