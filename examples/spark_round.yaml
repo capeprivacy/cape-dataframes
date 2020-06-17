@@ -1,0 +1,19 @@
+label: spark-round-float
+transformations:
+      - name: roundFloatToInt
+        type: rounding
+        args:
+          input_type:
+            value: Float
+          digits:
+            value: 0
+spec:
+  label: spark-round-float
+  rules:
+  - target: records::creditcards.transactions
+    action: read
+    effect: allow
+    transformations:
+      - field: value
+        named: roundFloatToInt
+  version: 1
