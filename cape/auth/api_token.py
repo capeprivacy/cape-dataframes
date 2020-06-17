@@ -5,7 +5,7 @@ VERSION = b"\x01"
 
 
 class APIToken:
-    """Represents and API token used to authenticate with the coordinator.
+    """Represents an API token used to authenticate with the coordinator.
 
     The format is: <token_id>,<base64 string>
 

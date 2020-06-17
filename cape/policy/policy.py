@@ -1,3 +1,49 @@
+"""Utils for parsing policy and applying them.
+
+The module reads in policy as yaml and then through apply_policies
+and applies them to pandas dataframes.
+
+    Typical usage example:
+
+    Example policy yaml:
+
+    label: test_policy
+    spec:
+      version: 1
+      label: test_policy
+      rules:
+        # The last transactions should match the entity
+        # passed below.
+        - target: records:transactions.transactions
+          action: read
+          effect: allow
+          transformations:
+            # Tells the policy runner to apply the transformation
+            # plusN with the specified args.
+            - field: value
+              function: plusN
+              args:
+                n:
+                  value: 1
+            # Tells the policy runner to apply another plusN
+            # transformation.
+            - field: value
+              function: plusN
+              args:
+                n:
+                  value: 2
+
+    Applying policy:
+
+    policy = parse_policy("policy.yaml")
+
+    entity = "transactions"
+
+    df = pd.DataFrame(np.ones(5,), columns=["value"])
+
+    df = apply_policies([policy], entity, df)
+"""
+
 import re
 from typing import Any
 from typing import Dict
@@ -66,7 +112,7 @@ def get_transformation(policy: Policy, transform: Transform):
 def do_transformations(policy: Policy, rule: Rule, df):
     """Applies a specific rule's transformations to a pandas dataframe.
 
-    For each transform lookup the required transform class and then apply it
+    For each transform, lookup the required transform class and then apply it
     to the correct column in that dataframe.
 
     Args:
@@ -90,7 +136,7 @@ def apply_policies(
 ):
     """Applies a list of policies to a pandas dataframe.
 
-    For each rule in each policy if there is a target matching the
+    For each rule in each policy, if there is a target matching the
     entity label passed in then each transform in that rule is applied to
     the dataframe. If there is a where clause in the rule then each column
     that matches the where is redacted from the final dataframe.
@@ -118,11 +164,11 @@ def apply_policies(
 def parse_policy(p: str):
     """Parses a policy yaml file.
 
-    The passed in string can either be a local file or a URL pointing to a file.
-    If it is a URL then requests attempts to download it.
+    The passed in string can either be a path to a local file or
+    a URL pointing to a file. If it is a URL then requests attempts to download it.
 
     Args:
-        p: a path or a URL string
+        p: a path string or a URL string
 
     Returns:
         The Policy object initialized by the yaml.
@@ -148,7 +194,7 @@ def load_named_transform(policy: Dict[Any, Any], transformLabel: str, field: str
     Args:
         policy: Top level policy object.
         transformLabel: The name of the named transform.
-        field: The field to which the transform will be applied to.
+        field: The field to which the transform will be applied.
 
     Returns:
         The initialized transform object.

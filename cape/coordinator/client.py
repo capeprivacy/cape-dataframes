@@ -8,7 +8,7 @@ from cape.utils import base64
 
 
 class GraphQLError:
-    """Represents a graphql error that can be returned by the coordinator.
+    """Represents a graphql error that can be returned by a coordinator.
 
     Attributes:
         message: The error message.
@@ -26,7 +26,7 @@ class GraphQLError:
 
 
 class GraphQLException(Exception):
-    """ Exception wrapping a list of GraphQL errors.
+    """Exception wrapping a list of GraphQL errors.
 
     Attributes:
         errors: List of GraphQL errors.
@@ -39,12 +39,12 @@ class GraphQLException(Exception):
 class Client:
     """Coordinator client for making GraphQL requests.
 
-    Implements a simple GraphQL protocol to communicate with the
-    coordinators.
+    Implements a simple GraphQL protocol to communicate with a
+    coordinator.
 
     Attributes:
         host: The address of the coordinator.
-        token: The token used to authenticate with the coordinator.
+        token: The token used to authenticate with a coordinator.
     """
 
     def __init__(self, host: str):
@@ -52,16 +52,16 @@ class Client:
         self.token: str = ""
 
     def graphql_request(self, query: str, variables: Dict[str, str]):
-        """Makes a GraphQL request to the coordinators.
+        """Makes a GraphQL request to a coordinator.
 
-        Adds a authorization header if it exists.
+        Adds an authorization header if it exists.
 
         Arguments:
-            query: The GraphQL query to be passed to the coordinator.
-            variables: The variables to be passed to the coordinator.
+            query: The GraphQL query to be passed to a coordinator.
+            variables: The variables to be passed to a coordinator.
 
         Returns:
-            The coordinators GraphQL data response.
+            The coordinator's GraphQL data response.
 
         Raises:
             GraphQLException: If a GraphQL error occurs.
@@ -125,7 +125,7 @@ class Client:
         return res["service"]["endpoint"]
 
     def login(self, token: str):
-        """Logs in given the token string"""
+        """Logs in with the given token string"""
 
         api_token = APIToken(token)
 
@@ -168,7 +168,7 @@ class Client:
         return res["identityPolicies"]
 
     def me(self) -> str:
-        """Returns the id of the autenticated identity."""
+        """Returns the id of the authenticated identity."""
 
         query = """
         query Me() {
