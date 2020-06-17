@@ -81,22 +81,17 @@ def one_numeric_runner(df):
 def all_col_runner(df):
     return df.select('*')
 
-
 def tokenize_1c_runner(df):
     out = df.select(tokenizer_udf(df.store_and_fwd_flag))
     return out
-
-
 
 def perturbation_runner(df):
     out = df.select(perturb_udf(df.total_amount))
     return out
 
-
 def rounding_runner(df):
     out = df.select(round_fn_udf(df.total_amount))
     return out
-
 
 def native_rounding_runner(df):
     out = df.select(native_rounder(df.total_amount))
