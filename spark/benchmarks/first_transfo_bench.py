@@ -28,7 +28,7 @@ if not args.disable_arrow:
     sess_builder = sess_builder.config('spark.sql.execution.arrow.enabled', 'true')
 sess = sess_builder.getOrCreate()
 if not args.local:
-  sess.sparkContext.addPyFile(args.dependency_path)
+    sess.sparkContext.addPyFile(args.dependency_path)
 
 from cape_spark import transformations as tfm
 from cape_spark import types

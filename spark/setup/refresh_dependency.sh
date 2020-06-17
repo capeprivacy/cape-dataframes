@@ -8,5 +8,6 @@ if [ -z "$1" ]
 fi
 
 pip install -Ut cape_dependency .
-zip -r cape_dependency.zip cape_dependency
-gsutil cp cape_dependency.zip gs://${BUCKET}
+cd cape_dependency
+zip -r ../cape_dependency.zip .
+gsutil cp ../cape_dependency.zip gs://${BUCKET}
