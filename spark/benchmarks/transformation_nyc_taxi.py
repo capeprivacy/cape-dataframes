@@ -9,6 +9,7 @@ import pandas as pd
 import pyspark
 from pyspark import sql
 from pyspark.sql import functions
+from pyspark.sql.types import StructField, StructType, StringType, LongType, TimestampType, DoubleType
 
 
 parser = argparse.ArgumentParser(description='baseline benchmark')
@@ -18,7 +19,7 @@ parser.add_argument('--user-task', type=str, default='collect')
 parser.add_argument('--disable-arrow', action='store_true', default=False)
 parser.add_argument('--local', action='store_true', default=False)
 parser.add_argument('--dependency-path', type=str, default='cape_dependency.zip')
-parser.add_argument('--csv-path', type=str, required=False, default='data/application_with_pii.csv')
+parser.add_argument('--dataset-size', type=str, required=False, default='small')
 parser.add_argument('--runs', type=int, required=False, default=10)
 args = parser.parse_args()
 
@@ -74,27 +75,17 @@ tokenizer_udf = functions.pandas_udf(tokenizer_series, returnType=types.String)
 def one_col_runner(df):
     return df.select(df.store_and_fwd_flag)
 
+def one_numeric_runner(df):
+    return df.select(df.total_amount)
 
-# def all_col_runner(df):
-#     return df.select('*')
+def all_col_runner(df):
+    return df.select('*')
 
 
 def tokenize_1c_runner(df):
     out = df.select(tokenizer_udf(df.store_and_fwd_flag))
     return out
 
-
-# def tokenize_4c_runner(df):
-#     out = df.select([tokenizer_udf(df.name), tokenizer_udf(df.city)])
-#     return out
-
-
-# def tokenize_1c_return_all_col_runner(df):
-#     colnames = df.schema.names
-#     col_to_token = ['store_and_fwd_flag']
-#     out = df.select([tokenizer_udf(functions.col(c)) if c in col_to_token 
-#         else functions.col(c) for c in colnames])
-#     return out
 
 
 def perturbation_runner(df):
@@ -111,30 +102,96 @@ def native_rounding_runner(df):
     out = df.select(native_rounder(df.total_amount))
     return out
 
+def mask_entire_dataset(df):
+    out = df.select([tokenizer_udf(df.vendor_id), 
+                    tokenizer_udf(df.store_and_fwd_flag),
+                    tokenizer_udf(df.payment_type),
+                    native_rounder(df.passenger_count),
+                    native_rounder(df.trip_distance),
+                    native_rounder(df.pickup_longitude),
+                    native_rounder(df.pickup_latitude),
+                    native_rounder(df.payment_type),
+                    native_rounder(df.fare_amount),
+                    native_rounder(df.extra),
+                    perturb_udf(df.mta_tax),
+                    perturb_udf(df.tip_amount),
+                    perturb_udf(df.tolls_amount),
+                    perturb_udf(df.imp_surcharge),
+                    perturb_udf(df.total_amount),
+                    ])
+    return out
+
 _RUNNERS = {
     'one-col': one_col_runner,
-    # 'all-col': all_col_runner,
+    'one-numeric': one_numeric_runner,
+    'all-col': all_col_runner,
     'tokenize-1c': tokenize_1c_runner,
-    # 'tokenize-4c': tokenize_4c_runner,
-    # 'tokenize-1c-all': tokenize_1c_return_all_col_runner,
     'perturb': perturbation_runner,
     'round': rounding_runner,
     'round-native': native_rounding_runner,
+    'mask-entire-dataset': mask_entire_dataset,
 }
 _TASKS = {
     'collect': collect_task,
     'describe': describe_task,
 }
 
+small = ['tlc_yellow_trips_2009']
+medium = small + ['tlc_yellow_trips_2010', 'tlc_yellow_trips_2011']
+large = medium + ['tlc_yellow_trips_2012', 'tlc_yellow_trips_2013',
+                  'tlc_yellow_trips_2014', 'tlc_yellow_trips_2015', 
+                  'tlc_yellow_trips_2016']
+
+_DATASET_SIZE = {
+    'small': small,
+    'medium': medium,
+    'large': large,
+}
+
 
 def main():
-    # df = sess.read.load(args.csv_path,
-    #     format='csv', header='true', infer_schema='true', sep=',')
-    # spark = SparkSession.builder.appName("taxi").getOrCreate()
-    table = "bigquery-public-data.new_york.tlc_yellow_trips_2015"
-    df = (sess.read.format('bigquery').option('table', table).load())
+
+    fields = [StructField("vendor_id", StringType(), False),
+              StructField("pickup_datetime", TimestampType(), True), 
+              StructField("dropoff_datetime", TimestampType(), True), 
+              StructField("passenger_count", LongType(), True), 
+              StructField("trip_distance", DoubleType(), True),
+              StructField("pickup_longitude", DoubleType(), True),
+              StructField("pickup_latitude", DoubleType(), True),
+              StructField("rate_code", LongType(), True), 
+              StructField("store_and_fwd_flag", StringType(), True), 
+              StructField("dropoff_longitude", DoubleType(), True), 
+              StructField("dropoff_latitude", DoubleType(), True), 
+              StructField("payment_type", StringType(), True), 
+              StructField("fare_amount", DoubleType(), True), 
+              StructField("extra", DoubleType(), True), 
+              StructField("mta_tax", DoubleType(), True), 
+              StructField("tip_amount", DoubleType(), True), 
+              StructField("tolls_amount", DoubleType(), True), 
+              StructField("imp_surcharge", DoubleType(), True), 
+              StructField("total_amount", DoubleType(), True)]
     
-    # which transformation (runner) to run
+    schema = StructType(fields)
+    df_combined = sess.createDataFrame([], schema)
+
+    table_list = _DATASET_SIZE.get(args.dataset_size)
+    # Keep track of all tables accessed via the job
+    tables_read = []
+    for table in table_list:
+        table_path = f"bigquery-public-data.new_york.{table}"
+        df = (sess.read.format('bigquery').option('table', table_path).load())
+        tables_read.append(table_path)
+
+        df_combined = (
+            df
+            .union(df_combined)
+        )
+
+    for table in tables_read:
+        print(table)
+
+    print("TAXI SIZE: ", df_combined.count())
+    which transformation (runner) to run
     assert args.run_all or args.runner is not None
     if args.run_all:
         runners = _RUNNERS
