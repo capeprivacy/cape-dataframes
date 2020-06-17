@@ -186,7 +186,7 @@ def main():
         print(table)
 
     print("TAXI SIZE: ", df_combined.count())
-    which transformation (runner) to run
+    # which transformation (runner) to run
     assert args.run_all or args.runner is not None
     if args.run_all:
         runners = _RUNNERS
