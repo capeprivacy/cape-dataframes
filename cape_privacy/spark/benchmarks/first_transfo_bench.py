@@ -1,12 +1,8 @@
 #!/usr/bin/python
 import argparse
-import uuid
-import hashlib
 import time
 
 import numpy as np
-import pandas as pd
-import pyspark
 from pyspark import sql
 from pyspark.sql import functions
 
@@ -55,7 +51,7 @@ def describe_task(df):
 
 # Tranformation fn
 perturb = tfm.Perturbation(types.Float,
-    low_boundary=-100, high_boundary=100)
+                           low_boundary=-100, high_boundary=100)
 perturb_udf = functions.pandas_udf(perturb, returnType=types.Float)
 
 rounder = tfm.Rounding(types.Float, number_digits=1)

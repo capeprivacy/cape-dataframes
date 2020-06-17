@@ -52,7 +52,7 @@ import requests
 import validators
 import yaml
 
-from cape.transformations import get
+from cape_privacy.pandas.transformations import get
 
 from .data import Policy
 from .data import Rule
