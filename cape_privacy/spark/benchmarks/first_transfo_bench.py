@@ -54,10 +54,10 @@ perturb = tfm.Perturbation(types.Float,
                            low_boundary=-100, high_boundary=100)
 perturb_udf = functions.pandas_udf(perturb, returnType=types.Float)
 
-rounder = tfm.Rounding(types.Float, number_digits=1)
+rounder = tfm.Rounding(types.Float, digits=1)
 round_fn_udf = functions.pandas_udf(rounder, returnType=types.Float)
 
-native_rounder = tfm.NativeRounding(types.Float, number_digits=1)
+native_rounder = tfm.NativeRounding(types.Float, digits=1)
 
 tokenizer_tfm = tfm.Tokenizer(key='123')
 tokenizer_series = lambda series: series.map(tokenizer_tfm)
