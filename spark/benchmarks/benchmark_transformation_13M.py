@@ -157,7 +157,7 @@ def main():
                      'NUM_INSTALMENT_NUMBER', 'DAYS_INSTALMENT', 'DAYS_ENTRY_PAYMENT',
                      'AMT_INSTALMENT','AMT_PAYMENT']
     for c in string_to_num:
-        df = df.withColumn(c, df[c].cast(types.FloatType()))
+        df = df.withColumn(c, df[c].cast(types.Float))
     # which transformation (runner) to run
     assert args.run_all or args.runner is not None
     if args.run_all:
