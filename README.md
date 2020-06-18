@@ -1,4 +1,4 @@
-# Cape Python API
+# Cape Python
 
 ![](https://github.com/capeprivacy/cape-python/workflows/Main/badge.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![codecov](https://codecov.io/gh/capeprivacy/cape-python/branch/master/graph/badge.svg?token=L9A8HFAJK5)](https://codecov.io/gh/capeprivacy/cape-python)
 
