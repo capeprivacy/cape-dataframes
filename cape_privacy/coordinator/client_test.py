@@ -3,10 +3,9 @@ import json
 import pytest
 import responses
 
-from cape_privacy.pandas.auth.api_token import create_api_token
-
-from .client import Client
-from .client import GraphQLException
+from cape_privacy.auth.api_token import create_api_token
+from cape_privacy.coordinator.client import Client
+from cape_privacy.coordinator.client import GraphQLException
 
 host = "http://localhost:8080"
 

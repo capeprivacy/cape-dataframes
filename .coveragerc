@@ -1,4 +1,3 @@
 [report]
 omit=
-    *pb2.py
-    *pb2_grpc.py
+    cape_privacy/spark/*

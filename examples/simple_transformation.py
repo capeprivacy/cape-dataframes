@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from cape_privacy import pandas as cape
+import cape_privacy as cape
 
 df = pd.DataFrame(np.ones(5,), columns=["value"])
 

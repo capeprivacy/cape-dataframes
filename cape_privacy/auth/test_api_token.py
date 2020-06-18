@@ -1,4 +1,4 @@
-from .api_token import create_api_token
+from cape_privacy.auth.api_token import create_api_token
 
 
 def test_api_token():
