@@ -1,4 +1,5 @@
-from cape_privacy.spark.transformations.perturbation import Perturbation
-from cape_privacy.spark.transformations.rounding import NativeRounding
+from cape_privacy.spark.transformations.perturbation import NumericPerturbation
+from cape_privacy.spark.transformations.perturbation import DatePerturbation
 from cape_privacy.spark.transformations.rounding import Rounding
+from cape_privacy.spark.transformations.rounding import DateTruncation
 from cape_privacy.spark.transformations.tokenizer import Tokenizer
