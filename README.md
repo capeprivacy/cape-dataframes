@@ -1,5 +1,7 @@
 # Cape Python API
 
+![](https://github.com/capeprivacy/cape-python/workflows/Main/badge.svg)
+
 ## Getting Started
 
 Make sure you have at least Python 3.6 installed. We recommend running it in a virtual environment
@@ -43,3 +45,7 @@ You can also pass a URL to `parse_policy`.
 ```python
 policy = cape.parse_policy("https://mydomain.com/policy.yaml")
 ```
+
+# License
+
+Licensed under Apache License, Version 2.0 (see [LICENSE](./LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](./NOTICE).
