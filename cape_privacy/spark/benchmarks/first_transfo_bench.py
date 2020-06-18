@@ -27,7 +27,7 @@ if not args.local:
     sess.sparkContext.addPyFile(args.dependency_path)
 
 from cape_spark import transformations as tfm
-from cape_spark import types
+from cape_spark import dtypes
 
 def time_operation(df, runner, user_task, name):
     # measure & store run time
@@ -50,19 +50,19 @@ def describe_task(df):
 
 
 # Tranformation fn
-perturb = tfm.Perturbation(types.Float,
+perturb = tfm.Perturbation(dtypes.Float,
                            low_boundary=-100, high_boundary=100)
-perturb_udf = functions.pandas_udf(perturb, returnType=types.Float)
+perturb_udf = functions.pandas_udf(perturb, returnType=dtypes.Float)
 
-rounder = tfm.Rounding(types.Float, digits=1)
-round_fn_udf = functions.pandas_udf(rounder, returnType=types.Float)
+rounder = tfm.Rounding(dtypes.Float, digits=1)
+round_fn_udf = functions.pandas_udf(rounder, returnType=dtypes.Float)
 
-native_rounder = tfm.NativeRounding(types.Float, digits=1)
+native_rounder = tfm.NativeRounding(dtypes.Float, digits=1)
 
 tokenizer_tfm = tfm.Tokenizer(key='123')
 tokenizer_series = lambda series: series.map(tokenizer_tfm)
 
-tokenizer_udf = functions.pandas_udf(tokenizer_series, returnType=types.String)
+tokenizer_udf = functions.pandas_udf(tokenizer_series, returnType=dtypes.String)
 
 
 # Runners for benchmarking
@@ -128,7 +128,7 @@ def main():
         format='csv', header='true', infer_schema='true', sep=',')
     # NOTE with the import above all the columns end up being a string type
     # add to cast for benchmarking
-    df = df.withColumn('AMT_CREDIT', df['AMT_CREDIT'].cast(types.Float))
+    df = df.withColumn('AMT_CREDIT', df['AMT_CREDIT'].cast(dtypes.Float))
     # which transformation (runner) to run
     assert args.run_all or args.runner is not None
     if args.run_all:

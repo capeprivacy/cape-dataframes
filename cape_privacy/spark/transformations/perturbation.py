@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from cape_privacy.spark import types
+from cape_privacy.spark import dtypes
 from cape_privacy.spark.transformations import base
 
 _INT_TO_DTYPE = {

@@ -5,7 +5,7 @@ from pyspark import sql
 import cape_privacy as cape
 from cape_privacy.pandas import policy
 from cape_privacy.spark import transformations as tfms
-from cape_privacy.spark import types
+from cape_privacy.spark import dtypes
 
 sess_builder = sql.SparkSession.builder
 sess_builder = sess_builder.appName('cape.examples.rounding')
