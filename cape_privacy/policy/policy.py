@@ -48,6 +48,7 @@ import re
 from typing import Any
 from typing import Dict
 
+import pandas as pd
 import requests
 import validators
 import yaml
@@ -107,7 +108,36 @@ def get_transformation(policy: Policy, transform: Transform):
     return initTransform
 
 
-def do_transformations(policy: Policy, rule: Rule, df):
+def do_redaction(rule: Rule, df: pd.DataFrame):
+    """Handles redacting columns and rows.
+
+    If redact is set in a rule then it redacts all of the
+    specified columns.
+
+    If where is set in a rule then the condition is passed into
+    redact_row transformation and redacts all columns where the
+    condition is true.
+
+    Arguments:
+        rule: The rule to process.
+        df: The dataframe to redact from.
+
+    Returns:
+        The redacted or un-redacted dataframe depending what is in the
+        rule.
+    """
+    if rule.redact is not None:
+        redact = get("redact_column")(rule.redact)
+        df = redact(df)
+
+    if rule.where is not None:
+        redact = get("redact_row")(rule.where)
+        df = redact(df)
+
+    return df
+
+
+def do_transformations(policy: Policy, rule: Rule, df: pd.DataFrame):
     """Applies a specific rule's transformations to a pandas dataframe.
 
     For each transform, lookup the required transform class and then apply it
@@ -121,6 +151,8 @@ def do_transformations(policy: Policy, rule: Rule, df):
     Returns:
         The resulting transformed pandas dataframe.
     """
+    df = do_redaction(rule, df)
+
     for transform in rule.transformations:
         initTransform = get_transformation(policy, transform)
 

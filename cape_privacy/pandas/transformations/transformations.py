@@ -2,7 +2,9 @@ from typing import Any
 from typing import Callable
 from typing import Dict
 
-from .plus_n import PlusN
+from cape_privacy.pandas.transformations.column_redact import ColumnRedact
+from cape_privacy.pandas.transformations.plus_n import PlusN
+from cape_privacy.pandas.transformations.row_redact import RowRedact
 
 TransformationCtor = Callable[[str, Dict[Any, Any]], None]
 
@@ -29,3 +31,5 @@ def register(label: str, ctor: TransformationCtor):
 
 
 register("plusN", PlusN)
+register("redact_column", ColumnRedact)
+register("redact_row", RowRedact)

@@ -80,6 +80,32 @@ named_not_found_y = """
 """
 
 
+redact_y = """
+    label: test_policy
+    spec:
+        version: 1
+        label: test_policy
+        rules:
+            - target: records:transactions.transactions
+              action: read
+              effect: allow
+              redact:
+                - apple
+              where: test > 2
+              transformations:
+                - field: test
+                  function: plusN
+                  args:
+                    n:
+                      value: 1
+                - field: test
+                  function: plusN
+                  args:
+                    n:
+                      value: 2
+    """
+
+
 def test_apply_policies():
     d = yaml.load(y, Loader=yaml.FullLoader)
 
@@ -152,3 +178,22 @@ def test_parse_policy_invalid_url():
 def test_parse_policy_invalid_file():
     with pytest.raises(FileNotFoundError):
         parse_policy("iamnotarealthingonthisfilesystem")
+
+
+def test_redact():
+    d = yaml.load(redact_y, Loader=yaml.FullLoader)
+
+    df = pd.DataFrame(np.ones((5, 2)), columns=["test", "apple"])
+
+    df["test"].iloc[0] = 6
+    df["test"].iloc[2] = 6
+
+    p = Policy(**d)
+
+    new_df = apply_policies([p], "transactions", df)
+
+    expected_df = pd.DataFrame(np.ones(3,), columns=["test"], index=[1, 3, 4])
+
+    expected_df = expected_df + 3
+
+    pdt.assert_frame_equal(new_df, expected_df)

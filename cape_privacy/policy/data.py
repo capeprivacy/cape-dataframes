@@ -74,7 +74,13 @@ class Rule:
     """
 
     def __init__(
-        self, target, effect="allow", action="read", where=None, transformations=[]
+        self,
+        target,
+        effect="allow",
+        action="read",
+        where=None,
+        redact=None,
+        transformations=[],
     ):
         if target == "":
             raise ValueError("Target must be specified for rule")
@@ -83,6 +89,7 @@ class Rule:
         self.effect = effect
         self.action = action
         self.where = where
+        self.redact = redact
 
         self.transformations = [Transform(**transform) for transform in transformations]
 
