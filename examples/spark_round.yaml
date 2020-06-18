@@ -1,11 +1,11 @@
 label: spark-round-float
 transformations:
-      - name: roundFloatToInt
-        type: rounding
+      - name: roundToZero
+        type: roundNumeric
         args:
-          input_type:
+          dtype:
             value: Float
-          digits:
+          precision:
             value: 0
 spec:
   label: spark-round-float
@@ -15,5 +15,5 @@ spec:
     effect: allow
     transformations:
       - field: value
-        named: roundFloatToInt
+        named: roundFloat
   version: 1
