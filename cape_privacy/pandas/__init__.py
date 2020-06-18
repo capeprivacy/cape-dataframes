@@ -1,5 +1,6 @@
+from cape_privacy.policy import apply_policies
+from cape_privacy.policy import parse_policy
+
 from .coordinator import Client
-from .policy import apply_policies
-from .policy import parse_policy
 
 __all__ = ["Client", "apply_policies", "parse_policy"]
