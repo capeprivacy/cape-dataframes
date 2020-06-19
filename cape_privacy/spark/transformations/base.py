@@ -1,5 +1,7 @@
 import abc
 
+from cape_privacy.spark import dtypes
+
 
 class AbstractTransformation(metaclass=abc.ABCMeta):
     @property
@@ -13,7 +15,7 @@ class AbstractTransformation(metaclass=abc.ABCMeta):
 
 
 class Transformation(AbstractTransformation):
-    def __init__(self, dtype):
+    def __init__(self, dtype: dtypes.DType):
         self._dtype = dtype
 
     @property

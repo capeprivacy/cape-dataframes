@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -7,6 +7,7 @@ from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
 from cape_privacy.spark.transformations import base
+from cape_privacy.utils import typecheck
 
 
 _FREQUENCY_TO_DELTA_FN = {
@@ -17,6 +18,8 @@ _FREQUENCY_TO_DELTA_FN = {
     'minutes': lambda noise: pd.Timedelta(minutes=noise),
     'seconds': lambda noise: pd.Timedelta(seconds=noise),
 }
+IntTuple = Union[int, Tuple[int, ...]]
+StrTuple = Union[str, Tuple[str, ...]]
 
 class NumericPerturbation(base.Transformation):
     def __init__(
@@ -27,6 +30,9 @@ class NumericPerturbation(base.Transformation):
         seed: Optional[int] = None,
     ):
         assert dtype in dtypes.Numerics
+        typecheck.check_arg(min, (int, float))
+        typecheck.check_arg(max, (int, float))
+        typecheck.check_arg(seed, (int, type(None)))
         super().__init__(dtype)
         self._min = min
         self._max = max
@@ -41,11 +47,12 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
-    def __init__(self, frequency, min, max, seed=None):
+    def __init__(self, frequency: StrTuple, min: IntTuple, max: IntTuple, seed: Optional[int] = None):
+        typecheck.check_arg(seed, (int, type(None)))
         super().__init__(dtypes.Date)
-        self._frequency = _check_str_arg(frequency)
-        self._min = _check_int_arg(min)
-        self._max = _check_int_arg(max)
+        self._frequency = _check_freq_arg(frequency)
+        self._min = _check_minmax_arg(min)
+        self._max = _check_minmax_arg(max)
         self._rng = np.random.default_rng(seed)
 
     def __call__(self, x: sql.Column):
@@ -64,7 +71,7 @@ class DatePerturbation(base.Transformation):
         return x
 
 
-def _check_int_arg(arg):
+def _check_minmax_arg(arg):
     """Checks that arg is an integer or a flat collection of integers."""
     if not isinstance(arg, (tuple, list)):
         if not isinstance(arg, int):
@@ -76,7 +83,8 @@ def _check_int_arg(arg):
                 raise ValueError
     return arg
 
-def _check_str_arg(arg):
+
+def _check_freq_arg(arg):
     """Checks that arg is string or a flat collection of strings."""
     if not isinstance(arg, (tuple, list)):
         if not isinstance(arg, str):
