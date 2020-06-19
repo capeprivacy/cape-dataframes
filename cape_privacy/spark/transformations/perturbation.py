@@ -1,4 +1,6 @@
-from typing import Optional, Tuple, Union
+from typing import Optional
+from typing import Tuple
+from typing import Union
 
 import numpy as np
 import pandas as pd
@@ -9,17 +11,17 @@ from cape_privacy.spark import dtypes
 from cape_privacy.spark.transformations import base
 from cape_privacy.utils import typecheck
 
-
 _FREQUENCY_TO_DELTA_FN = {
-    'YEAR': lambda noise: pd.Timedelta(days=noise * 365),
-    'MONTH': lambda noise: pd.Timedelta(days=noise * 30),
-    'DAY': lambda noise: pd.Timedelta(days=noise),
-    'HOUR': lambda noise: pd.Timedelta(hours=noise),
-    'minutes': lambda noise: pd.Timedelta(minutes=noise),
-    'seconds': lambda noise: pd.Timedelta(seconds=noise),
+    "YEAR": lambda noise: pd.Timedelta(days=noise * 365),
+    "MONTH": lambda noise: pd.Timedelta(days=noise * 30),
+    "DAY": lambda noise: pd.Timedelta(days=noise),
+    "HOUR": lambda noise: pd.Timedelta(hours=noise),
+    "minutes": lambda noise: pd.Timedelta(minutes=noise),
+    "seconds": lambda noise: pd.Timedelta(seconds=noise),
 }
 IntTuple = Union[int, Tuple[int, ...]]
 StrTuple = Union[str, Tuple[str, ...]]
+
 
 class NumericPerturbation(base.Transformation):
     def __init__(
@@ -47,7 +49,13 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
-    def __init__(self, frequency: StrTuple, min: IntTuple, max: IntTuple, seed: Optional[int] = None):
+    def __init__(
+        self,
+        frequency: StrTuple,
+        min: IntTuple,
+        max: IntTuple,
+        seed: Optional[int] = None,
+    ):
         typecheck.check_arg(seed, (int, type(None)))
         super().__init__(dtypes.Date)
         self._frequency = _check_freq_arg(frequency)
@@ -65,8 +73,11 @@ class DatePerturbation(base.Transformation):
             noise = self._rng.integers(self._min, self._max, size=x.shape)
             delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
             if delta_fn is None:
-                raise ValueError("Frequency {} must be one of {}.".format(
-                    f, list(_FREQUENCY_TO_DELTA_FN.keys())))
+                raise ValueError(
+                    "Frequency {} must be one of {}.".format(
+                        f, list(_FREQUENCY_TO_DELTA_FN.keys())
+                    )
+                )
             x += delta_fn(noise)
         return x
 

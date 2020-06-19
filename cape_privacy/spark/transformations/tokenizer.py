@@ -30,7 +30,7 @@ class Tokenizer(base.Transformation):
         token = hashlib.sha256(x.encode() + self.key).hexdigest()
         if self._max_token_len is None:
             return token
-        return token[:self._max_token_len]
+        return token[: self._max_token_len]
 
     @property
     def key(self):
