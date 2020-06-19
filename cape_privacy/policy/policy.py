@@ -88,16 +88,14 @@ def get_transformation(policy: Policy, transform: Transform):
     """
     if transform.function is not None:
         try:
-            initTransform = get(transform.function)(transform.field, **transform.args)
+            initTransform = get(transform.function)(**transform.args)
         except KeyError:
             raise TransformNotFound(
                 f"Could not find builtin transform {transform.function}"
             )
     elif transform.named is not None:
         try:
-            initTransform = load_named_transform(
-                policy, transform.named, transform.field
-            )
+            initTransform = load_named_transform(policy, transform.named)
         except KeyError:
             raise NamedTransformNotFound(
                 f"Could not find named transform {transform.named}"
@@ -217,7 +215,7 @@ def parse_policy(p: str):
     return Policy(**policy)
 
 
-def load_named_transform(policy: Dict[Any, Any], transformLabel: str, field: str):
+def load_named_transform(policy: Dict[Any, Any], transformLabel: str):
     """Attempts to load a named transform from the top level policy.
 
     Looks at the top level policy object for the named transform given as transformLabel
@@ -240,7 +238,7 @@ def load_named_transform(policy: Dict[Any, Any], transformLabel: str, field: str
     named_transforms = policy.transformations
     for transform in named_transforms:
         if transformLabel == transform.name:
-            initTransform = get(transform.type)(field, **transform.args)
+            initTransform = get(transform.type)(**transform.args)
             found = True
             break
 

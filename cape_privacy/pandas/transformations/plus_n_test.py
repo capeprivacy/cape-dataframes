@@ -8,7 +8,7 @@ from .transformations import get
 def test_plus_n():
     ctor = get("plusN")
     args = {"n": 1}
-    transform = ctor("A", **args)
+    transform = ctor(**args)
 
     df = pd.DataFrame(np.ones(5,), columns=["A"])
     expected = pd.DataFrame()
