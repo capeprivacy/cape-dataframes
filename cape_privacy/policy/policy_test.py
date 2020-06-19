@@ -5,10 +5,12 @@ import pytest
 import requests
 import yaml
 
-from .data import Policy
-from .exceptions import NamedTransformNotFound
-from .policy import apply_policies
-from .policy import parse_policy
+from cape_privacy.pandas.transformations.test_utils import PlusN
+from cape_privacy.pandas.transformations.transformations import register
+from cape_privacy.policy import NamedTransformNotFound
+from cape_privacy.policy import Policy
+from cape_privacy.policy import apply_policies
+from cape_privacy.policy import parse_policy
 
 y = """
     label: test_policy
@@ -104,6 +106,8 @@ redact_y = """
                     n:
                       value: 2
     """
+
+register("plusN", PlusN)
 
 
 def test_apply_policies():
