@@ -28,7 +28,7 @@ You can also experiment with these transformations on Spark DataFrame with the `
 python spark_transformations_without_policy.py
 ```
 
-As you will notice, the `transformations` API for `Pandas` and `Spark` are identitical, so you can easily transfer the transformations applied in `Pandas` to `Spark`.
+As you will notice, the `transformations` API for `Pandas` and `Spark` are identical, so you can easily transfer the transformations applied in `Pandas` to `Spark`.
 
 ## Write your policy
 
