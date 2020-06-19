@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  deploy:
+  python:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -24,3 +24,12 @@ jobs:
       run: |
         python setup.py sdist bdist_wheel
         twine upload dist/*
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tag_with_ref: true
