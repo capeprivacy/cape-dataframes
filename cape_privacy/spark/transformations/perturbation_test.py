@@ -10,9 +10,7 @@ from cape_privacy.spark.transformations import perturbation as ptb
 
 
 def _make_and_apply_numeric_ptb(sess, df, dtype, min, max, seed=42):
-    # TODO the inferred type seems to be incorrect here
     df = sess.createDataFrame(df, schema=['data'])
-    import pdb; pdb.set_trace()
     perturb = ptb.NumericPerturbation(dtype, min=min, max=max, seed=seed)
     result_df = df.select(perturb(sql.functions.col('data')))
     return result_df.toPandas()
