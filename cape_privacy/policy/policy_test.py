@@ -25,13 +25,11 @@ y = """
                 - field: test
                   function: plusN
                   args:
-                    n:
-                      value: 1
+                    n: 1
                 - field: test
                   function: plusN
                   args:
-                    n:
-                      value: 2
+                    n: 2
     """
 
 named_y = """
@@ -40,13 +38,11 @@ named_y = """
       - name: plusOne
         type: plusN
         args:
-          n:
-            value: 1
+          n: 1
       - name: plusTwo
         type: plusN
         args:
-          n:
-            value: 2
+          n: 2
     spec:
         version: 1
         label: test_policy
@@ -67,8 +63,7 @@ named_not_found_y = """
       - name: plusOne
         type: plusN
         args:
-          n:
-            value: 1
+          n: 1
     spec:
         version: 1
         label: test_policy
@@ -98,13 +93,11 @@ redact_y = """
                 - field: test
                   function: plusN
                   args:
-                    n:
-                      value: 1
+                    n: 1
                 - field: test
                   function: plusN
                   args:
-                    n:
-                      value: 2
+                    n: 2
     """
 
 register("plusN", PlusN)

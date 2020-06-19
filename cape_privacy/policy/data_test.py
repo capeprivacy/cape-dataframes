@@ -8,8 +8,7 @@ y = """
       - name: plusOne
         type: plusN
         args:
-          n:
-            value: 1
+          n: 1
     spec:
         version: 1
         label: test_policy
@@ -23,8 +22,7 @@ y = """
                 - field: test
                   function: plusN
                   args:
-                    n:
-                      value: 1
+                    n: 1
     """
 
 

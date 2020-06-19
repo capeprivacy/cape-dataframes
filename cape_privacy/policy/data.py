@@ -14,8 +14,6 @@ contain Transformations.
     policy = Policy(**d)
 """
 
-from .utils import yaml_args_to_kwargs
-
 
 class Policy:
     """Top level policy object.
@@ -118,7 +116,7 @@ class NamedTransform:
 
         self.name = name
         self.type = type
-        self.args = yaml_args_to_kwargs(args)
+        self.args = args
 
 
 class Transform:
@@ -157,4 +155,4 @@ class Transform:
         self.named = named
         self.function = function
         self.where = where
-        self.args = yaml_args_to_kwargs(args)
+        self.args = args
