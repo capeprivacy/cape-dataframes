@@ -12,12 +12,12 @@ from cape_privacy.spark.transformations import base
 from cape_privacy.utils import typecheck
 
 _FREQUENCY_TO_DELTA_FN = {
-    "YEAR": lambda noise: pd.Timedelta(days=noise * 365),
-    "MONTH": lambda noise: pd.Timedelta(days=noise * 30),
-    "DAY": lambda noise: pd.Timedelta(days=noise),
-    "HOUR": lambda noise: pd.Timedelta(hours=noise),
-    "minutes": lambda noise: pd.Timedelta(minutes=noise),
-    "seconds": lambda noise: pd.Timedelta(seconds=noise),
+    "YEAR": lambda noise: pd.to_timedelta(noise * 365, unit="days"),
+    "MONTH": lambda noise: pd.to_timedelta(noise * 30, unit="days"),
+    "DAY": lambda noise: pd.to_timedelta(noise, unit="days"),
+    "HOUR": lambda noise: pd.to_timedelta(noise, unit="hours"),
+    "minutes": lambda noise: pd.to_timedelta(noise, unit="minutes"),
+    "seconds": lambda noise: pd.to_timedelta(noise, unit="seconds"),
 }
 IntTuple = Union[int, Tuple[int, ...]]
 StrTuple = Union[str, Tuple[str, ...]]
@@ -62,24 +62,30 @@ class DatePerturbation(base.Transformation):
         self._min = _check_minmax_arg(min)
         self._max = _check_minmax_arg(max)
         self._rng = np.random.default_rng(seed)
+        self._perturb_date = None
 
     def __call__(self, x: sql.Column):
-        return self.perturb_date(x)
+        if self._perturb_date is None:
+            self._perturb_date = self._make_perturb_udf()
+        return self._perturb_date(x)
 
-    @functions.pandas_udf(dtypes.Date, functions.PandasUDFType.SCALAR)
-    def perturb_date(self, x: pd.Series) -> pd.Series:
-        for f, mn, mx in zip(self._frequency, self._min, self._max):
-            # TODO can we switch to a lower dtype than np.int64?
-            noise = self._rng.integers(self._min, self._max, size=x.shape)
-            delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
-            if delta_fn is None:
-                raise ValueError(
-                    "Frequency {} must be one of {}.".format(
-                        f, list(_FREQUENCY_TO_DELTA_FN.keys())
+    def _make_perturb_udf(self):
+        @functions.pandas_udf(dtypes.Date, functions.PandasUDFType.SCALAR)
+        def perturb_date(x: pd.Series) -> pd.Series:
+            for f, mn, mx in zip(self._frequency, self._min, self._max):
+                # TODO can we switch to a lower dtype than np.int64?
+                noise = self._rng.integers(self._min, self._max, size=x.shape)
+                delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
+                if delta_fn is None:
+                    raise ValueError(
+                        "Frequency {} must be one of {}.".format(
+                            f, list(_FREQUENCY_TO_DELTA_FN.keys())
+                        )
                     )
-                )
-            x += delta_fn(noise)
-        return x
+                x += delta_fn(noise)
+            return x
+
+        return perturb_date
 
 
 def _check_minmax_arg(arg):

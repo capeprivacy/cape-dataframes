@@ -2,7 +2,7 @@ import datetime
 
 import numpy as np
 import pandas as pd
-from pyspark import sql
+from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
 from cape_privacy.spark import test_utils
@@ -13,7 +13,7 @@ from cape_privacy.spark.transformations import rounding as rnd
 def _make_and_apply_rounder(sess, df, dtype, precision):
     df = sess.createDataFrame(df, schema=["data"])
     rounder = rnd.NumericRounding(dtype, precision)
-    result_df = df.select(rounder(sql.functions.col("data")))
+    result_df = df.select(rounder(functions.col("data")))
     return result_df.toPandas()
 
 
