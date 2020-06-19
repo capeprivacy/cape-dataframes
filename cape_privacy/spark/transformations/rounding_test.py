@@ -12,7 +12,6 @@ from cape_privacy.spark.transformations import rounding as rnd
 # Utils
 def _make_and_apply_rounder(sess, df, dtype, precision):
     df = sess.createDataFrame(df, schema=['data'])
-    # TODO the inferred type seems to be incorrect here
     rounder = rnd.Rounding(dtype, precision)
     result_df = df.select(rounder(sql.functions.col('data')))
     return result_df.toPandas()
