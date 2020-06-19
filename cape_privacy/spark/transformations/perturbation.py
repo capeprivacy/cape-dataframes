@@ -43,7 +43,7 @@ class NumericPerturbation(base.Transformation):
 class DatePerturbation(base.Transformation):
     def __init__(self, frequency, min, max, seed=None):
         super().__init__(dtypes.Date)
-        self._frequency = _check_int_arg(frequency)
+        self._frequency = _check_str_arg(frequency)
         self._min = _check_int_arg(min)
         self._max = _check_int_arg(max)
         self._rng = np.random.default_rng(seed)
@@ -73,5 +73,17 @@ def _check_int_arg(arg):
     else:
         for a in arg:
             if not isinstance(a, int):
+                raise ValueError
+    return arg
+
+def _check_str_arg(arg):
+    """Checks that arg is string or a flat collection of strings."""
+    if not isinstance(arg, (tuple, list)):
+        if not isinstance(arg, str):
+            raise ValueError
+        return [arg]
+    else:
+        for a in arg:
+            if not isinstance(a, str):
                 raise ValueError
     return arg
