@@ -13,7 +13,7 @@ Byte = types.ByteType()
 Short = types.ShortType()
 Integer = types.IntegerType()
 Long = types.LongType()
-# groups
+# groups
 Floats = (Float, Double)
 Integers = (Byte, Short, Integer, Long)
 Numerics = Floats + Integers
