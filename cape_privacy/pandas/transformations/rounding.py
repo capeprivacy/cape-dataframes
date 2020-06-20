@@ -17,7 +17,7 @@ class NumericRounding(base.Transformation):
         return self.round_numeric(x)
 
     def round_numeric(self, x: pd.Series):
-        rounded = round(x, self._precision)
+        rounded = x.round(self._precision)
         if isinstance(rounded.dtype.type, self.dtype.type):
             return rounded
         else:
