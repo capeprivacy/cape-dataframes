@@ -23,6 +23,26 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 
 class NumericPerturbation(base.Transformation):
+    """Add uniform random noise to a numeric Pandas Series
+
+    Mask a numeric Pandas Series by adding uniform random
+    noise to each value. The amount of noise is drawn from
+    the interval [min, max].
+
+    Example:
+        ```
+        s = pd.Series([0, 1, 2, 3, 4])
+        perturb = NumericPerturbation(dtype=Integer, min=-10, max=10, seed=123)
+        perturb(s) # pd.Series([3, -7, -3, -3])
+        ```
+
+    Attributes:
+        dtypes (dtypes.Numerics): Pandas Series type
+        min (int, float): the values generated will be greater or equal than min
+        max (int, float): the values generated will be less or equal than max
+        seed (int), optional: a seed to initialize the random generator
+    """
+
     identifier = "numeric-perturbation"
 
     def __init__(
@@ -41,7 +61,7 @@ class NumericPerturbation(base.Transformation):
         self._max = max
         self._rng = np.random.default_rng(seed=seed)
 
-    def __call__(self, x: pd.Series):
+    def __call__(self, x: pd.Series) -> pd.Series:
         return self._perturb_numeric(x)
 
     def _perturb_numeric(self, x: pd.Series):
@@ -70,7 +90,7 @@ class DatePerturbation(base.Transformation):
     def __call__(self, x: pd.Series):
         return self._perturb_date(x)
 
-    def _perturb_date(self, x: pd.Series):
+    def _perturb_date(self, x: pd.Series) -> pd.Series:
         is_date_no_time = False
 
         # Use equality instead of isintance because of inheritance

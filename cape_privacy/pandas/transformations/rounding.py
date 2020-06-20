@@ -8,6 +8,23 @@ from cape_privacy.utils import typecheck
 
 
 class NumericRounding(base.Transformation):
+    """Reduce the precision of a numeric Pandas Series
+
+    Round each value in the Pandas Series to the given number
+    of digits.
+
+    Example:
+        ```
+        s = pd.Series([1.384])
+        round = NumericRounding(precision=1)
+        round(s) # pd.Series([1.4])
+        ```
+
+    Attributes:
+        dtypes (dtypes.Numerics): Pandas Series type.
+        precision (int): set the number of digits.
+    """
+
     identifier = "numeric-rounding"
 
     def __init__(self, dtype: dtypes.Numerics, precision: int):
@@ -17,7 +34,15 @@ class NumericRounding(base.Transformation):
         super().__init__(dtype)
         self._precision = precision
 
-    def __call__(self, x: pd.Series):
+    def __call__(self, x: pd.Series) -> pd.Series:
+        """Round each value in the Pandas Series
+
+        Args:
+            x (A Pandas Series): need to be a list of numeric values.
+
+        Return:
+            A Pandas Series with each value rounded
+        """
         return self.round_numeric(x)
 
     def round_numeric(self, x: pd.Series):
@@ -29,6 +54,19 @@ class NumericRounding(base.Transformation):
 
 
 class DateTruncation(base.Transformation):
+    """Reduce the precision of a date Pandas Series
+    Truncate each date in a Pandas Series to the unit (year
+    or month) specified by frequency.
+    Example:
+        ```
+        s = pd.Series([pd.Timestamp("2018-10-15")])
+        trunc = DateTruncation(frequency="year")
+        trunc(s) # pd.Serie([pd.Timestamp("2018-01-01")])
+        ```
+    Attributes:
+        frequency (string): expect to be 'year' or 'month'
+    """
+
     identifier = "date-truncation"
 
     def __init__(self, frequency: str):
@@ -37,10 +75,10 @@ class DateTruncation(base.Transformation):
         self._frequency = frequency.lower()
         _check_freq_arg(self._frequency)
 
-    def __call__(self, x: pd.Series):
+    def __call__(self, x: pd.Series) -> pd.Series:
         return self._trunc_date(x)
 
-    def _trunc_date(self, x: pd.Series):
+    def _trunc_date(self, x: pd.Series) -> pd.Series:
         if self._frequency == "year":
             truncated = x.values.astype("<M8[Y]")
         elif self._frequency == "month":
