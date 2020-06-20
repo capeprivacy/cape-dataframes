@@ -42,6 +42,8 @@ class NumericPerturbation(base.Transformation):
 
     def __call__(self, x: sql.Column):
         uniform_noise = functions.rand(seed=self._seed)
+        if self._seed is not None:
+            self._seed += 1
         affine_noise = self._min + uniform_noise * (self._max - self._min)
         if self._dtype is not dtypes.Double:
             affine_noise = affine_noise.astype(self._dtype)
@@ -74,7 +76,7 @@ class DatePerturbation(base.Transformation):
         def perturb_date(x: pd.Series) -> pd.Series:
             for f, mn, mx in zip(self._frequency, self._min, self._max):
                 # TODO can we switch to a lower dtype than np.int64?
-                noise = self._rng.integers(self._min, self._max, size=x.shape)
+                noise = self._rng.integers(mn, mx, size=x.shape)
                 delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
                 if delta_fn is None:
                     raise ValueError(
