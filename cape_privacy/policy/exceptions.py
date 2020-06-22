@@ -1,3 +1,7 @@
+class DependencyError(Exception):
+    pass
+
+
 class NamedTransformNotFound(Exception):
     pass
 

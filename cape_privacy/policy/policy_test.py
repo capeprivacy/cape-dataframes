@@ -1,11 +1,9 @@
 import numpy as np
 import pandas as pd
-import pandas.testing as pdt
 import pytest
 import requests
 import yaml
 
-from cape_privacy.pandas import policy as pd_policy
 from cape_privacy.pandas import registry
 from cape_privacy.pandas.transformations import test_utils
 from cape_privacy.policy import data
@@ -55,7 +53,6 @@ def test_named_transform_type_not_found():
     )
     p = data.Policy(**d)
     tfm = p.spec.rules[0].transformations[0]
-    df = pd.DataFrame(np.ones(5,), columns=["test"])
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
         policy_commons.get_transformation(p, tfm, registry, return_spark=False)

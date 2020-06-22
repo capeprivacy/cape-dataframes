@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import pandas.testing as pdt
-import pytest
 import yaml
 
 from cape_privacy.pandas import policy as plib

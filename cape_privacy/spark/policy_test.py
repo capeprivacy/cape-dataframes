@@ -3,7 +3,6 @@ import datetime
 import numpy as np
 import pandas as pd
 import pandas.testing as pdt
-import pytest
 import yaml
 
 from cape_privacy.pandas.transformations import test_utils
@@ -12,7 +11,6 @@ from cape_privacy.policy import policy_test_fixtures as fixtures
 from cape_privacy.spark import policy as plib
 from cape_privacy.spark import registry
 from cape_privacy.spark import test_utils as spark_utils
-from cape_privacy.spark.transformations import base
 
 
 def test_apply_policies():

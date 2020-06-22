@@ -17,7 +17,7 @@ import pandas as pd
 
 from cape_privacy import pandas as cape_pandas
 from cape_privacy import spark as cape_spark
-from cape_privacy.pandas import dtypes
+from cape_privacy.policy import exceptions
 from cape_privacy.policy import utils
 
 
@@ -46,6 +46,11 @@ class Policy:
             return cape_spark.apply_policies([self], entity, df)
         elif isinstance(df, pd.DataFrame):
             return cape_pandas.apply_policies([self], entity, df)
+        if cape_spark is None:
+            raise exceptions.DependencyError(
+                "PySpark dependency not found! Please make sure your environment is "
+                "configured correctly."
+            )
         raise ValueError("Expected 'df' to be a DataFrame, found {}.".format(type(df)))
 
 
