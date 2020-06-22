@@ -18,8 +18,10 @@ setuptools.setup(
         "numpy==1.18.1",
         "pyyaml==5.3.1",
         "validators==0.15.0",
-        "pyspark==3.0.0",
     ],
+    extras_require={
+        "spark": ["pyspark >=2.4", "pyarrow >=0.15.1"],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
