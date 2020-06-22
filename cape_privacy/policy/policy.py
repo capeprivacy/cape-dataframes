@@ -45,28 +45,42 @@ and applies them to pandas dataframes.
 """
 
 import re
+import types
 from typing import Any
 from typing import Dict
+from typing import List
 
 import pandas as pd
 import requests
 import validators
 import yaml
 
-from cape_privacy.pandas.transformations import get
-
-from .data import Policy
-from .data import Rule
-from .data import Transform
-from .exceptions import NamedTransformNotFound
-from .exceptions import TransformNotFound
+from cape_privacy import spark
+from cape_privacy.pandas import dtypes as pd_dtypes
+from cape_privacy.policy import data
+from cape_privacy.policy import exceptions
 
 TYPE_INDEX = 1
 COLLECTION_INDEX = 2
 ENTITY_INDEX = 3
 
 
-def get_transformation(policy: Policy, transform: Transform):
+def _maybe_replace_dtype_arg(args, return_spark):
+    if return_spark and spark is not None:
+        dtypes = getattr(spark, "dtypes")
+    else:
+        dtypes = pd_dtypes
+    if "dtype" in args:
+        args["dtype"] = getattr(dtypes, args["dtype"])
+    return args
+
+
+def get_transformation(
+    policy: data.Policy,
+    transform: data.Transform,
+    registry: types.ModuleType,
+    return_spark: bool,
+):
     """Looks up the correct transform class.
 
     If the transform is anonymous (i.e. unnamed) then it looks it up from the
@@ -84,138 +98,33 @@ def get_transformation(policy: Policy, transform: Transform):
         TransformNotFound: The builtin transform cannot be found.
         NamedTransformNotFound: The named transform cannot be found on the
         top level policy object.
-        KeyError: If neither a function or named transform exists on the transform arg.
+        ValueError: If neither a function or named transform exists on the transform arg.
     """
     if transform.function is not None:
-        try:
-            initTransform = get(transform.function)(**transform.args)
-        except KeyError:
-            raise TransformNotFound(
+        tfm_ctor = registry.get(transform.function)
+        if tfm_ctor is None:
+            raise exceptions.TransformNotFound(
                 f"Could not find builtin transform {transform.function}"
             )
+        tfm_args = _maybe_replace_dtype_arg(transform.args, return_spark)
+        initTransform = tfm_ctor(**tfm_args)
     elif transform.named is not None:
-        try:
-            initTransform = load_named_transform(policy, transform.named)
-        except KeyError:
-            raise NamedTransformNotFound(
-                f"Could not find named transform {transform.named}"
-            )
+        initTransform = _load_named_transform(
+            policy, transform.named, registry, return_spark
+        )
     else:
-        raise KeyError(
+        raise ValueError(
             f"Expected function or named for transform with field {transform.field}"
         )
-
     return initTransform
 
 
-def do_redaction(rule: Rule, df: pd.DataFrame):
-    """Handles redacting columns and rows.
-
-    If redact is set in a rule then it redacts all of the
-    specified columns.
-
-    If where is set in a rule then the condition is passed into
-    redact_row transformation and redacts all columns where the
-    condition is true.
-
-    Arguments:
-        rule: The rule to process.
-        df: The dataframe to redact from.
-
-    Returns:
-        The redacted or un-redacted dataframe depending what is in the
-        rule.
-    """
-    if rule.redact is not None:
-        redact = get("redact_column")(rule.redact)
-        df = redact(df)
-
-    if rule.where is not None:
-        redact = get("redact_row")(rule.where)
-        df = redact(df)
-
-    return df
-
-
-def do_transformations(policy: Policy, rule: Rule, df: pd.DataFrame):
-    """Applies a specific rule's transformations to a pandas dataframe.
-
-    For each transform, lookup the required transform class and then apply it
-    to the correct column in that dataframe.
-
-    Args:
-        policy: The top level policy.
-        rule: The specific rule to apply.
-        df: A pandas dataframe.
-
-    Returns:
-        The resulting transformed pandas dataframe.
-    """
-    df = do_redaction(rule, df)
-
-    for transform in rule.transformations:
-        initTransform = get_transformation(policy, transform)
-
-        df[transform.field] = initTransform(df[transform.field])
-
-    return df
-
-
-def apply_policies(
-    policies: [Policy], entity: str, df,
+def _load_named_transform(
+    policy: data.Policy,
+    transformLabel: str,
+    registry: types.ModuleType,
+    return_spark: bool,
 ):
-    """Applies a list of policies to a pandas dataframe.
-
-    For each rule in each policy, if there is a target matching the
-    entity label passed in then each transform in that rule is applied to
-    the dataframe. If there is a where clause in the rule then each column
-    that matches the where is redacted from the final dataframe.
-
-    Args:
-        policies: List of policy objects to apply
-        entity: The entity label of the dataframe
-        df: A pandas dataframe
-
-    Returns:
-        The resulting transformed pandas dataframe.
-    """
-    for policy in policies:
-        for rule in policy.spec.rules:
-            res = re.match(r"^(.*):(.*)\.(.*)$", rule.target)
-            if res is None:
-                continue
-
-            if res.group(ENTITY_INDEX) == entity:
-                df = do_transformations(policy, rule, df)
-
-    return df
-
-
-def parse_policy(p: str):
-    """Parses a policy yaml file.
-
-    The passed in string can either be a path to a local file or
-    a URL pointing to a file. If it is a URL then requests attempts to download it.
-
-    Args:
-        p: a path string or a URL string
-
-    Returns:
-        The Policy object initialized by the yaml.
-    """
-    data: str
-
-    if validators.url(p):
-        data = requests.get(p).text
-    else:
-        with open(p) as f:
-            data = f.read()
-
-    policy = yaml.load(data, Loader=yaml.FullLoader)
-    return Policy(**policy)
-
-
-def load_named_transform(policy: Dict[Any, Any], transformLabel: str):
     """Attempts to load a named transform from the top level policy.
 
     Looks at the top level policy object for the named transform given as transformLabel
@@ -238,13 +147,43 @@ def load_named_transform(policy: Dict[Any, Any], transformLabel: str):
     named_transforms = policy.transformations
     for transform in named_transforms:
         if transformLabel == transform.name:
-            initTransform = get(transform.type)(**transform.args)
+            tfm_ctor = registry.get(transform.type)
+            if tfm_ctor is None:
+                raise exceptions.NamedTransformNotFound(
+                    f"Could not find transform of type {transform.type} in registry"
+                )
+            tfm_args = _maybe_replace_dtype_arg(transform.args, return_spark)
+            initTransform = tfm_ctor(**tfm_args)
             found = True
             break
 
     if not found:
-        raise NamedTransformNotFound(
+        raise exceptions.NamedTransformNotFound(
             f"Could not find transform {transformLabel} in transformations block"
         )
 
     return initTransform
+
+
+def parse_policy(p: str):
+    """Parses a policy yaml file.
+
+    The passed in string can either be a path to a local file or
+    a URL pointing to a file. If it is a URL then requests attempts to download it.
+
+    Args:
+        p: a path string or a URL string
+
+    Returns:
+        The Policy object initialized by the yaml.
+    """
+    yaml_data: str
+
+    if validators.url(p):
+        yaml_data = requests.get(p).text
+    else:
+        with open(p) as f:
+            yaml_data = f.read()
+
+    policy = yaml.load(yaml_data, Loader=yaml.FullLoader)
+    return data.Policy(**policy)

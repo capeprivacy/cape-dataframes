@@ -13,8 +13,12 @@ contain Transformations.
     # passes them in has keyword arguments.
     policy = Policy(**d)
 """
+import pandas as pd
 
-from .utils import yaml_args_to_kwargs
+from cape_privacy import pandas as cape_pandas
+from cape_privacy import spark as cape_spark
+from cape_privacy.pandas import dtypes
+from cape_privacy.policy import utils
 
 
 class Policy:
@@ -36,6 +40,13 @@ class Policy:
         self.transformations = [
             NamedTransform(**transform) for transform in transformations
         ]
+
+    def apply(self, df, entity: str):
+        if cape_spark is not None and isinstance(df, cape_spark.DataFrame):
+            return cape_spark.apply_policies([self], entity, df)
+        elif isinstance(df, pd.DataFrame):
+            return cape_pandas.apply_policies([self], entity, df)
+        raise ValueError("Expected 'df' to be a DataFrame, found {}.".format(type(df)))
 
 
 class PolicySpec:
@@ -118,7 +129,7 @@ class NamedTransform:
 
         self.name = name
         self.type = type
-        self.args = yaml_args_to_kwargs(args)
+        self.args = utils.yaml_args_to_kwargs(args)
 
 
 class Transform:
@@ -157,4 +168,4 @@ class Transform:
         self.named = named
         self.function = function
         self.where = where
-        self.args = yaml_args_to_kwargs(args)
+        self.args = utils.yaml_args_to_kwargs(args)
