@@ -35,7 +35,7 @@ def test_named_transform_not_found():
     df = pd.DataFrame(np.ones(5,), columns=["test"])
 
     p = data.Policy(**d)
-    tfm = p.spec.rules[0].transformations[0]
+    tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
         policy_commons.get_transformation(p, tfm, df, return_spark=False)
@@ -52,7 +52,7 @@ def test_named_transform_type_not_found():
         Loader=yaml.FullLoader,
     )
     p = data.Policy(**d)
-    tfm = p.spec.rules[0].transformations[0]
+    tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
         policy_commons.get_transformation(p, tfm, registry, return_spark=False)

@@ -33,6 +33,7 @@ class Tokenizer(base.Transformation):
     """
 
     identifier = "tokenizer"
+    type_signature = "col->col"
 
     def __init__(self, max_token_len: int = None, key: str = None):
         typecheck.check_arg(max_token_len, (int, type(None)))
