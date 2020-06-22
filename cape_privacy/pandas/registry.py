@@ -1,4 +1,3 @@
-from typing import Any
 from typing import Callable
 from typing import Dict
 
@@ -10,7 +9,7 @@ from cape_privacy.pandas.transformations import NumericRounding
 from cape_privacy.pandas.transformations import RowRedact
 from cape_privacy.pandas.transformations import Tokenizer
 
-TransformationCtor = Callable[[str, Dict[Any, Any]], None]
+TransformationCtor = Callable
 
 _registry: Dict[str, TransformationCtor] = {}
 
@@ -21,7 +20,7 @@ def get(transformation: str) -> TransformationCtor:
     Arguments:
         transformation: The key of transformation to retrieve.
     """
-    return _registry[transformation]
+    return _registry.get(transformation, None)
 
 
 def register(label: str, ctor: TransformationCtor):
@@ -34,10 +33,10 @@ def register(label: str, ctor: TransformationCtor):
     _registry[label] = ctor
 
 
-register("date-perturbation", DatePerturbation)
-register("numeric-perturbation", NumericPerturbation)
-register("numeric-rounding", NumericRounding)
-register("tokenizer", Tokenizer)
-register("date-truncation", DateTruncation)
-register("redact_column", ColumnRedact)
-register("redact_row", RowRedact)
+register(DatePerturbation.identifier, DatePerturbation)
+register(NumericPerturbation.identifier, NumericPerturbation)
+register(NumericRounding.identifier, NumericRounding)
+register(Tokenizer.identifier, Tokenizer)
+register(DateTruncation.identifier, DateTruncation)
+register(ColumnRedact.identifier, ColumnRedact)
+register(RowRedact.identifier, RowRedact)
