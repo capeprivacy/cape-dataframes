@@ -10,6 +10,7 @@ class PlusN:
     """
 
     identifier = "plusN"
+    type_signature = "col->col"
 
     def __init__(self, n: int = 1) -> None:
         self.n = n

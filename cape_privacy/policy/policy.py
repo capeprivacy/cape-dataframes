@@ -8,40 +8,29 @@ and applies them to pandas dataframes.
     Example policy yaml:
 
     label: test_policy
-    spec:
-      version: 1
-      label: test_policy
-      rules:
-        # The last transactions should match the entity
-        # passed below.
-        - target: records:transactions.transactions
-          action: read
-          effect: allow
-          transformations:
-            # Tells the policy runner to apply the transformation
-            # plusN with the specified args.
-            - field: value
-              function: plusN
-              args:
-                n:
-                  value: 1
-            # Tells the policy runner to apply another plusN
-            # transformation.
-            - field: value
-              function: plusN
-              args:
-                n:
-                  value: 2
+    version: 1
+    rules:
+      - match:
+          name: value
+        actions:
+          # Tells the policy runner to apply the transformation
+          # plusN with the specified arguments.
+          - transform:
+              type: plusN
+              n: 1
+          # Tells the policy runner to apply another plusN
+          # transformation.
+          - transform:
+              type: plusN
+              n: 2
 
     Applying policy:
 
     policy = parse_policy("policy.yaml")
 
-    entity = "transactions"
-
     df = pd.DataFrame(np.ones(5,), columns=["value"])
 
-    df = apply_policies([policy], entity, df)
+    df = apply_policies([policy], df)
 """
 
 import types
@@ -96,21 +85,21 @@ def get_transformation(
         ValueError: If neither a function or named transform exists on the transform
             arg.
     """
-    if transform.function is not None:
-        tfm_ctor = registry.get(transform.function)
+    if transform.type is not None:
+        tfm_ctor = registry.get(transform.type)
         if tfm_ctor is None:
             raise exceptions.TransformNotFound(
-                f"Could not find builtin transform {transform.function}"
+                f"Could not find builtin transform {transform.type}"
             )
         tfm_args = _maybe_replace_dtype_arg(transform.args, return_spark)
         initTransform = tfm_ctor(**tfm_args)
-    elif transform.named is not None:
+    elif transform.name is not None:
         initTransform = _load_named_transform(
-            policy, transform.named, registry, return_spark
+            policy, transform.name, registry, return_spark
         )
     else:
         raise ValueError(
-            f"Expected function or named for transform with field {transform.field}"
+            f"Expected type or name for transform with field {transform.field}"
         )
     return initTransform
 

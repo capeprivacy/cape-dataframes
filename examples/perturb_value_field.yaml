@@ -1,0 +1,12 @@
+label: perturb-value-field
+version: 1
+rules:
+  - match:
+      name: value
+    actions:
+      - transform:
+          type: numeric-perturbation
+          dtype: Integer
+          min: -10
+          max: 10
+          seed: 4984

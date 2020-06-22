@@ -7,24 +7,18 @@ y = """
     transformations:
       - name: plusOne
         type: plusN
-        args:
-          n:
-            value: 1
-    spec:
-        version: 1
-        label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              transformations:
-                - field: test
-                  named: plusOne
-                - field: test
-                  function: plusN
-                  args:
-                    n:
-                      value: 1
+        n: 1
+    rules:
+      - match:
+          name: test
+        actions:
+          - transform:
+              name: plusOne
+          - transform:
+              type: plusN
+              n: 1
+      - match:
+          name: test2
     """
 
 
@@ -43,15 +37,9 @@ def test_policy_class():
 
     assert named.args["n"] == 1
 
-    spec = p.spec
-    assert spec.version == 1
-    assert spec.label == "test_policy"
-    assert len(spec.rules) == 1
-
-    rule = spec.rules[0]
-    assert rule.target == "records:transactions.transactions"
-    assert rule.action == "read"
-    assert rule.effect == "allow"
+    rule = p.rules[0]
+    assert len(p.rules) == 2
+    assert len(rule.actions) == 2
 
     assert len(rule.transformations) == 2
 
@@ -59,8 +47,8 @@ def test_policy_class():
     builtinTransform = rule.transformations[1]
 
     assert namedTransform.field == "test"
-    assert namedTransform.named == "plusOne"
+    assert namedTransform.name == "plusOne"
 
     assert builtinTransform.field == "test"
-    assert builtinTransform.function == "plusN"
+    assert builtinTransform.type == "plusN"
     assert builtinTransform.args["n"] == 1

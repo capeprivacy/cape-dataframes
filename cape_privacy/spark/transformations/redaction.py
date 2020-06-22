@@ -11,6 +11,7 @@ class ColumnRedact:
     """
 
     identifier = "column-redact"
+    type_signature = "df->df"
 
     def __init__(self, columns: List[str]):
         self.columns = columns
@@ -28,6 +29,7 @@ class RowRedact:
     """
 
     identifier = "row-redact"
+    type_signature = "df->df"
 
     def __init__(self, condition: str):
         self.condition = condition

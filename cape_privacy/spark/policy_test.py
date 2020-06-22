@@ -22,7 +22,7 @@ def test_apply_policies():
     registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = plib.apply_policies([p], "transactions", df).toPandas()
+    new_df = plib.apply_policies([p], df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del registry._registry[test_utils.PlusN.identifier]
@@ -55,7 +55,7 @@ def test_apply_complex_policies():
 
     d = yaml.load(fixtures.complex_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = plib.apply_policies([p], "transactions", df).toPandas()
+    new_df = plib.apply_policies([p], df).toPandas()
     pdt.assert_frame_equal(new_df, expected_df, check_dtype=True)
 
 
@@ -68,25 +68,23 @@ def test_named_transformation():
     registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.named_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = plib.apply_policies([p], "transactions", df).toPandas()
+    new_df = plib.apply_policies([p], df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del registry._registry[test_utils.PlusN.identifier]
 
 
-def test_redaction():
+def test_column_redaction():
     sess = spark_utils.make_session("test.policy.redaction")
     pd_df = pd.DataFrame(np.ones((5, 2)), columns=["test", "apple"])
-    pd_df["test"].iloc[0] = 6
-    pd_df["test"].iloc[2] = 6
-    expected_df = pd.DataFrame(np.ones(3,), columns=["test"])
+    expected_df = pd.DataFrame(np.ones(5,), columns=["test"])
     expected_df = expected_df + 3
     df = sess.createDataFrame(pd_df)
 
     registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.redact_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = plib.apply_policies([p], "transactions", df).toPandas()
+    new_df = plib.apply_policies([p], df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del registry._registry[test_utils.PlusN.identifier]
