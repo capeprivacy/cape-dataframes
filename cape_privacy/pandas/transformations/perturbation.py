@@ -8,6 +8,7 @@ import pandas as pd
 
 from cape_privacy.pandas.transformations import base
 from cape_privacy.pandas.transformations import dtypes
+from cape_privacy.utils import typecheck
 
 _FREQUENCY_TO_DELTA_FN = {
     "YEAR": lambda noise: pd.to_timedelta(noise * 365, unit="days"),
@@ -25,10 +26,14 @@ class NumericPerturbation(base.Transformation):
     def __init__(
         self,
         dtype: dtypes.Numerics,
-        min: (int, float),
-        max: (int, float),
+        min: Union[int, float],
+        max: Union[int, float],
         seed: Optional[int] = None,
     ):
+        assert dtype in dtypes.Numerics
+        typecheck.check_arg(min, (int, float))
+        typecheck.check_arg(max, (int, float))
+        typecheck.check_arg(seed, (int, type(None)))
         super().__init__(dtype)
         self._min = min
         self._max = max
@@ -61,7 +66,7 @@ class DatePerturbation(base.Transformation):
     def __call__(self, x: pd.Series):
         return self._perturb_date(x)
 
-    def _perturb_date(self, x: pd.Timestamp):
+    def _perturb_date(self, x: pd.Series):
         is_date_no_time = False
 
         # Use equality instead of isintance because of inheritance
@@ -100,7 +105,7 @@ def _check_minmax_arg(arg):
 
 
 def _check_freq_arg(arg):
-    """Checks that arg is string or a flat collection of strings."""
+    """Checks that arg in one of the frequency options."""
     if not isinstance(arg, (tuple, list)):
         if not isinstance(arg, str):
             raise ValueError

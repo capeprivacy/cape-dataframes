@@ -3,10 +3,13 @@ import secrets
 
 from cape_privacy.pandas.transformations import base
 from cape_privacy.pandas.transformations import dtypes
+from cape_privacy.utils import typecheck
 
 
 class Tokenizer(base.Transformation):
     def __init__(self, max_token_len: int = None, key: str = None):
+        typecheck.check_arg(max_token_len, (int, type(None)))
+        typecheck.check_arg(key, (str, bytes, type(None)))
         super().__init__(dtype=dtypes.String)
         self._max_token_len = max_token_len
         if isinstance(key, str):
