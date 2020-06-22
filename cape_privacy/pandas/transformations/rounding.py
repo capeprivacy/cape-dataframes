@@ -4,12 +4,14 @@ import pandas as pd
 
 from cape_privacy.pandas.transformations import base
 from cape_privacy.pandas.transformations import dtypes
+from cape_privacy.utils import typecheck
 
 
 class NumericRounding(base.Transformation):
     def __init__(self, dtype: dtypes.Numerics, precision: int):
         if dtype not in dtypes.Numerics:
             raise ValueError("NumericRounding requires a Numeric dtype.")
+        typecheck.check_arg(precision, int)
         super().__init__(dtype)
         self._precision = precision
 
@@ -26,13 +28,15 @@ class NumericRounding(base.Transformation):
 
 class DateTruncation(base.Transformation):
     def __init__(self, frequency: str):
+        typecheck.check_arg(frequency, str)
         super().__init__(dtypes.Date)
         self._frequency = frequency.lower()
+        _check_freq_arg(self._frequency)
 
     def __call__(self, x: pd.Series):
-        return self.trunc_date(x)
+        return self._trunc_date(x)
 
-    def trunc_date(self, x):
+    def _trunc_date(self, x: pd.Series):
         if self._frequency == "year":
             truncated = x.values.astype("<M8[Y]")
         elif self._frequency == "month":
@@ -46,15 +50,18 @@ class DateTruncation(base.Transformation):
         elif self._frequency == "second":
             truncated = x.values.astype("<M8[s]")
         else:
-            raise ValueError(
-                "Frequency {} must be one of {}.".format(
-                    self._frequency,
-                    list(["YEAR", "MONTH", "DAY", "hour", "minute", "second"]),
-                )
-            )
+            raise ValueError
 
         # Use equality instead of isintance because of inheritance
         if type(x[0]) == datetime.date:
             return pd.Series(truncated).dt.date
         else:
             return pd.Series(truncated)
+
+
+def _check_freq_arg(arg):
+    """Checks that arg is string or a flat collection of strings."""
+    freq_options = ["year", "month", "day", "hour", "minute", "second"]
+
+    if arg not in freq_options:
+        raise ValueError("Frequency {} must be one of {}.".format(arg, freq_options,))
