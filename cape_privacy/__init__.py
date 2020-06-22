@@ -1,4 +1,9 @@
-from cape_privacy.policy import apply_policies
-from cape_privacy.policy import parse_policy
+from cape_privacy import pandas
+try:
+    from cape_privacy import spark
+except ModuleNotFoundError:
+    spark = None
 
-__all__ = ["apply_policies", "parse_policy"]
+
+
+__all__ = ["pandas", "spark"]
