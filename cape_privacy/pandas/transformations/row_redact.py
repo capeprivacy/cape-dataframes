@@ -9,6 +9,7 @@ class RowRedact:
     """
 
     identifier = "row-redact"
+    type_signature = "df->df"
 
     def __init__(self, condition: str) -> None:
         self.condition = condition

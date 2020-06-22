@@ -1,72 +1,53 @@
 y = """
     label: test_policy
-    spec:
-        version: 1
-        label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              transformations:
-                - field: test
-                  function: plusN
-                  args:
-                    n:
-                      value: 1
-                - field: test
-                  function: plusN
-                  args:
-                    n:
-                      value: 2
+    version: 1
+    rules:
+      - match:
+          name: test
+        actions:
+          - transform:
+              type: plusN
+              n: 1
+          - transform:
+              type: plusN
+              n: 2
     """
 
 named_y = """
+    version: 1
     label: test_policy
     transformations:
       - name: plusOne
         type: plusN
-        args:
-          n:
-            value: 1
+        n: 1
       - name: plusTwo
         type: plusN
-        args:
-          n:
-            value: 2
-    spec:
-        version: 1
-        label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              transformations:
-                - field: test
-                  named: plusOne
-                - field: test
-                  named: plusTwo
+        n: 2
+    rules:
+      - match:
+          name: test
+        actions:
+          - transform:
+              name: plusOne
+          - transform:
+              name: plusTwo
     """
 
 
 def named_not_found_y(saved_tfm, ref_tfm, tfm_type):
     return """
         label: test_policy
+        version: 1
         transformations:
           - name: {saved}
             type: {type}
-            args:
-              n:
-                value: 1
-        spec:
-            version: 1
-            label: test_policy
-            rules:
-                - target: records:transactions.transactions
-                  action: read
-                  effect: allow
-                  transformations:
-                    - field: test
-                      named: {ref}
+            n: 1
+        rules:
+          - match:
+              name: test
+            actions:
+              - transform:
+                  name: {ref}
     """.format(
         saved=saved_tfm, type=tfm_type, ref=ref_tfm
     )
@@ -74,66 +55,54 @@ def named_not_found_y(saved_tfm, ref_tfm, tfm_type):
 
 complex_y = """
     label: test_policy
-    spec:
-        version: 1
-        label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              transformations:
-                - field: val-int
-                  function: numeric-perturbation
-                  args:
-                    dtype:
-                      value: Integer
-                    min:
-                      value: -10
-                    max:
-                      value: 10
-                    seed:
-                      value: 4984
-                - field: val-float
-                  function: numeric-rounding
-                  args:
-                    dtype:
-                      value: Double
-                    precision:
-                      value: 1
-                - field: name
-                  function: tokenizer
-                  args:
-                    key:
-                      value: secret_key
-                - field: date
-                  function: date-truncation
-                  args:
-                    frequency:
-                      value: year
+    version: 1
+    rules:
+      - match:
+          name: val-int
+        actions:
+          - transform:
+              type: numeric-perturbation
+              dtype: Integer
+              min: -10
+              max: 10
+              seed: 4984
+      - match:
+          name: val-float
+        actions:
+          - transform:
+              type: numeric-rounding
+              dtype: Double
+              precision: 1
+      - match:
+          name: name
+        actions:
+          - transform:
+              type: tokenizer
+              key: secret_key
+      - match:
+          name: date
+        actions:
+          - transform:
+              type: date-truncation
+              frequency: year
     """
 
 
 redact_y = """
     label: test_policy
-    spec:
-        version: 1
-        label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              redact:
-                - apple
-              where: test > 2
-              transformations:
-                - field: test
-                  function: plusN
-                  args:
-                    n:
-                      value: 1
-                - field: test
-                  function: plusN
-                  args:
-                    n:
-                      value: 2
+    version: 1
+    rules:
+      - match:
+          name: apple
+        actions:
+          - drop
+      - match:
+          name: test
+        actions:
+          - transform:
+              type: plusN
+              n: 1
+          - transform:
+              type: plusN
+              n: 2
     """

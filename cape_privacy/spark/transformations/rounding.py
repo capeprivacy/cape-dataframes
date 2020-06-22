@@ -8,6 +8,7 @@ from cape_privacy.utils import typecheck
 
 class NumericRounding(base.Transformation):
     identifier = "numeric-rounding"
+    type_signature = "col->col"
 
     def __init__(self, dtype: dtypes.DType, precision: int):
         if dtype not in dtypes.Numerics:
@@ -22,6 +23,7 @@ class NumericRounding(base.Transformation):
 
 class DateTruncation(base.Transformation):
     identifier = "date-truncation"
+    type_signature = "col->col"
 
     def __init__(self, frequency: str):
         typecheck.check_arg(frequency, str)

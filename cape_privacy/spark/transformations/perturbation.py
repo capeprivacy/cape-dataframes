@@ -25,6 +25,7 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 class NumericPerturbation(base.Transformation):
     identifier = "numeric-perturbation"
+    type_signature = "col->col"
 
     def __init__(
         self,
@@ -54,6 +55,7 @@ class NumericPerturbation(base.Transformation):
 
 class DatePerturbation(base.Transformation):
     identifier = "date-perturbation"
+    type_signature = "col->col"
 
     def __init__(
         self,
