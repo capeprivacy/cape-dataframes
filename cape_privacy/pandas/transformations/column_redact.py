@@ -10,7 +10,7 @@ class ColumnRedact:
         columns: The columns to redact.
     """
 
-    function = "column_redact"
+    identifier = "column-redact"
 
     def __init__(self, columns: List[str]) -> None:
         self.columns = columns

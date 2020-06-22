@@ -9,7 +9,7 @@ class PlusN:
         n: The value to add to the field.
     """
 
-    function = "plusN"
+    identifier = "plusN"
 
     def __init__(self, n: int = 1) -> None:
         self.n = n

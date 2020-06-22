@@ -6,8 +6,8 @@ from typing import Union
 import numpy as np
 import pandas as pd
 
+from cape_privacy.pandas import dtypes
 from cape_privacy.pandas.transformations import base
-from cape_privacy.pandas.transformations import dtypes
 from cape_privacy.utils import typecheck
 
 _FREQUENCY_TO_DELTA_FN = {
@@ -23,6 +23,8 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 
 class NumericPerturbation(base.Transformation):
+    identifier = "numeric-perturbation"
+
     def __init__(
         self,
         dtype: dtypes.Numerics,
@@ -50,6 +52,8 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
+    identifier = "date-perturbation"
+
     def __init__(
         self,
         frequency: StrTuple,

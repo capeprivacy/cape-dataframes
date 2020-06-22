@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 import pandas.testing as pdt
 
+from cape_privacy.pandas import dtypes
 from cape_privacy.pandas.transformations import DateTruncation
 from cape_privacy.pandas.transformations import NumericRounding
-from cape_privacy.pandas.transformations import dtypes
 
 
 def _make_apply_numeric_rounding(input, expected_output, ctype, dtype):

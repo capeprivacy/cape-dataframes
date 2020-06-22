@@ -8,7 +8,7 @@ class RowRedact:
         condition: The condition to be passed into the query function.
     """
 
-    function = "row_redact"
+    identifier = "row-redact"
 
     def __init__(self, condition: str) -> None:
         self.condition = condition
