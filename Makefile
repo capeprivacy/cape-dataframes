@@ -60,7 +60,7 @@ bootstrap: pythoncheck pipcheck
 test: pythoncheck
 	pytest
 
-CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/coordinator cape_privacy/utils cape_privacy/policy cape_privacy/auth
+CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy
 
 lint: pythoncheck
 	flake8 ${CI_FILES}
