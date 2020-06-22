@@ -44,13 +44,8 @@ and applies them to pandas dataframes.
     df = apply_policies([policy], entity, df)
 """
 
-import re
 import types
-from typing import Any
-from typing import Dict
-from typing import List
 
-import pandas as pd
 import requests
 import validators
 import yaml
@@ -97,8 +92,9 @@ def get_transformation(
     Raises:
         TransformNotFound: The builtin transform cannot be found.
         NamedTransformNotFound: The named transform cannot be found on the
-        top level policy object.
-        ValueError: If neither a function or named transform exists on the transform arg.
+            top level policy object.
+        ValueError: If neither a function or named transform exists on the transform
+            arg.
     """
     if transform.function is not None:
         tfm_ctor = registry.get(transform.function)

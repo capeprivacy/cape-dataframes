@@ -47,27 +47,30 @@ named_y = """
                   named: plusTwo
     """
 
-named_not_found_y = lambda saved_tfm, ref_tfm, tfm_type: """
-    label: test_policy
-    transformations:
-      - name: {saved}
-        type: {type}
-        args:
-          n:
-            value: 1
-    spec:
-        version: 1
+
+def named_not_found_y(saved_tfm, ref_tfm, tfm_type):
+    return """
         label: test_policy
-        rules:
-            - target: records:transactions.transactions
-              action: read
-              effect: allow
-              transformations:
-                - field: test
-                  named: {ref}
-""".format(
-    saved=saved_tfm, type=tfm_type, ref=ref_tfm
-)
+        transformations:
+          - name: {saved}
+            type: {type}
+            args:
+              n:
+                value: 1
+        spec:
+            version: 1
+            label: test_policy
+            rules:
+                - target: records:transactions.transactions
+                  action: read
+                  effect: allow
+                  transformations:
+                    - field: test
+                      named: {ref}
+    """.format(
+        saved=saved_tfm, type=tfm_type, ref=ref_tfm
+    )
+
 
 complex_y = """
     label: test_policy

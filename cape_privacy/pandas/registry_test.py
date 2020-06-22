@@ -10,9 +10,5 @@ def test_get():
 
 
 def test_get_missing():
-    try:
-        ctor = registry.get("plusWhat?")
-    except:
-        raise AssertionError
-    else:
-        assert ctor is None
+    ctor = registry.get("plusWhat?")
+    assert ctor is None
