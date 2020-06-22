@@ -1,3 +1,4 @@
+import datetime
 from typing import Optional
 from typing import Tuple
 from typing import Union
@@ -9,12 +10,12 @@ from cape_privacy.pandas.transformations import base
 from cape_privacy.pandas.transformations import dtypes
 
 _FREQUENCY_TO_DELTA_FN = {
-    "YEAR": lambda noise: pd.Timedelta(days=noise * 365),
-    "MONTH": lambda noise: pd.Timedelta(days=noise * 30),
-    "DAY": lambda noise: pd.Timedelta(days=noise),
-    "HOUR": lambda noise: pd.Timedelta(hours=noise),
-    "minutes": lambda noise: pd.Timedelta(minutes=noise),
-    "seconds": lambda noise: pd.Timedelta(seconds=noise),
+    "YEAR": lambda noise: pd.to_timedelta(noise * 365, unit="days"),
+    "MONTH": lambda noise: pd.to_timedelta(noise * 30, unit="days"),
+    "DAY": lambda noise: pd.to_timedelta(noise, unit="days"),
+    "HOUR": lambda noise: pd.to_timedelta(noise, unit="hours"),
+    "minutes": lambda noise: pd.to_timedelta(noise, unit="minutes"),
+    "seconds": lambda noise: pd.to_timedelta(noise, unit="seconds"),
 }
 IntTuple = Union[int, Tuple[int, ...]]
 StrTuple = Union[str, Tuple[str, ...]]
@@ -57,12 +58,19 @@ class DatePerturbation(base.Transformation):
         self._max = _check_minmax_arg(max)
         self._rng = np.random.default_rng(seed)
 
-    def __call__(self, series: pd.Series):
-        return series.apply(lambda x: self._perturb_date(x))
+    def __call__(self, x: pd.Series):
+        return self._perturb_date(x)
 
     def _perturb_date(self, x: pd.Timestamp):
+        is_date_no_time = False
+
+        # Use equality instead of isintance because of inheritance
+        if type(x[0]) == datetime.date:
+            x = pd.to_datetime(x)
+            is_date_no_time = True
+
         for f, mn, mx in zip(self._frequency, self._min, self._max):
-            noise = self._rng.integers(mn, mx)
+            noise = self._rng.integers(mn, mx, size=x.shape)
             delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
             if delta_fn is None:
                 raise ValueError(
@@ -72,7 +80,10 @@ class DatePerturbation(base.Transformation):
                 )
             x += delta_fn(noise)
 
-        return x
+        if is_date_no_time:
+            return pd.Series(x).dt.date
+        else:
+            return x
 
 
 def _check_minmax_arg(arg):
