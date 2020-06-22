@@ -41,8 +41,8 @@ class PolicySpec:
     """Policy spec contains a list of rules.
 
     Attributes:
-      label: The label of the policy spec. Often the same as the policy.
-      rules: A list of rules.
+        label: The label of the policy spec. Often the same as the policy.
+        rules: A list of rules.
 
     """
 
@@ -112,7 +112,7 @@ class NamedTransform:
 
         if args == {}:
             raise ValueError(
-                f"Args must be specified for named transformation {self.name}"
+                f"Args must be specified for named transformation {name}"
             )
 
         self.name = name
