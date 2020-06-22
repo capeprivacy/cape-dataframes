@@ -13,11 +13,6 @@ contain Transformations.
     # passes them in has keyword arguments.
     policy = Policy(**d)
 """
-import pandas as pd
-
-from cape_privacy import pandas as cape_pandas
-from cape_privacy import spark as cape_spark
-from cape_privacy.policy import exceptions
 from cape_privacy.policy import utils
 
 
@@ -40,18 +35,6 @@ class Policy:
         self.transformations = [
             NamedTransform(**transform) for transform in transformations
         ]
-
-    def apply(self, df, entity: str):
-        if cape_spark is not None and isinstance(df, cape_spark.DataFrame):
-            return cape_spark.apply_policies([self], entity, df)
-        elif isinstance(df, pd.DataFrame):
-            return cape_pandas.apply_policies([self], entity, df)
-        if cape_spark is None:
-            raise exceptions.DependencyError(
-                "PySpark dependency not found! Please make sure your environment is "
-                "configured correctly."
-            )
-        raise ValueError("Expected 'df' to be a DataFrame, found {}.".format(type(df)))
 
 
 class PolicySpec:
