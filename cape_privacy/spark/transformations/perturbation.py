@@ -24,6 +24,8 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 
 class NumericPerturbation(base.Transformation):
+    identifier = "numeric-perturbation"
+
     def __init__(
         self,
         dtype: dtypes.DType,
@@ -51,6 +53,8 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
+    identifier = "date-perturbation"
+
     def __init__(
         self,
         frequency: StrTuple,

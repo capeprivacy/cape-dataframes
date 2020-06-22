@@ -10,7 +10,7 @@ class ColumnRedact:
         columns: Which columns are redacted.
     """
 
-    function = "column_redact"
+    identifier = "column-redact"
 
     def __init__(self, columns: List[str]):
         self.columns = columns
@@ -27,7 +27,7 @@ class RowRedact:
             will be dropped.
     """
 
-    function = "row_redact"
+    identifier = "row-redact"
 
     def __init__(self, condition: str):
         self.condition = condition

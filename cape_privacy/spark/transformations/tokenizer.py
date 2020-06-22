@@ -10,6 +10,8 @@ from cape_privacy.utils import typecheck
 
 
 class Tokenizer(base.Transformation):
+    identifier = "tokenizer"
+
     def __init__(self, max_token_len=None, key=None):
         typecheck.check_arg(max_token_len, (int, type(None)))
         typecheck.check_arg(key, (str, bytes, type(None)))
@@ -28,11 +30,11 @@ class Tokenizer(base.Transformation):
     def _make_tokenize_udf(self):
         @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
         def to_token(x: pd.Series):
-            return x.map(self.to_token)
+            return x.map(self._to_token)
 
         return to_token
 
-    def to_token(self, x: str):
+    def _to_token(self, x: str):
         token = hashlib.sha256(x.encode() + self.key).hexdigest()
         if self._max_token_len is None:
             return token
