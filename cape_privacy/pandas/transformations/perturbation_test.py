@@ -1,3 +1,5 @@
+import datetime
+
 import numpy as np
 import pandas as pd
 import pandas.testing as pdt
@@ -31,11 +33,22 @@ def test_perturbation_int():
     pdt.assert_frame_equal(df, expected)
 
 
-def test_perturbation_date():
+def test_perturbation_datetime():
     transform = DatePerturbation(frequency="DAY", min=-10, max=10, seed=1234)
 
     df = pd.DataFrame({"date": [np.datetime64("2018-10-15")]})
     expected = pd.DataFrame({"date": [np.datetime64("2018-10-24")]})
+
+    df["date"] = transform(df.date)
+
+    pdt.assert_frame_equal(df, expected)
+
+
+def test_perturbation_date():
+    transform = DatePerturbation(frequency="DAY", min=-10, max=10, seed=1234)
+
+    df = pd.DataFrame({"date": [datetime.date(year=2018, month=10, day=15)]})
+    expected = pd.DataFrame({"date": [datetime.date(year=2018, month=10, day=24)]})
 
     df["date"] = transform(df.date)
 
