@@ -48,7 +48,7 @@ This will also install all dependencies, including Apache Spark. Make sure you h
 
 ## Example
 
-*(this example is an abridged version of the tutorial found [here](./examples/tutorials/))*
+*(this example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials))*
 
 To discover what different transformations do and how you might use them, it is best to explore via the `transformations` APIs:
 
@@ -120,7 +120,7 @@ print(df.head())
 # 1  2e586494b2   63 1963-05-10
 ```
 
-You can see more examples and usage [here](./examples) or by visiting our [documentation](https://docs.capeprivacy.com).
+You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or by visiting our [documentation](https://docs.capeprivacy.com).
 
 ## Contributing and Bug Reports
 
@@ -129,7 +129,7 @@ Please file any [feature request](https://github.com/capeprivacy/cape-python/iss
 
 ## License
 
-Licensed under Apache License, Version 2.0 (see [LICENSE](./LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](./NOTICE).
+Licensed under Apache License, Version 2.0 (see [LICENSE](https://github.com/capeprivacy/cape-python/blob/master/LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](https://github.com/capeprivacy/cape-python/blob/master/NOTICE).
 
 ## About Cape
 
