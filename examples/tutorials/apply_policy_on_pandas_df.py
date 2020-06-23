@@ -1,17 +1,17 @@
 
-import cape_privacy
+import cape_privacy as cape
+import pandas as pd
+
 from dataset import load_dataset
 
 
 # Load the Pandas DataFrame
-df = load_dataset(framework="pandas")
+df = load_dataset()
 print("Original Dataset:")
 print(df.head())
-# Load the privacy policy
-policy = cape_privacy.parse_policy("mask_personal_information.yaml")
-# Apply the policy to the DataFrame
-# [NOTE] will be updated to `cape_privacy.apply_policy` #49 is merged
-df = cape_privacy.apply_policy(policy, df)
-# Output the masked dataset
+# Load the privacy policy and apply it to the DataFrame
+policy = cape.parse_policy("mask_personal_information.yaml")
+df = cape.apply_policy(policy, df)
+
 print("Masked Dataset:")
 print(df.head())
