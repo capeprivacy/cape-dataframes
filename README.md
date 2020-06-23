@@ -59,22 +59,13 @@ df = pd.DataFrame({
         "birthdate": [pd.Timestamp(1985, 2, 23), pd.Timestamp(1963, 5, 10)],
     })
 
-tokenize = Tokenizer(
-    max_token_len=10,
-    key=b"my secret",
-)
-
-perturb_numeric = NumericPerturbation(
-    dtype=dtypes.Integer,
-    min=-10,
-    max=10,
-)
+tokenize = Tokenizer(max_token_len=10, key=b"my secret")
+perturb_numeric = NumericPerturbation(dtype=dtypes.Integer, min=-10, max=10)
 
 df["name"] = tokenize(df["name"])
 df["age"] = perturb_numeric(df["age"])
 
 print(df.head())
-
 # >>
 #          name  age  birthdate
 # 0  f42c2f1964   34 1985-02-23
