@@ -72,29 +72,24 @@ class DatePerturbation(base.Transformation):
     frequencies of timestamps. The amount of noise for each frequency
     is drawn from the internal [min_freq, max_freq).
 
+    Note that seeds are currently not supported.
+
     Attributes:
         frequency (str, str list): one or more frequencies to perturbate
         min (int, int list): the frequency value will be greater or equal to min
         max (int, int list): the frequency value will be less than max
-        seed (int), optional: a seed to initialize the random generator
     """
 
     identifier = "date-perturbation"
     type_signature = "col->col"
 
     def __init__(
-        self,
-        frequency: StrTuple,
-        min: IntTuple,
-        max: IntTuple,
-        seed: Optional[int] = None,
+        self, frequency: StrTuple, min: IntTuple, max: IntTuple,
     ):
-        typecheck.check_arg(seed, (int, type(None)))
         super().__init__(dtypes.Date)
         self._frequency = _check_freq_arg(frequency)
         self._min = _check_minmax_arg(min)
         self._max = _check_minmax_arg(max)
-        self._rng = np.random.default_rng(seed)
         self._perturb_date = None
 
     def __call__(self, x: sql.Column):
@@ -105,9 +100,10 @@ class DatePerturbation(base.Transformation):
     def _make_perturb_udf(self):
         @functions.pandas_udf(dtypes.Date, functions.PandasUDFType.SCALAR)
         def perturb_date(x: pd.Series) -> pd.Series:
+            rng = np.random.default_rng()
             for f, mn, mx in zip(self._frequency, self._min, self._max):
                 # TODO can we switch to a lower dtype than np.int64?
-                noise = self._rng.integers(mn, mx, size=x.shape)
+                noise = rng.integers(mn, mx, size=x.shape)
                 delta_fn = _FREQUENCY_TO_DELTA_FN.get(f, None)
                 if delta_fn is None:
                     raise ValueError(

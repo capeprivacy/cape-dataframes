@@ -7,16 +7,16 @@ from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import perturbation as ptb
 
 
-def _make_and_apply_numeric_ptb(sess, df, dtype, min, max, seed=42):
+def _make_and_apply_numeric_ptb(sess, df, dtype, min, max):
     df = sess.createDataFrame(df, schema=["data"])
-    perturb = ptb.NumericPerturbation(dtype, min=min, max=max, seed=seed)
+    perturb = ptb.NumericPerturbation(dtype, min=min, max=max)
     result_df = df.select(perturb(functions.col("data")))
     return result_df.toPandas()
 
 
-def _make_and_apply_date_ptb(sess, df, frequency, min, max, seed=42):
+def _make_and_apply_date_ptb(sess, df, frequency, min, max):
     df = sess.createDataFrame(df, schema=["data"])
-    perturb = ptb.DatePerturbation(frequency, min, max, seed)
+    perturb = ptb.DatePerturbation(frequency, min, max)
     result_df = df.select(perturb(functions.col("data")))
     return result_df.withColumnRenamed("perturb_date(data)", "data").toPandas()
 
