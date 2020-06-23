@@ -20,6 +20,6 @@ policy = cape.parse_policy("examples/spark_round.yaml")
 rounding_spec = policy.transformations[0]
 type_arg = getattr(dtypes, rounding_spec.args['dtype'])
 rounding_spec.args['dtype'] = type_arg
-rounder = tfms.Rounding(**rounding_spec.args)
+rounder = tfms.NumericRounding(**rounding_spec.args)
 df = df.select(rounder(functions.col('value')))
 df.show()

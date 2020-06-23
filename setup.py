@@ -2,8 +2,8 @@
 import setuptools
 
 setuptools.setup(
-    name="cape_privacy",
-    version="0.0.1",
+    name="cape-privacy",
+    version="0.1.0rc0",
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     license="Apache License 2.0",

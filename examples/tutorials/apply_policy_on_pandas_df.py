@@ -11,7 +11,7 @@ print(df.head())
 policy = cape_privacy.parse_policy("mask_personal_information.yaml")
 # Apply the policy to the DataFrame
 # [NOTE] will be updated to `cape_privacy.apply_policy` #49 is merged
-df = cape_privacy.pandas.policy.apply_policies([policy], df)
+df = cape_privacy.apply_policy(policy, df)
 # Output the masked dataset
 print("Masked Dataset:")
 print(df.head())
