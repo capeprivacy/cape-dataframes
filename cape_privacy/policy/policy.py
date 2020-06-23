@@ -1,41 +1,36 @@
 """Utils for parsing policy and applying them.
 
-The module reads in policy as yaml and then through apply_policies
+The module reads in policy as yaml and then through apply_policy
 and applies them to pandas dataframes.
 
-    Typical usage example:
-
-    Example policy yaml:
+Example policy yaml:
 
     label: test_policy
     version: 1
     rules:
-      - match:
-          name: value
+    - match:
+        name: value
         actions:
-          # Tells the policy runner to apply the transformation
-          # plusN with the specified arguments.
-          - transform:
-              type: plusN
-              n: 1
-          # Tells the policy runner to apply another plusN
-          # transformation.
-          - transform:
-              type: plusN
-              n: 2
+        # Tells the policy runner to apply the transformation
+        # plusN with the specified arguments.
+        - transform:
+            type: plusN
+            n: 1
+        # Tells the policy runner to apply another plusN
+        # transformation.
+        - transform:
+            type: plusN
+            n: 2
 
-    Applying policy:
+Applying policy:
 
     policy = parse_policy("policy.yaml")
-
     df = pd.DataFrame(np.ones(5,), columns=["value"])
-
-    df = apply_policies([policy], df)
+    df = apply_policy(policy, df)
 """
 
 import types
 from typing import Callable
-from typing import List
 
 import pandas as pd
 import requests
@@ -48,16 +43,16 @@ from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
 
 
-def apply_policies(policies: List[data.Policy], df, inplace=False):
-    """Applies a sequence of Policy objects to some DataFrame.
+def apply_policy(policy: data.Policy, df, inplace=False):
+    """Applies a Policy to some DataFrame.
 
     This function is responsible for inferring the type of the DataFrame, preparing the
     relevant Spark or Pandas Transformations, and applying them to produce a transformed
-    DataFrame.
+    DataFrame that conforms to the Policy.
 
     Args:
-        policies: A list of `Policy` objects, e.g. as returned by
-            `cape_privacy.parse_policy`.
+        policy: The `Policy` object that the transformed DataFrame will conform to, e.g.
+            as returned by `cape_privacy.parse_policy`.
         df: The DataFrame object to transform according to `policies`. Must be of type
             pandas.DataFrame or pyspark.sql.DataFrame.
         inplace: Whether to mutate the `df` or produce a new one. This argument is only
@@ -92,11 +87,10 @@ def apply_policies(policies: List[data.Policy], df, inplace=False):
         result_df = df
     else:
         raise ValueError(f"Expected df to be a DataFrame, found {type(df)}.")
-    for policy in policies:
-        for rule in policy.rules:
-            result_df = _do_transformations(
-                policy, rule, result_df, registry, transformer, return_spark
-            )
+    for rule in policy.rules:
+        result_df = _do_transformations(
+            policy, rule, result_df, registry, transformer, return_spark
+        )
     return result_df
 
 
