@@ -19,20 +19,23 @@ For this example, we will use a mock dataset with the following PII fields: name
 You can experiment with these transformations on a Pandas DataFrame by running the following script:
 
 ```
-python pandas_transformations_without_policy.py
+python experiment_pandas.py
 ```
 
-You can also experiment with these transformations on Spark DataFrame with the `cape_privacy.pandas.transformations` API.
+You can also experiment with these transformations on Spark DataFrame with the `cape_privacy.spark.transformations` API.
 
-```
-python spark_transformations_without_policy.py
+```sh
+python experiment_spark.py
+
+# submit the script to a Spark cluster
+spark-submit experiment_spark.py
 ```
 
-As you will notice, the `transformations` API for `Pandas` and `Spark` are identical, so you can easily transfer the transformations applied in `Pandas` to `Spark`.
+As you will notice, the `transformations` API is standardized, so you can easily transfer the transformations applied in `Pandas` to `Spark`.
 
 ## Write your policy
 
-Once you identified the masking techniques you'd like to apply, you can define your policy in a `yaml` file. Below, you'll find a sample of the policy corresponding to the transformations applied in `pandas_transformations_without_policy.py`. You can find the full policy in `mask_personal_information.yaml`. You can select the field with `match` then define the transformation you'd like to apply under `transform` with the right arguments. The argument names in the policy file match the arguments of the `transformations` API. 
+Once you've identified the masking techniques you'd like to apply, you can define your policy in a `yaml` file. Below, you'll find a sample of the policy corresponding to the transformations applied in `experiment_pandas.py`. You can find the full policy in `mask_personal_information.yaml`. You can select the field with `match`, then define the transformation you'd like to apply under `transform` with the appropriate arguments. The argument names in the policy file match the arguments of the `transformations` API.
 
 ```yaml
 label: masking_policy
@@ -57,20 +60,20 @@ rules:
 
 ## Apply the policy to your Spark DataFrame
 
-You are now ready to apply the policy to your Spark DataFrame. You just need two methods:
+You are now ready to apply the policy to your Spark DataFrame. You just need to add two methods to your PySpark job:
 - `cape_privacy.parse_policy`: load and parse the policy defined in the `yaml` file.
-- `cape_privacy.apply_policy`: apply the policy to the Spark DataFrame (you can use the same method on a Pandas DataFrame).
+- `cape_privacy.apply_policy`: apply the policy to a DataFrame.
 
-To mask your data with Spark, simply run the following example:
+To mask your data in a Spark job:
 
+```sh
+spark-submit apply_policy_spark.py
 ```
-python apply_policy_on_spark_df.py
-```
 
-You can also apply the exact same policy to a Pandas DataFrame:
+The same process works for Pandas too, in case you'd rather test or deploy with a quick prototype.
 
-```
-python apply_policy_on_pandas_df.py
+```sh
+python apply_policy_pandas.py
 ```
 
 In your terminal, you should the see the data masked!
