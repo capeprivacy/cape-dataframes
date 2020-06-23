@@ -27,7 +27,7 @@ class NumericPerturbation(base.Transformation):
 
     Mask a numeric Pandas Series by adding uniform random
     noise to each value. The amount of noise is drawn from
-    the interval [min, max].
+    the interval [min, max).
 
     Example:
         ```
@@ -38,8 +38,8 @@ class NumericPerturbation(base.Transformation):
 
     Attributes:
         dtypes (dtypes.Numerics): Pandas Series type
-        min (int, float): the values generated will be greater or equal than min
-        max (int, float): the values generated will be less or equal than max
+        min (int, float): the values generated will be greater then or equal to min
+        max (int, float): the values generated will be less than max
         seed (int), optional: a seed to initialize the random generator
     """
 
