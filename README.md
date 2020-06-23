@@ -28,15 +28,13 @@ This example does a basic plusOne transformation on a pandas dataframe with a si
 found in the `examples` directory.
 
 ```python
-import pandas as pd
+import cape_privacy as cape
 import numpy as np
-
-import cape_privacy.pandas as cape
-
-df = pd.DataFrame(np.ones(5,), columns=["value"])
+import pandas as pd
 
 policy = cape.parse_policy("perturb_value_field.yaml")
-df = cape.apply_policies([policy], df)
+df = pd.DataFrame(np.ones(5,), columns=["value"])
+df = cape.apply_policy(policy, df)
 
 print(df.head())
 ```
