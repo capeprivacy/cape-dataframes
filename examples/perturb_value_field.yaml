@@ -1,8 +1,8 @@
-label: perturb-value-field
+label: perturb-ones-field
 version: 1
 rules:
   - match:
-      name: value
+      name: ones
     actions:
       - transform:
           type: numeric-perturbation
