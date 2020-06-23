@@ -33,10 +33,10 @@ class NumericRounding(base.Transformation):
 
 class DateTruncation(base.Transformation):
     """Reduce the precision of a date series
-    
+
     Truncate each date in a series to the unit (year or month)
     specified by frequency.
-    
+
     Attributes:
         frequency (string): expect to be 'year' or 'month'
     """
