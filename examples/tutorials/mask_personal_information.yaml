@@ -1,0 +1,41 @@
+label: masking_policy
+version: 1
+rules:
+  - match:
+      name: name
+    actions:
+      - transform:
+          type: "tokenizer"
+          max_token_len: 10
+          key: "my secret"
+  - match:
+      name: age
+    actions:
+      - transform:
+          type: "numeric-perturbation"
+          dtype: Integer
+          min: -10
+          max: 10
+  - match:
+      name: salary
+    actions:
+      - transform:
+          type: "numeric-rounding"
+          dtype: Double
+          precision: -3
+  - match:
+      name: birthdate
+    actions:
+      - transform:
+          type: "date-perturbation"
+          frequency: ["YEAR", "MONTH", "DAY"]
+          min: [-10, -5, -5]
+          max: [10, 5, 5]
+  - match:
+      name: ssn
+    actions:
+      - transform:
+          type: "column-redact"
+          columns: ["ssn"] 
+
+
