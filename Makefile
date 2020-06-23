@@ -75,4 +75,18 @@ coverage:
 	pytest --cov-report=xml --cov=cape_privacy ${CI_FILES}
 	coverage report --fail-under=90
 
-.PHONY: lint fmt test coverage
+examples:
+	for dir in examples examples/tutorials; do \
+		pushd $$dir; \
+		for i in *.py; do \
+			line=$$(head -n 1 $$i); \
+			if [[ $$line == "# SKIP_CI" ]]; then \
+			  continue; \
+			fi; \
+			echo "Running $$i"; \
+			python $$i || exit 1; \
+		done; \
+		popd; \
+	done;
+
+.PHONY: lint fmt test coverage examples
