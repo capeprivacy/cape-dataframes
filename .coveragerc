@@ -1,5 +1,4 @@
 [report]
 omit=
     cape_privacy/spark/examples/*
-    cape_privacy/spark/benchmarks/*
     *test.py
