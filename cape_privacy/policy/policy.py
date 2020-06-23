@@ -1,7 +1,7 @@
 """Utils for parsing policy and applying them.
 
 The module reads in policy as yaml and then through apply_policy
-and applies them to pandas dataframes.
+applies them to dataframes.
 
 Example policy yaml:
 
@@ -69,7 +69,7 @@ def apply_policy(policy: data.Policy, df, inplace=False):
     if isinstance(df, pd.DataFrame):
         registry = pandas_lib.registry
         transformer = pandas_lib.transformer
-        return_spark = False
+        dtypes = pandas_lib.dtypes
         if not inplace:
             result_df = df.copy()
         else:
@@ -83,13 +83,13 @@ def apply_policy(policy: data.Policy, df, inplace=False):
             )
         registry = spark_lib.registry
         transformer = spark_lib.transformer
-        return_spark = True
+        dtypes = spark_lib.dtypes
         result_df = df
     else:
         raise ValueError(f"Expected df to be a DataFrame, found {type(df)}.")
     for rule in policy.rules:
         result_df = _do_transformations(
-            policy, rule, result_df, registry, transformer, return_spark
+            policy, rule, result_df, registry, transformer, dtypes
         )
     return result_df
 
@@ -118,23 +118,14 @@ def parse_policy(p: str):
     return data.Policy(**policy)
 
 
-def _maybe_replace_dtype_arg(args, return_spark):
-    if return_spark:
-        if not spark_lib.is_available():
-            raise exceptions.DependencyError()
-        dtypes = spark_lib.dtypes
-    else:
-        dtypes = pandas_lib.dtypes
+def _maybe_replace_dtype_arg(args, dtypes):
     if "dtype" in args:
         args["dtype"] = getattr(dtypes, args["dtype"])
     return args
 
 
 def _get_transformation(
-    policy: data.Policy,
-    transform: data.Transform,
-    registry: types.ModuleType,
-    return_spark: bool,
+    policy: data.Policy, transform: data.Transform, registry: types.ModuleType, dtypes,
 ):
     """Looks up the correct transform class.
 
@@ -147,7 +138,7 @@ def _get_transformation(
         transform: The specific transform to be applied.
         registry: The module representing the transformation registry; differs for
             Spark/Pandas.
-        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
+        dtypes: Passthrough; concrete dtypes to use (spark.dtypes or pandas.dtypes).
 
     Returns:
         The initialize transform object.
@@ -165,12 +156,10 @@ def _get_transformation(
             raise exceptions.TransformNotFound(
                 f"Could not find builtin transform {transform.type}"
             )
-        tfm_args = _maybe_replace_dtype_arg(transform.args, return_spark)
+        tfm_args = _maybe_replace_dtype_arg(transform.args, dtypes)
         initTransform = tfm_ctor(**tfm_args)
     elif transform.name is not None:
-        initTransform = _load_named_transform(
-            policy, transform.name, registry, return_spark
-        )
+        initTransform = _load_named_transform(policy, transform.name, registry, dtypes)
     else:
         raise ValueError(
             f"Expected type or name for transform with field {transform.field}"
@@ -184,9 +173,9 @@ def _do_transformations(
     df,
     registry: types.ModuleType,
     transformer: Callable,
-    return_spark: bool,
+    dtypes,
 ):
-    """Applies a specific rule's transformations to a pandas dataframe.
+    """Applies a specific rule's transformations to a dataframe.
 
     For each transform, lookup the required transform class and then apply it
     to the correct column in that dataframe.
@@ -194,20 +183,20 @@ def _do_transformations(
     Args:
         policy: The top level policy.
         rule: The specific rule to apply.
-        df: A pandas dataframe.
+        df: A Pandas or Spark dataframe.
         registry: The module representing the transformation registry; differs for
             Spark/Pandas.
         transformer: A function mapping (Transformation, DataFrame, str) to a DataFrame
             that mutates a DataFrame by applying the Transformation to one of its
             columns.
-        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
+        dtypes: Passthrough; concrete dtypes to use (spark.dtypes or pandas.dtypes).
 
     Returns:
         The transformed dataframe.
     """
 
     for transform in rule.transformations:
-        do_transform = _get_transformation(policy, transform, registry, return_spark)
+        do_transform = _get_transformation(policy, transform, registry, dtypes)
         if do_transform.type_signature == "df->df":
             df = do_transform(df)
         else:
@@ -217,10 +206,7 @@ def _do_transformations(
 
 
 def _load_named_transform(
-    policy: data.Policy,
-    transformLabel: str,
-    registry: types.ModuleType,
-    return_spark: bool,
+    policy: data.Policy, transformLabel: str, registry: types.ModuleType, dtypes,
 ):
     """Attempts to load a named transform from the top level policy.
 
@@ -232,7 +218,7 @@ def _load_named_transform(
         transformLabel: The name of the named transform.
         registry: The module representing the transformation registry; differs for
             Spark/Pandas.
-        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
+        dtypes: Passthrough; concrete dtypes to use (spark.dtypes or pandas.dtypes).
 
     Returns:
         The initialized transform object.
@@ -253,7 +239,7 @@ def _load_named_transform(
                 raise exceptions.NamedTransformNotFound(
                     f"Could not find transform of type {transform.type} in registry"
                 )
-            tfm_args = _maybe_replace_dtype_arg(transform.args, return_spark)
+            tfm_args = _maybe_replace_dtype_arg(transform.args, dtypes)
             initTransform = tfm_ctor(**tfm_args)
             found = True
             break

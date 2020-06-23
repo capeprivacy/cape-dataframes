@@ -42,7 +42,7 @@ def test_named_transform_not_found():
     tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
-        policy_lib._get_transformation(p, tfm, df, return_spark=False)
+        policy_lib._get_transformation(p, tfm, df, pandas_lib.dtypes)
 
     assert str(e.value) == (
         "Could not find transform plusOneThousand in transformations block"
@@ -58,7 +58,7 @@ def test_named_transform_type_not_found():
     tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
-        policy_lib._get_transformation(p, tfm, pandas_lib.registry, return_spark=False)
+        policy_lib._get_transformation(p, tfm, pandas_lib.registry, pandas_lib.dtypes)
     assert str(e.value) == "Could not find transform of type plusM in registry"
 
 
