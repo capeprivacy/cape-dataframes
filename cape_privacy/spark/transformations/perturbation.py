@@ -24,6 +24,18 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 
 class NumericPerturbation(base.Transformation):
+    """Add uniform random noise to a numeric series
+
+    Mask a numeric series by adding uniform random noise to each value.
+    The amount of noise is drawn from the interval [min, max).
+
+    Attributes:
+        dtype (dtypes.Numerics): series type
+        min (int, float): the values generated will be greater or equal to min
+        max (int, float): the values generated will be less than max
+        seed (int), optional: a seed to initialize the random generator
+    """
+
     identifier = "numeric-perturbation"
     type_signature = "col->col"
 
@@ -54,6 +66,19 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
+    """Add uniform random noise to a Pandas series of timestamps
+
+    Mask a series by adding uniform random noise to the specified
+    frequencies of timestamps. The amount of noise for each frequency
+    is drawn from the internal [min_freq, max_freq).
+
+    Attributes:
+        frequency (str, str list): one or more frequencies to perturbate
+        min (int, int list): the frequency value will be greater or equal to min
+        max (int, int list): the frequency value will be less than max
+        seed (int), optional: a seed to initialize the random generator
+    """
+
     identifier = "date-perturbation"
     type_signature = "col->col"
 
