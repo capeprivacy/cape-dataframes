@@ -3,7 +3,7 @@ import pandas as pd
 from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
-from cape_privacy.spark import test_utils
+from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import perturbation as ptb
 
 
@@ -22,7 +22,7 @@ def _make_and_apply_date_ptb(sess, df, frequency, min, max):
 
 
 def test_float_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.float.bounds")
+    sess = utils.make_session("test.perturbation.float.bounds")
     data = np.arange(6, dtype=np.float32).reshape((6, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -2, 2
@@ -37,7 +37,7 @@ def test_float_ptb_bounds():
 
 
 def test_double_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.double.bounds")
+    sess = utils.make_session("test.perturbation.double.bounds")
     data = np.arange(6, dtype=np.float64).reshape((6, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -2, 2
@@ -52,7 +52,7 @@ def test_double_ptb_bounds():
 
 
 def test_int_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.integer.bounds")
+    sess = utils.make_session("test.perturbation.integer.bounds")
     data = np.arange(10, dtype=np.int32).reshape((10, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -3, 3
@@ -67,7 +67,7 @@ def test_int_ptb_bounds():
 
 
 def test_byte_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.byte.bounds")
+    sess = utils.make_session("test.perturbation.byte.bounds")
     data = np.arange(10, dtype=np.int8).reshape((10, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -3, 3
@@ -82,7 +82,7 @@ def test_byte_ptb_bounds():
 
 
 def test_short_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.short.bounds")
+    sess = utils.make_session("test.perturbation.short.bounds")
     data = np.arange(10, dtype=np.int16).reshape((10, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -3, 3
@@ -97,7 +97,7 @@ def test_short_ptb_bounds():
 
 
 def test_integer_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.integer.bounds")
+    sess = utils.make_session("test.perturbation.integer.bounds")
     data = np.arange(10, dtype=np.int32).reshape((10, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -3, 3
@@ -112,7 +112,7 @@ def test_integer_ptb_bounds():
 
 
 def test_long_ptb_bounds():
-    sess = test_utils.make_session("test.perturbation.long.bounds")
+    sess = utils.make_session("test.perturbation.long.bounds")
     data = np.arange(10, dtype=np.int64).reshape((10, 1))
     test_df = pd.DataFrame(data, columns=["data"])
     lower, upper = -3, 3
@@ -127,7 +127,7 @@ def test_long_ptb_bounds():
 
 
 def test_date_perturbation_singlefreq_bounds():
-    sess = test_utils.make_session("test.perturbation.date.bounds.singleFrequency")
+    sess = utils.make_session("test.perturbation.date.bounds.singleFrequency")
     data = pd.to_datetime(["1997-03-15", "2020-06-24"])
     test_df = pd.DataFrame(data, columns=["data"])
     frequencies = ["YEAR", "MONTH", "DAY"]
@@ -144,7 +144,7 @@ def test_date_perturbation_singlefreq_bounds():
 
 
 def test_date_perturbation_multifreq_bounds():
-    sess = test_utils.make_session("test.perturbation.date.bounds.singleFrequency")
+    sess = utils.make_session("test.perturbation.date.bounds.singleFrequency")
     data = pd.to_datetime(["1997-03-15", "2020-06-24"])
     test_df = pd.DataFrame(data, columns=["data"])
     frequency = ("MONTH", "DAY")

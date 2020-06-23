@@ -1,13 +1,13 @@
 label: spark-round-float
 version: 1
 transformations:
-      - name: roundToZero
-        type: roundNumeric
+      - name: roundFloat
+        type: numeric-rounding
         dtype: Float
         precision: 0
 rules:
   - match:
-      name: value
+      name: ones
     actions:
       - transform:
           name: roundFloat

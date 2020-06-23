@@ -5,7 +5,7 @@ import pandas as pd
 from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
-from cape_privacy.spark import test_utils
+from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import rounding as rnd
 
 
@@ -47,7 +47,7 @@ def _make_datetime_data(sess):
 # Tests
 def test_rounding_float():
     precision = 0
-    sess = test_utils.make_session("test.rounding.float")
+    sess = utils.make_session("test.rounding.float")
     test_df, expected = _make_float_data(np.float32, precision)
     result_df = _make_and_apply_rounder(sess, test_df, dtypes.Float, precision)
     result = result_df.values
@@ -57,7 +57,7 @@ def test_rounding_float():
 
 def test_rounding_double():
     precision = 0
-    sess = test_utils.make_session("test.rounding.double")
+    sess = utils.make_session("test.rounding.double")
     test_df, expected = _make_float_data(np.float64, precision)
     result_df = _make_and_apply_rounder(sess, test_df, dtypes.Double, precision)
     result = result_df.values
@@ -67,7 +67,7 @@ def test_rounding_double():
 
 def test_rounding_integer():
     precision = -2
-    sess = test_utils.make_session("test.rounding.integer")
+    sess = utils.make_session("test.rounding.integer")
     test_df, expected = _make_integer_data(np.int32, precision)
     result_df = _make_and_apply_rounder(sess, test_df, dtypes.Integer, precision)
     result = result_df.values
@@ -77,7 +77,7 @@ def test_rounding_integer():
 
 def test_rounding_long():
     precision = -2
-    sess = test_utils.make_session("test.rounding.integer")
+    sess = utils.make_session("test.rounding.integer")
     test_df, expected = _make_integer_data(np.int64, precision)
     result_df = _make_and_apply_rounder(sess, test_df, dtypes.Long, precision)
     result = result_df.values
@@ -86,7 +86,7 @@ def test_rounding_long():
 
 
 def test_truncate_date():
-    sess = test_utils.make_session("test.truncation.date")
+    sess = utils.make_session("test.truncation.date")
     test_df, expected = _make_date_data(sess)
     truncate = rnd.DateTruncation("month")
     result_df = test_df.select(truncate(test_df.data)).toPandas()
