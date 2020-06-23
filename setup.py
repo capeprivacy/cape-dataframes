@@ -1,6 +1,10 @@
 """Installing with setuptools."""
 import setuptools
 
+
+with open("README.md", "r", encoding="utf8") as fh:
+  long_description = fh.read()
+
 setuptools.setup(
     name="cape-privacy",
     version="0.1.0rc0",
@@ -9,6 +13,7 @@ setuptools.setup(
     license="Apache License 2.0",
     url="https://github.com/capeprivacy/cape-python",
     description="Cape manages secure access to all of your data.",
+    long_description=long_description,
     long_description_content_type="text/markdown",
     author="Cape Privacy",
     author_email="contact@capeprivacy.com",
