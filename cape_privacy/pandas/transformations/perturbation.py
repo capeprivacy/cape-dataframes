@@ -63,9 +63,6 @@ class NumericPerturbation(base.Transformation):
         self._rng = np.random.default_rng(seed=seed)
 
     def __call__(self, x: pd.Series) -> pd.Series:
-        return self._perturb_numeric(x)
-
-    def _perturb_numeric(self, x: pd.Series):
         noise = pd.Series(self._rng.uniform(self._min, self._max, size=x.shape))
         if not isinstance(noise.dtype.type, self.dtype.type):
             noise = noise.astype(self.dtype)
@@ -110,9 +107,6 @@ class DatePerturbation(base.Transformation):
         self._rng = np.random.default_rng(seed)
 
     def __call__(self, x: pd.Series):
-        return self._perturb_date(x)
-
-    def _perturb_date(self, x: pd.Series) -> pd.Series:
         is_date_no_time = False
 
         # Use equality instead of isinstance because of inheritance
