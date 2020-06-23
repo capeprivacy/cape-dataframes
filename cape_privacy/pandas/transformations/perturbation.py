@@ -23,9 +23,9 @@ StrTuple = Union[str, Tuple[str, ...]]
 
 
 class NumericPerturbation(base.Transformation):
-    """Add uniform random noise to a numeric Pandas Series
+    """Add uniform random noise to a numeric Pandas series
 
-    Mask a numeric Pandas Series by adding uniform random
+    Mask a numeric Pandas series by adding uniform random
     noise to each value. The amount of noise is drawn from
     the interval [min, max).
 
@@ -37,7 +37,7 @@ class NumericPerturbation(base.Transformation):
         ```
 
     Attributes:
-        dtypes (dtypes.Numerics): Pandas Series type
+        dtype (dtypes.Numerics): Pandas Series type
         min (int, float): the values generated will be greater then or equal to min
         max (int, float): the values generated will be less than max
         seed (int), optional: a seed to initialize the random generator
@@ -73,6 +73,26 @@ class NumericPerturbation(base.Transformation):
 
 
 class DatePerturbation(base.Transformation):
+    """Add uniform random noise to a Pandas series of timestamps
+
+    Mask a Pandas series by adding uniform random noise to the
+    specified frequencies of timestamps. The amount of noise for
+    each frequency is drawn from the internal [min_freq, max_freq).
+
+    Example:
+        ```
+        s = pd.Series([datetime.date(year=2020, month=2, day=15)])
+        perturb = DatePerturbation(frequency="MONTH", min=-10, max=10, seed=1234)
+        perturb(s) # pd.Series([datetime.date(year=2020, month=11, day=11)])
+        ```
+
+    Attributes:
+        frequency (str, str list): one or more frequencies to perturbate
+        min (int, int list): the frequency value will be greater or equal to min
+        max (int, int list): the frequency value will be less than max
+        seed (int), optional: a seed to initialize the random generator
+    """
+
     identifier = "date-perturbation"
     type_signature = "col->col"
 
@@ -95,7 +115,7 @@ class DatePerturbation(base.Transformation):
     def _perturb_date(self, x: pd.Series) -> pd.Series:
         is_date_no_time = False
 
-        # Use equality instead of isintance because of inheritance
+        # Use equality instead of isinstance because of inheritance
         if type(x[0]) == datetime.date:
             x = pd.to_datetime(x)
             is_date_no_time = True
