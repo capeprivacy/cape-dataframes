@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 [![codecov](https://codecov.io/gh/capeprivacy/cape-python/branch/master/graph/badge.svg?token=L9A8HFAJK5)](https://codecov.io/gh/capeprivacy/cape-python)
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
+[![Chat on Slack](https://img.shields.io/badge/chat-on%20slack-7A5979.svg)](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA)
+
 
 Cape Privacy offers data scientists and data engineers a policy-based interface for applying privacy-enhancing techniques 
 across several popular libraries and frameworks to protect sensitive data throughout the data science life cycle.
@@ -46,7 +48,7 @@ This will also install all dependencies, including Apache Spark. Make sure you h
 
 ## Example
 
-*(this example is an abridged version of the tutorial found [here](./examples/tutorials/))*
+*(this example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials))*
 
 To discover what different transformations do and how you might use them, it is best to explore via the `transformations` APIs:
 
@@ -57,22 +59,13 @@ df = pd.DataFrame({
         "birthdate": [pd.Timestamp(1985, 2, 23), pd.Timestamp(1963, 5, 10)],
     })
 
-tokenize = Tokenizer(
-    max_token_len=10,
-    key=b"my secret",
-)
-
-perturb_numeric = NumericPerturbation(
-    dtype=dtypes.Integer,
-    min=-10,
-    max=10,
-)
+tokenize = Tokenizer(max_token_len=10, key=b"my secret")
+perturb_numeric = NumericPerturbation(dtype=dtypes.Integer, min=-10, max=10)
 
 df["name"] = tokenize(df["name"])
 df["age"] = perturb_numeric(df["age"])
 
 print(df.head())
-
 # >>
 #          name  age  birthdate
 # 0  f42c2f1964   34 1985-02-23
@@ -118,7 +111,7 @@ print(df.head())
 # 1  2e586494b2   63 1963-05-10
 ```
 
-You can see more examples and usage [here](./examples) or by visiting our [documentation](https://docs.capeprivacy.com).
+You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or by visiting our [documentation](https://docs.capeprivacy.com).
 
 ## Contributing and Bug Reports
 
@@ -127,7 +120,7 @@ Please file any [feature request](https://github.com/capeprivacy/cape-python/iss
 
 ## License
 
-Licensed under Apache License, Version 2.0 (see [LICENSE](./LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](./NOTICE).
+Licensed under Apache License, Version 2.0 (see [LICENSE](https://github.com/capeprivacy/cape-python/blob/master/LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](https://github.com/capeprivacy/cape-python/blob/master/NOTICE).
 
 ## About Cape
 
