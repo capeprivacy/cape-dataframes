@@ -13,17 +13,17 @@ else:
 
     from cape_privacy.spark import dtypes
     from cape_privacy.spark import transformations
-    from cape_privacy.spark.policy import apply_policies
+    from cape_privacy.spark.transformer import transformer
 
     def is_available():
         return True
 
     __all__ = [
-        "apply_policies",
         "DataFrame",
         "dtypes",
         "is_available",
         "transformations",
+        "transformer",
     ]
 
 del importlib
