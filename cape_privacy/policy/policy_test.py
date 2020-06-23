@@ -79,7 +79,7 @@ def test_parse_policy_invalid_file():
         policy_lib.parse_policy("iamnotarealthingonthisfilesystem")
 
 
-def test_apply_policies_pandas():
+def test_apply_policy_pandas():
     pandas_lib.registry.register("plusN", test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
 
@@ -89,7 +89,7 @@ def test_apply_policies_pandas():
 
     p = data.Policy(**d)
 
-    new_df = policy_lib.apply_policies([p], df)
+    new_df = policy_lib.apply_policy(p, df)
 
     pdt.assert_frame_equal(new_df, expected_df)
 
@@ -119,7 +119,7 @@ def test_apply_complex_policies_pandas():
 
     p = data.Policy(**d)
 
-    new_df = policy_lib.apply_policies([p], df)
+    new_df = policy_lib.apply_policy(p, df)
 
     pdt.assert_frame_equal(new_df, expected_df)
 
@@ -134,7 +134,7 @@ def test_named_transformation_pandas():
 
     p = data.Policy(**d)
 
-    new_df = policy_lib.apply_policies([p], df)
+    new_df = policy_lib.apply_policy(p, df)
 
     pdt.assert_frame_equal(new_df, expected_df)
 
@@ -147,7 +147,7 @@ def test_column_redact_pandas():
 
     p = data.Policy(**d)
 
-    new_df = policy_lib.apply_policies([p], df)
+    new_df = policy_lib.apply_policy(p, df)
 
     expected_df = pd.DataFrame(np.ones(5,), columns=["test"])
 
@@ -156,7 +156,7 @@ def test_column_redact_pandas():
     pdt.assert_frame_equal(new_df, expected_df)
 
 
-def test_apply_policies_spark():
+def test_apply_policy_spark():
     sess = spark_lib.test_utils.make_session("test.policy.applyPolicies")
     pd_df = pd.DataFrame(np.ones(5,), columns=["test"])
     expected_df = pd_df + 3
@@ -165,7 +165,7 @@ def test_apply_policies_spark():
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = policy_lib.apply_policies([p], df).toPandas()
+    new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del spark_lib.registry._registry[test_utils.PlusN.identifier]
@@ -198,7 +198,7 @@ def test_apply_complex_policies_spark():
 
     d = yaml.load(fixtures.complex_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = policy_lib.apply_policies([p], df).toPandas()
+    new_df = policy_lib.apply_policy(p, df).toPandas()
     pdt.assert_frame_equal(new_df, expected_df, check_dtype=True)
 
 
@@ -211,7 +211,7 @@ def test_named_transformation_spark():
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.named_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = policy_lib.apply_policies([p], df).toPandas()
+    new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del spark_lib.registry._registry[test_utils.PlusN.identifier]
@@ -227,7 +227,7 @@ def test_column_redaction_spark():
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.redact_y, Loader=yaml.FullLoader)
     p = data.Policy(**d)
-    new_df = policy_lib.apply_policies([p], df).toPandas()
+    new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
     del spark_lib.registry._registry[test_utils.PlusN.identifier]
