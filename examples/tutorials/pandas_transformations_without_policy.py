@@ -9,34 +9,15 @@ from dataset import load_dataset
 
 
 # Load Pandas DataFrame
-df = load_dataset(framework="pandas")
+df = load_dataset()
 print("Original Dataset:")
 print(df.head())
 
-
 # Define the transformations
-tokenize = Tokenizer(
-    max_token_len=10,
-    key=b"my secret",
-)
-
-perturb_numric = NumericPerturbation(
-    dtype=dtypes.Integer,
-    min=-10,
-    max=10,
-)
-
-perturb_date = DatePerturbation(
-    frequency=("YEAR", "MONTH", "DAY"),
-    min=(-10, -5, -5),
-    max=(10, 5, 5),
-)
-
-round_numeric = NumericRounding(
-    dtype=dtypes.Float,
-    precision=-3
-)
-
+tokenize = Tokenizer(max_token_len=10, key=b"my secret")
+perturb_numric = NumericPerturbation(dtype=dtypes.Integer, min=-10, max=10)
+perturb_date = DatePerturbation(frequency=("YEAR", "MONTH", "DAY"), min=(-10, -5, -5), max=(10, 5, 5))
+round_numeric = NumericRounding(dtype=dtypes.Float, precision=-3)
 redact_column = ColumnRedact(columns="ssn")
 
 # Apply the transformations
