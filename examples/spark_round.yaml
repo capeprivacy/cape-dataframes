@@ -1,19 +1,13 @@
 label: spark-round-float
+version: 1
 transformations:
       - name: roundToZero
         type: roundNumeric
-        args:
-          dtype:
-            value: Float
-          precision:
-            value: 0
-spec:
-  label: spark-round-float
-  rules:
-  - target: records::creditcards.transactions
-    action: read
-    effect: allow
-    transformations:
-      - field: value
-        named: roundFloat
-  version: 1
+        dtype: Float
+        precision: 0
+rules:
+  - match:
+      name: value
+    actions:
+      - transform:
+          name: roundFloat

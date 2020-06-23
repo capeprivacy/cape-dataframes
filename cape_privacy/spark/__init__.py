@@ -14,6 +14,7 @@ else:
     from cape_privacy.spark import dtypes
     from cape_privacy.spark import transformations
     from cape_privacy.spark.transformer import transformer
+    from cape_privacy.spark import registry
 
     def is_available():
         return True
@@ -24,6 +25,7 @@ else:
         "is_available",
         "transformations",
         "transformer",
+        "registry",
     ]
 
 del importlib
