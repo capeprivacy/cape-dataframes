@@ -54,10 +54,10 @@ To discover what different transformations do and how you might use them, it is 
 
 ```python
 df = pd.DataFrame({
-        "name": ["alice", "bob"],
-        "age": [34, 55],
-        "birthdate": [pd.Timestamp(1985, 2, 23), pd.Timestamp(1963, 5, 10)],
-    })
+    "name": ["alice", "bob"],
+    "age": [34, 55],
+    "birthdate": [pd.Timestamp(1985, 2, 23), pd.Timestamp(1963, 5, 10)],
+})
 
 tokenize = Tokenizer(max_token_len=10, key=b"my secret")
 perturb_numeric = NumericPerturbation(dtype=dtypes.Integer, min=-10, max=10)
