@@ -34,32 +34,109 @@ and applies them to pandas dataframes.
 """
 
 import types
+from typing import Callable
+from typing import List
 
+import pandas as pd
 import requests
 import validators
 import yaml
 
-from cape_privacy import spark
-from cape_privacy.pandas import dtypes as pd_dtypes
+from cape_privacy import pandas as pandas_lib
+from cape_privacy import spark as spark_lib
 from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
 
-TYPE_INDEX = 1
-COLLECTION_INDEX = 2
-ENTITY_INDEX = 3
+
+def apply_policies(policies: List[data.Policy], df, inplace=False):
+    """Applies a sequence of Policy objects to some DataFrame.
+
+    This function is responsible for inferring the type of the DataFrame, preparing the
+    relevant Spark or Pandas Transformations, and applying them to produce a transformed
+    DataFrame.
+
+    Args:
+        policies: A list of `Policy` objects, e.g. as returned by
+            `cape_privacy.parse_policy`.
+        df: The DataFrame object to transform according to `policies`. Must be of type
+            pandas.DataFrame or pyspark.sql.DataFrame.
+        inplace: Whether to mutate the `df` or produce a new one. This argument is only
+            relevant for Pandas DataFrames, as Spark DataFrames do not support mutation.
+
+    Raises:
+        ValueError: If df is a Spark DataFrame and inplace=True, or if df is something
+            other than a Pandas or Spark DataFrame.
+        DependencyError: If Spark is not configured correctly in the Python environment.
+        TransformNotFound, NamedTransformNotFound: If the Policy contains a reference to
+            a Transformation or NamedTransformation that is unrecognized in the
+            Transformation registry.
+    """
+    if isinstance(df, pd.DataFrame):
+        registry = pandas_lib.registry
+        transformer = pandas_lib.transformer
+        return_spark = False
+        if not inplace:
+            result_df = df.copy()
+        else:
+            result_df = df
+    elif not spark_lib.is_available():
+        raise exceptions.DependencyError
+    elif isinstance(df, spark_lib.DataFrame):
+        if inplace:
+            raise ValueError(
+                "Spark does not support DataFrame mutation, so inplace=True is invalid."
+            )
+        registry = spark_lib.registry
+        transformer = spark_lib.transformer
+        return_spark = True
+        result_df = df
+    else:
+        raise ValueError(f"Expected df to be a DataFrame, found {type(df)}.")
+    for policy in policies:
+        for rule in policy.rules:
+            result_df = _do_transformations(
+                policy, rule, result_df, registry, transformer, return_spark
+            )
+    return result_df
+
+
+def parse_policy(p: str):
+    """Parses a policy yaml file.
+
+    The passed in string can either be a path to a local file or
+    a URL pointing to a file. If it is a URL then requests attempts to download it.
+
+    Args:
+        p: a path string or a URL string
+
+    Returns:
+        The Policy object initialized by the yaml.
+    """
+    yaml_data: str
+
+    if validators.url(p):
+        yaml_data = requests.get(p).text
+    else:
+        with open(p) as f:
+            yaml_data = f.read()
+
+    policy = yaml.load(yaml_data, Loader=yaml.FullLoader)
+    return data.Policy(**policy)
 
 
 def _maybe_replace_dtype_arg(args, return_spark):
-    if return_spark and spark is not None:
-        dtypes = getattr(spark, "dtypes")
+    if return_spark:
+        if not spark_lib.is_available():
+            raise exceptions.DependencyError()
+        dtypes = spark_lib.dtypes
     else:
-        dtypes = pd_dtypes
+        dtypes = pandas_lib.dtypes
     if "dtype" in args:
         args["dtype"] = getattr(dtypes, args["dtype"])
     return args
 
 
-def get_transformation(
+def _get_transformation(
     policy: data.Policy,
     transform: data.Transform,
     registry: types.ModuleType,
@@ -74,6 +151,9 @@ def get_transformation(
     Args:
         policy: The top level policy.
         transform: The specific transform to be applied.
+        registry: The module representing the transformation registry; differs for
+            Spark/Pandas.
+        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
 
     Returns:
         The initialize transform object.
@@ -104,6 +184,44 @@ def get_transformation(
     return initTransform
 
 
+def _do_transformations(
+    policy: data.Policy,
+    rule: data.Rule,
+    df,
+    registry: types.ModuleType,
+    transformer: Callable,
+    return_spark: bool,
+):
+    """Applies a specific rule's transformations to a pandas dataframe.
+
+    For each transform, lookup the required transform class and then apply it
+    to the correct column in that dataframe.
+
+    Args:
+        policy: The top level policy.
+        rule: The specific rule to apply.
+        df: A pandas dataframe.
+        registry: The module representing the transformation registry; differs for
+            Spark/Pandas.
+        transformer: A function mapping (Transformation, DataFrame, str) to a DataFrame
+            that mutates a DataFrame by applying the Transformation to one of its
+            columns.
+        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
+
+    Returns:
+        The transformed dataframe.
+    """
+
+    for transform in rule.transformations:
+        do_transform = _get_transformation(policy, transform, registry, return_spark)
+        if do_transform.type_signature == "df->df":
+            df = do_transform(df)
+        else:
+            df = transformer(do_transform, df, transform.field)
+
+    return df
+
+
 def _load_named_transform(
     policy: data.Policy,
     transformLabel: str,
@@ -118,14 +236,18 @@ def _load_named_transform(
     Args:
         policy: Top level policy object.
         transformLabel: The name of the named transform.
-        field: The field to which the transform will be applied.
+        registry: The module representing the transformation registry; differs for
+            Spark/Pandas.
+        return_spark: Passthrough; True if the df argument is a pyspark.sql.DataFrame.
 
     Returns:
         The initialized transform object.
 
     Raises:
         NamedTransformNotFound: The named transform cannot be
-        found in the top level policy object.
+            found in the top level policy object.
+        DependencyError: If return_spark is True but PySpark is missing from the current
+            environment.
     """
     found = False
 
@@ -148,27 +270,3 @@ def _load_named_transform(
         )
 
     return initTransform
-
-
-def parse_policy(p: str):
-    """Parses a policy yaml file.
-
-    The passed in string can either be a path to a local file or
-    a URL pointing to a file. If it is a URL then requests attempts to download it.
-
-    Args:
-        p: a path string or a URL string
-
-    Returns:
-        The Policy object initialized by the yaml.
-    """
-    yaml_data: str
-
-    if validators.url(p):
-        yaml_data = requests.get(p).text
-    else:
-        with open(p) as f:
-            yaml_data = f.read()
-
-    policy = yaml.load(yaml_data, Loader=yaml.FullLoader)
-    return data.Policy(**policy)
