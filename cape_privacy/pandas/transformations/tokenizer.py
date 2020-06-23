@@ -16,7 +16,7 @@ class Tokenizer(base.Transformation):
     If a value is repeated several times across the series, it always
     get mapped to the same token in order to maintain the count.
     A value can be mapped to different tokens by setting the key to a
-    differnt value.
+    different value.
 
     Example:
         ```
