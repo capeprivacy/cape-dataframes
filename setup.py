@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="cape-privacy",
-    version="0.1.0",
+    version="0.1.1rc0",
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     license="Apache License 2.0",
