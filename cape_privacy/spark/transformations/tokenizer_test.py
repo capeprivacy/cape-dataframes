@@ -2,7 +2,7 @@ import pandas as pd
 import pandas.testing as pdt
 from pyspark.sql import functions
 
-from cape_privacy.spark import test_utils
+from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import tokenizer as tkn
 
 
@@ -14,7 +14,7 @@ def _make_and_apply_tokenizer(sess, df, max_token_len, key):
 
 
 def test_tokenizer_simple():
-    sess = test_utils.make_session("test.tokenizer.simple")
+    sess = utils.make_session("test.tokenizer.simple")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     expected = pd.DataFrame(
         {
@@ -30,7 +30,7 @@ def test_tokenizer_simple():
 
 
 def test_tokenizer_is_linkable():
-    sess = test_utils.make_session("test.tokenizer.isLinkable")
+    sess = utils.make_session("test.tokenizer.isLinkable")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     key1 = "secret_key"
     key2 = "secret_key"
@@ -40,7 +40,7 @@ def test_tokenizer_is_linkable():
 
 
 def test_tokenizer_is_not_linkable():
-    sess = test_utils.make_session("test.tokenizer.isNotLinkable")
+    sess = utils.make_session("test.tokenizer.isNotLinkable")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     key1 = "secret_key"
     key2 = "not_your_secret_key"
@@ -56,7 +56,7 @@ def test_tokenizer_is_not_linkable():
 
 
 def test_tokenizer_with_max_token_len():
-    sess = test_utils.make_session("test.tokenizer.maxTokenLen")
+    sess = utils.make_session("test.tokenizer.maxTokenLen")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     expected = pd.DataFrame({"name": ["70a4b1a987", "dd4532a296"]})
     max_token_len = 10
@@ -66,6 +66,6 @@ def test_tokenizer_with_max_token_len():
 
 
 def test_tokenizer_no_key():
-    sess = test_utils.make_session("test.tokenizer.maxTokenLen")
+    sess = utils.make_session("test.tokenizer.maxTokenLen")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=None)
