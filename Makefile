@@ -89,4 +89,7 @@ examples:
 		popd; \
 	done;
 
+docker:
+	docker build -t capeprivacy/cape-python .
+
 .PHONY: lint fmt test coverage examples
