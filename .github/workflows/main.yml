@@ -14,10 +14,26 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Run Make CI
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          # This path is specific to Ubuntu
+          path: ~/.cache/pip
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.python-version }}-pip-
+            ${{ runner.os }}-
+      - name: Install Dependencies
         run: |
           make bootstrap
+      - name: Run CI
+        run: |
           make ci
+      - if: matrix.python-version == 3.7
+        name: Docker build
+        run: |
+          make docker
       - if: matrix.python-version == 3.7
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
