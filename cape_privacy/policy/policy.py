@@ -1,3 +1,16 @@
+import types
+from typing import Callable
+
+import pandas as pd
+import requests
+import validators
+import yaml
+
+from cape_privacy import pandas as pandas_lib
+from cape_privacy import spark as spark_lib
+from cape_privacy.policy import data
+from cape_privacy.policy import exceptions
+
 """Utils for parsing policy and applying them.
 
 The module reads in policy as yaml and then through apply_policy
@@ -28,19 +41,6 @@ Applying policy:
     df = pd.DataFrame(np.ones(5,), columns=["value"])
     df = apply_policy(policy, df)
 """
-
-import types
-from typing import Callable
-
-import pandas as pd
-import requests
-import validators
-import yaml
-
-from cape_privacy import pandas as pandas_lib
-from cape_privacy import spark as spark_lib
-from cape_privacy.policy import data
-from cape_privacy.policy import exceptions
 
 
 def apply_policy(policy: data.Policy, df, inplace=False):

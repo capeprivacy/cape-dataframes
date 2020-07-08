@@ -1,3 +1,5 @@
+from typing import List
+
 """Contains the policy classes that are initialized from a yaml policy file.
 
 There are five main classes with Policy being the top level class. Policy contains
@@ -13,10 +15,6 @@ contain Transformations.
     # passes them in has keyword arguments.
     policy = Policy(**d)
 """
-
-from typing import List
-
-
 class Transform:
     """A actual transform that will be applied.
 
