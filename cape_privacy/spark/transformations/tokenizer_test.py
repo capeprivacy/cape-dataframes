@@ -1,9 +1,9 @@
 import pandas as pd
 import pandas.testing as pdt
-from pyspark.sql import functions
 
 from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import tokenizer as tkn
+from pyspark.sql import functions
 
 
 def _make_and_apply_tokenizer(sess, df, max_token_len, key):

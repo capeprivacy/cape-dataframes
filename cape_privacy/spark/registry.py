@@ -1,10 +1,11 @@
-from typing import Callable
-from typing import Dict
+from typing import Callable, Dict
 
-from cape_privacy.spark.transformations import perturbation
-from cape_privacy.spark.transformations import redaction
-from cape_privacy.spark.transformations import rounding
-from cape_privacy.spark.transformations import tokenizer
+from cape_privacy.spark.transformations import (
+    perturbation,
+    redaction,
+    rounding,
+    tokenizer,
+)
 
 TransformationCtor = Callable
 

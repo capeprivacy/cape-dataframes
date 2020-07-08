@@ -2,11 +2,11 @@ import hashlib
 import secrets
 
 import pandas as pd
-from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
 from cape_privacy.spark.transformations import base
 from cape_privacy.utils import typecheck
+from pyspark.sql import functions
 
 
 class Tokenizer(base.Transformation):

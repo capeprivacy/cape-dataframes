@@ -5,8 +5,7 @@ import pandas as pd
 import pandas.testing as pdt
 
 from cape_privacy.pandas import dtypes
-from cape_privacy.pandas.transformations import DatePerturbation
-from cape_privacy.pandas.transformations import NumericPerturbation
+from cape_privacy.pandas.transformations import DatePerturbation, NumericPerturbation
 
 
 def test_perturbation_float():

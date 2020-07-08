@@ -1,13 +1,14 @@
-from typing import Callable
-from typing import Dict
+from typing import Callable, Dict
 
-from cape_privacy.pandas.transformations import ColumnRedact
-from cape_privacy.pandas.transformations import DatePerturbation
-from cape_privacy.pandas.transformations import DateTruncation
-from cape_privacy.pandas.transformations import NumericPerturbation
-from cape_privacy.pandas.transformations import NumericRounding
-from cape_privacy.pandas.transformations import RowRedact
-from cape_privacy.pandas.transformations import Tokenizer
+from cape_privacy.pandas.transformations import (
+    ColumnRedact,
+    DatePerturbation,
+    DateTruncation,
+    NumericPerturbation,
+    NumericRounding,
+    RowRedact,
+    Tokenizer,
+)
 
 TransformationCtor = Callable
 

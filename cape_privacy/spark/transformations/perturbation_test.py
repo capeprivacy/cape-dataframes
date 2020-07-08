@@ -1,10 +1,9 @@
 import numpy as np
 import pandas as pd
-from pyspark.sql import functions
 
-from cape_privacy.spark import dtypes
-from cape_privacy.spark import utils
+from cape_privacy.spark import dtypes, utils
 from cape_privacy.spark.transformations import perturbation as ptb
+from pyspark.sql import functions
 
 
 def _make_and_apply_numeric_ptb(sess, df, dtype, min, max):

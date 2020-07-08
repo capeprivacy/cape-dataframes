@@ -10,8 +10,7 @@ import yaml
 from cape_privacy import pandas as pandas_lib
 from cape_privacy import spark as spark_lib
 from cape_privacy.pandas.transformations import test_utils
-from cape_privacy.policy import data
-from cape_privacy.policy import exceptions
+from cape_privacy.policy import data, exceptions
 from cape_privacy.policy import policy as policy_lib
 from cape_privacy.policy import policy_test_fixtures as fixtures
 

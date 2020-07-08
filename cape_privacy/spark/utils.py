@@ -1,5 +1,6 @@
-import pyspark
 from packaging import version
+
+import pyspark
 from pyspark import sql
 
 _3_0_0_VERSION = version.Version("3.0.0")
