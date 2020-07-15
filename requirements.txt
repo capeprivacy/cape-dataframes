@@ -10,7 +10,7 @@ pytest-httpserver==0.3.4
 black==19.10b
 flake8==3.8.3
 flake8-black==0.2.0
-flake8-isort==3.0.0
+flake8-isort==3.0.1
 isort==4.3.21
 coverage==5.1
 validators==0.15.0
