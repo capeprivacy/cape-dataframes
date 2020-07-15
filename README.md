@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/dropoutlabs/files/master/cape-logo.png" alt="Cape Privacy" width="500"/>](https://capeprivacy.com/)
+# Cape Python
 
 ![](https://github.com/capeprivacy/cape-python/workflows/Main/badge.svg) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
@@ -6,6 +6,7 @@
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
 [![Chat on Slack](https://img.shields.io/badge/chat-on%20slack-7A5979.svg)](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA)
 
+A Python library supporting data transformations and collaborative privacy policies, for data science projects in Pandas and Apache Spark
 
 Cape Privacy offers data scientists and data engineers a policy-based interface for applying privacy-enhancing techniques 
 across several popular libraries and frameworks to protect sensitive data throughout the data science life cycle.
@@ -18,9 +19,17 @@ Stay tuned for more privacy-enhancing techniques in the future!
 
 See below for instructions on how to get started or visit the [documentation](https://docs.capeprivacy.com/).
 
-## Getting Started
+## Getting started
 
-Cape Python is available via Pypi.
+### Prerequisites
+
+* Python [TODO: version?] and pip
+* [TODO: is there a minimum supported pandas/spark?]
+* [Make](https://www.gnu.org/software/make/) (if installing from source)
+
+### Install with pip
+
+Cape Python is available through PyPi.
 
 ```sh
 pip install cape-privacy
@@ -34,23 +43,20 @@ pip install cape-privacy[spark]
 
 We recommend running it in a virtual environment, such as [venv](https://docs.python.org/3/library/venv.html).
 
-### Installing from source
+### Install from source
 
-It is also possible to install the library from source.
+It is possible to install the library from source. This installs all dependencies, including Apache Spark:
 
 ```sh
 git clone https://github.com/capeprivacy/cape-python.git
 cd cape-python
 make bootstrap
 ```
+### Usage example
 
-This will also install all dependencies, including Apache Spark. Make sure you have `make` installed before running the above.
+*This example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials)*
 
-## Example
-
-*(this example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials))*
-
-To discover what different transformations do and how you might use them, it is best to explore via the `transformations` APIs:
+To discover what different transformations do and how you can use them, explore the `transformations` APIs:
 
 ```python
 df = pd.DataFrame({
@@ -111,17 +117,47 @@ print(df.head())
 # 1  2e586494b2   63 1963-05-10
 ```
 
-You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or by visiting our [documentation](https://docs.capeprivacy.com).
+You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or in our [documentation](https://docs.capeprivacy.com).
 
-## Contributing and Bug Reports
+## About Cape and Cape Python
 
-Please file any [feature request](https://github.com/capeprivacy/cape-python/issues/new?template=feature_request.md) or 
-[bug report](https://github.com/capeprivacy/cape-python/issues/new?template=bug_report.md) as GitHub issues.
+[Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
+
+Cape Python brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files. Stay tuned for more privacy-enhancing techniques in the future. [TODO: do we have a newsletter they could sign up for?]
+
+### Cape architecture
+
+[TODO: architecture diagram of Cape ecosystem, highlighting where Cape Python sits]
+
+### Project status and roadmap
+
+Cape Python 1.1 was release 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
+
+**Coming soon:**
+
+[TODO - Katherine]
+
+## Help and resources
+
+If you need help using Cape Python, you can:
+
+* View the [documentation](https://docs.capeprivacy.com/).
+* Submit an issue.
+* Talk to us on our [community Slack](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA).
+
+Please file [feature requests](https://github.com/capeprivacy/cape-python/issues/new?template=feature_request.md) and 
+[bug reports](https://github.com/capeprivacy/cape-python/issues/new?template=bug_report.md) as GitHub issues.
+
+## Community
+
+[TODO: contributors widget - https://github.com/sourcerer-io/hall-of-fame]
+
+### Contributing
+
+View our [contributing](CONTRIBUTING.md) guide for more information.
 
 ## License
 
 Licensed under Apache License, Version 2.0 (see [LICENSE](https://github.com/capeprivacy/cape-python/blob/master/LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](https://github.com/capeprivacy/cape-python/blob/master/NOTICE).
 
-## About Cape
 
-[Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
