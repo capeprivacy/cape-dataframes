@@ -44,12 +44,12 @@ Furthermore:
 
 - Run tests (`make test`) and linting (`make lint`) before submitting as our [CI](#continuous-integration) will block pull requests failing either check
 - Test your change thoroughly with unit tests where appropriate
-- Update the relevant documentation inside the `docs` folder and for any appropriate doc strings in the code base
+- Update any affected docstrings in the code base
 - Add a line in [CHANGELOG.md](CHANGELOG.md) for any major change
 
 ## Continuous integration
 
-All pull requests are run against our continuous integration suite on [Circle CI](TODO: cape python ci link). The entire suite must pass before a pull request is accepted.
+All pull requests are run against our [continuous integration suite](https://github.com/capeprivacy/cape-python/actions). The entire suite must pass before a pull request is accepted.
 
 ## Writing Documentation
 
@@ -87,7 +87,7 @@ Please file [bug reports](https://github.com/capeprivacy/cape-python/issues/new?
 
 ### Security disclosures
 
-If you encounter a security issue then please responsibly disclose it by reaching out to us at [TODO: email address for security issues). We will work with you to mitigate the issue and responsibly disclose it to anyone using the project in a timely manner.
+If you encounter a security issue then please responsibly disclose it by reaching out to us at [TODO: email address for security issues]. We will work with you to mitigate the issue and responsibly disclose it to anyone using the project in a timely manner.
 
 ## Asking for help
 

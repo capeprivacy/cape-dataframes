@@ -8,15 +8,6 @@
 
 A Python library supporting data transformations and collaborative privacy policies, for data science projects in Pandas and Apache Spark
 
-Cape Privacy offers data scientists and data engineers a policy-based interface for applying privacy-enhancing techniques 
-across several popular libraries and frameworks to protect sensitive data throughout the data science life cycle.
-
-Cape Python brings Cape's policy language to Pandas and Apache Spark, 
-enabling you to collaborate on privacy-preserving policy at a non-technical level. 
-The supported techniques include tokenization with linkability as well as perturbation and rounding.
-You can experiment with these techniques programmatically, in Python or in human-readable policy files. 
-Stay tuned for more privacy-enhancing techniques in the future!
-
 See below for instructions on how to get started or visit the [documentation](https://docs.capeprivacy.com/).
 
 ## Getting started
@@ -119,7 +110,7 @@ print(df.head())
 
 You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or in our [documentation](https://docs.capeprivacy.com).
 
-## About Cape and Cape Python
+## About Cape Privacy and Cape Python
 
 [Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
 
