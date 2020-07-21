@@ -87,7 +87,7 @@ Please file [bug reports](https://github.com/capeprivacy/cape-python/issues/new?
 
 ### Security disclosures
 
-If you encounter a security issue then please responsibly disclose it by reaching out to us at [TODO: email address for security issues]. We will work with you to mitigate the issue and responsibly disclose it to anyone using the project in a timely manner.
+If you encounter a security issue then please responsibly disclose it by reaching out to us at [privacy@capeprivacy.com](privacy@capeprivacy.com). We will work with you to mitigate the issue and responsibly disclose it to anyone using the project in a timely manner.
 
 ## Asking for help
 

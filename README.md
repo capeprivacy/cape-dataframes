@@ -14,7 +14,7 @@ See below for instructions on how to get started or visit the [documentation](ht
 
 ### Prerequisites
 
-* Python [TODO: version?] and pip
+* Python 3.6 or above, and pip
 * [TODO: is there a minimum supported pandas/spark?]
 * [Make](https://www.gnu.org/software/make/) (if installing from source)
 
@@ -118,7 +118,7 @@ Cape Python brings Cape's policy language to Pandas and Apache Spark. The suppor
 
 ### Cape architecture
 
-[TODO: architecture diagram of Cape ecosystem, highlighting where Cape Python sits]
+[TODO: architecture diagram of Cape ecosystem, highlighting where Cape Python sits - Keely]
 
 ### Project status and roadmap
 
@@ -141,7 +141,7 @@ Please file [feature requests](https://github.com/capeprivacy/cape-python/issues
 
 ## Community
 
-[TODO: contributors widget - https://github.com/sourcerer-io/hall-of-fame]
+[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/0)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/0)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/1)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/1)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/2)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/2)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/3)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/3)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/4)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/4)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/5)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/5)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/6)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/6)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/7)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/7)
 
 ### Contributing
 
