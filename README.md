@@ -114,7 +114,7 @@ You can see more examples and usage [here](https://github.com/capeprivacy/cape-p
 
 [Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
 
-Cape Python brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files. Stay tuned for more privacy-enhancing techniques in the future. [TODO: do we have a newsletter they could sign up for?]
+Cape Python brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files.
 
 ### Cape architecture
 
@@ -122,7 +122,7 @@ Cape Python brings Cape's policy language to Pandas and Apache Spark. The suppor
 
 ### Project status and roadmap
 
-Cape Python 1.1 was release 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
+Cape Python 1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
 
 **Coming soon:**
 
