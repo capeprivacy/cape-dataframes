@@ -60,7 +60,7 @@ bootstrap: pythoncheck pipcheck
 test: pythoncheck
 	pytest
 
-CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy
+CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy cape_privacy/coordinator
 
 lint: pythoncheck
 	flake8 ${CI_FILES}
@@ -68,7 +68,7 @@ lint: pythoncheck
 ci: lint test coverage
 
 fmt: pythoncheck
-	isort --atomic --recursive ${CI_FILES}
+	isort --atomic ${CI_FILES}
 	black ${CI_FILES}
 
 coverage:
