@@ -8,7 +8,7 @@ from cape_privacy.coordinator.utils import base64
 
 
 class GraphQLError:
-    """Represents a graphql error that can be returned by a coordinator.
+    """Represents a GraphQL error that can be returned by a coordinator.
 
     Attributes:
         message: The error message.
@@ -112,7 +112,7 @@ class Client:
         return self.token
 
     def me(self) -> str:
-        """Returns the id of the authenticated identity."""
+        """Returns the ID of the authenticated identity."""
 
         query = """
         query Me() {
@@ -134,7 +134,7 @@ class Client:
         return self.identity_policies(id)
 
     def get_policy(self, label: str):
-        """Returns the current policy for a given project label"""
+        """Returns the current policy for a given project label."""
 
         query = """
         query CurrentSpec($label: ModelLabel!) {

@@ -98,16 +98,18 @@ def apply_policy(policy: data.Policy, df, inplace=False):
 
 
 def parse_policy(p: Union[str, Dict[Any, Any]]):
-    """Parses a policy yaml file.
+    """Parses a policy YAML file.
 
-    The passed in string can either be a path to a local file or
-    a URL pointing to a file. If it is a URL then requests attempts to download it.
+    The passed in string can either be a path to a local file,
+    a URL pointing to a file or a dictionary representing the policy.
+    If it is a URL then requests attempts to download it.
 
     Args:
-        p: a path string or a URL string
+        p: a path string, a URL string or a dictionary representing the
+           policy.
 
     Returns:
-        The Policy object initialized by the yaml.
+        The Policy object initialized by the YAML.
     """
     if type(p) == str:
         if validators.url(p):
