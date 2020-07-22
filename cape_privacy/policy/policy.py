@@ -97,7 +97,7 @@ def apply_policy(policy: data.Policy, df, inplace=False):
     return result_df
 
 
-def parse_policy(p: Union[str, Dict[Any, Any]]):
+def parse_policy(p: Union[str, Dict[Any, Any]]) -> data.Policy:
     """Parses a policy YAML file.
 
     The passed in string can either be a path to a local file,

@@ -141,6 +141,7 @@ class Client:
             project(label: $label) {
                 current_spec {
                     policy
+                    transformations
                 }
             }
         }
@@ -152,9 +153,14 @@ class Client:
 
         res = self.graphql_request(query, variables)
 
+        spec = res["project"]["current_spec"]
         # TODO this is make it match what cape-python expects
         # update once cape coordinators projects and cape-python
         # use the same format natively
-        policy = {"label": label, "rules": res["project"]["current_spec"]["policy"]}
+        policy = {"label": label, "rules": spec["policy"]}
+
+        if "transformations" in spec:
+            print(spec)
+            policy["transformations"] = spec["transformations"]
 
         return policy
