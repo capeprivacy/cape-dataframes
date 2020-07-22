@@ -9,11 +9,11 @@ class APIToken:
 
     The format is: <token_id>,<base64 string>
 
-    The first byte of the decoded base64 string is the version and the rest
+    The first byte of the decoded Base64 string is the version and the rest
     is the secret.
 
     Attributes:
-        token_id: The id of the token.
+        token_id: The ID of the token.
         version: The version of the token format.
         secret: The password used to authenticate.
         raw: The raw token string.
