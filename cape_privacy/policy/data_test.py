@@ -1,6 +1,7 @@
 import yaml
 
 from .data import Policy
+from .policy_test_fixtures import named_with_secret_y
 
 y = """
     label: test_policy
@@ -52,3 +53,11 @@ def test_policy_class():
     assert builtinTransform.field == "test"
     assert builtinTransform.type == "plusN"
     assert builtinTransform.args["n"] == 1
+
+
+def test_policy_with_secret():
+    d = yaml.load(named_with_secret_y, Loader=yaml.FullLoader)
+
+    p = Policy(**d)
+
+    assert p.transformations[1].args["key"] == "BASE"

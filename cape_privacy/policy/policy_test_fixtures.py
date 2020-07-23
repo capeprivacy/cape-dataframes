@@ -33,6 +33,29 @@ named_y = """
               name: plusTwo
     """
 
+named_with_secret_y = """
+    version: 1
+    label: test_policy
+    transformations:
+      - name: plusOne
+        type: plusN
+        n: 1
+      - name: tokenWithSecret
+        type: tokenizer
+        key:
+          type: secret
+          name: my-key
+          value: BASE
+    rules:
+      - match:
+          name: test
+        actions:
+          - transform:
+              name: plusOne
+          - transform:
+              name: plusTwo
+    """
+
 
 def named_not_found_y(saved_tfm, ref_tfm, tfm_type):
     return """

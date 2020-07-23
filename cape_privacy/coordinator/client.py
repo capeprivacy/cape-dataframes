@@ -36,6 +36,29 @@ class GraphQLException(Exception):
         self.errors = [GraphQLError(error) for error in errors]
 
 
+class CapeError:
+    """Represents a Cape error coming from the coordinator.
+
+    Attributes:
+        messages: A list of error messages
+        cause: The cause of the error
+    """
+
+    def __init__(self, error):
+        self.messages = error["messages"]
+        self.cause = error["cause"]
+
+
+class CapeException(Exception):
+    """Exception wrapping a CapeError.
+    Attributes:
+        error: the CapeError
+    """
+
+    def __init__(self, error):
+        self.error = error
+
+
 class Client:
     """Coordinator client for making GraphQL requests.
 
@@ -106,6 +129,9 @@ class Client:
             j = r.json()
         except ValueError:
             r.raise_for_status()
+
+        if "cause" in j:
+            raise CapeException(j)
 
         self.token = base64.from_string(j["token"])
 
