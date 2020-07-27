@@ -123,7 +123,7 @@ Cape Python brings Cape's policy language to Pandas and Apache Spark. The suppor
 
 ### Project status and roadmap
 
-Cape Python 1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
+Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
 
 **Coming soon:**
 
