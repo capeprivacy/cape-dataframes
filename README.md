@@ -15,7 +15,8 @@ See below for instructions on how to get started or visit the [documentation](ht
 ### Prerequisites
 
 * Python 3.6 or above, and pip
-* [TODO: is there a minimum supported pandas/spark?]
+* Pandas 1.0+
+* PySpark 3.0+ (if using Spark)
 * [Make](https://www.gnu.org/software/make/) (if installing from source)
 
 ### Install with pip
