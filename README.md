@@ -15,7 +15,8 @@ See below for instructions on how to get started or visit the [documentation](ht
 ### Prerequisites
 
 * Python 3.6 or above, and pip
-* [TODO: is there a minimum supported pandas/spark?]
+* Pandas 1.0+
+* PySpark 3.0+ (if using Spark)
 * [Make](https://www.gnu.org/software/make/) (if installing from source)
 
 ### Install with pip
@@ -118,11 +119,13 @@ Cape Python brings Cape's policy language to Pandas and Apache Spark. The suppor
 
 ### Cape architecture
 
-[TODO: architecture diagram of Cape ecosystem, highlighting where Cape Python sits - Keely]
+![Architecture diagram](https://github.com/capeprivacy/files/blob/master/Cape_Architecture_Stack.png "Architecture diagram")
+
+Cape is comprised of multiples services and libraries. You can use Cape Python as a standalone library, or you can integrate it with the Coordinator in [Cape Core](https://github.com/capeprivacy/cape/pull/336), which supports user and policy management.
 
 ### Project status and roadmap
 
-Cape Python 1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
+Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
 
 **Coming soon:**
 
