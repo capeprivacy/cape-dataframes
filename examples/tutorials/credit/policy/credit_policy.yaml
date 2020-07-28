@@ -1,0 +1,52 @@
+label: credit_policy
+version: 1
+rules:
+  - match:
+      name: Name
+    actions:
+      - transform:
+          type: "tokenizer"
+  - match:
+      name: Sex
+    actions:
+      - transform:
+          type: "tokenizer"
+          max_token_len: 10
+  - match:
+      name: Age
+    actions:
+      - transform:
+          type: "numeric-perturbation"
+          dtype: Integer
+          min: -5
+          max: 5
+  - match:
+      name: Salary
+    actions:
+      - transform:
+          type: "numeric-rounding"
+          dtype: Double
+          precision: -3
+  - match:
+      name: Application_date
+    actions:
+      - transform:
+          type: "date-perturbation"
+          frequency: DAY
+          min: -3
+          max: 3
+  - match:
+      name: City
+    actions:
+      - transform:
+          type: "column-redact"
+          columns: ["City"] 
+  - match:
+      name: Street_address
+    actions:
+      - transform:
+          type: "column-redact"
+          columns: ["Street_address"] 
+
+
+
