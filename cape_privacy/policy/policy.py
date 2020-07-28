@@ -30,7 +30,10 @@ Applying policy:
 """
 
 import types
+from typing import Any
 from typing import Callable
+from typing import Dict
+from typing import Union
 
 import pandas as pd
 import requests
@@ -94,27 +97,31 @@ def apply_policy(policy: data.Policy, df, inplace=False):
     return result_df
 
 
-def parse_policy(p: str):
-    """Parses a policy yaml file.
+def parse_policy(p: Union[str, Dict[Any, Any]]) -> data.Policy:
+    """Parses a policy YAML file.
 
-    The passed in string can either be a path to a local file or
-    a URL pointing to a file. If it is a URL then requests attempts to download it.
+    The passed in string can either be a path to a local file,
+    a URL pointing to a file or a dictionary representing the policy.
+    If it is a URL then requests attempts to download it.
 
     Args:
-        p: a path string or a URL string
+        p: a path string, a URL string or a dictionary representing the
+           policy.
 
     Returns:
-        The Policy object initialized by the yaml.
+        The Policy object initialized by the YAML.
     """
-    yaml_data: str
+    if type(p) == str:
+        if validators.url(p):
+            yaml_data = requests.get(p).text
+        else:
+            with open(p) as f:
+                yaml_data = f.read()
 
-    if validators.url(p):
-        yaml_data = requests.get(p).text
+        policy = yaml.load(yaml_data, Loader=yaml.FullLoader)
     else:
-        with open(p) as f:
-            yaml_data = f.read()
+        policy = p
 
-    policy = yaml.load(yaml_data, Loader=yaml.FullLoader)
     return data.Policy(**policy)
 
 

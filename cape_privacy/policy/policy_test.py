@@ -29,6 +29,14 @@ def test_parse_policy(tmp_path):
     assert policy.label == "test_policy"
 
 
+def test_parse_policy_dict():
+    p = yaml.load(fixtures.y, Loader=yaml.FullLoader)
+
+    policy = policy_lib.parse_policy(p)
+
+    assert policy.label == "test_policy"
+
+
 def test_named_transform_not_found():
     pandas_lib.registry.register("plusN", test_utils.PlusN)
     d = yaml.load(
