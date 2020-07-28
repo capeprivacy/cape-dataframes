@@ -11,8 +11,7 @@ This document helps you get started on:
 - [Asking for help](#asking-for-help)
 
 
-
-## Submitting a Pull Request
+## Submitting a pull request
 
 To contribute, [fork](https://help.github.com/articles/fork-a-repo/) Cape Python, commit your changes, and [open a pull request](https://help.github.com/articles/using-pull-requests/).
 
@@ -51,13 +50,13 @@ Furthermore:
 
 All pull requests are run against our [continuous integration suite](https://github.com/capeprivacy/cape-python/actions). The entire suite must pass before a pull request is accepted.
 
-## Writing Documentation
+## Writing documentation
 
 Ensure you add docstrings where necessary. We use [Google's style](https://github.com/google/styleguide/blob/gh-pages/pyguide.md).
 
 The documentation site is managed in the [documentation repository](https://github.com/capeprivacy/documentation).
 
-## Useful Tricks
+## Useful tricks
 
 ### git and GitHub
 
@@ -81,7 +80,7 @@ The documentation site is managed in the [documentation repository](https://gith
 - `git tag -d <tag> && git push origin :refs/tags/<tag>`
   - can be used to delete a tag remotely
 
-## Reporting a Bug
+## Reporting a bug
 
 Please file [bug reports](https://github.com/capeprivacy/cape-python/issues/new?template=bug_report.md) as GitHub issues.
 
