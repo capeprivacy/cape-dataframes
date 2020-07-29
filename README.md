@@ -119,8 +119,6 @@ Cape Python brings Cape's policy language to Pandas and Apache Spark. The suppor
 
 ### Cape architecture
 
-![Architecture diagram](https://github.com/capeprivacy/files/blob/master/Cape_Architecture_Stack.png "Architecture diagram")
-
 Cape is comprised of multiples services and libraries. You can use Cape Python as a standalone library, or you can integrate it with the Coordinator in [Cape Core](https://github.com/capeprivacy/cape/pull/336), which supports user and policy management.
 
 ### Project status and roadmap
@@ -128,6 +126,8 @@ Cape is comprised of multiples services and libraries. You can use Cape Python a
 Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
 
 **Coming soon:**
+
+![Architecture diagram](https://github.com/capeprivacy/files/blob/master/Cape_Architecture_Stack.png "Architecture diagram")
 
 [TODO - Katherine]
 
