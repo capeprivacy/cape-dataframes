@@ -6,6 +6,7 @@
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
 [![Chat on Slack](https://img.shields.io/badge/chat-on%20slack-7A5979.svg)](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA)
 
+
 A Python library supporting data transformations and collaborative privacy policies, for data science projects in Pandas and Apache Spark
 
 See below for instructions on how to get started or visit the [documentation](https://docs.capeprivacy.com/).
@@ -133,7 +134,6 @@ Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and dev
 
 The goal is a complete data management ecosystem. Cape Privacy provides [Cape Coordinator](/cape-core/coordinator/), to manage policy and users. This will interact with the Cape Privacy libraries (such as [Cape Python](/libraries/cape-python/)) through a workers interface, and with your own data services through an API.
 
-![Architecture diagram](https://github.com/capeprivacy/files/blob/master/Cape_Architecture_Stack.png "Architecture diagram")
 
 ## Help and resources
 
