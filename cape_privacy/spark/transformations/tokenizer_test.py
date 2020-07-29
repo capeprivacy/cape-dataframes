@@ -69,3 +69,28 @@ def test_tokenizer_no_key():
     sess = utils.make_session("test.tokenizer.maxTokenLen")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=None)
+
+
+def test_reversible_tokenizer():
+    sess = utils.make_session("test.tokenizer.reversibleTokenizer")
+
+    key = b"5" * 32
+    plaintext = pd.DataFrame({"name": ["Alice", "Bob"]})
+
+    tokenizer = tkn.ReversibleTokenizer(key=key)
+    tokenized_expected = pd.DataFrame(
+        {
+            "name": [
+                "c8c7e80144304276183e5bcd589db782bc5ff95309",
+                "e0f40aea0d5c21b35967c4231b98b5b3e5338e",
+            ]
+        }
+    )
+    tokenized = pd.DataFrame()
+    tokenized["name"] = tokenizer(plaintext["name"])
+    pdt.assert_frame_equal(tokenized, tokenized_expected)
+
+    reverser = tkn.TokenReverser(key=key)
+    recovered = pd.DataFrame()
+    recovered["name"] = reverser(tokenized["name"])
+    pdt.assert_frame_equal(recovered, plaintext)
