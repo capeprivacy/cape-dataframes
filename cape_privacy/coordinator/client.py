@@ -186,7 +186,6 @@ class Client:
         policy = {"label": label, "rules": spec["policy"]}
 
         if "transformations" in spec:
-            print(spec)
             policy["transformations"] = spec["transformations"]
 
         return policy
