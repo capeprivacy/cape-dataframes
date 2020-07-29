@@ -125,11 +125,15 @@ Cape is comprised of multiples services and libraries. You can use Cape Python a
 
 Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
 
-**Coming soon:**
+**Upcoming features:**
+
+* Reversible tokenisation: allow reversing of tokenization to reveal the raw value.
+* Policy audit logging: create logging hooks to allow audit logs for policy downloads and usage in Cape Python.
+* Expand pipeline integrations: add Apache Beam, Apache Flink, Apache Arrow Flight or Dask integration as another pipeline we can support, either as part of Cape Python or in its own separate project.
+
+The goal is a complete data management ecosystem. Cape Privacy provides [Cape Coordinator](/cape-core/coordinator/), to manage policy and users. This will interact with the Cape Privacy libraries (such as [Cape Python](/libraries/cape-python/)) through a workers interface, and with your own data services through an API.
 
 ![Architecture diagram](https://github.com/capeprivacy/files/blob/master/Cape_Architecture_Stack.png "Architecture diagram")
-
-[TODO - Katherine]
 
 ## Help and resources
 
