@@ -150,6 +150,10 @@ Please file [feature requests](https://github.com/capeprivacy/cape-python/issues
 
 View our [contributing](CONTRIBUTING.md) guide for more information.
 
+### Code of conduct
+
+Our [code of conduct](https://capeprivacy.com/conduct/) is included on the Cape Privacy website. All community members are expected to follow it. Please refer to that page for information on how to report problems.
+
 ## License
 
 Licensed under Apache License, Version 2.0 (see [LICENSE](https://github.com/capeprivacy/cape-python/blob/master/LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](https://github.com/capeprivacy/cape-python/blob/master/NOTICE).
