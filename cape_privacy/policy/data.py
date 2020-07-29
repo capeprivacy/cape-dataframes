@@ -108,6 +108,18 @@ class NamedTransform:
         self.type = type
         self.args = kwargs
 
+        for key, arg in self.args.items():
+            # if an arg is a secret
+            if isinstance(arg, dict) and "type" in arg and arg["type"] == "secret":
+                if "value" not in arg:
+                    raise ValueError(
+                        "Secret named transformation arg"
+                        + f"{arg['name']} must contain a value"
+                    )
+
+                # then set the arg value to the inner value
+                self.args[key] = arg["value"]
+
 
 class Policy:
     """Top level policy object.
