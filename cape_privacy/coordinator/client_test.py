@@ -85,7 +85,7 @@ def test_get_policy():
     responses.add(
         responses.POST,
         f"{host}/v1/query",
-        json={"data": {"project": {"current_spec": {"policy": rules}}}},
+        json={"data": {"project": {"current_spec": {"rules": rules}}}},
     )
 
     c = Client(host)
