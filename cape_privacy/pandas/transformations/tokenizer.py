@@ -28,7 +28,7 @@ class Tokenizer(base.Transformation):
     Attributes:
         max_token_len (int or bytes): control the token length (default
             length is 64)
-        key: expect a string or byte string. if not specified, key will
+        key: expect a string or byte string. If not specified, key will
             be set to a random byte string.
     """
 
