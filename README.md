@@ -49,7 +49,6 @@ make bootstrap
 
 *This example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials)*
 
-To discover what different transformations do and how you can use them, explore the `transformations` APIs:
 
 ```python
 df = pd.DataFrame({
