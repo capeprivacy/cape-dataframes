@@ -48,7 +48,7 @@ This will also install all dependencies, including Apache Spark. Make sure you h
 
 ## Example
 
-*(this example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials))*
+*(this example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials/quickstart))*
 
 To discover what different transformations do and how you might use them, it is best to explore via the `transformations` APIs:
 
