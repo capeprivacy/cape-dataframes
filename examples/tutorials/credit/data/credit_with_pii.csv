@@ -1,0 +1,1001 @@
+Name,City,Street_address,Salary,Application_date,Age,Sex,Job,Housing,Saving accounts,Checking account,Credit amount,Duration,Purpose,Risk
+Robert Fitzgerald,Greenmouth,349 Alexander Coves Apt. 799,36964.79,2018-08-03,67,male,2,own,,little,1169,6,radio/TV,good
+Daniel Kim,North Jessica,349 Jesse Park Suite 888,87884.39,2018-08-07,22,female,2,own,little,moderate,5951,48,radio/TV,bad
+Frederick Jordan,Lake Erika,389 Graham Drive Suite 973,41157.73,2018-05-14,49,male,1,own,little,,2096,12,education,good
+Tara Rojas,East Jessica,01579 Ramirez Drives Apt. 587,36214.8,2018-04-30,45,male,2,free,little,little,7882,42,furniture/equipment,good
+Gail Donovan,Randyport,467 Christopher Well,41353.49,2018-05-27,53,male,2,free,little,little,4870,24,car,bad
+Kenneth Davis,East David,9463 Brett Mission,54372.74,2018-12-08,35,male,1,free,,,9055,36,education,good
+Chris Weaver,Garymouth,5353 Tina Knolls Suite 761,86617.65,2018-06-08,53,male,2,own,quite rich,,2835,24,furniture/equipment,good
+Karen Cooper PhD,Smithchester,07459 Simmons Place Suite 385,77441.96,2018-08-02,35,male,3,rent,little,moderate,6948,36,car,good
+Mr. Justin Taylor PhD,Houseside,953 Stephanie Overpass,71561.06,2018-02-06,61,male,1,own,rich,,3059,12,radio/TV,good
+Andrea Valenzuela,Morrisonberg,86198 Jonathan Harbor,89391.16,2018-08-05,28,male,3,own,little,moderate,5234,30,car,bad
+Barbara Edwards,North Kevinbury,99891 Hill Flats,99887.81,2018-08-14,25,female,2,rent,little,moderate,1295,12,car,bad
+Jessica Patterson,Woodsmouth,23639 Sheri Plain Apt. 867,35723.82,2018-11-29,24,female,2,rent,little,little,4308,48,business,bad
+Heather Hunter,Lake Susanshire,71594 Ramos Motorway,43011.92,2018-05-15,22,female,2,own,little,moderate,1567,12,radio/TV,good
+Jeremy Davenport,New Gloriaton,40338 Eugene Center,49571.21,2018-12-24,60,male,1,own,little,little,1199,24,car,bad
+Michael Perez,New Amanda,0899 Berry Village,30459.87,2018-10-28,28,female,2,rent,little,little,1403,15,car,good
+Lisa Massey,Karenberg,634 Ortiz Walk,67818.33,2018-06-01,32,female,1,own,moderate,little,1282,24,radio/TV,bad
+Lauren Morris,Hudsonberg,52061 Smith Lock,51162.62,2018-10-28,53,male,2,own,,,2424,24,radio/TV,good
+Jonathan Martin,Howellburgh,78190 Sarah Fort,80626.12,2018-04-03,25,male,2,own,,little,8072,30,business,good
+Timothy Fitzgerald,Port Sergio,39392 Hall Parks Apt. 011,78507.99,2018-05-26,44,female,3,free,little,moderate,12579,24,car,bad
+Rodney Hernandez,Ashleestad,46511 Le Wells Suite 929,33750.25,2018-02-26,31,male,2,own,quite rich,,3430,24,radio/TV,good
+Richard Meyer,Harperfurt,5472 George Creek Suite 403,61580.73,2018-11-13,48,male,2,own,little,,2134,9,car,good
+Julia Sharp,West Reneechester,26639 Hancock Road Apt. 415,39189.48,2018-03-05,44,male,2,rent,quite rich,little,2647,6,radio/TV,good
+Michelle Ryan,Michaelshire,5965 Keith Gateway,60105.7,2018-06-17,48,male,1,rent,little,little,2241,10,car,good
+Courtney Martin,Nicholasmouth,3513 Marissa Divide Suite 183,87306.12,2018-02-13,44,male,2,own,moderate,moderate,1804,12,car,good
+Jeremy Cox,Patrickchester,1076 Chung Cove,98296.25,2018-08-11,26,male,2,own,,,2069,10,furniture/equipment,good
+William Jimenez,New Mariaburgh,049 Caitlin Causeway,29117.35,2018-01-08,36,male,1,own,little,little,1374,6,furniture/equipment,good
+Derrick Brennan,Charleschester,98749 Chandler Shore Apt. 187,50675.11,2018-09-27,39,male,1,own,little,,426,6,radio/TV,good
+Alexandra Walsh,Richardsonmouth,9453 Randy Oval Apt. 680,83799.19,2018-03-09,42,female,2,rent,rich,rich,409,12,radio/TV,good
+Jonathan Harding Jr.,South Brittanychester,32189 Mary Green,81102.84,2018-01-13,34,male,2,own,little,moderate,2415,7,radio/TV,good
+Laura Fernandez,Lake Jamesberg,62955 Newman Spurs,69850.24,2018-10-29,63,male,2,own,little,little,6836,60,business,bad
+Taylor Sullivan,Patriciaview,07165 Miranda Square Suite 809,72076.55,2018-05-07,36,male,2,own,rich,moderate,1913,18,business,good
+Shannon Valdez,Jennyview,5560 Molina Overpass,62164.78,2018-09-14,27,male,2,own,little,little,4020,24,furniture/equipment,good
+Jessica Lane,West Juliebury,78046 Anna Plain Suite 374,68963.28,2018-06-06,30,male,2,own,moderate,moderate,5866,18,car,good
+Nicholas Lewis,Aliciafort,4849 David Lodge,59870.09,2018-11-18,57,male,1,rent,,,1264,12,business,good
+Faith Johnson,Martinport,829 Evans Lock,42630.31,2018-07-03,33,female,3,own,little,rich,1474,12,furniture/equipment,good
+Raymond York,Joshuafurt,46138 Waters Ramp Apt. 739,97624.26,2018-12-26,25,male,1,own,little,moderate,4746,45,radio/TV,bad
+Kevin Butler,East Nicholasmouth,320 Courtney Street Suite 331,52542.77,2018-08-18,31,male,2,free,little,,6110,48,education,good
+Corey Herrera,Garrettburgh,32952 Elizabeth Key Apt. 655,45524.97,2018-03-20,37,male,2,own,little,rich,2100,18,radio/TV,bad
+Jonathan Franklin,Katieview,517 Rodriguez Pines Apt. 192,53186.33,2018-01-06,37,male,2,own,little,rich,1225,10,domestic appliances,good
+Jerry Molina,New Jennifer,39814 Thomas Ridges,75667.7,2018-12-09,24,male,2,own,little,moderate,458,9,radio/TV,good
+Shari Guzman,Lake Sylviastad,0590 Sharon Orchard Suite 304,28864.31,2018-10-15,30,male,3,own,quite rich,,2333,30,radio/TV,good
+Barbara Wiggins,Brittanyberg,4755 Beth Lake Suite 405,26817.58,2018-03-24,26,male,2,own,quite rich,moderate,1158,12,radio/TV,good
+James Smith,East Yolanda,4566 Pope Forge Apt. 381,45544.83,2018-11-13,44,male,1,own,little,moderate,6204,18,repairs,good
+Patricia Hull,West Tracy,7970 Jonathan Street,88437.01,2018-09-06,24,male,2,rent,moderate,little,6187,30,car,good
+Joshua Wiley,Port Kelsey,77547 Geoffrey Lodge,46328.64,2018-11-03,58,female,1,free,little,little,6143,48,car,bad
+Seth Franklin,Lindseyborough,44408 Cory Ridge,75178.63,2018-07-28,35,female,3,own,little,,1393,11,car,good
+Emily Garcia,Lake Alfred,8498 Jacobs Trail Apt. 907,33768.95,2018-12-10,39,male,2,own,quite rich,,2299,36,radio/TV,good
+Allison Dawson,Port Kevinview,29807 Patricia Rapids,73788.44,2018-10-07,23,female,0,rent,quite rich,little,1352,6,car,good
+Andrew Moyer,Lake Miguelbury,711 Jason Coves,84254.2,2018-10-27,39,male,1,own,little,,7228,11,car,good
+Gabriel Summers,Johnsonhaven,336 John View Apt. 298,55049.82,2018-05-14,28,female,2,own,moderate,,2073,12,radio/TV,good
+William Love,North Jonathan,81797 Kari Street Apt. 554,32662.28,2018-05-19,29,male,1,own,,moderate,2333,24,furniture/equipment,good
+Brandon Wilson,Francesland,29097 Mitchell Crossroad Apt. 007,74145.36,2018-02-14,30,male,3,own,little,moderate,5965,27,car,good
+Frederick Swanson,West Andrew,4162 Mccoy Villages,52141.22,2018-10-13,25,male,2,own,little,,1262,12,radio/TV,good
+Stephen Jones,Lisastad,87529 Martin Centers Suite 605,97943.9,2018-10-06,31,male,2,own,,,3378,18,car,good
+Taylor Mason,South Virginia,884 White Alley Suite 285,70596.21,2018-01-31,57,male,2,free,little,moderate,2225,36,car,bad
+Bethany Baldwin,East Catherine,7413 Carly Shoals Apt. 058,83221.53,2018-07-27,26,male,1,own,,,783,6,car,good
+Lydia Mitchell,Lindsaystad,6612 Amanda Springs,50455.25,2018-06-14,52,male,3,own,,moderate,6468,12,radio/TV,bad
+Daniel Mahoney,Jonathanbury,169 Jake Row Suite 286,31780.69,2018-08-06,31,female,2,own,little,,9566,36,radio/TV,good
+Jennifer Taylor,Montgomerymouth,3045 Diane Hill Suite 313,70753.76,2018-07-30,23,female,3,own,little,rich,1961,18,car,good
+Amy Young,Camerontown,503 Tammy Ville,93094.97,2018-12-24,23,female,1,rent,little,little,6229,36,furniture/equipment,bad
+Sara Donaldson,North Adamville,2386 Erica Turnpike Suite 366,61613.93,2018-02-14,27,male,2,own,little,moderate,1391,9,business,good
+Kevin Duncan,Port Brendatown,8604 Robert Points,93586.63,2018-04-12,50,male,2,own,,moderate,1537,15,radio/TV,good
+Amy Lyons,Linville,7803 Sanchez Streets,40338.86,2018-01-02,61,male,3,free,little,moderate,1953,36,business,bad
+Jessica Johnson,Griffithchester,42177 Ward Port,80825.05,2018-02-11,25,male,2,own,little,moderate,14421,48,business,bad
+Ryan Lane,Shermanfurt,40920 Jackson Field Apt. 830,97528.42,2018-10-19,26,female,2,own,little,,3181,24,radio/TV,good
+Patrick Burnett,North Tracie,74223 John Lane Suite 003,94971.27,2018-08-07,48,male,2,own,,,5190,27,repairs,good
+Stephen Merritt PhD,Meyerfurt,1378 Seth Forest,64409.37,2018-07-18,29,female,2,own,little,,2171,12,radio/TV,good
+Timothy Miller,Gabrielland,3211 Rogers Fort,73677.3,2018-08-25,22,male,2,own,rich,moderate,1007,12,car,good
+Sean Dominguez,North Meganhaven,06206 Scott Mountain,41485.99,2018-10-18,37,male,2,free,little,,1819,36,education,bad
+Robert Walker,Hughesborough,48093 Duran Plains Suite 310,49875.11,2018-10-15,25,female,2,own,,,2394,36,radio/TV,good
+Anna Hancock DVM,Hollandfurt,8937 Carla Fords,90010.74,2018-06-14,30,female,2,own,little,,8133,36,car,good
+Deborah Lyons,West Lori,99983 Richard Union Suite 697,47596.92,2018-01-19,46,male,1,rent,,,730,7,radio/TV,good
+Steven Rice,East Michelleside,988 Kristine Crest,49379.06,2018-09-18,51,male,3,free,little,little,1164,8,vacation/others,good
+Dr. James Burke,Bradleyfurt,8306 Diaz Prairie,61226.06,2018-04-06,41,female,1,own,little,moderate,5954,42,business,good
+Christine Oconnor,Stephanieview,9820 Alexis Crescent,42020.29,2018-06-24,40,male,3,own,,little,1977,36,education,bad
+Richard Black,North Brianshire,396 Meghan Ways,46513.8,2018-06-29,66,male,3,free,little,little,1526,12,car,good
+Linda Nelson,North Aaron,791 Garrett Ports Apt. 957,84790.35,2018-06-30,34,male,2,own,little,little,3965,42,radio/TV,bad
+Michael Kelly,Lake Mariashire,39741 Joel Key Suite 474,94061.01,2018-08-24,51,male,2,own,little,moderate,4771,11,radio/TV,good
+Samantha Evans,Rossview,0378 Charles Plains Suite 652,47818.52,2018-06-20,39,male,1,own,,,9436,54,car,good
+Matthew Mitchell,East Daleside,927 Torres Park Apt. 419,99040.47,2018-12-22,22,male,2,own,little,moderate,3832,30,furniture/equipment,good
+Earl Park,Rebeccaberg,338 Richard Vista,33529.42,2018-12-05,44,female,2,own,,,5943,24,radio/TV,bad
+Connor Faulkner,East Kelly,8328 Butler Crossing,32954.75,2018-04-13,47,male,2,own,quite rich,,1213,15,radio/TV,good
+Michael Jones,West Megan,436 Robert Cliff,60149.71,2018-02-05,24,female,1,rent,moderate,,1568,18,business,good
+Angelica Mcguire,West Michelechester,1152 Brandon Park Suite 972,46446.35,2018-01-27,58,female,1,own,little,little,1755,24,vacation/others,good
+Kimberly Lester,Nathanhaven,895 Sims Squares,31175.9,2018-11-26,52,male,1,own,little,little,2315,10,radio/TV,good
+Diane Guzman,Port Renee,0191 Christine Mills Suite 978,46936.4,2018-06-17,29,female,3,own,little,,1412,12,business,good
+Daniel Perry,Aliceburgh,1740 Matthew Drives Apt. 491,83860.18,2018-10-17,27,female,2,own,little,moderate,1295,18,furniture/equipment,good
+Stephen Dunlap,Halltown,98236 King Spring Apt. 924,90658.33,2018-07-19,47,male,2,free,moderate,moderate,12612,36,education,bad
+Shelly Campbell,Port Kevin,07127 Anthony Village,73747.89,2018-04-12,30,male,3,own,moderate,little,2249,18,car,good
+Gregg Henderson,Bennetthaven,4827 Andrea Forest Suite 459,67892.02,2018-10-10,28,male,2,own,little,little,1108,12,repairs,bad
+Tracy Bernard,Wilsonburgh,084 Samuel Mills Apt. 954,87314.34,2018-12-30,56,male,2,own,little,,618,12,radio/TV,good
+Jeffery Le,South Haileychester,096 Laura Summit Suite 752,57920.41,2018-09-26,54,male,2,own,little,little,1409,12,car,good
+Andrew Harrington,Danafort,83666 David Overpass Apt. 018,93144.31,2018-08-06,33,female,1,own,,,797,12,radio/TV,bad
+Angela James,East Ruben,824 Lewis Hills,46012.78,2018-01-29,20,male,2,rent,,rich,3617,24,furniture/equipment,good
+Matthew Harris,Annaton,1447 Ryan Dale,39796.67,2018-10-04,54,male,2,own,rich,moderate,1318,12,car,good
+Amanda Smith,Janeborough,879 Hancock Crescent,37830.74,2018-05-30,58,male,2,rent,little,moderate,15945,54,business,bad
+Ralph Boyd,Ernestmouth,97068 Cox Brook Suite 002,65415.67,2018-03-04,61,female,2,own,,,2012,12,education,good
+Danielle Adams,Wendymouth,41622 Alan Walks,55845.93,2018-02-06,34,male,2,own,moderate,moderate,2622,18,business,good
+Thomas Parker Jr.,Port Hollyhaven,81275 Hancock Inlet,63462.54,2018-06-30,36,male,2,own,little,moderate,2337,36,radio/TV,good
+Melanie Hoffman,North Jennifer,71166 Brown Route Apt. 424,37503.17,2018-09-01,36,male,3,rent,,moderate,7057,20,car,good
+Michael Johnson,Jasonfurt,0165 Perez Light Apt. 425,28334.72,2018-10-22,41,male,1,rent,moderate,,1469,24,car,good
+Ashley Chase,North Misty,35741 Proctor Coves Suite 949,31885.53,2018-12-29,24,male,2,rent,little,moderate,2323,36,radio/TV,good
+Michael Smith,Port Misty,95891 Gomez Brooks,75528.22,2018-04-22,24,female,2,own,little,,932,6,radio/TV,good
+Tiffany Gordon,Anthonyfurt,38510 Edwards Lodge Suite 101,62392.34,2018-07-04,35,male,2,rent,little,moderate,1919,9,furniture/equipment,good
+Grant Brown,Vincentville,63875 Young Loop Suite 824,57321.08,2018-07-30,26,male,2,rent,,,2445,12,car,good
+Thomas Harrington,Sarahstad,5027 Anthony Spring Apt. 702,74347.27,2018-01-30,39,male,3,own,little,moderate,11938,24,vacation/others,bad
+Nathaniel Stewart DDS,Haileyland,006 Brian Corners Apt. 216,46527.15,2018-07-13,39,male,3,own,little,,6458,18,car,bad
+Elizabeth Black,Mendeztown,92387 Mccarty Heights,33947.38,2018-12-01,32,male,2,own,little,moderate,6078,12,car,good
+Kathleen Bowers,North Amandafort,629 Crosby Spur Suite 944,83548.18,2018-01-22,30,female,2,own,,little,7721,24,furniture/equipment,good
+Aaron Velazquez,Alexanderton,99185 Barbara Views,34726.84,2018-08-08,35,male,2,own,quite rich,moderate,1410,14,business,good
+Arthur Goodwin,South Martha,8084 Barrett Green,88427.92,2018-04-10,31,male,2,own,moderate,moderate,1449,6,business,good
+Steven Alvarez,Amandaport,4950 David Lodge Suite 501,25270.71,2018-01-03,23,female,2,rent,little,rich,392,15,education,good
+Deborah Chan,Murrayfurt,1443 Petty Course,65023.2,2018-12-09,28,male,1,rent,little,moderate,6260,18,car,good
+Patrick Kennedy,Petersonborough,67759 Vincent Summit,78237.79,2018-05-31,25,female,2,own,little,,7855,36,car,bad
+Patrick Oneill,Port Jennifer,27111 Robinson Ridge,57043.83,2018-06-13,35,male,2,own,quite rich,little,1680,12,radio/TV,good
+Mary Lowe,Carrfurt,89555 Butler Estate,31019.49,2018-11-28,47,male,2,own,,,3578,48,radio/TV,good
+Tina Hernandez,Kristihaven,75187 Howard Pike,42480.57,2018-05-07,30,female,3,own,,little,7174,42,radio/TV,bad
+Tyler Hall,North Lindafort,8844 Jason Mission,27307.39,2018-06-05,27,female,2,rent,,little,2132,10,furniture/equipment,good
+Shannon Sullivan,Jennaport,469 Cunningham Fort,45348.95,2018-06-25,23,female,2,own,quite rich,little,4281,33,furniture/equipment,bad
+Darlene Olson,Juliemouth,76302 Clayton Extension Suite 855,42132.54,2018-06-07,36,male,3,own,quite rich,moderate,2366,12,car,good
+Marissa Ross,Kimberlyhaven,4717 Kelly Village,79736.2,2018-06-23,25,female,2,own,little,little,1835,21,radio/TV,bad
+Steven Mitchell,North Adrienne,23695 Aaron Row Suite 829,40807.13,2018-04-02,41,female,3,rent,little,,3868,24,car,good
+Michael Johnson,South Daisyfort,3276 Brittany Centers,56273.07,2018-03-02,24,male,1,rent,little,,1768,12,furniture/equipment,good
+Brandy Rivera,Port Amy,0933 Nicholas Pine,76708.7,2018-01-23,63,male,2,free,little,rich,781,10,car,good
+Leslie Lang,Lake Seantown,023 Kristin Alley Suite 756,38136.46,2018-01-26,27,female,2,rent,,moderate,1924,18,furniture/equipment,bad
+Amy Foster,South Jason,70521 Graves Station,54311.7,2018-05-30,30,male,2,own,little,little,2121,12,car,good
+Tim Russell,Alexanderville,967 Stacy Summit Suite 771,53814.46,2018-02-24,40,male,1,own,little,little,701,12,radio/TV,good
+Jerry Johnson,Reginafurt,599 Allen Hollow Apt. 962,80741.57,2018-03-19,30,male,2,own,little,moderate,639,12,repairs,bad
+Chelsea Williams,Davidland,87454 Nicole Passage,28044.71,2018-02-14,34,male,3,own,little,moderate,1860,12,car,good
+Emily Murphy,Robinsonview,0428 Vanessa Court,57738.98,2018-10-01,29,female,2,own,little,little,3499,12,car,bad
+Maurice Cross,Port Tammy,959 Stephen Club Suite 080,87965.3,2018-09-21,24,female,2,own,,moderate,8487,48,car,good
+Lauren Taylor,New Kari,929 Sharon Lake Apt. 228,38319.74,2018-03-14,29,male,2,own,little,little,6887,36,education,bad
+Patricia Shepherd,Schneidertown,489 Emily Glen,41730.41,2018-11-16,27,male,1,own,little,,2708,15,furniture/equipment,good
+Megan Gonzalez,West John,5020 Jose Canyon,36668.79,2018-04-06,47,male,2,free,little,,1984,18,furniture/equipment,good
+Ashley Friedman,New Jeremyville,073 Adams Lodge Apt. 200,84484.24,2018-03-26,21,female,2,own,moderate,,10144,60,radio/TV,good
+Sharon Walker,Reginaldside,93563 Lee Inlet Apt. 606,67434.68,2018-06-03,38,female,2,own,,,1240,12,radio/TV,good
+Darius Huang,East Jerryborough,822 Nicole Grove,75419.58,2018-07-09,27,male,2,own,rich,,8613,27,car,good
+William Calhoun,Port Wendyhaven,89281 Chase Estate Apt. 314,29234.2,2018-06-16,66,male,1,own,quite rich,moderate,766,12,radio/TV,bad
+Heather Dyer,Port Jacksonborough,9651 Martinez Bypass,81895.64,2018-09-24,35,male,2,own,,moderate,2728,15,radio/TV,good
+Aaron Crawford,Alexisberg,3388 Wells Via,51882.22,2018-08-19,44,female,1,rent,little,rich,1881,12,radio/TV,good
+Christine Howell,Ramosport,459 Mendez Drive Suite 069,79537.49,2018-12-04,27,male,0,own,rich,rich,709,6,car,good
+Cynthia Barber,West Jerry,6002 Gregory Mountain Suite 466,62873.92,2018-08-18,30,female,3,own,little,moderate,4795,36,radio/TV,good
+Jeffrey Hammond,Stephanieborough,97257 Jamie Drives Suite 227,83161.23,2018-03-20,27,male,3,own,little,little,3416,27,radio/TV,good
+Karen Warren,New Pamelaburgh,501 Andrea Inlet,69967.8,2018-03-26,22,male,2,own,little,little,2462,18,furniture/equipment,bad
+Amanda Garcia,East Shannon,3415 Amanda Plain,82494.34,2018-07-08,23,female,2,own,little,,2288,21,furniture/equipment,good
+David Wright,Mathewburgh,325 Diaz Rapids Apt. 539,72655.55,2018-07-13,30,male,2,own,moderate,moderate,3566,48,business,good
+Kelsey Owens PhD,West Stevenport,61632 Hodge Via Suite 715,93475.62,2018-08-18,39,female,2,own,little,little,860,6,car,good
+Ricky Thomas,East Olivia,92785 Kayla Tunnel Suite 682,68378.38,2018-09-24,51,female,2,own,moderate,,682,12,car,good
+Brooke Shaw,New Emmabury,09204 Megan Pines,56715.84,2018-03-06,28,male,2,own,little,little,5371,36,furniture/equipment,good
+Gregory Marshall,Beasleyfort,0865 Mcfarland Stream Suite 808,26168.12,2018-08-07,46,male,2,own,rich,,1582,18,radio/TV,good
+Bryan Mason,Cindystad,41362 Margaret Via Suite 682,77273.93,2018-11-12,42,male,2,free,moderate,,1346,6,radio/TV,good
+Joshua Lewis,Cookefurt,151 Adam Flats Suite 652,34226.54,2018-02-25,38,male,2,own,little,,1924,10,radio/TV,good
+Tonya Hutchinson,South Walterburgh,9584 Leach Island,62351.22,2018-11-01,24,male,2,own,little,rich,5848,36,radio/TV,good
+Judith Hensley,South Connor,465 Darrell View Apt. 331,47559.62,2018-12-16,29,female,2,rent,rich,moderate,7758,24,car,good
+Richard Hess,East Angelahaven,3077 Banks Glens Apt. 652,91183.53,2018-07-23,36,male,3,rent,moderate,moderate,6967,24,business,good
+Thomas Nguyen,Port Edgarside,1886 Dickson Highway,65360.16,2018-11-02,20,female,2,rent,little,little,1282,12,furniture/equipment,bad
+Mark Mays,Davisfurt,40153 James Village Suite 403,83862.72,2018-05-25,48,male,2,own,moderate,little,1288,9,repairs,good
+Andrew Walls,Youngside,266 Anderson Dale,51361.66,2018-08-10,45,male,1,own,little,little,339,12,education,good
+Leslie Ortega,Robinstad,70302 Christopher Isle,32943.55,2018-04-28,38,male,2,own,moderate,moderate,3512,24,car,good
+Cassandra Goodman,East Lucasmouth,11598 Connie Flats,40971.5,2018-03-08,34,male,1,own,,,1898,6,radio/TV,good
+Joe Leon,Danielside,16096 Alvarado Lane Apt. 392,61428.0,2018-11-25,36,male,2,own,moderate,,2872,24,radio/TV,good
+Jack Richardson,Lake Brandontown,45923 Rebecca Wells,27350.69,2018-02-26,30,female,2,own,little,,1055,18,car,good
+Susan Smith,South Troybury,1604 Bridges Skyway,27738.07,2018-05-02,36,male,2,own,quite rich,,1262,15,domestic appliances,good
+Jill Johnson,East Frankmouth,4833 Alexander Isle,33525.01,2018-05-02,70,male,3,free,little,moderate,7308,10,car,good
+Vanessa Wilkinson DDS,Frankchester,065 Rebecca Avenue,26920.77,2018-01-06,36,male,2,own,quite rich,,909,36,car,good
+Alex Carter,North Christina,62648 Glenn Point Suite 716,94235.72,2018-10-07,32,male,2,own,quite rich,,2978,6,furniture/equipment,good
+Susan Mcdaniel,South Sierramouth,6301 Robert Corner Suite 876,53701.42,2018-04-21,33,female,2,own,little,little,1131,18,furniture/equipment,bad
+Gwendolyn Mitchell,Joelfurt,476 Brown Fords,85878.96,2018-07-10,20,female,2,own,rich,moderate,1577,11,furniture/equipment,good
+Dominique Gibson,Sloanberg,5571 Martin Garden,95859.46,2018-11-09,25,female,2,rent,little,,3972,24,furniture/equipment,good
+Laura Harris,Harmonview,97470 Shelton Stream,81159.75,2018-04-03,31,male,2,own,little,moderate,1935,24,business,bad
+Stephanie Rodriguez,West Dianeland,97575 Moran Parkways Suite 593,35634.6,2018-07-21,33,male,2,rent,little,little,950,15,car,bad
+Sierra Bridges,West Joseph,2654 Gonzales Station Suite 878,60652.33,2018-01-15,26,female,2,own,little,,763,12,furniture/equipment,good
+Amber Powell,East Marctown,5287 Angela Groves,54997.9,2018-01-26,34,female,3,own,little,moderate,2064,24,furniture/equipment,bad
+Ricky Johnson,Steelehaven,3981 Bentley Burgs,92101.97,2018-03-23,33,male,2,own,little,moderate,1414,8,radio/TV,good
+Kristi Downs,East Kevinville,5052 Martin Tunnel,59036.67,2018-12-31,26,male,2,own,little,little,3414,21,education,bad
+Jeremy Villanueva,Michaelland,23006 Adams Run Apt. 475,28283.27,2018-05-09,53,female,3,own,,,7485,30,car,bad
+John Bell,Lake Laurie,960 Paula Way,49946.47,2018-02-25,42,male,2,own,little,little,2577,12,furniture/equipment,good
+Jennifer Rivera,Harmonview,03134 Elizabeth Ways Suite 436,83476.22,2018-11-13,52,male,2,own,quite rich,little,338,6,radio/TV,good
+Adriana Goodman,Fergusonport,684 Natalie Turnpike Apt. 807,64386.23,2018-02-10,31,male,3,rent,little,,1963,12,radio/TV,good
+Tracy Snyder,North Jessica,94972 Angela Village Suite 652,31554.69,2018-12-31,65,male,2,own,little,little,571,21,car,good
+Richard Torres,West Joanborough,2843 White Walk Apt. 217,33709.35,2018-03-24,28,male,2,own,little,,9572,36,business,bad
+Mr. Stephen Goodman,Simonside,4914 Melissa Village Apt. 697,76846.34,2018-06-02,30,male,3,own,little,moderate,4455,36,business,bad
+Shawn Larsen,Browntown,12662 Wendy Ramp Suite 759,25587.86,2018-11-20,40,male,1,own,,little,1647,21,car,bad
+Kent Butler,West Bradley,189 Richard Cape Suite 140,34161.6,2018-11-01,50,male,2,own,rich,,3777,24,furniture/equipment,good
+Nathaniel Gonzalez,Owenville,3506 Jo Dale Apt. 535,71712.17,2018-09-01,36,male,2,own,little,moderate,884,18,car,bad
+Kurt Thomas,Bryanstad,86894 Timothy Rapid Suite 782,77273.25,2018-01-02,31,male,2,own,little,,1360,15,radio/TV,good
+Latoya Anderson,Lake Shannon,7442 Desiree Turnpike Suite 852,51494.48,2018-05-15,74,female,3,free,little,moderate,5129,9,car,bad
+Nicholas Grant,Westborough,9512 Henry Mission,59920.82,2018-05-28,68,male,0,free,little,moderate,1175,16,car,good
+Martha Lane,Davidstad,297 Gregory Knolls Apt. 893,59034.14,2018-11-08,20,male,2,own,moderate,little,674,12,radio/TV,bad
+Carol Morrison,Port Kyleshire,3002 Ruiz Islands Apt. 605,28963.76,2018-03-09,33,female,2,own,little,moderate,3244,18,furniture/equipment,good
+Maria Moreno,Cranechester,89847 Russell Spurs,69951.78,2018-02-04,54,male,3,own,rich,,4591,24,business,bad
+Mariah Williams,Alexfort,509 Christopher Circles Suite 821,96751.23,2018-10-02,34,male,1,free,moderate,moderate,3844,48,business,bad
+Whitney Edwards,Mooreshire,2533 Mccormick Skyway Suite 148,79394.5,2018-12-14,36,male,2,own,little,moderate,3915,27,business,bad
+Jasmine Weiss,Allenland,5922 Sonia Field Suite 289,86272.41,2018-04-26,29,male,2,rent,little,,2108,6,radio/TV,good
+Elizabeth Smith,New Spencerfurt,64026 Paul Knoll,46120.38,2018-04-04,21,male,2,rent,moderate,moderate,3031,45,radio/TV,bad
+Michael White,Romanmouth,3952 Andrew Common Apt. 303,34186.31,2018-10-18,34,female,3,own,little,moderate,1501,9,education,bad
+Melissa Cruz,Wangton,7804 Marilyn Neck Suite 489,76305.84,2018-09-13,28,female,2,own,little,,1382,6,radio/TV,good
+Sheila Woods,Lake Natashafurt,160 Jose Path,53727.01,2018-11-11,27,female,2,rent,moderate,moderate,951,12,furniture/equipment,bad
+Donna Orozco,North Bethmouth,35853 Diaz Street,38627.46,2018-05-17,36,male,2,free,,moderate,2760,24,car,good
+Karen Adams,New Betty,817 Elizabeth Keys,90329.82,2018-05-08,40,male,3,own,little,moderate,4297,18,furniture/equipment,bad
+Luke Mora,Michaelside,373 Jackson Underpass,49566.93,2018-06-04,52,male,2,own,quite rich,,936,9,education,good
+Tracy Erickson,Johnnystad,71304 Mendoza Ford Apt. 070,68139.6,2018-09-07,27,male,1,own,little,little,1168,12,car,good
+Connie Nelson,Port Mary,495 Garrett Junctions,47197.53,2018-12-16,26,male,2,own,little,,5117,27,business,good
+Kyle Cruz,Robertmouth,3450 Laurie Greens,51647.3,2018-07-15,21,male,2,rent,little,little,902,12,education,bad
+Randy Choi,Cookbury,7639 Kristin Mews,34946.31,2018-11-19,38,male,1,own,little,,1495,12,car,good
+Amber Lee,Rachelton,72499 Cross Rue,43176.21,2018-03-19,38,male,3,free,little,little,10623,30,car,good
+David Griffin,East Mollyfurt,7158 Patricia Tunnel,36337.87,2018-04-11,43,male,2,own,little,,1935,12,furniture/equipment,good
+Sara Hampton,South Charlesstad,14032 Alicia Mountain Apt. 988,51861.27,2018-04-07,26,male,2,own,little,moderate,1424,12,domestic appliances,good
+Sue Norton,North Nicholasmouth,1532 Lee Station Apt. 056,82334.96,2018-06-01,21,male,1,own,little,little,6568,24,business,good
+Angela Wolf,West Brandi,124 Jessica Trace,26513.0,2018-11-26,55,male,2,own,rich,,1413,12,car,good
+Sean Boyer,Larryside,078 Williams Trail Apt. 605,90182.42,2018-07-24,33,male,2,own,,,3074,9,radio/TV,good
+Jessica Hull,Kimberlyfurt,341 Duran Walk Suite 285,35099.45,2018-07-02,45,female,1,own,,,3835,36,radio/TV,good
+Shelly Gordon,New Lauren,9928 Kenneth Flats,88926.38,2018-12-31,50,male,2,own,little,little,5293,27,business,bad
+John Kelly,West Jerrymouth,9553 Kristin Fields,96972.16,2018-11-11,66,male,3,own,little,rich,1908,30,business,bad
+Heather Vasquez,East Kennethfurt,672 Harris Inlet,44582.2,2018-04-10,51,male,2,own,,,3342,36,radio/TV,good
+Rachel Burgess,North Jennifer,469 Cameron Wells,77391.42,2018-07-25,39,female,1,own,,moderate,932,6,education,good
+Christine Fritz,Prattfurt,0635 Kim Ramp Suite 687,57510.76,2018-03-27,31,male,2,own,little,little,3104,18,business,good
+Lisa Cook,Port Kyle,6767 Paula Station Suite 193,26793.68,2018-12-08,23,male,2,own,little,rich,3913,36,radio/TV,good
+Melissa Nelson,Snydermouth,027 Charles Hollow Apt. 985,31411.8,2018-08-12,24,male,1,rent,little,little,3021,24,furniture/equipment,good
+Mary Jackson,Guzmanchester,0900 Hayes Crossroad,68976.6,2018-11-30,64,female,2,own,little,,1364,10,car,good
+Ariel Mcmillan,East Annafurt,624 Bailey Village,74303.66,2018-08-01,26,male,1,own,little,moderate,625,12,radio/TV,good
+Randall Hernandez,Timothyshire,2147 Shaun Wells,48399.67,2018-02-26,23,female,2,rent,,little,1200,12,education,good
+Richard Wiley,North Jonathan,0004 Alejandro Camp Apt. 349,56986.61,2018-12-26,30,male,2,own,little,,707,12,radio/TV,good
+Eric Farrell,Grantchester,826 Gill Gardens,76861.23,2018-04-29,32,male,2,own,,,2978,24,business,good
+Willie Santana MD,Lake Richard,477 Horn Falls Apt. 694,40798.17,2018-01-06,30,male,2,own,little,,4657,15,car,good
+Anna Stevens,Lisamouth,284 Robin Track,26105.39,2018-06-14,27,male,2,own,little,,2613,36,repairs,good
+Anthony Weaver,Timothyside,20561 Valerie Wall,47020.85,2018-07-22,27,male,2,own,rich,moderate,10961,48,radio/TV,bad
+Amanda Turner,South Phyllis,0030 Alexander Ramp,34021.72,2018-04-18,53,male,3,free,little,little,7865,12,furniture/equipment,bad
+Jose Morris,North Rachel,40269 John Glens Apt. 688,33476.68,2018-09-19,22,male,2,own,little,,1478,9,radio/TV,bad
+Zachary Burns DDS,Michaelstad,5114 Harris Land Apt. 408,37154.15,2018-09-11,22,male,2,free,little,little,3149,24,furniture/equipment,good
+Rita Lin,Johnsonhaven,86815 Williams Coves Suite 712,87353.79,2018-11-15,26,male,2,own,little,rich,4210,36,radio/TV,bad
+Sarah Joyce,Mccormickhaven,618 Cervantes Motorway,51148.19,2018-01-23,51,male,1,free,quite rich,,2507,9,car,good
+Dawn Nguyen,North Michelleburgh,7222 Thomas Pike,76625.41,2018-08-22,35,male,2,own,moderate,,2141,12,radio/TV,good
+Joshua Luna,West Ashleyfurt,9334 Nicole Ville,90714.81,2018-01-29,25,male,1,own,little,moderate,866,18,radio/TV,good
+Becky Graham,Stephaniefort,32856 Norton Loop,68016.2,2018-04-16,42,male,1,own,little,,1544,4,radio/TV,good
+Brittney Lester,South Robert,83865 Thornton Forge Suite 833,28270.84,2018-04-30,30,male,3,own,little,little,1823,24,radio/TV,bad
+Roy Rodgers,Stephanieview,791 Woods Cliff Suite 481,25523.04,2018-03-28,23,male,0,own,,moderate,14555,6,car,bad
+Daniel Price,Lake Carolynfort,59257 Philip Spurs,79695.67,2018-03-02,61,male,1,rent,moderate,moderate,2767,21,business,bad
+Pamela Huynh,Davidshire,686 Harold Glen,92566.18,2018-05-27,35,female,2,own,little,,1291,12,radio/TV,good
+Tanya Campbell,West Pamela,1871 Jessica Hollow,57336.13,2018-10-16,39,male,2,own,little,little,2522,30,radio/TV,good
+Jeffrey Cole,New Susan,939 Benson Plains Apt. 979,54789.04,2018-10-28,29,female,2,own,,little,915,24,car,bad
+Gabrielle Flores,Mezaborough,62893 Nichole Avenue,26632.6,2018-01-25,51,male,2,own,little,,1595,6,radio/TV,good
+Brian Brown,West Brentfurt,4529 Tamara Ports Suite 306,38654.84,2018-03-14,24,male,2,free,little,little,4605,48,car,bad
+Allen Owen,Hermanmouth,512 Merritt Circle Suite 132,82194.83,2018-02-14,27,female,2,own,little,,1185,12,business,good
+Nicholas Moore,East Jackfort,558 Oscar Knolls,69900.61,2018-06-05,35,female,1,own,quite rich,,3447,12,education,good
+Megan Caldwell,Josephstad,40258 Scott Track,38943.74,2018-03-10,25,male,2,own,little,,1258,24,business,good
+Charles Dickerson,Jenniferchester,0733 Joshua Radial Suite 362,49264.92,2018-12-19,52,male,2,own,little,,717,12,radio/TV,good
+Carl Garcia,Tranbury,956 Robertson Via Apt. 063,33150.52,2018-05-07,35,male,2,rent,moderate,,1204,6,car,good
+Ebony Black,New Jessicabury,2095 Nathan Dale,88394.54,2018-09-07,26,male,2,own,little,rich,1925,24,furniture/equipment,good
+Natalie Becker,East Susanburgh,17043 Dawn Center,55587.62,2018-04-26,22,female,2,rent,little,,433,18,radio/TV,bad
+Yolanda Stewart,Rodriguezton,7880 Joel Via Suite 453,61933.43,2018-08-16,39,female,1,own,rich,little,666,6,car,good
+Katherine Edwards,New Jasonview,6412 Graves Circle Apt. 133,38372.68,2018-08-21,46,female,1,own,little,rich,2251,12,furniture/equipment,good
+John West,Harrisonberg,3119 Denise Well Apt. 156,32900.06,2018-01-11,24,female,2,own,little,moderate,2150,30,car,bad
+Erik Mcconnell,New Carol,6928 Erica Fields Apt. 276,37573.32,2018-11-23,35,male,2,own,moderate,,4151,24,furniture/equipment,good
+Erica Ferguson,Harperberg,777 Daniel Pike Suite 592,39627.7,2018-06-11,24,male,2,own,,moderate,2030,9,furniture/equipment,good
+Janet Green,Johnsonmouth,91646 Morgan Street,76838.74,2018-02-07,27,male,1,own,,moderate,7418,60,radio/TV,good
+Garrett Brown,North Sabrinastad,80635 Scott Landing,95263.48,2018-11-12,35,male,1,own,little,,2684,24,radio/TV,good
+Monica Wood,Yuberg,806 Wall Gateway Apt. 106,32447.48,2018-06-29,29,male,2,free,little,little,2149,12,radio/TV,bad
+Jennifer Larson,Pierceview,7747 Tyler Street,81481.51,2018-12-23,23,female,2,own,moderate,,3812,15,car,good
+Jon Washington,Freemanville,01946 Timothy Pine,70305.2,2018-07-29,57,female,1,own,moderate,,1154,11,radio/TV,good
+Carla Meyers DDS,East Joshua,56595 Angela Fields Suite 821,79284.45,2018-04-21,27,male,2,own,little,little,1657,12,furniture/equipment,good
+Kimberly Peterson,Leestad,61831 James Mission,84032.39,2018-01-21,55,female,2,own,little,little,1603,24,radio/TV,good
+Vanessa Coleman,Lake Dennis,3941 Sara Cove Suite 579,29667.54,2018-09-26,36,male,3,free,little,little,5302,18,car,good
+Scott Rogers Jr.,Nicholasport,560 White Extensions Suite 055,45542.53,2018-08-07,57,female,1,free,little,,2748,12,education,good
+Brent Carter,East Nicholas,876 Perez Lodge,39916.95,2018-02-07,32,male,1,own,little,,1231,10,car,good
+Ethan Meyers,Baldwinstad,8099 Ashley Island Apt. 440,28997.63,2018-08-17,37,male,2,own,little,moderate,802,15,radio/TV,bad
+Dale Jones,South Kristenmouth,61036 Morrison Park,42104.61,2018-06-15,36,male,2,own,,,6304,36,business,good
+Joanne Thompson,East Carrie,06621 Isabella Knoll,58600.77,2018-08-28,38,female,2,own,little,,1533,24,radio/TV,good
+Christina Molina,North Robinside,6101 Glass Shores Suite 958,25575.21,2018-01-29,45,male,3,own,little,little,8978,14,car,bad
+Jennifer Gomez,Terranceland,228 Payne Divide Apt. 588,80649.28,2018-12-23,25,male,2,own,,,999,24,radio/TV,good
+William Savage,West Brenda,92780 Angelica Oval Suite 785,96808.87,2018-02-23,32,male,2,own,,,2662,18,car,good
+Ashley Snyder,Odonnellmouth,405 Diana Isle,74870.21,2018-05-13,37,female,2,rent,quite rich,,1402,12,furniture/equipment,good
+Scott Daniels,Lake Sharon,477 Beth Parkways Apt. 768,56196.02,2018-07-17,36,male,3,free,,moderate,12169,48,car,good
+Kayla Brooks,Port Gregorybury,4264 Brian Dam,91339.74,2018-03-25,28,male,2,own,little,moderate,3060,48,radio/TV,bad
+Richard Lee,South Alishafort,43191 Joshua Summit Suite 437,62192.66,2018-11-15,34,male,1,own,little,little,11998,30,repairs,bad
+Rachel Martinez,South Danielchester,13369 Tina Springs Suite 969,42601.41,2018-07-20,32,male,2,own,little,,2697,9,radio/TV,good
+Stacy Sharp,Lake Markshire,731 Meredith Plains Suite 161,92341.76,2018-03-21,26,female,2,own,little,,2404,18,radio/TV,good
+Patricia Hancock,West Steventon,00033 Chloe Islands,62440.02,2018-12-19,49,male,1,own,,little,1262,12,furniture/equipment,good
+Joshua Walker,Melissaside,077 Moore Land Apt. 437,85754.07,2018-08-25,32,female,2,own,little,,4611,6,furniture/equipment,bad
+Linda Williamson,New Briantown,60737 Swanson Way Suite 048,45936.87,2018-05-23,29,male,3,rent,moderate,,1901,24,radio/TV,good
+Jamie Hodge,West Beth,20026 Gregory Wall Apt. 520,82132.45,2018-09-24,23,male,2,rent,rich,,3368,15,car,good
+Eric Gonzalez,West Beth,3703 Amy Gateway Suite 589,44309.5,2018-09-12,50,male,2,own,little,,1574,12,furniture/equipment,good
+Thomas Lopez,Hawkinsport,7430 Sherri Spur Apt. 516,30485.41,2018-09-13,49,male,1,own,,rich,1445,18,radio/TV,good
+Ashley Hill,Hensonville,12259 Martin Common,54226.55,2018-10-19,63,male,2,own,,,1520,15,furniture/equipment,good
+Nicholas Murphy,West Tracyfort,1563 Gilbert Place,27780.85,2018-08-24,37,male,2,own,moderate,moderate,3878,24,car,good
+Kristina Willis,East Carlos,41341 Robert Stravenue,90558.1,2018-11-17,35,female,1,own,little,little,10722,47,car,good
+Tina Moore,West Robert,6231 Rice Island,77198.96,2018-11-18,26,male,2,own,little,little,4788,48,car,good
+Suzanne Roberts,Schaeferburgh,8108 Lisa Ridges,55251.38,2018-12-12,31,male,3,free,moderate,moderate,7582,48,vacation/others,good
+Tamara Bailey,Hodgesfort,79853 Yoder Walk Suite 448,96982.98,2018-09-12,49,female,2,own,little,moderate,1092,12,radio/TV,good
+Steve Rose,Rodriguezmouth,971 Davis Terrace Apt. 420,49855.66,2018-03-02,48,male,2,own,little,little,1024,24,radio/TV,bad
+Timothy Henderson,West Jason,2625 Benjamin Loop,64864.96,2018-12-04,26,male,2,own,little,,1076,12,business,good
+Sarah Young,Richardview,34611 William Oval,43151.85,2018-02-03,28,male,3,rent,little,moderate,9398,36,car,bad
+Denise Richards,Silvastad,732 Baldwin Court,92559.59,2018-03-11,44,female,3,free,little,little,6419,24,car,good
+Christopher Bradford,Ryanburgh,8960 Paula Run,96832.27,2018-05-28,56,male,2,free,little,rich,4796,42,car,good
+Jesse Harris,North Tiffany,661 Nicholas Flat Suite 844,53797.48,2018-01-22,46,male,3,own,,,7629,48,business,good
+Donna Brock,Courtneyhaven,04165 Rebecca Motorway Apt. 119,93884.36,2018-05-02,26,female,2,own,little,moderate,9960,48,furniture/equipment,bad
+Nicholas Shaffer,East Leslie,34531 Cowan Point,37743.95,2018-09-04,20,female,2,rent,,,4675,12,car,good
+Kimberly Huffman,South Felicialand,3367 Warren Knoll,49309.96,2018-12-31,45,male,1,own,,,1287,10,car,good
+Nicole Bright,Johnsonmouth,4464 April Mountains,74935.65,2018-05-23,43,male,2,own,little,,2515,18,furniture/equipment,good
+Charles Ward,West Stevenbury,687 Simmons Circles Suite 923,51557.22,2018-04-22,32,male,2,own,rich,moderate,2745,21,furniture/equipment,good
+Patricia Smith,Brittanyfort,229 Spencer Plaza Suite 686,73435.8,2018-07-20,54,female,0,own,little,,672,6,car,good
+Dr. Dominique Barnes,Allenside,5125 Jocelyn Field,36190.48,2018-07-28,42,female,2,own,little,moderate,3804,36,radio/TV,bad
+Kathryn Willis,Robertsborough,8706 Adams Circle,43940.28,2018-01-07,37,male,1,own,,rich,1344,24,car,bad
+Shannon Avila,North Jessica,500 Parker Bridge Suite 653,62931.55,2018-10-15,49,male,2,own,little,little,1038,10,car,good
+Diamond Steele,New Hunter,9086 Veronica Wall,30237.53,2018-11-17,44,male,2,free,quite rich,,10127,48,car,bad
+Andrew Wade,Carolland,9470 Price Circle,53809.5,2018-10-21,33,male,2,own,rich,,1543,6,furniture/equipment,good
+Andre Duffy,Carolinestad,25712 Banks Plain,61609.35,2018-03-25,24,female,1,rent,,,4811,30,car,good
+William Eaton,Dennishaven,517 Rebecca Club,91722.73,2018-07-21,33,male,1,own,moderate,little,727,12,radio/TV,bad
+John West,North Shannonton,054 Jennifer Mission,58404.85,2018-11-19,24,female,2,own,little,moderate,1237,8,furniture/equipment,bad
+Jenna Smith,Fitzgeraldside,967 Mercer Plains Apt. 866,62687.94,2018-08-26,22,male,1,rent,little,moderate,276,9,car,good
+Amy Fowler,Martinmouth,3384 Garcia Mill Suite 522,30511.44,2018-03-10,40,male,0,free,,moderate,5381,48,vacation/others,good
+Douglas Davis,New Robertfurt,5479 Young Squares Suite 923,84796.35,2018-08-29,25,male,2,own,moderate,,5511,24,furniture/equipment,good
+Jeffrey Terry,East Eddie,449 Alvarez Manors Apt. 977,99564.75,2018-06-12,26,female,2,own,little,rich,3749,24,furniture/equipment,good
+Monica Smith,Garnerville,423 David Garden,31522.33,2018-09-18,25,male,1,own,little,moderate,685,12,car,bad
+Jeremy Lopez,Taylorchester,621 Brittany Springs,82991.9,2018-10-26,29,male,1,own,,rich,1494,4,car,good
+Richard Mora,Reneeport,387 Andres Squares Apt. 405,55834.88,2018-01-30,31,male,2,own,little,little,2746,36,furniture/equipment,bad
+Jessica Nichols,Lake Taylorburgh,297 Marquez Trail Apt. 348,55036.73,2018-04-27,38,male,1,own,little,little,708,12,furniture/equipment,good
+Barry Smith,Lynnside,311 Kevin Mall,39349.33,2018-08-01,48,female,1,own,,moderate,4351,24,furniture/equipment,good
+Thomas Bryan,Esteschester,1632 Castro View,61803.33,2018-04-01,32,male,2,own,little,,701,12,education,good
+Colleen Alexander,Hendersonhaven,43607 Wallace Ports Suite 190,64497.2,2018-11-19,27,female,1,own,little,little,3643,15,furniture/equipment,good
+Katrina Larson,Port Hannah,67184 Miller Stream Apt. 441,36018.19,2018-02-07,28,male,3,own,little,moderate,4249,30,car,bad
+Eric Brock,Peterport,9198 Andrew Crossroad Suite 630,95408.21,2018-02-28,32,male,2,own,little,little,1938,24,radio/TV,bad
+Sarah Reyes,Gonzaleschester,05267 Kevin Spurs Apt. 364,72509.16,2018-08-05,34,male,3,free,little,little,2910,24,car,good
+Jason Newman,New Daniel,5083 Rodriguez Crescent,52843.87,2018-08-07,28,male,2,own,rich,little,2659,18,furniture/equipment,good
+Michael Padilla,North Julieport,839 Martin Walks Suite 674,50961.31,2018-03-30,36,female,2,own,little,,1028,18,car,good
+John Patterson,Mullenchester,9120 Eaton Lane,68476.78,2018-09-01,39,male,1,own,little,little,3398,8,car,good
+George Cain,Reginatown,472 Matthew Brook,83863.31,2018-01-17,49,male,2,rent,,,5801,12,furniture/equipment,good
+Kayla Paul,West Jenniferfurt,7690 Edward Trace,47805.58,2018-03-23,34,female,2,own,rich,,1525,24,car,good
+Madeline Smith,North Kimberly,1358 Penny Skyway,34142.81,2018-07-01,31,male,2,own,little,rich,4473,36,radio/TV,good
+Janice Reyes,West Eric,02743 Kirk Flat,54658.0,2018-08-07,28,male,2,own,little,moderate,1068,6,radio/TV,good
+Christine Taylor,Alejandrashire,82288 Mercer Parkways Suite 628,61114.36,2018-07-08,75,male,3,free,little,little,6615,24,car,good
+Allen Marquez,East Michael,32728 Baker Ridges Apt. 735,95449.44,2018-05-08,30,female,2,own,moderate,,1864,18,education,bad
+Laurie Montes,Robinsonmouth,8481 Lisa Coves,40846.28,2018-12-10,24,female,3,own,moderate,moderate,7408,60,car,bad
+Michelle Phillips,Lake Richard,3934 Micheal Shores,51319.98,2018-04-23,24,female,1,rent,moderate,,11590,48,car,bad
+William Gaines,Brettmouth,36355 Farrell Avenue,71213.02,2018-01-18,23,male,2,rent,little,little,4110,24,furniture/equipment,bad
+Darryl Wallace,Adamport,6299 Hill Row,97565.65,2018-08-09,44,male,3,rent,little,little,3384,6,furniture/equipment,bad
+Robert Bender,Lambville,5954 Ellison Ways Suite 007,87926.18,2018-10-16,23,female,1,own,little,moderate,2101,13,radio/TV,good
+Mark Smith,West Lorishire,395 Rachel Fork Suite 934,51130.59,2018-02-08,24,female,2,rent,,little,1275,15,domestic appliances,bad
+Kevin Russell,Turnerton,86446 Ray Islands Apt. 029,49706.48,2018-07-06,28,male,2,own,little,little,4169,24,furniture/equipment,good
+Ashley Rodriguez,Blakeville,58206 Bates Cove Apt. 728,40860.12,2018-02-24,31,male,1,own,little,moderate,1521,10,furniture/equipment,good
+Rachel Romero,East Joshua,73062 Tara Stravenue,66752.67,2018-01-06,24,female,2,free,little,moderate,5743,24,education,good
+Rose Anderson,Franciscoton,94306 Hines Loop,26022.16,2018-02-18,26,female,1,rent,little,little,3599,21,furniture/equipment,good
+Mindy Turner,North Corey,185 Quinn Mountain Apt. 087,99098.71,2018-01-20,25,male,2,rent,quite rich,moderate,3213,18,radio/TV,good
+Kenneth Rodriguez,Mccoybury,26730 Burnett Corner,46128.38,2018-02-19,33,male,3,own,little,moderate,4439,18,business,good
+Travis Phillips,East Jamesmouth,2840 Cortez Heights,37359.95,2018-05-30,37,male,1,own,little,rich,3949,10,car,good
+Tammy Murphy,Port Anita,419 Antonio Divide,84605.75,2018-04-26,43,female,1,own,little,,1459,15,radio/TV,good
+Travis Benjamin,Lake Donnabury,51239 Holmes Vista Apt. 625,79396.42,2018-05-19,23,male,2,own,little,moderate,882,13,radio/TV,good
+Terry Martinez,South Lorifort,515 Pitts Key Apt. 309,85469.19,2018-12-21,23,female,0,rent,quite rich,moderate,3758,24,radio/TV,good
+Joshua Richard,Johnbury,085 Joseph Views Apt. 233,48617.01,2018-11-28,34,male,1,own,moderate,,1743,6,business,good
+Philip Carson,New Katiechester,2958 Maddox Lights Suite 328,56644.73,2018-02-12,32,male,2,free,rich,moderate,1136,9,education,bad
+Jeffrey Weeks,Kaitlinview,79034 Rebecca Landing Suite 257,65518.68,2018-03-17,23,female,2,rent,little,,1236,9,domestic appliances,good
+Lawrence Maldonado,Jessicaberg,557 Howard Ramp Apt. 562,81446.04,2018-07-16,29,female,2,own,little,moderate,959,9,furniture/equipment,bad
+Dawn Black,North Robert,532 Robbins Garden Suite 066,69970.49,2018-01-11,38,male,3,own,,,3229,18,car,good
+Sonya Stafford,East Curtis,56250 Rodriguez Fall Suite 493,73961.35,2018-06-09,28,male,2,rent,little,little,6199,12,radio/TV,bad
+Jacob Thomas,Danielbury,8040 Melanie Underpass,43943.29,2018-01-19,46,male,2,free,quite rich,,727,10,education,good
+John Howard,Port Jacob,782 Cory Drives,32219.91,2018-01-31,23,male,1,own,little,moderate,1246,24,car,bad
+Robert Ryan,Shanebury,931 Michael Hollow Apt. 472,99313.4,2018-01-30,49,male,2,own,,,2331,12,radio/TV,good
+Shaun Schmidt,New Teresa,9027 Keller Road Suite 643,97815.68,2018-09-21,26,male,3,own,little,,4463,36,radio/TV,bad
+Shannon Harding,Lake Kevinfort,685 Rodgers Pine Suite 819,46270.88,2018-01-20,28,male,2,own,little,,776,12,radio/TV,good
+Dylan Bullock,Katherineport,119 Lisa Bypass Suite 309,57551.15,2018-07-31,23,female,2,rent,little,little,2406,30,furniture/equipment,bad
+Melissa Sanchez,North Johnside,785 Brandon Wells,98685.72,2018-06-30,61,male,2,free,,moderate,1239,18,education,good
+Joanna Brown,South Tammyport,41253 Brian Mountain,56457.5,2018-11-13,37,male,3,own,,rich,3399,12,radio/TV,good
+Katherine Barker,North Stephanieville,6021 Miles Fall Suite 310,37435.19,2018-02-16,36,female,2,own,little,rich,2247,12,car,good
+Antonio Taylor,Melissachester,073 Michael Underpass,70290.99,2018-09-20,21,male,2,rent,little,,1766,6,furniture/equipment,good
+Tamara Rivas,East Ryantown,779 Melissa Circle,73069.09,2018-09-05,25,male,0,own,little,little,2473,18,furniture/equipment,bad
+Destiny Dodson,Cindyside,76484 Ryan Crossroad Apt. 338,26643.73,2018-09-28,36,male,2,own,little,,1542,12,business,good
+Mark Roberts,Stephensberg,320 Sherry Walks,70637.37,2018-09-15,27,male,2,own,little,,3850,18,car,good
+Scott Kaufman,Shortport,345 Swanson Track,54790.25,2018-03-11,22,female,2,rent,little,little,3650,18,furniture/equipment,good
+Dawn Anderson,Edwardston,41507 Adam Course Apt. 386,65359.69,2018-02-26,42,male,2,own,little,little,3446,36,furniture/equipment,bad
+Kristine Davila,Brandonport,06178 James Point,36416.42,2018-10-28,40,female,2,rent,little,moderate,3001,18,furniture/equipment,good
+Sergio Phillips,Lake Christopherfurt,82029 Kelley Burg Suite 928,37554.0,2018-11-01,36,male,2,own,,,3079,36,car,good
+Jennifer Hoover,South Jacobtown,2136 Waters Spur Suite 169,87873.97,2018-12-09,33,male,2,own,little,,6070,18,radio/TV,good
+Gina Gordon,West Brenda,064 Ware Gardens Apt. 584,85013.09,2018-01-21,23,female,2,rent,little,,2146,10,furniture/equipment,good
+Tracey Edwards,South Jennifer,7932 Bond Walks Suite 081,74082.15,2018-09-01,63,male,3,free,,,13756,60,car,good
+Stephanie Bass,Whitakerview,7317 Johnson Gardens,67907.53,2018-02-28,60,female,3,free,moderate,moderate,14782,60,vacation/others,bad
+Kristin Blackburn,Port Edwardport,748 Warner Turnpike,48996.74,2018-12-13,37,female,2,rent,little,little,7685,48,business,bad
+James Figueroa,South Jenniferside,63036 Tina Shoal Suite 861,46661.88,2018-08-06,34,male,2,own,little,,2320,18,radio/TV,good
+Monica Pena,Lukehaven,986 Beverly Point,35571.76,2018-04-22,36,male,2,free,,,846,7,radio/TV,good
+Nicholas Parker,Allenview,060 Brown Overpass Apt. 281,51881.41,2018-04-18,57,male,3,free,little,moderate,14318,36,car,bad
+Lori Lam,West Kayleeview,013 Frank Lodge Suite 192,95827.83,2018-09-07,52,female,1,own,moderate,,362,6,car,good
+Elijah Calderon,Brianstad,596 Jennifer Shore Suite 084,37217.79,2018-08-12,39,male,2,own,,little,2212,20,furniture/equipment,good
+Cynthia Stevens,West Angela,949 Reginald Ways,62462.52,2018-11-26,38,female,3,free,little,moderate,12976,18,car,bad
+Dana Fletcher,Allenburgh,393 Long Ridges,76517.1,2018-02-05,25,female,2,rent,,,1283,22,car,good
+Robert Moss,Randallfort,47650 Jared Brook Suite 113,56138.12,2018-11-18,26,male,2,own,little,rich,1330,12,car,good
+Lindsay Olson,Port Angelchester,0460 Cole Trail Apt. 109,98975.4,2018-04-07,26,male,1,own,moderate,,4272,30,business,good
+Tony Smith,Kaitlynport,0474 Daniel Key Apt. 017,72631.51,2018-06-27,25,female,2,own,little,,2238,18,radio/TV,good
+Nicholas Harrington,Michaelmouth,60087 Patrick Mall Suite 883,55260.1,2018-11-21,21,female,2,rent,,,1126,18,radio/TV,good
+Todd Perez,North Markton,817 Stephanie Haven,74561.35,2018-01-04,40,male,3,own,little,moderate,7374,18,furniture/equipment,good
+Stuart Reed,Jenniferview,93388 Timothy Mountains,76731.62,2018-03-05,27,male,2,own,quite rich,moderate,2326,15,business,good
+Timothy Wolfe,Blackborough,2780 Orr Lodge,74246.35,2018-11-13,27,female,2,own,little,,1449,9,business,good
+Austin Moore,Michaelfort,1894 Mendoza Avenue Apt. 690,50441.79,2018-07-19,30,male,3,own,little,,1820,18,car,good
+Thomas Turner,Ellismouth,066 Wallace Plains,63177.28,2018-03-07,19,female,1,rent,rich,moderate,983,12,furniture/equipment,good
+Kevin Parker,Sandraside,2739 Randolph Street,62730.41,2018-03-01,39,male,3,free,little,little,3249,36,car,good
+Destiny Fowler,Ericchester,99852 Johnson Ridge Apt. 025,92548.86,2018-07-25,31,female,2,own,little,little,1957,6,radio/TV,good
+Kimberly Wright,East Jaimeshire,9657 Bradley Prairie Apt. 093,29395.53,2018-09-13,31,male,3,own,little,,2406,9,furniture/equipment,good
+Jerry Adkins,Port Kendra,04734 Ellis Trafficway Apt. 172,75585.98,2018-12-06,32,male,2,rent,moderate,moderate,11760,39,education,good
+Brittany Flowers,West Timothyview,2173 Shannon River,99557.47,2018-01-14,55,female,3,free,little,little,2578,12,furniture/equipment,good
+Nicole Williams,West Courtneymouth,8530 Aguirre Lights,52626.01,2018-09-10,46,male,2,own,little,little,2348,36,furniture/equipment,good
+Kelly Weber,Donaldview,827 Caitlin Stravenue,45946.63,2018-11-12,46,male,2,rent,little,moderate,1223,12,car,bad
+Amanda Lopez,Lake Stephanie,2561 Todd Mill Apt. 758,89248.55,2018-12-12,43,female,1,own,rich,,1516,24,radio/TV,good
+Gary Goodman,New Daniel,4249 Patrick Mission,44800.1,2018-12-09,39,male,2,own,little,,1473,18,radio/TV,good
+Sonya Huff,Stewartstad,9528 Jackson Union,25644.45,2018-06-05,28,male,2,own,,moderate,1887,18,business,good
+Tamara Valencia,New Julie,90126 Perez Avenue,56281.67,2018-03-24,27,male,2,own,little,,8648,24,business,bad
+Eric Merritt,Esparzaview,089 Brandon Mountains,62619.64,2018-07-31,27,male,1,own,little,,802,14,car,good
+David Sweeney,Port Andrewside,21773 Murray Wells,27580.63,2018-08-17,43,male,2,own,,moderate,2899,18,car,good
+Monica Romero,South Duane,3173 Burns Walks,86964.41,2018-12-20,22,male,2,own,little,moderate,2039,24,radio/TV,bad
+Deborah Rowland,Chenfort,97261 Charles Falls Apt. 776,53099.14,2018-12-25,43,male,2,own,,,2197,24,car,good
+Monica Wilkinson,Holmeschester,0397 Karina Isle,81247.29,2018-08-21,27,male,2,own,little,little,1053,15,radio/TV,good
+David Baker,Everettville,1099 Michael Groves Apt. 124,69208.7,2018-01-28,26,male,3,own,quite rich,,3235,24,radio/TV,good
+Anthony Baker,South Anna,1930 Munoz Ferry,92918.4,2018-08-03,28,male,2,own,quite rich,rich,939,12,car,bad
+Jennifer Hardy,North Kathy,786 Vincent Ford Apt. 311,92081.07,2018-12-03,20,female,2,own,little,moderate,1967,24,radio/TV,good
+Stephanie Wade,Taraside,9632 Neal Locks,76336.25,2018-05-07,35,male,3,own,little,,7253,33,car,good
+Victoria Jennings,North Reginaldville,565 Amanda Route,28345.1,2018-08-23,42,male,3,own,little,,2292,12,business,bad
+Cody Arnold,Kimville,4966 James Passage Apt. 133,62655.34,2018-02-15,40,male,1,rent,quite rich,,1597,10,car,good
+Zachary Grimes,Jonesview,52026 Tammy Avenue Suite 862,91000.08,2018-08-31,35,female,2,own,,little,1381,24,car,bad
+Pamela Rivera,Hughesbury,65317 Jesse Vista,61351.87,2018-12-25,35,male,2,own,little,,5842,36,car,good
+Elizabeth Trujillo,East Edward,261 Allen Lakes,31996.33,2018-09-15,33,male,1,own,little,little,2579,12,car,bad
+Scott Bryant,East Vicki,558 Gomez Drive Suite 374,28633.29,2018-11-19,23,female,2,rent,,little,8471,18,education,good
+Alice Snyder,Racheltown,228 Nathaniel Pine,39865.03,2018-12-10,31,female,3,own,quite rich,,2782,21,car,good
+Laura Smith,Lake Alexandraburgh,31271 Baxter Crescent,50064.75,2018-09-28,33,female,2,own,,moderate,1042,18,car,bad
+Morgan Short,Lake Stevenfort,430 Thompson Crossing Apt. 261,27409.16,2018-01-01,20,female,2,rent,rich,,3186,15,car,good
+Jordan Patterson,Blairborough,1824 Murphy Ramp Apt. 168,36102.09,2018-12-11,30,male,2,own,,moderate,2028,12,car,good
+Dylan Price,South Donna,477 Mcdaniel Glens Suite 388,42911.11,2018-04-13,47,male,1,own,little,moderate,958,12,car,good
+Kayla Davis,New James,5121 Juarez Fork Suite 216,99592.02,2018-12-22,34,male,3,own,moderate,,1591,21,furniture/equipment,good
+Ralph Logan,Elizabethbury,6104 David Hollow Apt. 867,59726.36,2018-02-02,25,female,2,own,,moderate,2762,12,furniture/equipment,bad
+David Johnson,Maddenchester,6892 James Overpass Apt. 674,34045.1,2018-12-29,21,male,2,rent,little,moderate,2779,18,car,good
+Carl Weiss,Hollandstad,60527 Douglas Islands,40917.36,2018-04-13,29,male,2,own,little,,2743,28,radio/TV,good
+Jennifer Trujillo,East Erica,173 Pamela Avenue,71287.2,2018-10-04,46,male,2,own,rich,,1149,18,radio/TV,good
+Amy Sutton,Christopherhaven,680 Kimberly Harbors,37668.12,2018-09-29,20,male,2,own,little,,1313,9,furniture/equipment,good
+Holly Fields,Weaverburgh,1545 Shepherd Run Apt. 086,82415.45,2018-09-06,55,female,0,free,little,little,1190,18,repairs,bad
+Gregory Hernandez,Hollandstad,54824 Walters Islands Apt. 105,54861.31,2018-05-20,74,male,1,own,little,,3448,5,business,good
+Daniel Sharp,Ashleyfort,0054 Edward Harbor,68710.66,2018-05-17,29,male,3,own,little,moderate,11328,24,vacation/others,bad
+Donald Jones,North Maryfort,14750 Eric Lock Suite 206,90802.7,2018-06-03,36,male,3,free,little,little,1872,6,furniture/equipment,good
+Amy Gilbert MD,New Louis,961 Katie Lake Suite 577,52476.91,2018-03-19,33,male,2,own,little,,2058,24,repairs,good
+Anthony Hayden,Port Jenniferberg,23989 James Grove Suite 001,53047.92,2018-05-26,25,male,2,own,little,little,2136,9,furniture/equipment,good
+Miss Jennifer Bentley,Christineshire,9943 Smith Hills,79918.77,2018-07-13,25,male,2,own,,moderate,1484,12,radio/TV,bad
+Michele Montgomery,Jessicabury,45100 Theresa Mission,79137.32,2018-05-12,23,male,1,rent,quite rich,,660,6,repairs,good
+Andre Castillo PhD,East Kim,1687 Lopez Dam Suite 682,77335.71,2018-03-20,37,female,2,own,rich,,1287,24,car,good
+Jeffrey Knight,Allisonburgh,2409 Melanie Tunnel,54705.17,2018-02-24,65,male,0,own,little,little,3394,42,repairs,good
+Diane Weiss,Hawkinschester,4044 Douglas Burg Apt. 327,44339.52,2018-02-01,26,female,0,own,little,rich,609,12,business,bad
+Monique Miranda,South Cynthia,2280 Vang Loaf,51983.5,2018-08-15,39,male,3,own,little,,1884,12,car,good
+Jack Henderson,South Marissaton,0241 Morrow Ranch Apt. 850,95647.46,2018-11-07,30,female,2,own,little,little,1620,12,furniture/equipment,good
+Philip Wright,Carolinefort,001 Barnes Mill Apt. 966,88892.03,2018-08-22,29,male,2,own,little,moderate,2629,20,vacation/others,good
+Thomas Martin,Jonchester,116 Lisa Path Suite 936,25137.85,2018-05-28,41,male,1,own,little,,719,12,education,bad
+Jennifer Campbell,Dannyhaven,4429 Travis Orchard Apt. 450,67734.02,2018-07-27,30,female,3,own,little,moderate,5096,48,furniture/equipment,bad
+Scott Russell,East Jamesville,85054 Cook Island,38259.76,2018-03-09,41,female,1,rent,,,1244,9,education,good
+Nathaniel Garner,Bellbury,260 Timothy Centers,60494.3,2018-03-14,34,female,2,own,little,little,1842,36,car,bad
+Melissa Caldwell,Salazarview,183 John Knoll,99576.55,2018-07-29,35,male,2,own,little,moderate,2576,7,radio/TV,good
+Kyle Cooper,Rebeccashire,365 Tyler Islands Suite 620,92577.33,2018-05-01,55,female,3,own,,rich,1424,12,furniture/equipment,good
+Samantha Oliver,Lake Jennifer,31279 Neal Bridge,91390.2,2018-09-22,61,male,2,own,rich,moderate,1512,15,repairs,bad
+Kristen Garcia,Roseshire,56122 Jennifer Plaza,82725.18,2018-05-01,30,male,3,own,,,11054,36,car,good
+James Castillo,North Lori,648 Tiffany Rapids Apt. 226,90477.16,2018-03-01,29,female,2,own,little,,518,6,radio/TV,good
+Robert Brown,Port Christopher,886 Erica Drive,86133.2,2018-11-20,34,male,2,own,little,,2759,12,furniture/equipment,good
+Jacob Small,North Johnshire,18348 James Greens,45727.02,2018-08-05,35,male,3,own,little,,2670,24,car,good
+Shawn Gomez,Lake Mary,8906 Mitchell Knolls,68873.27,2018-04-30,31,male,2,own,little,little,4817,24,car,bad
+Dana Parker,East Steveshire,3502 Julia Curve Apt. 445,49418.76,2018-12-16,29,female,3,own,little,,2679,24,car,good
+Kimberly Villa,Jamestown,19897 Cheryl Glens Suite 488,64279.07,2018-02-02,36,male,2,rent,little,little,3905,11,car,good
+Matthew Chapman,Port Adamfurt,22752 Melissa Drive,80706.73,2018-07-01,35,male,2,free,little,little,3386,12,car,bad
+Maria Mcguire,South Emmaside,6366 Jack Port Suite 993,40582.79,2018-02-16,27,female,2,own,little,little,343,6,domestic appliances,good
+Diane Lee,East Calvinstad,38840 Isabella Flat,93966.95,2018-12-31,32,male,2,own,little,,4594,18,radio/TV,good
+Eric Clark,East Ronaldberg,03828 Cox Court Suite 246,60437.99,2018-08-12,37,male,2,own,little,little,3620,36,furniture/equipment,good
+Kelsey Scott,Roseborough,14439 Martinez Trafficway,39582.43,2018-02-15,36,male,2,own,little,little,1721,15,car,good
+Donald Tucker MD,Robertview,16278 Price Rue,31782.32,2018-07-13,34,female,3,rent,little,moderate,3017,12,furniture/equipment,good
+Roy Shaw,Mckaymouth,218 Brooks Freeway Apt. 461,55579.19,2018-05-19,38,male,2,own,,moderate,754,12,education,good
+Robert Hardin,Kristinashire,299 Clayton Vista,45618.44,2018-01-09,34,male,2,own,little,,1950,18,business,good
+Chad Myers,West Kelly,585 Lisa Turnpike,68510.53,2018-09-24,63,male,2,own,little,little,2924,24,car,good
+William Flynn,North Angelaport,21683 Ross Oval Apt. 320,76903.23,2018-04-20,29,female,1,rent,little,little,1659,24,radio/TV,bad
+Kenneth Cabrera,Johnsonburgh,9573 Lee Court Suite 116,61010.36,2018-12-09,32,male,2,own,,,7238,48,radio/TV,good
+Timothy Meyer,Billyton,83276 Sandra Vista,92590.98,2018-02-15,26,female,2,own,little,,2764,33,business,good
+Carl Cole,East Justin,4151 Richard Knolls Apt. 031,67829.65,2018-11-19,35,male,1,own,little,,4679,24,car,good
+John Cunningham,West Jeremy,36578 Wells Tunnel Apt. 201,98887.09,2018-09-13,22,male,2,rent,moderate,moderate,3092,24,radio/TV,bad
+Nancy Miller,Danielville,7957 Randy Valleys,36204.25,2018-05-16,23,female,2,own,little,little,448,6,education,bad
+Sandra Harrington,South Ashleyborough,00222 Charles Loop,31799.61,2018-09-22,28,male,1,own,little,little,654,9,car,bad
+Shari Cohen,North Michael,6665 Justin Shore,65358.73,2018-08-19,36,male,3,own,,,1238,6,education,good
+Ashley Moore,New Christopherchester,584 Carter Turnpike Suite 579,60113.72,2018-10-11,33,male,2,own,little,moderate,1245,18,radio/TV,bad
+Mark Sloan DVM,Beantown,75596 Jones Camp,97021.66,2018-11-27,26,female,2,rent,little,little,3114,18,furniture/equipment,bad
+Leslie Simmons,Murraymouth,61664 King Garden Apt. 028,60408.66,2018-03-06,24,male,2,own,quite rich,,2569,39,car,good
+Steven Woodward,Port Keith,07012 Luis Island,46879.55,2018-08-31,25,male,2,own,little,rich,5152,24,radio/TV,good
+Jerry Perkins,West Annettehaven,9843 Yoder Ways,59886.38,2018-08-10,39,male,1,own,moderate,moderate,1037,12,business,good
+Jesus Trevino,New Benjaminfurt,2473 Paul Trail,31874.45,2018-04-18,44,male,2,own,little,little,1478,15,furniture/equipment,good
+Denise Cameron,Nicoleshire,939 Jade Skyway Apt. 742,45686.54,2018-01-30,23,female,1,own,little,moderate,3573,12,radio/TV,good
+James Zhang,Garyville,73867 Michael Club Apt. 199,98376.04,2018-04-10,26,male,2,own,little,moderate,1201,24,car,good
+Anne Lewis,East Eric,1465 Julie Rest,88849.43,2018-05-04,57,female,2,rent,rich,little,3622,30,furniture/equipment,good
+Mary Swanson,Lake Peter,10684 Christopher Harbor,57624.74,2018-09-28,30,female,2,own,rich,,960,15,furniture/equipment,good
+Anthony Mitchell,Maddoxtown,12799 Daniels Corners,72554.55,2018-05-04,44,male,2,own,quite rich,,1163,12,car,good
+Theresa Roberts,Beckyville,57903 Johnson Keys Suite 858,46739.35,2018-05-05,47,male,3,own,little,moderate,1209,6,car,bad
+Diana Little,Juliahaven,52878 Hogan Dam,53360.33,2018-09-22,52,male,2,own,little,,3077,12,radio/TV,good
+Paul Cole,New Laurenshire,1745 Gross Bridge,71969.33,2018-05-03,62,female,2,free,little,,3757,24,car,good
+Monique Schaefer,New Michaelmouth,6496 Sandra Summit Suite 191,78466.88,2018-03-18,35,male,1,rent,moderate,,1418,10,car,good
+Cynthia Greene,Shannonton,072 Flowers Shoals Apt. 247,25959.34,2018-10-02,26,male,2,rent,little,,3518,6,car,good
+Molly Nixon,North Anthonyfurt,808 Richardson Road,57639.33,2018-02-24,26,male,2,own,little,,1934,12,radio/TV,good
+Dr. Sarah Green,Ginaton,8653 Dylan Pass Suite 123,65276.04,2018-05-27,42,female,3,free,little,moderate,8318,27,business,bad
+Matthew Hess,Rosalesfurt,5738 Hall Course Suite 098,81978.13,2018-11-02,27,female,2,own,moderate,,1237,6,radio/TV,good
+Scott Richard,New Victoria,1505 Allen River,50394.43,2018-01-28,38,male,2,own,,moderate,368,6,radio/TV,good
+Chase Moore,West Nicholasberg,12670 George Drive Apt. 794,60813.01,2018-06-03,39,male,1,rent,little,little,2122,12,car,good
+Michelle Henry,Port Annbury,78146 Thomas Oval,77713.68,2018-05-28,20,male,2,own,,little,2996,24,furniture/equipment,bad
+Christina Newton,New Patricia,5414 Jacob Mountains Suite 626,47739.67,2018-08-08,29,male,3,rent,moderate,moderate,9034,36,furniture/equipment,bad
+Katherine Tran,Alexisburgh,3310 Silva Manors,50102.62,2018-11-24,40,male,2,own,little,,1585,24,furniture/equipment,good
+Charles Kelley,Port Nicolestad,464 Lori Viaduct Suite 940,99547.42,2018-12-17,32,male,1,own,little,moderate,1301,18,radio/TV,good
+Meghan Huff,Aprilmouth,673 Vincent Lakes,96049.25,2018-10-31,28,male,2,own,moderate,rich,1323,6,car,good
+Allen Mcmillan,Barnesstad,594 Zachary Parks Suite 497,57324.66,2018-09-03,27,female,2,own,little,little,3123,24,car,bad
+John Dawson,Lake Lucas,66252 Fields Causeway,53332.28,2018-11-13,42,male,2,free,little,little,5493,36,car,good
+Stephen Winters,East Jessica,35746 Mariah Freeway,39392.08,2018-06-23,49,male,2,own,moderate,rich,1126,9,radio/TV,good
+Ernest Holden,New Alicia,59866 Aaron Ford,81990.8,2018-06-10,38,male,2,own,moderate,moderate,1216,24,radio/TV,bad
+Mark Powell,Baileyview,99000 Jackson Junctions Suite 157,25795.48,2018-09-17,24,female,2,rent,little,little,1207,24,car,bad
+Christine Perry,Jonesmouth,725 Jones Springs,26710.11,2018-08-26,27,male,1,own,,,1309,10,car,bad
+Melissa Lee,Kathyview,70334 Felicia Fords Suite 867,66040.39,2018-12-18,36,male,2,own,quite rich,rich,2360,15,car,good
+Patricia Yates,East Thomas,4055 Patricia Harbor,52469.0,2018-06-24,34,male,3,own,moderate,moderate,6850,15,car,bad
+Larry Scott,Hannahview,36565 Jessica Isle,40309.45,2018-04-28,28,male,2,own,little,,1413,24,radio/TV,good
+Micheal Thompson,Lake Ian,7405 Paige Meadow Suite 658,31854.55,2018-03-27,45,male,3,own,moderate,,8588,39,car,good
+Breanna Moore,East Garyfurt,16322 Matthew Walks Suite 205,62568.86,2018-10-08,26,male,2,own,little,little,759,12,car,bad
+Melissa Deleon,East Deannatown,821 Evans Center Apt. 755,87048.78,2018-05-03,32,male,3,free,little,,4686,36,car,good
+Crystal Kim,West Brianside,440 Lisa Camp,94271.53,2018-08-20,26,male,2,rent,little,rich,2687,15,business,good
+Mr. Peter Vang DVM,West Jerry,0319 Valdez Extensions,49241.92,2018-08-21,20,male,2,rent,little,moderate,585,12,radio/TV,good
+Charles Webster,South Williamland,19097 Steven Harbor,86729.77,2018-06-25,54,male,2,own,,,2255,24,car,good
+Jason Hicks,Scottport,289 Martinez Squares Suite 332,49721.1,2018-11-08,37,female,2,own,little,little,609,6,car,good
+Alexis Mills,New Joshualand,677 Jeffrey Unions,34123.77,2018-12-21,40,male,1,own,little,little,1361,6,car,good
+Melinda Guerra,Johnside,19611 Austin Prairie,66736.9,2018-10-19,23,female,2,rent,little,,7127,36,furniture/equipment,bad
+Mark Brown,East David,70578 Oscar Knolls Apt. 507,66539.69,2018-10-01,43,male,2,own,moderate,little,1203,6,car,good
+Leah Castaneda,Johnsonfurt,754 Smith Track,37347.64,2018-08-05,36,male,2,free,,,700,6,radio/TV,good
+Susan Hernandez DDS,Lake Dawnbury,460 Jordan Junction Apt. 451,81848.27,2018-07-10,44,male,2,free,little,,5507,24,repairs,good
+Dale Moore,Lake Claire,73115 Cesar Via,78487.15,2018-12-07,24,female,2,own,little,little,3190,18,radio/TV,bad
+David Oliver,West Jessicastad,575 Lisa Loaf Apt. 741,71367.3,2018-10-11,53,male,2,free,little,little,7119,48,furniture/equipment,bad
+Jack Dixon,Port Ericfurt,34401 Kent Shoals Suite 792,52281.57,2018-12-10,23,female,2,own,moderate,,3488,24,car,good
+Shawna Cordova,South Frank,83657 Richard Dam,46066.05,2018-01-07,26,female,1,own,little,moderate,1113,18,radio/TV,good
+Thomas Pena,Lake Seth,915 Michael Groves,77870.85,2018-09-05,30,male,2,own,little,moderate,7966,26,car,good
+Andrew Wilson,Lake Helenborough,0362 Maria Terrace,40125.73,2018-06-23,31,female,2,own,moderate,,1532,15,education,good
+Jason Hall,East Thomas,4374 Pamela Knoll Apt. 528,94659.82,2018-04-29,42,male,1,own,little,,1503,4,radio/TV,good
+Peggy Greene,Moorefurt,853 Ellis Oval Suite 299,26149.64,2018-07-29,31,male,2,rent,little,little,2302,36,radio/TV,bad
+Wayne Suarez,Loweryport,6042 Holloway Center Suite 233,75026.56,2018-10-13,41,male,1,own,little,little,662,6,car,good
+Jessica Moore,South David,6185 Jones Fort,29064.92,2018-04-15,32,male,2,own,little,moderate,2273,36,education,good
+Robert Douglas,North Andrew,1253 Caroline Junctions Suite 979,40808.83,2018-01-02,28,female,2,rent,moderate,moderate,2631,15,car,bad
+Joseph Benjamin,West Phillip,89257 Williams Drive,55925.17,2018-12-04,41,male,2,rent,little,,1503,12,car,good
+Tammy Black,Alexanderchester,2723 Holmes Ville,46492.33,2018-10-12,26,male,2,own,moderate,,1311,24,radio/TV,good
+Donald Bryant,Amandaville,269 Stephanie Port Suite 322,80356.69,2018-02-12,25,male,2,own,,,3105,24,radio/TV,good
+Jennifer Lambert,East Catherine,0742 Hill Mountain,54428.51,2018-03-05,33,male,2,rent,little,rich,2319,21,education,bad
+Phyllis Arnold,Kingville,60694 Harrison Parks,65172.29,2018-01-18,75,female,3,own,,little,1374,6,car,good
+Chad Coleman,West Monicastad,9915 Thomas Turnpike Apt. 255,71726.45,2018-07-21,37,female,2,own,little,moderate,3612,18,furniture/equipment,good
+Brian Santos,Port Branditown,1007 White Dale Apt. 075,27855.06,2018-07-30,42,male,3,free,little,little,7763,48,car,bad
+April Hill,Wrightmouth,41107 Danielle Mill,96753.04,2018-09-12,45,female,1,own,little,rich,3049,18,furniture/equipment,good
+John Tran,Port Diane,506 Tiffany Burg,49352.92,2018-07-10,23,male,2,rent,little,moderate,1534,12,radio/TV,bad
+Shannon Burns,Floresbury,3316 Thomas Junction,69728.18,2018-02-01,60,male,2,free,little,,2032,24,car,good
+Christopher Fischer,South Gregview,11409 Jason Ramp,74803.94,2018-10-10,31,male,2,own,,little,6350,30,furniture/equipment,bad
+Cindy Ballard,Harringtonville,98921 Cheryl Springs Apt. 875,82941.12,2018-07-15,34,male,1,own,little,rich,2864,18,furniture/equipment,bad
+Allison Mathis,Kennethhaven,4919 Ryan Ramp Apt. 480,53622.23,2018-05-31,61,male,1,own,little,,1255,12,car,good
+John Banks,Figueroaside,700 Charles Circle Apt. 035,64025.91,2018-02-28,43,male,2,free,little,little,1333,24,car,bad
+Justin Bowman,East Deanna,2496 Vaughn Via Apt. 007,41924.95,2018-08-16,37,female,2,own,little,,2022,24,car,good
+Mary Gray,Lake Carolyn,26439 Christina Coves,61852.98,2018-11-29,32,male,2,own,little,,1552,24,radio/TV,good
+Steve Mercado,Liberg,788 Donald Course,37371.54,2018-12-20,24,female,1,own,little,little,626,12,radio/TV,bad
+Elizabeth Mclean,Lake Jasonbury,1283 Garza Plaza Suite 487,56040.96,2018-11-18,35,male,2,free,,,8858,48,car,good
+Sarah Oneal,North Brianshire,760 Anthony Canyon Apt. 652,94198.76,2018-12-22,23,female,2,own,,,996,12,repairs,good
+Jason Campos,Lake Briannashire,55118 Miller Isle Suite 883,49342.66,2018-07-12,45,male,1,own,quite rich,,1750,6,radio/TV,good
+Joe Reynolds,Nelsonmouth,286 Gutierrez Parkway Suite 217,82428.68,2018-04-08,34,male,2,own,little,little,6999,48,radio/TV,bad
+Jason Herman,Parkershire,2080 Morse Brooks Suite 962,57309.36,2018-10-07,27,male,2,own,moderate,moderate,1995,12,car,good
+Timothy Reyes,Knightbury,98802 Blair Way Suite 854,84889.71,2018-01-21,67,female,3,own,little,moderate,1199,9,education,good
+Mark Johnson,Port Thomas,401 Garrett Hills,43898.66,2018-04-13,22,male,2,own,little,moderate,1331,12,radio/TV,bad
+Matthew Moore,Morganland,05251 Perry Route,58101.62,2018-11-01,28,female,2,own,moderate,moderate,2278,18,car,bad
+Richard Delgado,Samuelstad,234 White Fall,95409.21,2018-10-21,29,female,2,own,,,5003,21,car,bad
+Stephanie Clarke MD,Hartmanview,92112 Erin Bridge,87370.55,2018-04-09,27,male,2,own,little,little,3552,24,furniture/equipment,bad
+Marcus Harrison,Jasonfurt,2643 Jacqueline Springs Suite 999,93290.34,2018-09-10,31,male,1,own,little,moderate,1928,18,furniture/equipment,bad
+James Stewart,Whiteburgh,13381 Michael Lake,36742.49,2018-04-26,49,male,2,free,,little,2964,24,car,good
+Julie Evans,Liside,244 Mary Avenue Suite 397,55769.88,2018-04-03,24,male,1,rent,little,little,1546,24,radio/TV,bad
+Jennifer Campos,Port Larry,4449 Bennett Junctions,93232.19,2018-02-01,29,female,2,own,little,rich,683,6,radio/TV,good
+Laura Kelly,Port Amandaberg,1115 James Glen,82766.76,2018-08-10,37,male,2,free,,moderate,12389,36,car,bad
+Nancy Lopez,Lake Shawnfort,8951 Dylan Mountain,32947.44,2018-04-12,37,male,3,own,,moderate,4712,24,business,good
+David Terry,East Bruceside,9803 Bowers Glens Apt. 121,60082.34,2018-11-17,23,female,2,rent,moderate,moderate,1553,24,radio/TV,good
+Steven Williams,Virginiaburgh,616 Jenna Stream Suite 103,26248.09,2018-06-16,36,male,2,own,little,little,1372,12,car,bad
+Lisa Juarez,West Jasonhaven,7282 Crawford Place,34361.16,2018-11-30,34,male,2,own,rich,,2578,24,radio/TV,good
+Tony Vasquez,Stephanieshire,5343 Mary Trail,98803.13,2018-05-21,41,male,2,own,,moderate,3979,48,radio/TV,good
+Nicole Cohen,Chasefurt,67362 Jones Ports,33256.53,2018-04-20,31,female,2,own,little,little,6758,48,radio/TV,bad
+Matthew Taylor,Michaelstad,34287 Valdez Highway Suite 172,75024.9,2018-07-31,23,female,1,rent,little,little,3234,24,furniture/equipment,bad
+Cynthia Cook,South Gregory,7432 Jesse Cliffs,39489.96,2018-05-18,38,male,2,own,little,,5954,30,radio/TV,good
+Stacy Gray,Andrewstad,869 Williams Fords Apt. 963,56573.52,2018-10-12,26,female,3,rent,,,5433,24,car,good
+Bryan Robles,Nicoleville,297 Henry Street,28786.08,2018-01-21,22,female,1,own,little,little,806,15,business,good
+Jeffrey Johnson Jr.,North Connieshire,5192 Natalie Inlet,70746.52,2018-06-16,27,male,1,own,little,moderate,1082,9,radio/TV,good
+Susan Rodriguez,Kennethside,95893 Nguyen Port Apt. 469,86520.34,2018-08-05,24,female,2,own,little,,2788,15,furniture/equipment,good
+Erik Griffin,Hopkinston,742 Taylor Stravenue Suite 601,77730.43,2018-10-08,27,female,2,own,little,moderate,2930,12,radio/TV,good
+Tonya Webb,Floresberg,50286 Ball Extensions,83099.3,2018-09-07,33,female,2,own,,,1927,24,education,good
+Christina Obrien,Lake Lauren,88773 Valerie Estate Suite 027,30075.16,2018-07-07,27,male,2,own,little,moderate,2820,36,car,bad
+Elizabeth Roman,Ethanville,67972 Anthony Lodge Suite 645,79374.64,2018-06-25,27,male,1,own,little,,937,24,education,good
+Holly Oneal,Donnafurt,8688 Carter Glens Suite 839,95181.82,2018-08-17,30,male,2,own,little,moderate,1056,18,car,bad
+Joel Daugherty,Robertsfort,150 Robinson Fields Apt. 751,34544.67,2018-12-20,49,male,1,own,little,moderate,3124,12,car,good
+David Aguilar,West Michaelland,813 Nicholas Turnpike Suite 453,27991.6,2018-01-28,26,female,2,rent,little,,1388,9,furniture/equipment,good
+Douglas Guzman,West Rachel,89411 Amy Villages,49299.28,2018-09-01,33,male,1,rent,little,moderate,2384,36,repairs,bad
+Nichole Holloway,Alisonville,7783 Diane Street,94201.02,2018-04-10,52,female,3,free,,,2133,12,car,good
+Cynthia Huerta,Port Stefanie,8230 Zachary Mountains Suite 786,65169.04,2018-02-11,20,female,2,rent,little,little,2039,18,furniture/equipment,bad
+Monica Gill,New Kevinshire,7733 Willis Corner Apt. 561,54168.4,2018-07-19,36,male,2,rent,little,little,2799,9,car,good
+Megan Wright,Lowestad,062 Kelly Underpass Suite 593,55382.72,2018-10-05,21,male,1,own,little,little,1289,12,furniture/equipment,good
+Kevin Harmon,East Kathleen,8961 Jimmy Parkway,50828.34,2018-05-27,47,male,1,own,little,little,1217,18,domestic appliances,bad
+Katherine Mcmillan,Brooketown,303 Lori Wall Suite 536,81733.15,2018-09-28,60,male,2,own,little,little,2246,12,furniture/equipment,bad
+Bryan Gay,Davisshire,1871 Scott Way,89115.94,2018-01-20,58,female,1,own,little,little,385,12,radio/TV,good
+Brittany Singleton,Smithborough,4095 Robinson Crossing,42233.69,2018-12-05,42,female,2,rent,,moderate,1965,24,car,good
+Paige Perez,Leonardfort,373 Horn Meadow Apt. 432,49116.32,2018-06-20,36,female,1,own,rich,,1572,21,business,good
+Timothy Osborn,New Shellychester,8640 Hernandez Ford,56072.37,2018-01-22,20,female,1,rent,little,moderate,2718,24,car,bad
+Kristen Lewis,Knightview,3066 Smith Drives Suite 983,66297.03,2018-05-14,40,male,3,own,,little,1358,24,vacation/others,bad
+Abigail Nichols,Port Jefferystad,433 Michelle Trafficway Apt. 149,99986.6,2018-08-20,32,female,1,own,moderate,moderate,931,6,car,bad
+Mary Jackson,Melindaborough,67951 Bennett Prairie,90934.15,2018-11-21,23,female,2,rent,little,little,1442,24,car,bad
+Juan Silva,Diazchester,5789 Amber Points Suite 804,56458.8,2018-03-31,36,male,1,own,little,moderate,4241,24,business,bad
+Beth Roman,Port Maria,5278 Lauren Forges,43450.18,2018-12-08,31,male,2,own,little,,2775,18,car,bad
+Adam Gay,South Crystalfurt,8018 Kathryn Pines,33561.41,2018-07-26,32,male,2,free,little,,3863,24,business,good
+Ryan Dunn,Taylorchester,451 Steven Loaf,78744.0,2018-10-20,45,female,2,own,little,moderate,2329,7,radio/TV,good
+Walter Diaz,Port Brian,9277 Martin Causeway Apt. 085,91001.12,2018-08-20,30,female,2,own,little,moderate,918,9,furniture/equipment,bad
+Natalie Travis,Port Walterbury,53813 Paul Springs,63382.69,2018-05-06,34,female,1,free,little,moderate,1837,24,education,bad
+Andrew Rogers,North Ryanstad,978 Stephanie Keys,36221.87,2018-05-24,28,female,3,own,little,,3349,36,furniture/equipment,bad
+Robert Myers,Lewischester,010 Knox Road Suite 718,85117.01,2018-08-01,23,female,2,own,little,rich,1275,10,furniture/equipment,good
+Mark Crawford,Jamesberg,19576 Crystal Village,27432.13,2018-08-09,22,male,2,own,quite rich,little,2828,24,furniture/equipment,good
+Misty Carter,Christyside,9559 Wade Expressway Apt. 936,94462.54,2018-01-02,74,male,3,own,little,,4526,24,business,good
+Billy Wolfe,North Aliciatown,8007 Amber Port,87829.3,2018-11-05,50,female,2,free,moderate,moderate,2671,36,radio/TV,bad
+Daniel Spencer,Port Amanda,03832 Underwood Mountains,65261.88,2018-11-09,33,male,2,own,little,,2051,18,radio/TV,good
+James Mooney,Sullivanborough,71971 Krista Mission,74781.61,2018-06-08,45,male,2,free,,,1300,15,car,good
+Andrea Griffin,Grimesmouth,4631 Norma Corners Suite 569,48264.37,2018-04-22,22,female,2,own,moderate,little,741,12,domestic appliances,bad
+Jerry Calderon,New Sandra,2466 Scott Inlet Apt. 188,64739.41,2018-01-13,48,female,1,free,moderate,rich,1240,10,car,bad
+Felicia King,North Danachester,601 Eric Run Apt. 333,92205.6,2018-03-21,29,female,2,own,rich,little,3357,21,radio/TV,good
+Jason Caldwell,Markburgh,112 Rhonda Burg Apt. 436,53809.71,2018-04-12,22,female,2,rent,little,little,3632,24,car,good
+Leah Gardner,Lake Michael,854 Cole Lake Suite 566,41193.23,2018-02-03,22,female,2,own,little,,1808,18,furniture/equipment,bad
+Christian White,Danieltown,84397 Rowland Bridge,49699.45,2018-04-15,48,male,3,own,,moderate,12204,48,business,good
+Bryan Perez,Wiseville,545 Schmitt Flat,90411.01,2018-03-27,27,male,3,free,,moderate,9157,60,radio/TV,good
+Keith Jones,Myershaven,7167 Zachary Trail,87115.07,2018-11-16,37,male,2,rent,little,little,3676,6,car,good
+Angela Gonzalez,Port Feliciahaven,8697 Heidi Estates Suite 863,79365.0,2018-04-23,21,female,2,rent,moderate,moderate,3441,30,furniture/equipment,bad
+James Vazquez,Hunterfurt,0538 Veronica Prairie,96642.7,2018-01-03,49,male,1,own,little,,640,12,car,good
+Kyle Lawrence,Johnsonside,329 Collins Curve,89013.67,2018-09-21,27,male,2,own,little,moderate,3652,21,business,good
+Daniel Mosley,Karenmouth,641 Angela Square Suite 787,69682.25,2018-07-10,32,male,2,own,little,,1530,18,car,bad
+Jessica Joseph,Brendabury,14563 Bradshaw Lake Apt. 143,43347.87,2018-08-17,38,male,2,own,,,3914,48,business,bad
+Stacy Dennis,West David,79597 Santiago Ville,41886.09,2018-09-20,22,female,2,rent,little,little,1858,12,furniture/equipment,good
+Christopher Forbes,Amyview,5912 Smith Island,82776.16,2018-08-28,65,male,2,free,little,little,2600,18,radio/TV,bad
+Donna Smith,Pamelaberg,5057 Katie Forks Suite 301,35699.73,2018-11-20,35,male,2,own,,,1979,15,radio/TV,good
+Sarah Moon,Aaronshire,94294 Gonzalez Park,80537.33,2018-11-18,41,male,2,own,little,rich,2116,6,furniture/equipment,good
+Curtis Norris,North Glennview,6587 Rodriguez Stream Apt. 327,52165.32,2018-07-30,29,male,2,own,moderate,moderate,1437,9,car,bad
+Andrew Garcia,Charlesshire,1657 Randall Knolls,82099.86,2018-01-12,36,male,2,own,quite rich,,4042,42,furniture/equipment,good
+Phillip Nolan,Carterburgh,715 Jeffrey Islands Apt. 332,99744.21,2018-07-20,64,male,1,own,,,3832,9,education,good
+Joseph Davis,Robertburgh,35837 Smith Ways Apt. 635,94806.46,2018-05-14,28,female,2,own,little,little,3660,24,radio/TV,good
+Yolanda Vega,Michaelhaven,589 Mosley Islands,50363.91,2018-01-21,44,male,2,own,little,little,1553,18,furniture/equipment,bad
+Amy Perez,Hansenland,080 Chavez Islands Apt. 578,31703.45,2018-07-02,23,male,2,own,,moderate,1444,15,radio/TV,good
+Ernest Craig,Port Patriciaville,083 Montgomery Union,91514.64,2018-06-14,19,female,2,rent,little,,1980,9,furniture/equipment,bad
+James Lucas,Lake Melissaport,215 Schneider Freeway,95445.88,2018-05-08,25,female,1,own,little,moderate,1355,24,car,bad
+Nicole Cannon,Richardland,5346 Chad Springs,80928.37,2018-03-04,47,male,2,own,little,,1393,12,education,good
+Linda Cole,Colemanhaven,661 Heather Loaf Apt. 482,80633.14,2018-01-09,28,female,2,own,quite rich,,1376,24,radio/TV,good
+Lindsay Foley,Sueborough,924 Caleb Lock Suite 211,62436.91,2018-01-29,21,male,2,own,little,,15653,60,radio/TV,good
+Frank Bass,Mcgeechester,87091 Campbell Walk Suite 684,38765.78,2018-02-02,34,female,2,own,little,,1493,12,radio/TV,good
+Julie Guzman,Wilsonburgh,8889 Lisa Orchard Suite 278,77098.12,2018-07-19,26,male,2,own,little,little,4370,42,radio/TV,bad
+Erica Chung,Turnerchester,155 Thomas Lake,27863.01,2018-04-14,27,female,0,own,little,little,750,18,education,bad
+Ashley Greene,Petersonmouth,6569 Eileen Locks,49203.91,2018-03-18,38,male,1,own,little,moderate,1308,15,repairs,good
+Richard Marshall,Port Andrew,70256 Odom Crest Apt. 411,73750.7,2018-12-09,40,male,3,own,moderate,,4623,15,education,bad
+Erica Gordon,Amandaburgh,8136 Barry Streets Suite 954,34542.17,2018-05-03,33,male,2,own,little,,1851,24,radio/TV,good
+Grant Alvarez,West John,37797 Jay Extensions,63395.8,2018-04-01,32,male,3,own,little,little,1880,18,radio/TV,good
+Adam King,West Reginamouth,6532 Coleman Crossing Apt. 476,28653.52,2018-11-16,27,male,2,rent,,,7980,36,business,bad
+Jordan Mckenzie,South Megan,994 Heather Extension Suite 346,94968.02,2018-02-10,32,male,2,own,little,little,4583,30,furniture/equipment,good
+Courtney Brown,New Tiffanychester,73761 Phillips Rue,69605.7,2018-06-09,26,female,2,own,quite rich,,1386,12,car,bad
+Ernest Vega,Salazarland,02207 Jennifer Bridge Suite 424,89814.17,2018-01-29,38,male,2,free,little,rich,947,24,car,bad
+Jennifer Coleman,Stevenbury,5336 Charles Divide Apt. 916,72846.94,2018-11-25,40,male,1,rent,little,little,684,12,education,bad
+Andrea Mccoy,Lisaville,8906 Susan Coves,25989.59,2018-07-03,50,male,3,free,little,little,7476,48,education,good
+Joseph Harrison,Lake Carol,7978 Stephen Dam,92707.75,2018-12-07,37,male,1,own,little,moderate,1922,12,furniture/equipment,bad
+Jennifer Byrd,Port Jenniferfurt,124 Silva Rue,53535.37,2018-05-24,45,male,2,own,little,little,2303,24,car,bad
+Jennifer Brown,Sparksberg,1000 Holt Burg,42127.61,2018-06-12,42,male,3,own,moderate,moderate,8086,36,car,bad
+Tiffany Larson,Baileyport,3280 Jeffery Estates,45164.68,2018-12-19,35,male,2,own,little,,2346,24,car,good
+Becky Tucker,Beckfort,938 Charlene Circles,37584.17,2018-10-27,22,male,2,free,little,little,3973,14,car,good
+Adrian Brown,North Edwardburgh,47850 Sandra Freeway,95116.31,2018-06-23,41,male,1,own,little,moderate,888,12,car,bad
+Judith Mitchell,Debraside,76422 Clark Rapid Suite 820,36527.74,2018-06-14,37,male,2,own,,,10222,48,radio/TV,good
+Jeffery Mosley,East Theodore,65445 Matthew Radial,51799.9,2018-03-31,28,female,2,own,little,moderate,4221,30,business,good
+Erica Bailey,Lake Jennifer,631 Spencer Forges Suite 494,43200.94,2018-05-31,41,male,2,own,little,moderate,6361,18,furniture/equipment,good
+Thomas Martinez,South Edward,960 Bethany Camp,99725.25,2018-10-13,23,male,2,rent,little,rich,1297,12,radio/TV,good
+Michael Robinson,New Peterville,1971 Johnson Island,68233.75,2018-08-23,23,male,2,own,,little,900,12,car,bad
+Cindy Johnson,Tylertown,52398 Butler Road,82412.48,2018-09-17,50,male,2,own,little,,2241,21,furniture/equipment,good
+Levi Smith,Lake Sheenaberg,802 Regina Views,60930.44,2018-03-28,35,male,3,own,little,moderate,1050,6,furniture/equipment,good
+Shane Phillips,Mckenziechester,322 Cole Isle,25256.76,2018-05-10,50,female,1,own,little,rich,1047,6,education,good
+Steve Schultz,North Lynnchester,1375 Leslie Orchard,62581.16,2018-01-03,27,male,3,own,little,,6314,24,vacation/others,good
+Francisco Reeves,Catherinehaven,541 Paul Plain,79927.08,2018-07-02,34,male,2,own,rich,moderate,3496,30,furniture/equipment,good
+Abigail Thomas,Hawkinschester,388 Johnson Estate Apt. 959,75922.44,2018-01-22,27,female,2,own,little,,3609,48,business,good
+Gwendolyn Jones,Kristenchester,593 Adrienne Ridges,31186.39,2018-03-29,43,male,2,rent,little,little,4843,12,car,bad
+Seth Jones,Christopherland,435 April Highway,54634.78,2018-10-21,47,male,2,own,little,rich,3017,30,radio/TV,good
+Gregory Ward,Port Sandra,19323 Hebert Plains Apt. 813,60661.82,2018-11-20,27,male,1,own,moderate,,4139,24,business,good
+Mike Hernandez,Hooperberg,7603 Dean Crest Suite 934,96948.79,2018-03-02,31,male,2,own,moderate,,5742,36,business,good
+Bryan Jimenez,South Daniel,550 Elizabeth Coves,40711.18,2018-01-23,42,male,3,own,little,,10366,60,car,good
+Michael Holt,Port Gabrielport,91599 Espinoza Spring Apt. 880,30671.29,2018-05-15,24,male,2,own,quite rich,,2080,6,car,good
+Walter Davis,Garyborough,90214 Eric Estate,82068.65,2018-02-08,41,male,1,own,quite rich,,2580,21,business,bad
+Krista Rhodes,West Shannon,94283 Mitchell Mill Apt. 489,84500.33,2018-09-05,26,female,3,rent,little,,4530,30,radio/TV,good
+Arthur Cooper,Juliehaven,409 Olson Burg Suite 960,37876.98,2018-03-26,33,male,2,own,little,,5150,24,furniture/equipment,good
+Jessica Fisher,Carlaview,4950 Chris Run Suite 587,51402.16,2018-05-30,24,male,2,own,moderate,moderate,5595,72,radio/TV,bad
+Tracy Graves,North Anthonyside,60040 Lucero Squares Apt. 031,97634.98,2018-02-04,64,male,1,rent,little,little,2384,24,radio/TV,good
+Laura Chapman,Shermanshire,0801 Zachary Forge Suite 834,89885.49,2018-04-17,26,female,2,own,little,,1453,18,radio/TV,good
+Robert Johnson,Hernandezburgh,570 Jennifer Green Apt. 981,29338.02,2018-06-07,56,female,2,own,little,,1538,6,education,good
+David Brown,West Richardtown,53230 Natalie Throughway Suite 647,89047.86,2018-11-18,37,male,2,free,,,2279,12,radio/TV,good
+Hannah Rivera,Dennisshire,0440 King Shores Suite 624,61570.04,2018-10-21,33,male,2,own,little,,1478,15,radio/TV,good
+Thomas Peters,South Jamestown,35643 William Tunnel,99994.54,2018-09-30,47,male,2,free,little,,5103,24,radio/TV,good
+Kaitlyn Weber,New Rebecca,4149 Dickson Dale Suite 944,74751.05,2018-11-15,31,male,1,own,moderate,moderate,9857,36,business,good
+Brandon Wallace,North April,078 Henry Road,69182.83,2018-04-13,34,male,2,free,,,6527,60,car,good
+Timothy Holmes,New Ryan,7022 Sydney Extension Apt. 726,27772.03,2018-02-18,27,male,2,own,,rich,1347,10,radio/TV,good
+Christina Oliver,Callahanmouth,010 Dunn Crescent,29788.75,2018-06-11,30,male,2,free,moderate,moderate,2862,36,car,good
+Edward Campbell,North Kyle,9351 Rodriguez Port,86483.43,2018-09-02,35,male,2,own,moderate,,2753,9,radio/TV,good
+James Zuniga,Hunterfurt,296 Robert Ramp,48245.21,2018-04-13,31,male,2,own,rich,little,3651,12,car,good
+Brandi Vargas,Lake Jonathanside,40711 Alison Harbor Suite 338,26115.99,2018-05-27,25,male,2,own,little,little,975,15,furniture/equipment,good
+Sarah Silva,Smithborough,20285 Kimberly Greens Apt. 109,42214.27,2018-10-06,25,female,1,own,moderate,moderate,2631,15,repairs,good
+Kim Alvarez,East Charlesfurt,1082 Amanda Light,65234.97,2018-06-29,29,male,2,own,moderate,moderate,2896,24,radio/TV,good
+Valerie Douglas,West Jessica,8562 Johnson Ramp Suite 476,82435.53,2018-06-09,44,male,1,own,,little,4716,6,car,good
+Joseph Ramsey,Port Katie,558 Fox Views,65041.92,2018-05-10,28,male,2,own,little,,2284,24,radio/TV,good
+John Owens,Floresfort,668 Knapp Square,41629.39,2018-11-25,50,male,2,rent,quite rich,,1236,6,car,good
+Dustin Wong,North Brianfurt,6026 Fields Club Apt. 911,38723.25,2018-07-07,29,male,2,own,little,moderate,1103,12,radio/TV,good
+Michael Valencia,South Karen,252 April Forges,44663.66,2018-08-18,38,female,0,own,little,,926,12,car,good
+Sharon White,Stephensside,48257 Crystal Flats,67129.81,2018-08-13,24,male,2,own,little,,1800,18,radio/TV,good
+Connie Blanchard,North Julieport,4447 Reed Via Apt. 835,36081.2,2018-11-02,40,male,3,rent,little,rich,1905,15,education,good
+Jason Munoz,Cookstad,41459 Cunningham Mission,85267.7,2018-12-20,29,female,1,rent,quite rich,,1123,12,furniture/equipment,bad
+Tammy Gonzalez,New Janicemouth,9522 Emily Greens,42591.32,2018-10-22,46,male,2,free,little,little,6331,48,car,bad
+Dr. Angela Sanchez,North Victoriaton,63558 Lowery Plains Suite 415,46405.88,2018-08-11,47,female,2,free,moderate,rich,1377,24,radio/TV,good
+Valerie Baker,Savannahshire,0210 Mark Manor Suite 189,75638.1,2018-06-16,41,male,2,own,moderate,moderate,2503,30,business,good
+David Allen,Johnsonburgh,8445 Thompson Forge,86667.0,2018-02-16,32,female,2,own,little,moderate,2528,27,business,good
+Anthony Allen,Danastad,4315 Margaret Springs Suite 212,81911.3,2018-10-13,35,female,2,free,quite rich,,5324,15,car,good
+William Olson,Davidton,098 Sullivan Well,25970.9,2018-04-01,24,male,2,own,moderate,moderate,6560,48,car,bad
+Christina Valdez,North Patrickmouth,74829 Young Square,27358.06,2018-04-23,25,female,2,rent,little,moderate,2969,12,furniture/equipment,bad
+James Nichols,New Julie,56085 Jeanette Fork Suite 722,95198.87,2018-02-23,25,female,2,own,little,moderate,1206,9,radio/TV,good
+Amber Perez,Jameston,2247 Adriana Ferry,38349.77,2018-09-13,37,male,1,own,little,moderate,2118,9,radio/TV,good
+Mark Williams,Kiddchester,1911 Grace Divide,96319.92,2018-03-03,32,male,3,own,quite rich,,629,18,radio/TV,good
+Brian Mcintyre,Alyssaville,9855 Hansen Burgs,25158.62,2018-05-22,35,female,2,free,little,little,1198,6,education,bad
+James Gardner,Michaelton,9133 Jonathan Springs,88781.36,2018-10-21,46,male,3,own,,,2476,21,car,good
+Michael Hoover,Stevenshire,3863 Austin Manors,54774.09,2018-02-03,25,male,1,own,little,little,1138,9,radio/TV,good
+Gregory Harris,Davieshaven,8752 Jessica Mountain Apt. 114,40318.85,2018-01-19,27,male,3,own,little,moderate,14027,60,car,bad
+Erik Montoya,Wendyland,452 Lori Rapids,59569.6,2018-07-03,63,male,2,own,,,7596,30,car,good
+Susan Cruz,Arnoldhaven,701 Woodard Pines Apt. 508,53875.55,2018-10-07,40,male,2,own,,,3077,30,radio/TV,good
+William Proctor,West Jordantown,5924 Lisa Corner Suite 876,39662.58,2018-07-11,32,male,3,free,little,,1505,18,radio/TV,good
+Krystal Williams,North Stephen,788 Jessica Walks,50183.82,2018-07-30,31,male,2,own,,rich,3148,24,radio/TV,good
+Joshua Kemp,Michaelview,07644 Robbins Field,78390.28,2018-06-21,31,male,2,own,moderate,moderate,6148,20,car,good
+Brian Bautista,Williamsview,9686 Hill Overpass Apt. 965,47133.51,2018-08-02,34,male,3,own,little,rich,1337,9,radio/TV,bad
+Elizabeth Sutton,Port Oliviastad,52701 Amber Well Suite 601,65708.44,2018-08-16,24,female,2,rent,rich,moderate,433,6,education,bad
+Stephen Lopez,New Philip,864 Walker Inlet,78121.99,2018-07-25,24,female,1,own,little,little,1228,12,car,bad
+James Taylor,Larryport,850 Wilson Ville,68471.5,2018-02-11,66,female,1,own,quite rich,moderate,790,9,radio/TV,good
+Faith Ferguson,Michaelfort,50075 Phillip Greens Apt. 882,84248.36,2018-08-13,21,female,2,rent,little,,2570,27,car,bad
+Kenneth Moody,West Joan,65738 Obrien Key,44543.33,2018-08-08,41,female,1,own,rich,,250,6,car,good
+John Walker,Johnstonport,0891 Samuel Freeway,39427.62,2018-10-11,47,male,1,own,quite rich,,1316,15,radio/TV,good
+Amanda Miranda,Anthonymouth,92239 Cummings Meadow,25093.05,2018-08-30,25,female,2,rent,little,little,1882,18,radio/TV,bad
+Susan Guerra,North Darrylside,44252 Smith Extensions,76599.22,2018-11-07,59,female,2,rent,little,moderate,6416,48,business,bad
+Edward Cole,Port Edward,8874 King Islands Suite 741,43286.53,2018-07-14,36,male,2,own,rich,rich,1275,24,business,good
+Ryan Martin,Lake Christine,3183 Johnson Union,34722.21,2018-06-04,33,male,2,own,little,moderate,6403,24,radio/TV,good
+Lauren Ramsey,South Kristina,0165 Barbara Shoals,30561.36,2018-08-14,21,male,1,rent,little,little,1987,24,radio/TV,bad
+Christopher Hahn,North Veronica,14490 Corey Inlet,47734.31,2018-05-19,44,female,1,own,little,moderate,760,8,radio/TV,good
+Michael Gonzalez,Alexanderside,7046 Paul Port Apt. 929,52896.74,2018-02-03,28,female,2,rent,rich,,2603,24,car,good
+Kathleen Roberts,Charlesstad,770 James Islands Apt. 988,35612.54,2018-10-04,37,female,2,own,little,,3380,4,car,good
+Misty Montgomery,Teresaburgh,233 Kimberly Expressway,47661.58,2018-05-31,29,female,0,own,,moderate,3990,36,domestic appliances,good
+Roberto Harris,Saraville,805 Bray Junctions Suite 893,91451.96,2018-04-07,23,female,3,rent,little,moderate,11560,24,car,bad
+Kaitlin Garcia,South Jessicafurt,74920 Thomas Freeway,25846.87,2018-11-30,35,male,1,own,moderate,little,4380,18,car,good
+Sean Stein,Smithstad,23995 Munoz Junctions Apt. 882,67663.8,2018-04-20,45,male,3,own,little,,6761,6,car,good
+Larry Willis,Ramirezborough,431 Heather Harbors Apt. 850,62739.2,2018-09-05,26,female,1,rent,moderate,moderate,4280,30,business,bad
+Carol Miller,Santosstad,8733 Fisher Bypass Apt. 518,68575.22,2018-10-15,32,male,2,own,moderate,little,2325,24,car,good
+Miranda Davis,Travistown,615 Wright Viaduct Apt. 085,91246.42,2018-04-27,23,male,1,own,little,moderate,1048,10,radio/TV,good
+Shane Coleman,North Angelafort,869 Colton Mount Suite 388,37903.44,2018-06-14,41,male,2,own,,,3160,21,radio/TV,good
+Benjamin Wu,Stricklandview,6285 Brian Vista Apt. 749,39982.82,2018-07-03,22,male,2,own,quite rich,little,2483,24,furniture/equipment,good
+Anthony Estrada,Brownfort,967 Saunders Pine Apt. 150,33506.65,2018-10-14,30,male,3,own,,little,14179,39,furniture/equipment,good
+Jonathan Roman,Port Eric,1154 Shaw Brook Suite 986,79373.55,2018-12-02,28,male,1,own,little,little,1797,13,business,good
+Briana Wells,Thomasfort,483 Haas Fall Apt. 522,46925.44,2018-03-19,23,female,2,rent,little,little,2511,15,car,good
+Lisa Woods,North Dennis,9951 Gonzalez Haven,77731.46,2018-10-11,37,female,1,own,little,little,1274,12,car,bad
+Stephen Donaldson,South David,28444 Brooks Field Apt. 318,25449.81,2018-12-14,26,male,2,own,,,5248,21,car,good
+Stephen Wheeler,Jonesview,7761 Nicholas Fords,46117.72,2018-09-03,33,male,2,own,little,,3029,15,car,good
+Brandon Ross,Kimberlyville,5899 Gregory Path Apt. 279,83141.43,2018-09-16,49,female,2,own,little,little,428,6,furniture/equipment,good
+Dennis King,Boothland,817 Villarreal River,96758.77,2018-08-02,23,female,1,own,little,little,976,18,car,bad
+Jeremy Lee,Nancyville,13888 Chen Inlet Suite 355,78362.51,2018-10-22,23,female,1,rent,moderate,moderate,841,12,business,good
+Allen Wright,Whitneymouth,9162 Villanueva Tunnel,84065.03,2018-12-09,25,female,2,own,little,,5771,30,radio/TV,good
+Richard Hood,Lake Jose,44670 Bradley Isle,70079.49,2018-04-12,55,male,2,free,rich,,1555,12,repairs,bad
+Nathan Green,North Jackburgh,10124 James Tunnel Suite 537,38673.19,2018-11-22,32,female,2,rent,,little,1285,24,car,bad
+Taylor White,Lake Heather,85181 Sarah Flat,82072.7,2018-01-12,74,male,0,own,little,rich,1299,6,car,good
+Sue Kaufman,Ritterfort,34955 Tiffany Path Apt. 264,50912.52,2018-09-18,39,male,2,free,,rich,1271,15,radio/TV,bad
+Angela King,West Robert,074 Andrew Shoals,37712.8,2018-01-07,31,male,2,own,little,,1393,24,car,good
+Jason White,Silvaburgh,81394 Gregory Branch Suite 197,56198.34,2018-11-29,35,male,2,own,little,little,691,12,car,bad
+Mark Morgan,Lake Lisaville,2331 Sims Shoals Apt. 958,71792.65,2018-04-12,59,female,2,own,,,5045,15,car,good
+Gabriel Herman PhD,Rosefort,4406 Kim Heights Suite 370,61352.23,2018-10-17,24,female,2,rent,little,little,2124,18,furniture/equipment,bad
+Taylor Mckinney,North Cynthia,952 Peter Spur Apt. 937,54719.26,2018-01-13,24,male,1,own,little,little,2214,12,radio/TV,good
+Evan Keller,Patriciaborough,5910 Cynthia Ridge Apt. 499,25793.09,2018-07-09,30,male,3,free,,,12680,21,car,bad
+Teresa Riley,Nicholasshire,18979 Maria Alley Apt. 003,26771.73,2018-08-15,27,male,2,own,moderate,,2463,24,car,good
+Jared Gonzalez,South Mary,021 Melissa Islands Suite 857,85057.66,2018-03-02,40,male,1,own,little,moderate,1155,12,radio/TV,good
+James Robinson,Gayfort,08867 Mary Glens,40689.45,2018-12-09,31,male,1,own,little,little,3108,30,furniture/equipment,bad
+Christie Smith,Madisonmouth,0805 Joseph Trail Apt. 337,74265.45,2018-07-01,31,female,2,rent,,,2901,10,car,good
+Jason Brown,Davidtown,918 Jane Valley Apt. 093,77551.67,2018-04-18,28,male,2,rent,little,moderate,3617,12,furniture/equipment,good
+William Hughes,West Nancy,0957 Tonya Union Suite 912,30749.3,2018-03-19,63,male,1,own,little,,1655,12,radio/TV,good
+Jeffery Colon,Hernandezside,024 Sean Stravenue,64443.51,2018-07-29,26,female,2,rent,,little,2812,24,car,good
+Travis Lee,Gutierrezton,5497 Daniel Station,69168.15,2018-12-07,25,female,3,own,little,little,8065,36,education,bad
+Kelly Patterson,Franklinview,7683 Austin Plain Suite 448,89536.32,2018-02-10,36,male,3,own,little,,3275,21,car,good
+Stuart Bell,Briannamouth,708 Mackenzie Mountain,86797.87,2018-10-18,52,male,2,own,moderate,,2223,24,radio/TV,good
+Bryan James,Aaronmouth,135 Karl Summit,83583.38,2018-07-28,66,male,0,free,quite rich,rich,1480,12,car,good
+Oscar Alvarez,East Frankhaven,17231 Williams Circle,71303.53,2018-07-17,25,female,2,rent,,little,1371,24,car,bad
+Alexis Weaver,South Kristenberg,213 Hopkins Station,89299.25,2018-12-10,37,male,2,own,little,,3535,36,car,good
+Dr. Paul Foster,South Haley,852 Michael Branch,47233.01,2018-03-13,25,female,2,own,little,little,3509,18,radio/TV,good
+Jasmine Kane,New Keithton,1321 Castro Extension,71658.79,2018-05-04,38,male,3,own,rich,,5711,36,car,good
+Lance Henderson,South Douglasville,01516 Henry Knolls,25713.35,2018-10-03,67,female,2,own,little,moderate,3872,18,repairs,good
+Bobby Long,Cathyton,61569 Samantha Glen,30343.58,2018-02-26,25,male,2,own,little,moderate,4933,39,radio/TV,bad
+Adrienne Love,Christopherport,77117 Martha Expressway,47605.93,2018-12-01,60,male,2,own,rich,,1940,24,car,good
+Lucas Martinez,West Devinmouth,11497 Jordan Route Suite 733,80155.98,2018-03-11,31,male,1,own,little,moderate,1410,12,education,good
+Samantha Harrington,New Benjaminport,861 Robert Islands,83418.71,2018-12-16,23,female,1,own,moderate,moderate,836,12,car,bad
+Derek Stewart,Corytown,707 Jennifer Fort Suite 015,70782.18,2018-09-11,60,male,3,own,,moderate,6468,20,car,good
+Marc Proctor,East Emily,6795 Thomas Plains,99627.51,2018-12-01,35,male,1,own,rich,moderate,1941,18,business,good
+Justin Evans,Ronnieport,26842 Pollard Loop Apt. 438,25963.58,2018-07-08,40,male,2,own,quite rich,,2675,22,radio/TV,good
+David Logan,Beckburgh,383 Kelly Rapid Suite 598,29806.71,2018-10-10,38,male,2,own,,,2751,48,car,good
+Michael Harvey,Jacquelinemouth,09285 Richard Terrace,81204.56,2018-03-20,50,male,2,free,little,moderate,6224,48,education,bad
+Cody Soto,Parksmouth,768 Kimberly Junction Apt. 530,73904.99,2018-11-06,27,male,2,own,little,little,5998,40,education,bad
+Toni Murphy,Chungfurt,89518 Clark Place Apt. 678,99874.88,2018-09-13,39,female,2,own,little,moderate,1188,21,business,bad
+Michael Saunders,West Kara,810 Adkins Lakes,38174.36,2018-11-12,41,male,3,own,,,6313,24,car,good
+Ashley Morrison,West Christopherberg,1637 John Island Suite 483,87445.94,2018-09-01,27,male,2,own,,,1221,6,furniture/equipment,good
+Shelly Hodges,Madisonmouth,192 Brown Port Suite 628,51113.69,2018-07-31,51,male,2,free,little,rich,2892,24,furniture/equipment,good
+Mary Harper,Reyestown,870 Kyle Ports,63654.71,2018-10-16,32,male,2,rent,quite rich,,3062,24,furniture/equipment,good
+Justin Snow,West Michelle,46371 Cunningham Rue Suite 169,61644.21,2018-04-24,22,female,2,rent,moderate,,2301,9,furniture/equipment,good
+Michael Meadows,Troystad,4438 Bell Road,93437.09,2018-07-17,51,male,2,free,,little,7511,18,car,bad
+Brian Garza,New Vanessahaven,9889 James Plaza,43629.42,2018-01-29,22,female,1,rent,little,,1258,12,furniture/equipment,good
+Rebecca Hamilton,West Jessicabury,24949 Cody Road Suite 143,83895.72,2018-05-05,54,male,2,own,,,717,24,car,good
+Katherine Lambert,Cabrerafurt,672 Daniel Stream Suite 458,67513.18,2018-03-02,35,male,0,own,,moderate,1549,9,car,good
+Justin Tanner,Lake Joel,6049 Schaefer Place Suite 338,45101.3,2018-06-13,54,male,2,free,little,,1597,24,education,good
+Jay Ruiz,South Kimberlyport,59638 Daniel Creek Suite 269,47382.99,2018-01-20,48,female,1,rent,little,moderate,1795,18,radio/TV,good
+Nicholas Clay,New Kellystad,0406 Williams Trace,79437.12,2018-09-27,24,female,2,own,little,little,4272,20,furniture/equipment,good
+Kelsey Wells,Harveystad,0664 Austin Mills,30112.06,2018-10-26,35,male,2,own,,,976,12,radio/TV,good
+Shawn Daniel,West Jason,817 Michael Skyway,87644.85,2018-02-05,24,female,0,rent,,moderate,7472,12,car,good
+Nicole Arellano DVM,Port Toddland,22743 Cole Trail,78868.71,2018-06-02,24,male,2,own,little,little,9271,36,car,bad
+Blake Price,Port Danielstad,2578 Melanie Pine Suite 418,94759.35,2018-12-28,26,male,1,own,little,moderate,590,6,radio/TV,good
+Thomas Pennington,Port Mikeview,2116 Paul Shoals Apt. 942,56315.12,2018-10-08,65,male,2,own,,,930,12,radio/TV,good
+Kenneth Brown,East Ryan,2478 Jillian Center Apt. 282,76265.12,2018-06-19,55,male,3,free,little,moderate,9283,42,car,good
+Ethan Holder,New Meaganbury,37785 Ryan Fall Suite 048,34967.58,2018-01-11,26,female,0,rent,little,moderate,1778,15,car,bad
+Olivia Parks,Robinsonmouth,6915 Ford Shoal,68735.81,2018-10-22,26,male,2,own,little,moderate,907,8,business,good
+Kelsey Gordon,Susanberg,25315 Gregory Points Suite 703,74961.87,2018-01-21,28,male,1,own,little,moderate,484,6,radio/TV,good
+Eric Figueroa,Port Bradleytown,4188 Kristine Rapids,87380.33,2018-03-23,24,male,2,own,little,little,9629,36,car,bad
+Rhonda Davis,Alyssaside,9475 Carol Roads,87004.74,2018-02-19,54,male,2,own,little,little,3051,48,domestic appliances,bad
+Catherine Kennedy,New Denise,399 Erica Pike Suite 625,61432.96,2018-03-08,46,male,2,free,little,little,3931,48,car,bad
+Aaron Carlson,Tonyafort,43252 Dean Springs Suite 123,65122.7,2018-08-18,54,female,2,rent,little,moderate,7432,36,car,good
+Michele Davis,West Chadborough,53015 Gonzalez Springs,29420.2,2018-12-29,62,male,2,own,quite rich,,1338,6,domestic appliances,good
+Patricia Green,West Baileyville,45769 Ingram Estate Suite 226,59754.26,2018-11-15,24,female,2,rent,little,,1554,6,radio/TV,good
+William Moran,Ayersland,812 Payne Flat,56741.45,2018-08-25,43,male,3,own,little,little,15857,36,vacation/others,good
+Cassandra Jackson,Hansenchester,42957 Autumn Bridge,95762.15,2018-09-19,26,male,2,own,little,little,1345,18,radio/TV,bad
+Stephanie Howard,North Kevinport,69421 Larry Harbor Suite 606,86268.87,2018-04-30,27,male,2,own,little,,1101,12,car,good
+Carrie Maldonado,Williamsfurt,9273 Bryant Crossing Apt. 931,81672.36,2018-04-18,24,male,2,own,little,rich,3016,12,radio/TV,good
+Jessica Saunders,West Rachel,69217 Ryan Keys,52378.54,2018-08-02,41,male,2,own,little,little,2712,36,furniture/equipment,bad
+Joseph Navarro,New Michelle,57536 Keller Drive Suite 411,64774.25,2018-12-22,47,male,1,own,little,little,731,8,car,good
+Caitlin Harris,Port Jerrytown,01573 Moore Mountain,71899.33,2018-06-05,35,male,3,own,little,,3780,18,furniture/equipment,good
+Kristy Hardin,South Rebeccachester,7235 Victor Street,91475.74,2018-06-15,30,male,2,own,little,little,1602,21,car,good
+Bruce Johnson,Matthewfurt,8562 Powell Parkways,52711.44,2018-06-21,33,female,2,rent,little,little,3966,18,car,bad
+Jessica Murray,North Katherinemouth,341 Cody Trafficway Apt. 312,30138.82,2018-06-29,36,male,2,own,little,,4165,18,business,bad
+Jared Rose,Mullenchester,7847 Mathis Lakes,38526.28,2018-02-22,47,male,2,free,,little,8335,36,car,bad
+Brian Collins,Kaitlintown,555 Gregory Manor Apt. 453,36336.39,2018-02-26,38,male,2,free,,moderate,6681,48,business,good
+Chase Long,New April,434 Danielle Light,90327.24,2018-08-11,44,male,2,own,quite rich,,2375,24,business,good
+David Wyatt,South Davidland,49538 Macias Bridge,77349.67,2018-08-15,23,female,2,rent,little,little,1216,18,car,bad
+Erica Martinez,West Jeremyside,35034 Scott Pine Suite 652,97242.65,2018-04-26,29,male,2,rent,little,little,11816,45,business,bad
+Teresa Stevenson,Brentbury,8308 Moore Loaf Apt. 107,67142.01,2018-03-14,42,female,2,own,,moderate,5084,24,radio/TV,good
+Susan Williams,Prattborough,19597 Natasha Grove Apt. 335,32763.6,2018-02-28,25,female,1,own,little,rich,2327,15,radio/TV,bad
+Brian Gill,Port Joshua,9985 Larson Village,32618.4,2018-12-04,48,male,2,own,little,little,1082,12,car,bad
+Luis Cantrell,New Henrymouth,52736 Kim Stream Suite 281,71321.16,2018-10-23,21,female,2,own,,,886,12,radio/TV,good
+Haley Church,Gomezton,64457 Robert Crescent,31587.79,2018-05-13,23,female,1,rent,little,,601,4,furniture/equipment,good
+Lisa Reilly,Lake Troy,7595 Stephens Island,68313.34,2018-03-05,63,male,2,own,little,little,2957,24,car,good
+Shawn Davis,South Erinview,12814 Zachary Oval,99823.75,2018-07-11,46,male,2,own,little,,2611,24,radio/TV,good
+Nicholas Shelton,North Courtney,8509 Gonzalez Spurs Suite 464,65289.67,2018-03-17,29,male,2,own,little,little,5179,36,furniture/equipment,bad
+William Valdez,Bridgeston,7433 Ramirez Skyway,66185.37,2018-11-26,28,male,1,own,little,,2993,21,car,good
+Tyler Freeman,Lake Jacob,546 Robert Rapids,50616.35,2018-02-04,23,female,2,own,little,,1943,18,repairs,bad
+Linda Solis,East Mallory,8758 Kristin Road Apt. 069,82974.64,2018-10-23,50,male,2,own,little,,1559,24,business,good
+Janet Sanchez,New Tricia,2709 Lisa Islands Apt. 224,96274.12,2018-07-21,47,male,2,own,little,,3422,18,furniture/equipment,good
+Jennifer Young,Riveraport,97621 William Prairie,30412.94,2018-05-25,35,male,2,own,,moderate,3976,21,furniture/equipment,good
+Charles Cherry,West Michael,5979 Campos Harbor,60452.26,2018-07-11,68,male,2,rent,,,6761,18,car,bad
+Brianna Pennington,Solischester,380 Lori Brooks Apt. 972,34277.71,2018-02-01,28,male,2,own,little,,1249,24,car,good
+Christopher Allen,Port Roger,41884 Phillip Radial Suite 243,89602.29,2018-01-21,59,male,2,own,little,little,1364,9,radio/TV,good
+Jason Torres,Rogerborough,29684 Shannon Creek Suite 534,49164.56,2018-10-07,57,male,1,own,little,little,709,12,radio/TV,bad
+Nicole Beltran,Port Mary,1103 Sylvia Wall Suite 440,85998.12,2018-09-26,33,male,2,rent,little,little,2235,20,car,bad
+Tanya Swanson,North Angela,82215 King Corner Apt. 787,65518.11,2018-03-17,43,male,2,own,,,4042,24,car,good
+Alexander Schmidt,Port Calvin,734 Rodriguez Station Apt. 304,43213.01,2018-06-18,35,male,2,free,little,,1471,15,radio/TV,good
+Joshua Hernandez,East Cindy,46531 Tami Islands,98457.89,2018-06-23,32,male,1,free,little,little,1442,18,car,bad
+Donna Henry,Schultzville,24392 Cohen Orchard Apt. 510,50999.88,2018-04-13,45,male,2,own,little,,10875,36,car,good
+Peter Mason,Justinstad,534 Michael Avenue Apt. 733,89580.07,2018-10-29,33,male,2,own,moderate,,1474,24,car,good
+John Miller,Barnesstad,66283 Angelica Views Suite 951,65304.82,2018-07-11,40,female,2,own,,,894,10,education,good
+Bobby Marsh,West Kelsey,265 Matthew Spurs Suite 940,94873.75,2018-10-11,28,male,2,free,little,,3343,15,furniture/equipment,good
+Austin Arroyo,South Leslieport,68118 Susan Freeway,72003.64,2018-04-24,29,female,2,own,little,little,3959,15,car,bad
+Theresa Acosta MD,Fernandeztown,9478 Scott Plains Apt. 709,32563.25,2018-10-01,26,male,2,rent,moderate,,3577,9,car,good
+Sara Molina,West Julie,35653 Baldwin Valleys,73660.33,2018-01-29,27,male,2,own,rich,,5804,24,car,good
+Alexander Howell,Avilashire,71597 Tara Isle,70178.71,2018-02-10,28,male,2,own,little,,2169,18,business,bad
+William Brooks,Lewisside,67116 Green Shoals Apt. 281,91360.07,2018-02-23,35,female,2,own,little,little,2439,24,radio/TV,bad
+John Weaver,Taylorside,490 Amy Branch,77120.29,2018-04-13,32,male,1,own,rich,,4526,27,furniture/equipment,good
+April Ellis,West Christophertown,953 Randy Lights Suite 191,73730.66,2018-09-27,25,male,1,rent,little,,2210,10,furniture/equipment,bad
+Jessica Smith,Ericksonstad,4610 Edwin Centers,75251.28,2018-05-17,20,female,2,rent,quite rich,,2221,15,furniture/equipment,good
+Jason Brown,West Michael,77931 Carr Meadows Apt. 180,77907.16,2018-10-28,27,female,2,own,little,little,2389,18,radio/TV,good
+Nicholas Brown,Christopherfort,8504 Sheila Wall,35682.81,2018-06-20,42,male,2,own,little,,3331,12,furniture/equipment,good
+Amy Esparza,Spencermouth,6780 Singh Dale Suite 055,93039.55,2018-10-11,37,male,2,own,,,7409,36,business,good
+Steven Chavez,South Bobby,6586 Haynes Loop,92356.87,2018-08-09,24,female,2,rent,little,little,652,12,furniture/equipment,good
+Amy Waller,Patelhaven,045 Davenport Falls,83080.17,2018-09-24,40,female,2,own,quite rich,,7678,36,furniture/equipment,good
+Cody Montgomery,Lake Amy,982 Chad Flats Suite 701,77773.28,2018-09-25,46,male,2,own,little,rich,1343,6,car,good
+Audrey Patel,Jesseland,08245 Rachel Islands Apt. 348,74701.91,2018-02-18,26,male,2,own,moderate,little,1382,24,business,good
+Melanie Oconnell,Lake Stephanie,35783 Scott Mountains Suite 943,84196.04,2018-08-03,24,female,2,own,,,874,15,domestic appliances,good
+Michelle Sullivan,Collinsfurt,865 Mitchell Dale Suite 854,30063.1,2018-05-07,29,male,1,own,little,little,3590,12,furniture/equipment,good
+Michael Terry,Englishland,795 Pierce Prairie Suite 755,52419.0,2018-12-25,40,female,2,own,rich,moderate,1322,11,car,good
+Ryan Guzman,North Travis,74875 Swanson Via Suite 612,25443.85,2018-02-24,36,male,3,free,little,little,1940,18,radio/TV,good
+Tiffany Chung,Robertoshire,4687 Meyers Union,36374.71,2018-09-27,28,male,2,own,little,,3595,36,radio/TV,good
+Wendy Mcmillan,Kylemouth,9872 Mitchell Lakes,74310.54,2018-11-05,27,male,3,free,little,little,1422,9,car,bad
+Diane Gilbert,Lindsayview,3633 Brown Causeway Suite 523,55623.86,2018-05-07,36,male,2,own,,,6742,30,radio/TV,good
+Jacob Johnson,Lorichester,68536 Jeffrey Knoll,95089.17,2018-09-15,38,male,3,own,little,,7814,24,car,good
+Kevin Newman,Whitneyburgh,804 Williams Wells Suite 630,61785.86,2018-07-21,48,male,2,free,,,9277,24,car,good
+Misty Miles,Port Alexisfurt,279 Curtis Plain,52192.81,2018-09-24,36,male,2,own,,moderate,2181,30,car,good
+Kayla Bolton,Greenshire,693 Ronald Turnpike Apt. 517,64179.45,2018-01-15,65,female,0,own,little,,1098,18,radio/TV,good
+Kristen Stevens,Lake Jamiestad,4294 Alexis Street Suite 039,66422.14,2018-04-02,43,male,2,own,little,moderate,4057,24,furniture/equipment,bad
+Brian Perez,Port Juliechester,981 Ryan Manors Apt. 832,43482.11,2018-07-29,53,female,2,own,little,little,795,12,education,bad
+Christopher Hernandez,Barbarabury,9433 Morgan Walk,31807.77,2018-01-16,34,male,2,own,,moderate,2825,24,business,good
+Amy Williams,Lake Amandashire,50725 Dawn Points Apt. 487,64087.93,2018-06-25,23,male,2,own,little,moderate,15672,48,business,bad
+Michael Villarreal,East Jessicamouth,0938 Lowery Spur Suite 715,99860.95,2018-05-30,34,male,3,own,little,,6614,36,car,good
+Nicole Norman,Port Emily,77418 Martinez Stream Apt. 869,73458.7,2018-01-02,40,male,2,rent,,,7824,28,car,good
+Dawn West,Cynthiaburgh,49118 Karen Curve,26079.76,2018-11-08,43,male,3,own,little,little,2442,27,business,good
+Wayne Jackson,West Maria,53924 Fields Lodge,96749.04,2018-11-11,46,male,2,own,little,,1829,15,radio/TV,good
+Claudia Parker,Cooperfort,19644 Karen Mountains,91061.28,2018-11-03,38,male,1,own,little,little,2171,12,car,good
+Christy Gutierrez,Port Peter,52967 Chang Courts Apt. 542,75508.4,2018-05-04,34,male,2,own,little,moderate,5800,36,car,good
+Robert Garcia,Adrianview,52782 Oliver Spring,84847.94,2018-05-09,29,male,2,own,,,1169,18,radio/TV,good
+Kyle Guerrero,Judytown,384 Nichole Junction Apt. 217,64518.51,2018-09-17,31,male,3,own,,,8947,36,car,good
+Jimmy Romero,East Leslieport,924 Smith Stream,72862.37,2018-01-03,28,female,3,rent,little,little,2606,21,radio/TV,good
+Tim Richardson,Lauraville,669 Amber Shores,69293.4,2018-02-14,35,female,2,own,rich,,1592,12,furniture/equipment,good
+Jerry Castillo,South Preston,68310 Donovan Groves,26152.38,2018-08-09,33,female,1,rent,,,2186,15,furniture/equipment,good
+Becky Marshall,Kathrynside,541 Joshua Summit Apt. 917,54683.87,2018-11-15,42,male,2,own,little,little,4153,18,furniture/equipment,bad
+Jonathan Wilson,North Nicole,678 Martinez Divide Apt. 274,99805.34,2018-05-12,43,male,2,rent,little,little,2625,16,car,bad
+Thomas Weaver,West Juliefurt,888 Gutierrez Extension,97714.19,2018-02-03,44,male,2,own,,,3485,20,car,good
+Mary Jones,North Mary,54816 Jon Tunnel,40716.09,2018-08-10,42,male,2,free,,,10477,36,car,good
+Robert Dunlap,Herreraton,1933 Jessica Square,79001.76,2018-12-26,40,male,2,rent,,,1386,15,radio/TV,good
+Ricardo Brown,South Elizabeth,955 Castro Mission Suite 932,66774.79,2018-12-24,36,male,3,own,little,,1278,24,radio/TV,good
+April Bolton,Lake Benjaminfurt,599 Lawrence Port,35879.69,2018-06-17,20,male,3,rent,little,little,1107,12,radio/TV,good
+Jesus Mcguire,Lindseyfort,8412 John Ports,94450.36,2018-12-25,24,male,1,own,,little,3763,21,car,good
+Alexa Miranda,Bryanbury,99785 Melinda Center Apt. 342,35826.1,2018-08-16,27,male,2,own,,moderate,3711,36,education,good
+Jason Mckenzie,Lorrainemouth,03986 Fisher Ways Apt. 360,77302.63,2018-04-14,46,female,1,own,little,,3594,15,car,good
+David Walker,Davidburgh,5452 Johnson Mission,29631.33,2018-11-16,33,female,1,own,,moderate,3195,9,car,good
+Robert Moore,South Timothy,3906 Anthony Mount,56942.52,2018-12-18,34,female,2,own,little,,4454,36,radio/TV,good
+Paul Dickson,North Rebecca,52634 Rodriguez Walk,25829.34,2018-09-15,25,female,1,own,little,moderate,4736,24,furniture/equipment,bad
+April Juarez,Christophermouth,093 William Drive,93988.49,2018-03-31,25,female,2,own,,moderate,2991,30,radio/TV,good
+Laura Freeman,North Elizabeth,80935 Mendoza Rapids Apt. 376,45959.04,2018-02-20,28,male,2,own,rich,,2142,11,business,good
+Stephanie Brown,Steinton,89971 Gordon Inlet,47801.18,2018-05-21,31,male,2,rent,little,little,3161,24,business,bad
+Sheila Nelson,Charleschester,6462 Martin Mews,99912.81,2018-11-16,32,female,3,own,little,moderate,18424,48,vacation/others,bad
+Vanessa Johnson,Port Shanemouth,215 Joshua Pass Apt. 116,30116.13,2018-09-20,32,male,2,own,moderate,,2848,10,car,good
+Christopher Lee,Meganshire,63924 Snow Circle Apt. 530,47129.16,2018-08-05,68,male,3,own,little,little,14896,6,car,bad
+Blake Peters,Torresborough,972 Jacob Cliff Apt. 607,47407.09,2018-08-31,33,male,2,own,moderate,little,2359,24,furniture/equipment,bad
+Amanda Patton,Lake Donald,9270 Hannah Forge Apt. 043,75471.2,2018-08-27,39,male,3,rent,little,little,3345,24,furniture/equipment,bad
+Robert Gordon,Thomasburgh,32936 Kelly Garden Suite 306,26914.12,2018-07-16,28,female,2,own,little,,1817,18,furniture/equipment,good
+Brittany Brown,Lake Glennside,9189 Moore Keys,62082.92,2018-09-04,37,male,3,own,quite rich,,12749,48,radio/TV,good
+Deborah Bell,Kennedyville,32567 Desiree Via Suite 961,62828.0,2018-10-23,22,female,2,rent,little,little,1366,9,radio/TV,bad
+Lori Martinez,East Alan,691 Lindsay Locks Suite 293,79059.37,2018-12-05,30,male,2,rent,little,moderate,2002,12,car,good
+Mrs. Kristina Lewis,Williamsshire,01845 Craig Road,52721.69,2018-07-30,55,male,2,own,little,little,6872,24,furniture/equipment,bad
+Jessica Taylor,East Matthewstad,146 Norman Oval Suite 474,35428.36,2018-05-27,46,male,2,own,little,little,697,12,car,bad
+Frank Fox,Davidmouth,67727 Smith Lane,44032.37,2018-04-02,21,female,2,rent,little,little,1049,18,furniture/equipment,good
+Jason Vaughn,Port John,9658 Diane Skyway,59619.23,2018-03-25,39,male,2,free,little,little,10297,48,car,bad
+Brandon Owens,Mathewsland,7873 Michael Roads Apt. 203,60543.92,2018-06-09,58,male,2,own,,,1867,30,radio/TV,good
+Crystal Rodriguez,Kelseyberg,133 Nicole Key Suite 541,92780.68,2018-05-12,43,male,1,own,little,little,1344,12,car,good
+Michael Morris,Meganmouth,8663 Justin Path Suite 348,25244.17,2018-04-17,24,male,1,own,little,little,1747,24,furniture/equipment,good
+Kelly Payne,Bryanstad,0994 Sandoval Mall Suite 672,77702.41,2018-06-25,22,female,2,own,little,moderate,1670,9,radio/TV,bad
+Robert York,New Phillip,253 Weeks Walks,80369.16,2018-09-24,30,male,2,own,little,,1224,9,car,good
+Patrick Howe,West Tammy,003 Paul Squares Apt. 943,90655.22,2018-07-23,42,male,2,own,quite rich,,522,12,radio/TV,good
+Joshua Turner,Jamesborough,9479 Robbins Vista Suite 328,74475.14,2018-08-27,23,female,2,own,little,little,1498,12,radio/TV,good
+Kenneth Holmes,Ariasberg,0083 Gary Court Suite 711,32413.69,2018-01-31,30,male,3,own,moderate,moderate,1919,30,radio/TV,bad
+Scott Mann,Smithland,46323 Christina Extensions,49442.51,2018-06-12,28,female,1,own,little,rich,745,9,radio/TV,bad
+Christopher King,Lake Darlenebury,8732 John Lane,65322.24,2018-09-17,30,male,3,rent,little,moderate,2063,6,radio/TV,good
+Ann Brown,East Kylehaven,7507 Allen Islands,94585.83,2018-12-21,42,male,2,free,little,moderate,6288,60,education,bad
+Ashley Warren,Port Theresafort,6260 Reyes Skyway,86477.84,2018-08-30,46,male,3,own,,,6842,24,car,good
+Gordon Herrera,West Cynthiastad,28235 David Meadow,93088.77,2018-01-20,45,male,3,own,,,3527,12,car,good
+John Swanson Jr.,Jessicachester,24609 Lindsay Radial,25280.77,2018-09-22,31,male,1,own,little,,1546,10,car,good
+Michelle Underwood,Allenmouth,850 Mercedes Stravenue Apt. 009,85284.73,2018-09-12,31,male,2,own,,,929,24,furniture/equipment,good
+Jacqueline Martinez,Davidton,86860 Mccormick Ports Apt. 097,65431.79,2018-09-23,42,male,1,own,little,,1455,4,car,good
+Elizabeth Klein,Paulafurt,491 Kelly Ridges Suite 169,33977.58,2018-08-10,46,female,2,rent,little,little,1845,15,furniture/equipment,good
+Jane Moore,West Rhondaton,17736 Mayer Tunnel,33233.45,2018-03-11,30,female,2,own,quite rich,moderate,8358,48,car,good
+Sean Huerta,West Elizabethville,50255 Erica Freeway Apt. 615,48381.26,2018-11-26,30,male,2,free,quite rich,little,3349,24,furniture/equipment,bad
+Tanya Bishop,Solisberg,615 Jeffrey Locks,94620.29,2018-08-11,38,male,3,own,,,2859,12,car,good
+Gina Guzman,Port Lisafurt,1010 Carlos Trail,94431.81,2018-04-19,43,male,1,own,little,,1533,18,furniture/equipment,bad
+Gina Griffin,West Jason,400 Kristen Lake Apt. 239,27254.95,2018-10-02,31,male,2,own,moderate,,3621,24,radio/TV,bad
+Michael Singleton,Emilychester,83939 Smith Forest,58841.59,2018-07-23,40,male,0,own,little,moderate,3590,18,business,good
+Chloe Barnett,Lake Jeffreyfort,45614 Christopher Keys,58288.74,2018-04-05,24,male,2,own,little,little,2145,36,business,bad
+Michael Harris MD,South Dominique,38163 Garcia Lake Suite 656,64082.1,2018-12-13,28,female,2,rent,quite rich,moderate,4113,24,car,bad
+Stephen Cox,Melissaton,906 Hannah Flat Suite 866,25823.19,2018-07-24,26,female,3,own,little,,10974,36,furniture/equipment,bad
+Todd Bauer,New Johnview,1367 Welch Glen,27283.31,2018-11-28,29,female,2,own,little,little,1893,12,car,good
+Mary Kemp,Kristenbury,325 Elizabeth Skyway,37455.78,2018-02-04,57,female,3,rent,rich,little,1231,24,radio/TV,good
+William Jacobs,New Tinafort,541 Schmitt Circle,40216.82,2018-05-24,49,male,1,own,,rich,3656,30,radio/TV,good
+Christian Coleman,Port Ernestborough,182 Hamilton Knoll Suite 558,57615.43,2018-10-07,37,male,1,own,little,moderate,1154,9,radio/TV,good
+Leslie Le,Brownborough,53229 Owens Lodge Suite 029,85522.17,2018-11-27,45,male,1,own,little,little,4006,28,car,bad
+Jennifer Leonard,North Chase,768 Alicia Expressway,33701.98,2018-06-23,30,male,2,free,moderate,moderate,3069,24,furniture/equipment,good
+Tony Chavez,Thomasland,70914 Adams Rapid,75122.99,2018-08-12,30,male,2,rent,little,,1740,6,radio/TV,good
+Mr. Christopher Day,Danatown,85918 Stephanie Rest Suite 110,98769.64,2018-11-18,47,male,2,own,little,moderate,2353,21,car,good
+Mario Roberson,New Jon,47398 Jimmy Points Suite 196,43992.43,2018-06-26,29,male,2,own,,,3556,15,car,good
+Steven Watkins,East Philipchester,05541 Simpson Key,77428.87,2018-07-10,35,male,2,own,quite rich,,2397,24,radio/TV,bad
+Karen Luna,Hartton,709 Corey Garden,66954.88,2018-01-14,22,male,1,own,little,moderate,454,6,repairs,good
+Beverly Smith,Perezburgh,4626 Clark Estates,45053.6,2018-02-25,26,female,2,own,,moderate,1715,30,radio/TV,good
+Victoria Williams,East Maureen,1436 Vaughn Point Suite 381,65996.02,2018-11-10,23,male,1,own,quite rich,moderate,2520,27,radio/TV,bad
+Monique Murillo,Stephenfort,0388 Mccall Isle,65815.08,2018-04-05,54,female,3,rent,little,,3568,15,radio/TV,good
+Claudia Reynolds MD,Frederickmouth,3656 Jeffrey Fork Suite 080,59383.73,2018-01-23,29,male,2,rent,,,7166,42,radio/TV,good
+Antonio Sparks,New Pamela,619 Long Glen Suite 316,60694.9,2018-03-11,40,male,1,own,little,little,3939,11,car,good
+Tina Sanders,Mclaughlinberg,1747 Burgess Loaf,78620.04,2018-01-29,22,male,2,own,moderate,moderate,1514,15,repairs,good
+Eric Dixon,Fowlermouth,952 Jennifer Spurs Apt. 500,74368.33,2018-04-03,43,male,1,own,little,,7393,24,car,good
+Gregory Griffin,South Jesse,188 Lang Tunnel Apt. 514,90039.58,2018-06-09,29,female,0,rent,little,little,1193,24,car,bad
+Daniel Collins,Bryanmouth,156 Leslie Freeway,49502.44,2018-10-20,36,male,2,rent,little,little,7297,60,business,bad
+Charles Jones,Christopherberg,1485 Joshua Forest,90373.17,2018-07-27,33,female,2,own,little,,2831,30,radio/TV,good
+Brandon Velez,Ronniemouth,256 Bryant Summit,98458.77,2018-12-21,57,female,1,own,quite rich,rich,1258,24,radio/TV,good
+Cassandra Key,Goodwinshire,4559 Brian Cliffs Suite 754,26127.2,2018-11-28,64,female,2,own,little,moderate,753,6,radio/TV,good
+Denise Black,West Philip,08884 Wade Circles Apt. 030,85506.51,2018-07-26,42,male,2,own,,moderate,2427,18,business,good
+Jeffrey Torres,West Jennifer,91906 Priscilla Well,91952.39,2018-02-19,47,male,1,own,little,,2538,24,car,bad
+Jessica Ross,Lake Amber,8016 Brent Field Suite 138,74962.32,2018-12-02,25,male,2,rent,moderate,moderate,1264,15,car,bad
+Victoria Odom,Russellstad,3479 Carpenter Villages Suite 417,72008.75,2018-08-21,49,male,2,own,little,moderate,8386,30,furniture/equipment,bad
+Joseph Hendricks,Marymouth,8834 Yang Pines Suite 982,52049.59,2018-03-12,33,male,3,rent,little,,4844,48,business,bad
+Joseph Cannon,Andreaside,18221 Barnett Mount,83656.19,2018-11-06,28,female,3,own,moderate,rich,2923,21,car,good
+Martha Hartman,Valentinetown,60664 Tracey Fords Apt. 807,46867.54,2018-06-30,26,male,2,own,little,little,8229,36,car,bad
+Paige Walker,West Stanleyville,008 Patricia Stream,25035.21,2018-01-04,30,male,1,own,little,,2028,24,furniture/equipment,good
+April Garcia,Port Daniel,9399 Valdez Heights Apt. 306,94024.14,2018-07-27,25,female,2,rent,little,little,1433,15,furniture/equipment,good
+Martin Miller,Stokesberg,847 Nicole Fields,34031.27,2018-09-18,33,male,2,own,little,rich,6289,42,business,good
+Marie Williams,East Christopherberg,2689 Melinda Valleys Apt. 002,45637.56,2018-12-29,64,female,2,own,moderate,,1409,13,radio/TV,good
+Samantha Ashley,Andreatown,833 Mcclain Lights Apt. 234,46557.36,2018-01-13,29,male,3,free,little,little,6579,24,car,good
+Sara Jenkins,Wilsontown,2942 Theresa Isle Apt. 797,33906.81,2018-01-18,48,male,1,own,little,moderate,1743,24,radio/TV,good
+Jeffrey Bright,Sharonmouth,77006 Hughes Stravenue,47513.42,2018-12-04,37,male,1,own,,,3565,12,education,good
+Christopher Parker,Rachelberg,548 James Bridge Apt. 790,73050.19,2018-04-02,34,male,1,own,moderate,,1569,15,radio/TV,good
+Ronald Hubbard,New Stephanie,19687 Sean Meadows Suite 990,60755.88,2018-04-22,23,male,1,rent,,little,1936,18,radio/TV,good
+Justin Baldwin,Valerieberg,4753 Misty Burg,26818.84,2018-08-11,30,male,3,own,little,little,3959,36,furniture/equipment,good
+Jeffery Glass,West Christopherburgh,3853 Wright Coves,43105.65,2018-03-04,50,male,2,own,,,2390,12,car,good
+Stephanie Sexton,Erinhaven,5320 Catherine Trace Suite 969,40242.92,2018-07-10,31,female,1,own,little,,1736,12,furniture/equipment,good
+Thomas Berg,Port Joseph,01184 Smith Path,76822.32,2018-11-02,40,male,3,own,little,little,3857,30,car,good
+Julie Simmons,Lake Wendy,62341 Jacobs Crossroad,98818.22,2018-05-31,38,male,2,own,little,,804,12,radio/TV,good
+Erin Smith,Robertsville,95670 Todd Prairie,29770.99,2018-03-22,23,male,2,free,little,little,1845,45,radio/TV,bad
+Jeremy Thompson,Laurenport,74759 Michael Isle Apt. 731,41319.38,2018-11-24,27,male,2,own,moderate,moderate,4576,45,car,good

@@ -76,6 +76,7 @@ coverage:
 	coverage report --fail-under=90
 
 examples:
+	shopt -s nullglob; \
 	for dir in examples examples/tutorials; do \
 		pushd $$dir; \
 		for i in *.py; do \
