@@ -2,6 +2,7 @@ import hashlib
 import secrets
 
 import pandas as pd
+from Crypto.Cipher import AES
 from pyspark.sql import functions
 
 from cape_privacy.spark import dtypes
@@ -94,12 +95,12 @@ class ReversibleTokenizer(base.Transformation):
         self.key = key
         self.encoding = encoding
 
-    def __call__(self, x):
-        return _series_to_token.map(self.token)
+    def __call__(self, series):
+        @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
+        def to_token(series):
+            return series.map(self._to_token)
 
-    @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
-    def token(series: pd.Series):
-        return series.map(self._item_to_token)
+        return to_token(series)
 
     def _to_token(self, x: str):
         cipher = AES.new(key=self.key, mode=AES.MODE_SIV)
@@ -136,8 +137,12 @@ class TokenReverser(base.Transformation):
         self.key = key
         self.encoding = encoding
 
-    def __call__(self, series: pd.Series) -> pd.Series:
-        return series.apply(self._from_token)
+    def __call__(self, series) -> pd.Series:
+        @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
+        def from_token(series):
+            return series.map(self._from_token)
+
+        return from_token(series)
 
     def _from_token(self, token: str):
         cipher = AES.new(key=self.key, mode=AES.MODE_SIV)
