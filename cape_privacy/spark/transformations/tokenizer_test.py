@@ -6,11 +6,10 @@ from cape_privacy.spark import utils
 from cape_privacy.spark.transformations import tokenizer as tkn
 
 
-def _make_and_apply_tokenizer(sess, df, max_token_len, key):
+def _apply_tokenizer(sess, df, tokenizer, col_to_rename):
     df = sess.createDataFrame(df, schema=["name"])
-    tokenize = tkn.Tokenizer(max_token_len, key)
-    result_df = df.select(tokenize(functions.col("name")))
-    return result_df.withColumnRenamed("to_token(name)", "name").toPandas()
+    result_df = df.select(tokenizer(functions.col("name")))
+    return result_df.withColumnRenamed(col_to_rename, "name").toPandas()
 
 
 def test_tokenizer_simple():
@@ -25,7 +24,12 @@ def test_tokenizer_simple():
         }
     )
     key = "secret_key"
-    df = _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=key)
+    df = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=key),
+        col_to_rename="to_token(name)",
+    )
     pdt.assert_frame_equal(df, expected)
 
 
@@ -34,8 +38,18 @@ def test_tokenizer_is_linkable():
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     key1 = "secret_key"
     key2 = "secret_key"
-    df1 = _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=key1)
-    df2 = _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=key2)
+    df1 = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=key1),
+        col_to_rename="to_token(name)",
+    )
+    df2 = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=key2),
+        col_to_rename="to_token(name)",
+    )
     pdt.assert_frame_equal(df1, df2)
 
 
@@ -44,8 +58,18 @@ def test_tokenizer_is_not_linkable():
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
     key1 = "secret_key"
     key2 = "not_your_secret_key"
-    df1 = _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=key1)
-    df2 = _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=key2)
+    df1 = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=key1),
+        col_to_rename="to_token(name)",
+    )
+    df2 = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=key2),
+        col_to_rename="to_token(name)",
+    )
     try:
         pdt.assert_frame_equal(df1, df2)
         raise NotImplemented  # noqa: F901
@@ -61,14 +85,24 @@ def test_tokenizer_with_max_token_len():
     expected = pd.DataFrame({"name": ["70a4b1a987", "dd4532a296"]})
     max_token_len = 10
     key = "secret_key"
-    df = _make_and_apply_tokenizer(sess, test_df, max_token_len=max_token_len, key=key)
+    df = _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=max_token_len, key=key),
+        col_to_rename="to_token(name)",
+    )
     pdt.assert_frame_equal(df, expected)
 
 
 def test_tokenizer_no_key():
     sess = utils.make_session("test.tokenizer.maxTokenLen")
     test_df = pd.DataFrame({"name": ["Alice", "Bob"]})
-    _make_and_apply_tokenizer(sess, test_df, max_token_len=None, key=None)
+    _apply_tokenizer(
+        sess,
+        test_df,
+        tkn.Tokenizer(max_token_len=None, key=None),
+        col_to_rename="to_token(name)",
+    )
 
 
 def test_reversible_tokenizer():
