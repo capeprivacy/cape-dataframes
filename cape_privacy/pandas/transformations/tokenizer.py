@@ -92,19 +92,22 @@ class ReversibleTokenizer(base.Transformation):
 
     Attributes:
         key: expect a string or byte string.
+        encoding: encoding to use for inputs.
     """
 
     identifier = "reversible-tokenizer"
     type_signature = "col->col"
 
-    def __init__(self, key):
+    def __init__(self, key, encoding="utf-8"):
         typecheck.check_arg(key, (str, bytes))
+        typecheck.check_arg(encoding, str)
         super().__init__(dtype=dtypes.String)
         if isinstance(key, str):
             key = key.encode()
         if not key or len(key) != 32:
             raise ValueError("Key must be exactly 32 bytes")
         self.key = key
+        self.encoding = encoding
 
     def __call__(self, series: pd.Series) -> pd.Series:
         """Map a Pandas Series to tokens.
@@ -121,7 +124,7 @@ class ReversibleTokenizer(base.Transformation):
 
     def _to_token(self, x: str):
         cipher = AES.new(key=self.key, mode=AES.MODE_SIV)
-        ciphertext, tag = cipher.encrypt_and_digest(x.encode())
+        ciphertext, tag = cipher.encrypt_and_digest(x.encode(encoding=self.encoding))
         assert len(tag) == 16, len(tag)
         token = tag.hex() + ciphertext.hex()
         return token
@@ -144,6 +147,7 @@ class TokenReverser(base.Transformation):
 
     Attributes:
         key: expect a string or byte string.
+        encoding: encoding used for outputs.
     """
 
     identifier = "token-reverser"
