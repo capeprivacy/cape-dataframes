@@ -77,8 +77,8 @@ class ReversibleTokenizer(base.Transformation):
     when the secret key is known.
 
     Attributes:
-        key: expect a string or byte string.
-        encoding: encoding to use for inputs.
+        key: expect a string or byte string of length exactly 32 bytes.
+        encoding: string identifying the Python encoding used for inputs.
     """
 
     identifier = "reversible-tokenizer"
@@ -119,8 +119,8 @@ class TokenReverser(base.Transformation):
     be used.
 
     Attributes:
-        key: expect a string or byte string.
-        encoding: encoding used for outputs.
+        key: expect a string or byte string of length exactly 32 bytes.
+        encoding: string identifying the Python encoding used for outputs.
     """
 
     identifier = "token-reverser"
