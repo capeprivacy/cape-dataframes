@@ -8,7 +8,7 @@ There are several posts related to these Jupyter notebooks to assist you in eval
 
 ### Cape Core: Introduction to Collaborative Privacy and Security Policy
 
-This [overview of Cape Core software]() walks you through the use of Cape Core alongside Cape Privacy. It is a great way to get started with managing your transformations in a responsible way. Cape Core allows you to store policies centrally and coordinate them with your data science and machine learning peers. There are two notebooks related to this blog post:
+This [overview of Cape Core software](https://medium.com/dropoutlabs/cape-core-privacy-and-data-science-working-together-d25a55526506) walks you through the use of Cape Core alongside Cape Privacy. It is a great way to get started with managing your transformations in a responsible way. Cape Core allows you to store policies centrally and coordinate them with your data science and machine learning peers. There are two notebooks related to this blog post:
 
 - [Cape Policy for Pandas - IoT Example](https://github.com/capeprivacy/cape-python/blob/master/examples/notebooks/Cape%20Policy%20for%20Pandas%20-%20IoT%20Example.ipynb)
 - [Cape Policy for Spark - IoT Example](https://github.com/capeprivacy/cape-python/blob/master/examples/notebooks/Cape%20Policy%20for%20Spark%20-%20IoT%20Example.ipynb)
