@@ -1,5 +1,6 @@
 import pandas as pd
 import pandas.testing as pdt
+import pytest
 
 from cape_privacy.pandas.transformations import ReversibleTokenizer
 from cape_privacy.pandas.transformations import Tokenizer
@@ -56,3 +57,12 @@ def test_reversible_tokenizer():
     recovered = pd.DataFrame()
     recovered["name"] = reverser(tokenized["name"])
     pdt.assert_frame_equal(recovered, plaintext)
+
+
+def test_reversible_tokenizer_string_key():
+    _ = ReversibleTokenizer(key="5" * 32)
+
+
+def test_reversible_tokenizer_insufficient_key():
+    with pytest.raises(ValueError):
+        _ = ReversibleTokenizer(key=b"5" * 10)

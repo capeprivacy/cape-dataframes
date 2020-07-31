@@ -1,5 +1,6 @@
 import pandas as pd
 import pandas.testing as pdt
+import pytest
 from pyspark.sql import functions
 
 from cape_privacy.spark import utils
@@ -130,3 +131,12 @@ def test_reversible_tokenizer():
         sess, tokenized, tkn.TokenReverser(key=key), col_to_rename="from_token(name)",
     )
     pdt.assert_frame_equal(recovered, plaintext)
+
+
+def test_reversible_tokenizer_string_key():
+    _ = tkn.ReversibleTokenizer(key="5" * 32)
+
+
+def test_reversible_tokenizer_insufficient_key():
+    with pytest.raises(ValueError):
+        _ = tkn.ReversibleTokenizer(key=b"5" * 10)

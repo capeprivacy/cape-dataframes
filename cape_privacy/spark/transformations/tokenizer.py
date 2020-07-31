@@ -90,8 +90,8 @@ class ReversibleTokenizer(base.Transformation):
         super().__init__(dtype=dtypes.String)
         if isinstance(key, str):
             key = key.encode()
-        if not key or len(key) != 32:
-            raise ValueError("Key must be exactly 32 bytes")
+        if len(key) != 32:
+            raise ValueError(f"Key must be exactly 32 bytes, got {len(key)}")
         self.key = key
         self.encoding = encoding
 
@@ -132,8 +132,8 @@ class TokenReverser(base.Transformation):
         super().__init__(dtype=dtypes.String)
         if isinstance(key, str):
             key = key.encode()
-        if not key or len(key) != 32:
-            raise ValueError("Key must be exactly 32 bytes")
+        if len(key) != 32:
+            raise ValueError(f"Key must be exactly 32 bytes, got {len(key)}")
         self.key = key
         self.encoding = encoding
 
