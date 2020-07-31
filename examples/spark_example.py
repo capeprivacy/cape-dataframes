@@ -12,6 +12,6 @@ pdf = pd.DataFrame(np.ones(5, dtype=np.float32) + 0.2, columns=["ones"])
 df = sess.createDataFrame(pdf)
 df.show()
 
-policy = cape.parse_policy("spark_round.yaml")
+policy = cape.parse_policy("policy/spark_round.yaml")
 result = cape.apply_policy(policy, df)
 result.show()

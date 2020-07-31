@@ -1,0 +1,22 @@
+label: iot_examplew_policy
+version: 1
+rules:
+  - match:
+      name: username
+    actions:
+      - transform:
+          type: "tokenizer"
+          max_token_len: 10
+          key: "Please change this :)"
+  - match:
+      name: timestamp
+    actions:
+      - transform:
+          type: "date-truncation"
+          frequency: "hour"
+  - match:
+      name: build
+    actions:
+      - transform:
+          type: "column-redact"
+          columns: ["build"] 

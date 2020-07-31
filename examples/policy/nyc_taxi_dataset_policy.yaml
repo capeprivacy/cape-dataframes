@@ -1,0 +1,52 @@
+label: taxi_dataset_policy
+version: 1
+rules:
+  - match:
+      name: VendorID 
+    actions:
+      - transform:
+          type: "tokenizer"
+          max_token_len: 10
+          key: "Please change this :)"
+  - match:
+      name: passenger_count
+    actions:
+      - transform:
+          type: "numeric-perturbation"
+          dtype: Integer
+          min: 0
+          max: 2
+  - match:
+      name: pickup_longitude
+    actions:
+      - transform:
+          type: "numeric-rounding"
+          dtype: Double
+          precision: 4
+  - match:
+      name: pickup_latitude
+    actions:
+      - transform:
+          type: "numeric-rounding"
+          dtype: Double                   
+          precision: 4                   
+  - match:
+      name: dropoff_longitude                    
+    actions:                                    
+      - transform:                              
+          type: "numeric-rounding"              
+          dtype: Double                         
+          precision: 4                         
+  - match:                                      
+      name: dropoff_latitude                     
+    actions:                                    
+      - transform:                              
+          type: "numeric-rounding"              
+          dtype: Double                         
+          precision: 4                         
+  - match:
+      name: PULocationID
+    actions:
+      - transform:
+          type: "column-redact"
+          columns: ["PULocationID", "DOLocationID"] 
