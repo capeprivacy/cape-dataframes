@@ -1,6 +1,6 @@
 # Credit Risk Tutorial
 
-This tutorial was created for the blog post `Cape Python: Apply Privacy-Enhancing Techniques to Protect Sensitive Data in Pandas and Spark` (TODO add link once published).
+This tutorial was created for the blog post [Cape Python: Apply Privacy-Enhancing Techniques to Protect Sensitive Data in Pandas and Spark](https://medium.com/dropoutlabs/cape-python-apply-privacy-enhancing-techniques-to-protect-sensitive-data-in-pandas-and-spark-e0bf8c0d55db).
 
 As an example, we experiment with the public [German credit card dataset](https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)). We just added some fake PII information (such as name, address, etc.) and quasi-identifiers (city, salary etc.) to make it more similar to a real dataset for which we would use the masking techniques. 
 
