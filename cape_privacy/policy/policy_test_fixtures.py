@@ -129,3 +129,30 @@ redact_y = """
               type: plusN
               n: 2
     """
+
+secret_yaml = """
+label: masking_policy
+version: 1
+transformations:
+  - name: reversible
+    type: reversible-tokenizer
+    key:
+      type: secret
+      value: m5YNKBP-a3GMyy52457ok-4zQHqLuiB3aFD7mPTBpoc
+  - name: reverse
+    type: token-reverser
+    key:
+      type: secret
+      value: m5YNKBP-a3GMyy52457ok-4zQHqLuiB3aFD7mPTBpoc
+rules:
+  - match:
+      name: name
+    actions:
+      - transform:
+          name: reversible
+  - match:
+      name: name
+    actions:
+      - transform:
+          name: reverse
+"""

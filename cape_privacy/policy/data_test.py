@@ -1,5 +1,7 @@
 import yaml
 
+from cape_privacy.coordinator.utils import base64
+
 from .data import Policy
 from .policy_test_fixtures import named_with_secret_y
 
@@ -60,4 +62,4 @@ def test_policy_with_secret():
 
     p = Policy(**d)
 
-    assert p.transformations[1].args["key"] == "BASE"
+    assert p.transformations[1].args["key"] == bytes(base64.from_string("BASE"))
