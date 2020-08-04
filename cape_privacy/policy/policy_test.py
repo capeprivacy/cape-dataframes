@@ -239,3 +239,15 @@ def test_column_redaction_spark():
 
     pdt.assert_frame_equal(new_df, expected_df)
     del spark_lib.registry._registry[test_utils.PlusN.identifier]
+
+
+def test_secret_in_named_transform():
+    d = yaml.load(fixtures.secret_yaml, Loader=yaml.FullLoader)
+
+    df = pd.DataFrame({"name": ["bob", "alice"]})
+
+    p = data.Policy(**d)
+
+    new_df = policy_lib.apply_policy(p, df)
+
+    pdt.assert_frame_equal(new_df, df)

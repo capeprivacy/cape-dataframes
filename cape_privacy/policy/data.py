@@ -16,6 +16,8 @@ contain Transformations.
 
 from typing import List
 
+from cape_privacy.coordinator.utils import base64
+
 
 class Transform:
     """A actual transform that will be applied.
@@ -118,7 +120,7 @@ class NamedTransform:
                     )
 
                 # then set the arg value to the inner value
-                self.args[key] = arg["value"]
+                self.args[key] = bytes(base64.from_string(arg["value"]))
 
 
 class Policy:

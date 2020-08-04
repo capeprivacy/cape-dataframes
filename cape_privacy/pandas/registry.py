@@ -6,8 +6,10 @@ from cape_privacy.pandas.transformations import DatePerturbation
 from cape_privacy.pandas.transformations import DateTruncation
 from cape_privacy.pandas.transformations import NumericPerturbation
 from cape_privacy.pandas.transformations import NumericRounding
+from cape_privacy.pandas.transformations import ReversibleTokenizer
 from cape_privacy.pandas.transformations import RowRedact
 from cape_privacy.pandas.transformations import Tokenizer
+from cape_privacy.pandas.transformations import TokenReverser
 
 TransformationCtor = Callable
 
@@ -40,3 +42,5 @@ register(Tokenizer.identifier, Tokenizer)
 register(DateTruncation.identifier, DateTruncation)
 register(ColumnRedact.identifier, ColumnRedact)
 register(RowRedact.identifier, RowRedact)
+register(TokenReverser.identifier, TokenReverser)
+register(ReversibleTokenizer.identifier, ReversibleTokenizer)
