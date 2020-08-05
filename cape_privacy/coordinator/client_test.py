@@ -95,3 +95,9 @@ def test_get_policy():
     expected = {"label": "random-project", "rules": rules}
 
     assert policy == expected
+
+
+def test_client_repr():
+    c = Client(host)
+
+    assert c.__repr__() == f"This client is connected to {host}"

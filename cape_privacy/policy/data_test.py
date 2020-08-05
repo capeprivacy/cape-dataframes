@@ -5,24 +5,24 @@ from cape_privacy.coordinator.utils import base64
 from .data import Policy
 from .policy_test_fixtures import named_with_secret_y
 
-y = """
-    label: test_policy
-    transformations:
-      - name: plusOne
-        type: plusN
-        n: 1
-    rules:
-      - match:
-          name: test
-        actions:
-          - transform:
-              name: plusOne
-          - transform:
-              type: plusN
-              n: 1
-      - match:
-          name: test2
-    """
+y = """label: test_policy
+version: 1
+transformations:
+- name: plusOne
+  type: plusN
+  n: 1
+rules:
+- match:
+    name: test
+  actions:
+  - transform:
+      name: plusOne
+  - transform:
+      type: plusN
+      n: 1
+- match:
+    name: test2
+"""
 
 
 def test_policy_class():
@@ -63,3 +63,11 @@ def test_policy_with_secret():
     p = Policy(**d)
 
     assert p.transformations[1].args["key"] == bytes(base64.from_string("BASE"))
+
+
+def test_policy_repr():
+    d = yaml.load(y, Loader=yaml.FullLoader)
+
+    p = Policy(**d)
+
+    assert p.__repr__() == "Policy:\n\n" + y
