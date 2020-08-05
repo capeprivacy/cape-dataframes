@@ -183,3 +183,6 @@ class Client:
         spec["label"] = label
 
         return spec
+
+    def __repr__(self):
+        return f"This client is connected to {self.host}"

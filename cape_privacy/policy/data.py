@@ -16,6 +16,8 @@ contain Transformations.
 
 from typing import List
 
+import yaml
+
 from cape_privacy.coordinator.utils import base64
 
 
@@ -146,6 +148,7 @@ class Policy:
         self.label = label
         self.version = version
 
+        self._raw_transforms = transformations
         self.transformations = [
             NamedTransform(**transform) for transform in transformations
         ]
@@ -155,4 +158,15 @@ class Policy:
                 f"At least one rule must be specified for policy specification {label}"
             )
 
+        self._raw_rules = rules
         self.rules = [Rule(**rule) for rule in rules]
+
+    def __repr__(self):
+        d = {
+            "label": self.label,
+            "version": self.version,
+            "transformations": self._raw_transforms,
+            "rules": self._raw_rules,
+        }
+
+        return "Policy:\n\n" + yaml.dump(d, sort_keys=False)
