@@ -97,7 +97,7 @@ class DateTruncation(base.Transformation):
             raise ValueError
 
         # Use equality instead of isintance because of inheritance
-        if type(x[0]) == datetime.date:
+        if type(x.iloc[0]) == datetime.date:
             return pd.Series(truncated).dt.date
         else:
             return pd.Series(truncated)
