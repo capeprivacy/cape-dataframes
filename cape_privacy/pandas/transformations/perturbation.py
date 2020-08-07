@@ -110,7 +110,7 @@ class DatePerturbation(base.Transformation):
         is_date_no_time = False
 
         # Use equality instead of isinstance because of inheritance
-        if type(x[0]) == datetime.date:
+        if type(x.iloc[0]) == datetime.date:
             x = pd.to_datetime(x)
             is_date_no_time = True
 
