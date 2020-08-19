@@ -140,7 +140,7 @@ class Policy:
 
     def __init__(
         self,
-        label: str,
+        label: str = "",
         version: int = 1,
         rules: List[Rule] = [],
         transformations: List[NamedTransform] = [],
