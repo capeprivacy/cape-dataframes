@@ -23,6 +23,7 @@ setuptools.setup(
         "numpy==1.18.1",
         "pyyaml==5.3.1",
         "validators==0.15.0",
+        "pycryptodome==3.9.8",
     ],
     extras_require={
         "spark": ["pyspark >=2.4", "pyarrow >=0.15.1"],
