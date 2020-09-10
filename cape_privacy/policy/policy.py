@@ -29,6 +29,7 @@ Applying policy:
     df = apply_policy(policy, df)
 """
 
+import copy
 import types
 from typing import Any
 from typing import Callable
@@ -42,6 +43,7 @@ import yaml
 
 from cape_privacy import pandas as pandas_lib
 from cape_privacy import spark as spark_lib
+from cape_privacy.pandas import transformations
 from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
 
@@ -257,3 +259,24 @@ def _load_named_transform(
         )
 
     return initTransform
+
+
+def reverse(policy: data.Policy) -> data.Policy:
+    """Turns reversible tokenizations into token reversers
+
+    If any named transformations contain a reversible tokenization transformation
+    this helper function turns them into token reverser transformations.
+
+    Args:
+        policy: Top level policy object.
+
+    Returns:
+        The modified policy.
+    """
+    new_policy = copy.deepcopy(policy)
+
+    for named in new_policy.transformations:
+        if named.type == transformations.ReversibleTokenizer.identifier:
+            named.type = transformations.TokenReverser.identifier
+
+    return new_policy
