@@ -156,3 +156,20 @@ rules:
       - transform:
           name: reverse
 """
+
+reversible_yaml = """
+label: masking_policy
+version: 1
+transformations:
+  - name: reversible
+    type: reversible-tokenizer
+    key:
+      type: secret
+      value: m5YNKBP-a3GMyy52457ok-4zQHqLuiB3aFD7mPTBpoc
+rules:
+  - match:
+      name: name
+    actions:
+      - transform:
+          name: reversible
+"""

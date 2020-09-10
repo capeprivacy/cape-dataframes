@@ -251,3 +251,22 @@ def test_secret_in_named_transform():
     new_df = policy_lib.apply_policy(p, df)
 
     pdt.assert_frame_equal(new_df, df)
+
+
+def test_reverse_helper():
+    p = yaml.load(fixtures.reversible_yaml, Loader=yaml.FullLoader)
+
+    policy = policy_lib.parse_policy(p)
+
+    df = pd.DataFrame({"name": ["bob", "alice"]})
+
+    new_df = policy_lib.apply_policy(policy, df)
+
+    new_policy = policy_lib.reverse(policy)
+
+    another_df = policy_lib.apply_policy(new_policy, new_df)
+
+    for transform in new_policy.transformations:
+        assert transform.type == pandas_lib.transformations.TokenReverser.identifier
+
+    pdt.assert_frame_equal(df, another_df)
