@@ -98,7 +98,7 @@ class DatePerturbation(base.Transformation):
         return self._perturb_date(x)
 
     def _make_perturb_udf(self):
-        @functions.pandas_udf(dtypes.Date, functions.PandasUDFType.SCALAR)
+        @functions.pandas_udf(dtypes.Date)
         def perturb_date(x: pd.Series) -> pd.Series:
             rng = np.random.default_rng()
             for f, mn, mx in zip(self._frequency, self._min, self._max):
