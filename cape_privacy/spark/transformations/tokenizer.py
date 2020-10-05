@@ -46,8 +46,8 @@ class Tokenizer(base.Transformation):
         return self._tokenize(x)
 
     def _make_tokenize_udf(self):
-        @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
-        def to_token(x: pd.Series):
+        @functions.pandas_udf(dtypes.String)
+        def to_token(x: pd.Series) -> pd.Series:
             return x.map(self._to_token)
 
         return to_token
@@ -96,8 +96,8 @@ class ReversibleTokenizer(base.Transformation):
         self.encoding = encoding
 
     def __call__(self, series):
-        @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
-        def to_token(series):
+        @functions.pandas_udf(dtypes.String)
+        def to_token(series: pd.Series) -> pd.Series:
             return series.map(self._to_token)
 
         return to_token(series)
@@ -138,8 +138,8 @@ class TokenReverser(base.Transformation):
         self.encoding = encoding
 
     def __call__(self, series) -> pd.Series:
-        @functions.pandas_udf(dtypes.String, functions.PandasUDFType.SCALAR)
-        def from_token(series):
+        @functions.pandas_udf(dtypes.String)
+        def from_token(series: pd.Series) -> pd.Series:
             return series.map(self._from_token)
 
         return from_token(series)
