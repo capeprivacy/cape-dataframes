@@ -30,6 +30,7 @@ Applying policy:
 """
 
 import copy
+import logging
 import types
 from typing import Any
 from typing import Callable
@@ -37,6 +38,7 @@ from typing import Dict
 from typing import Union
 
 import pandas as pd
+import pyspark
 import requests
 import validators
 import yaml
@@ -206,10 +208,15 @@ def _do_transformations(
 
     for transform in rule.transformations:
         do_transform = _get_transformation(policy, transform, registry, dtypes)
-        if do_transform.type_signature == "df->df":
-            df = do_transform(df)
-        else:
-            df = transformer(do_transform, df, transform.field)
+        try:
+            if do_transform.type_signature == "df->df":
+                df = do_transform(df)
+            else:
+                df = transformer(do_transform, df, transform.field)
+        except (KeyError, pyspark.sql.utils.AnalysisException):
+            logging.warn(
+                f"Unable to transform column {transform.field} in policy {policy.label}"
+            )
 
     return df
 
