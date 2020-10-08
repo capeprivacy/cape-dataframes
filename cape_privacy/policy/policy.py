@@ -45,6 +45,8 @@ import yaml
 
 from cape_privacy import pandas as pandas_lib
 from cape_privacy import spark as spark_lib
+from cape_privacy.audit import APPLY_POLICY_EVENT
+from cape_privacy.audit import AuditLogger
 from cape_privacy.pandas import transformations
 from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
@@ -98,10 +100,15 @@ def apply_policy(policy: data.Policy, df, inplace=False):
         result_df = _do_transformations(
             policy, rule, result_df, registry, transformer, dtypes
         )
+
+    policy.logger.audit_log(APPLY_POLICY_EVENT, policy.id, "policy", policy.label)
+
     return result_df
 
 
-def parse_policy(p: Union[str, Dict[Any, Any]]) -> data.Policy:
+def parse_policy(
+    p: Union[str, Dict[Any, Any]], logger: AuditLogger = AuditLogger()
+) -> data.Policy:
     """Parses a policy YAML file.
 
     The passed in string can either be a path to a local file,
@@ -126,7 +133,7 @@ def parse_policy(p: Union[str, Dict[Any, Any]]) -> data.Policy:
     else:
         policy = p
 
-    return data.Policy(**policy)
+    return data.Policy(logger=logger, **policy)
 
 
 def _maybe_replace_dtype_arg(args, dtypes):

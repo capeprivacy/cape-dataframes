@@ -24,6 +24,7 @@ setuptools.setup(
         "pyyaml~=5.3.1",
         "validators~=0.18.0",
         "pycryptodome~=3.9.8",
+        "rfc3339~=6.2",
     ],
     extras_require={
         "spark": ["pyspark >=2.4", "pyarrow >=0.15.1"],

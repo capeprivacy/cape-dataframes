@@ -1,10 +1,14 @@
+from datetime import datetime
 from typing import Any
 from typing import Dict
 
 import requests
+import rfc3339
 
 from cape_privacy.coordinator.auth.api_token import APIToken
-from cape_privacy.coordinator.utils import base64
+from cape_privacy.policy import parse_policy
+from cape_privacy.policy.data import Policy
+from cape_privacy.utils import base64
 
 
 class GraphQLError:
@@ -112,13 +116,13 @@ class Client:
     def login(self, token: str):
         """Logs in with the given token string"""
 
-        api_token = APIToken(token)
+        self.api_token = APIToken(token)
 
         r = self.s.post(
             f"{self.host}/v1/login",
             json={
-                "token_id": api_token.token_id,
-                "secret": str(base64.Base64(api_token.secret)),
+                "token_id": self.api_token.token_id,
+                "secret": str(base64.Base64(self.api_token.secret)),
             },
         )
 
@@ -135,6 +139,8 @@ class Client:
 
         self.token = base64.from_string(j["token"])
 
+        self.user = self.me()
+
         return self.token
 
     def me(self) -> str:
@@ -144,28 +150,24 @@ class Client:
         query Me() {
             me {
                 id
+                name
+                email
             }
         }
         """
 
         res = self.graphql_request(query, None)
 
-        return res["me"]["id"]
+        return res["me"]
 
-    def query_policies(self) -> [Dict[Any, Any]]:
-        """Queries all of the policies for the authenticated identity."""
-
-        id = self.me()
-
-        return self.identity_policies(id)
-
-    def get_policy(self, label: str):
+    def get_policy(self, label: str) -> Policy:
         """Returns the current policy for a given project label."""
 
         query = """
         query CurrentSpec($label: ModelLabel!) {
             project(label: $label) {
                 current_spec {
+                    id
                     rules
                     transformations
                 }
@@ -182,7 +184,33 @@ class Client:
         spec = res["project"]["current_spec"]
         spec["label"] = label
 
-        return spec
+        return parse_policy(spec, logger=self)
+
+    def audit_log(self, event_name, target_id, target_type, target_label):
+        """Returns the current policy for a given project label."""
+
+        query = """
+        mutation AddAuditLog($audit: AuditEventInput!) {
+            addAuditLog(audit: $audit) {
+                event_name
+            }
+        }
+        """
+
+        variables = {
+            "audit": {
+                "event_name": event_name,
+                "user_id": self.user["id"],
+                "user_name": self.user["name"],
+                "user_email": self.user["email"],
+                "time": rfc3339.rfc3339(datetime.now()),
+                "target_id": target_id,
+                "target_type": target_type,
+                "target_label": target_label,
+            },
+        }
+
+        self.graphql_request(query, variables)
 
     def __repr__(self):
         return f"This client is connected to {self.host}"
