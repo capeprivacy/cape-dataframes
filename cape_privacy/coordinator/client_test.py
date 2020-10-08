@@ -3,9 +3,11 @@ import json
 import pytest
 import responses
 
+from cape_privacy.audit import APPLY_POLICY_EVENT
 from cape_privacy.coordinator.auth.api_token import create_api_token
 from cape_privacy.coordinator.client import Client
 from cape_privacy.coordinator.client import GraphQLException
+from cape_privacy.policy import parse_policy
 
 host = "http://localhost:8080"
 
@@ -57,6 +59,11 @@ def test_login():
 
     responses.add_callback(responses.POST, f"{host}/v1/login", cb)
 
+    my_id = "thisisanid"
+    responses.add(
+        responses.POST, f"{host}/v1/query", json={"data": {"me": {"id": my_id}}},
+    )
+
     c = Client(host)
 
     c.login(token.raw)
@@ -73,14 +80,16 @@ def test_me():
 
     c = Client(host)
 
-    id = c.me()
+    user = c.me()
 
-    assert my_id == id
+    assert my_id == user["id"]
 
 
 @responses.activate
 def test_get_policy():
-    rules = [{"match": "column", "actions": [{"transform": {"name": "plusOne"}}]}]
+    rules = [
+        {"match": {"name": "column"}, "actions": [{"transform": {"name": "plusOne"}}]}
+    ]
 
     responses.add(
         responses.POST,
@@ -94,7 +103,48 @@ def test_get_policy():
 
     expected = {"label": "random-project", "rules": rules}
 
-    assert policy == expected
+    expected = parse_policy(expected)
+
+    assert policy.label == expected.label
+    assert (
+        policy.rules[0].actions[0].transform.field
+        == expected.rules[0].actions[0].transform.field
+    )
+
+
+@responses.activate
+def test_audit_log():
+    exp_token = "ABCDEFE"
+    token_id = "specialid"
+    secret = "secret"
+
+    token = create_api_token(token_id, secret)
+
+    def cb(request):
+        resp_body = {"token": exp_token}
+
+        return 200, {}, json.dumps(resp_body)
+
+    responses.add_callback(responses.POST, f"{host}/v1/login", cb)
+
+    my_id = "thisisanid"
+    responses.add(
+        responses.POST,
+        f"{host}/v1/query",
+        json={"data": {"me": {"id": my_id, "name": "hey", "email": "yo@yo.com"}}},
+    )
+
+    responses.add(
+        responses.POST,
+        f"{host}/v1/query",
+        json={"data": {"addAuditLog": {"event_name": APPLY_POLICY_EVENT}}},
+    )
+
+    c = Client(host)
+
+    c.login(token.raw)
+
+    c.audit_log(APPLY_POLICY_EVENT, "idididid", "policy", "project-label")
 
 
 def test_client_repr():

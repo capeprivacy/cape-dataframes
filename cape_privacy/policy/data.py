@@ -18,7 +18,8 @@ from typing import List
 
 import yaml
 
-from cape_privacy.coordinator.utils import base64
+from cape_privacy.audit import AuditLogger
+from cape_privacy.utils import base64
 
 
 class Transform:
@@ -140,11 +141,15 @@ class Policy:
 
     def __init__(
         self,
+        logger: AuditLogger = AuditLogger(),
+        id: str = "",
         label: str = "",
         version: int = 1,
         rules: List[Rule] = [],
         transformations: List[NamedTransform] = [],
     ):
+        self.id = id
+        self.logger = logger
         self.label = label
         self.version = version
 
