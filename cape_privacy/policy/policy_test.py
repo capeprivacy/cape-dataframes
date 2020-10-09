@@ -102,6 +102,21 @@ def test_apply_policy_pandas():
     pdt.assert_frame_equal(new_df, expected_df)
 
 
+def test_missing_column():
+    pandas_lib.registry.register("plusN", test_utils.PlusN)
+    d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
+
+    df = pd.DataFrame(np.ones(5,), columns=["boat"])
+
+    expected_df = df
+
+    p = data.Policy(**d)
+
+    new_df = policy_lib.apply_policy(p, df)
+
+    pdt.assert_frame_equal(new_df, expected_df)
+
+
 def test_apply_complex_policies_pandas():
     d = yaml.load(fixtures.complex_y, Loader=yaml.FullLoader)
 
