@@ -14,11 +14,6 @@ contain Transformations.
     policy = Policy(**d)
 """
 
-from typing import List
-
-import yaml
-
-from cape_privacy.audit import AuditLogger
 from cape_privacy.utils import base64
 
 
@@ -124,54 +119,3 @@ class NamedTransform:
 
                 # then set the arg value to the inner value
                 self.args[key] = bytes(base64.from_string(arg["value"]))
-
-
-class Policy:
-    """Top level policy object.
-
-    The top level policy object holds the all of the relevant information
-    for applying policy to data.
-
-    Attributes:
-        label: The label of the policy.
-        version: The version of the policy.
-        rules: List of rules that will be applied to a data frame.
-        transformations: The named transformations for this policy.
-    """
-
-    def __init__(
-        self,
-        logger: AuditLogger = AuditLogger(),
-        id: str = "",
-        label: str = "",
-        version: int = 1,
-        rules: List[Rule] = [],
-        transformations: List[NamedTransform] = [],
-    ):
-        self.id = id
-        self.logger = logger
-        self.label = label
-        self.version = version
-
-        self._raw_transforms = transformations
-        self.transformations = [
-            NamedTransform(**transform) for transform in transformations
-        ]
-
-        if len(rules) == 0:
-            raise ValueError(
-                f"At least one rule must be specified for policy specification {label}"
-            )
-
-        self._raw_rules = rules
-        self.rules = [Rule(**rule) for rule in rules]
-
-    def __repr__(self):
-        d = {
-            "label": self.label,
-            "version": self.version,
-            "transformations": self._raw_transforms,
-            "rules": self._raw_rules,
-        }
-
-        return "Policy:\n\n" + yaml.dump(d, sort_keys=False)
