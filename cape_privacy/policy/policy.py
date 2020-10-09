@@ -214,7 +214,7 @@ def _do_transformations(
             else:
                 df = transformer(do_transform, df, transform.field)
         except (KeyError, pyspark.sql.utils.AnalysisException):
-            logging.warn(
+            logging.warning(
                 f"Unable to transform column {transform.field} in policy {policy.label}"
             )
 
