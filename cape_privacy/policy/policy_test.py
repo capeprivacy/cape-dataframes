@@ -10,7 +10,6 @@ import yaml
 from cape_privacy import pandas as pandas_lib
 from cape_privacy import spark as spark_lib
 from cape_privacy.pandas.transformations import test_utils
-from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
 from cape_privacy.policy import policy as policy_lib
 from cape_privacy.policy import policy_test_fixtures as fixtures
@@ -46,7 +45,7 @@ def test_named_transform_not_found():
 
     df = pd.DataFrame(np.ones(5,), columns=["test"])
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
@@ -62,7 +61,7 @@ def test_named_transform_type_not_found():
         fixtures.named_not_found_y("plusOne", "plusOne", "plusM"),
         Loader=yaml.FullLoader,
     )
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     tfm = p.rules[0].transformations[0]
 
     with pytest.raises(exceptions.NamedTransformNotFound) as e:
@@ -95,7 +94,7 @@ def test_apply_policy_pandas():
 
     expected_df = df + 3
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 
@@ -110,7 +109,7 @@ def test_missing_column():
 
     expected_df = df
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 
@@ -140,7 +139,7 @@ def test_apply_complex_policies_pandas():
         }
     )
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 
@@ -155,7 +154,7 @@ def test_named_transformation_pandas():
 
     expected_df = df + 3
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 
@@ -168,7 +167,7 @@ def test_column_redact_pandas():
 
     df = pd.DataFrame(np.ones((5, 2)), columns=["test", "apple"])
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 
@@ -187,7 +186,7 @@ def test_apply_policy_spark():
 
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
@@ -220,7 +219,7 @@ def test_apply_complex_policies_spark():
     df = sess.createDataFrame(pd_df)
 
     d = yaml.load(fixtures.complex_y, Loader=yaml.FullLoader)
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     new_df = policy_lib.apply_policy(p, df).toPandas()
     pdt.assert_frame_equal(new_df, expected_df, check_dtype=True)
 
@@ -233,7 +232,7 @@ def test_named_transformation_spark():
 
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.named_y, Loader=yaml.FullLoader)
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
@@ -249,7 +248,7 @@ def test_column_redaction_spark():
 
     spark_lib.registry.register(test_utils.PlusN.identifier, test_utils.PlusN)
     d = yaml.load(fixtures.redact_y, Loader=yaml.FullLoader)
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
     new_df = policy_lib.apply_policy(p, df).toPandas()
 
     pdt.assert_frame_equal(new_df, expected_df)
@@ -261,7 +260,7 @@ def test_secret_in_named_transform():
 
     df = pd.DataFrame({"name": ["bob", "alice"]})
 
-    p = data.Policy(**d)
+    p = policy_lib.Policy(**d)
 
     new_df = policy_lib.apply_policy(p, df)
 

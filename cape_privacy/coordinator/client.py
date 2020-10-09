@@ -7,7 +7,7 @@ import rfc3339
 
 from cape_privacy.coordinator.auth.api_token import APIToken
 from cape_privacy.policy import parse_policy
-from cape_privacy.policy.data import Policy
+from cape_privacy.policy import Policy
 from cape_privacy.utils import base64
 
 

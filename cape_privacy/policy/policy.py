@@ -35,6 +35,7 @@ import types
 from typing import Any
 from typing import Callable
 from typing import Dict
+from typing import List
 from typing import Union
 
 import pandas as pd
@@ -50,9 +51,118 @@ from cape_privacy.audit import AuditLogger
 from cape_privacy.pandas import transformations
 from cape_privacy.policy import data
 from cape_privacy.policy import exceptions
+from cape_privacy.policy.data import NamedTransform
+from cape_privacy.policy.data import Rule
 
 
-def apply_policy(policy: data.Policy, df, inplace=False):
+class Policy:
+    """Top level policy object.
+
+    The top level policy object holds the all of the relevant information
+    for applying policy to data.
+
+    Attributes:
+        label: The label of the policy.
+        version: The version of the policy.
+        rules: List of rules that will be applied to a data frame.
+        transformations: The named transformations for this policy.
+    """
+
+    def __init__(
+        self,
+        logger: AuditLogger = AuditLogger(),
+        id: str = "",
+        label: str = "",
+        version: int = 1,
+        rules: List[Rule] = [],
+        transformations: List[NamedTransform] = [],
+    ):
+        self.id = id
+        self.logger = logger
+        self.label = label
+        self.version = version
+
+        self._raw_transforms = transformations
+        self.transformations = [
+            NamedTransform(**transform) for transform in transformations
+        ]
+
+        if len(rules) == 0:
+            raise ValueError(
+                f"At least one rule must be specified for policy specification {label}"
+            )
+
+        self._raw_rules = rules
+        self.rules = [Rule(**rule) for rule in rules]
+
+    def apply(self, df, inplace=False):
+        """Applies a Policy to some DataFrame.
+
+        This function is responsible for inferring the type of the DataFrame,
+        preparing the relevant Spark or Pandas Transformations, and applying
+        them to produce a transformed DataFrame that conforms to the Policy.
+
+        Args:
+            policy: The `Policy` object that the transformed DataFrame will
+                conform to, e.g. as returned by `cape_privacy.parse_policy`.
+            df: The DataFrame object to transform according to `policies`.
+                Must be of type pandas.DataFrame or pyspark.sql.DataFrame.
+            inplace: Whether to mutate the `df` or produce a new one.
+                This argument is only relevant for Pandas DataFrames, as Spark
+                DataFrames do not support mutation.
+
+        Raises:
+            ValueError: If df is a Spark DataFrame and inplace=True, or if df
+                is something other than a Pandas or Spark DataFrame.
+            DependencyError: If Spark is not configured correctly in the
+                Python environment.
+            TransformNotFound, NamedTransformNotFound: If the Policy contains
+                a reference to a Transformation or NamedTransformation that
+                is unrecognized in the Transformation registry.
+        """
+        if isinstance(df, pd.DataFrame):
+            registry = pandas_lib.registry
+            transformer = pandas_lib.transformer
+            dtypes = pandas_lib.dtypes
+            if not inplace:
+                result_df = df.copy()
+            else:
+                result_df = df
+        elif not spark_lib.is_available():
+            raise exceptions.DependencyError
+        elif isinstance(df, spark_lib.DataFrame):
+            if inplace:
+                raise ValueError(
+                    "Spark does not support DataFrame mutation, "
+                    + "so inplace=True is invalid."
+                )
+            registry = spark_lib.registry
+            transformer = spark_lib.transformer
+            dtypes = spark_lib.dtypes
+            result_df = df
+        else:
+            raise ValueError(f"Expected df to be a DataFrame, found {type(df)}.")
+        for rule in self.rules:
+            result_df = _do_transformations(
+                self, rule, result_df, registry, transformer, dtypes
+            )
+
+        self.logger.audit_log(APPLY_POLICY_EVENT, self.id, "policy", self.label)
+
+        return result_df
+
+    def __repr__(self):
+        d = {
+            "label": self.label,
+            "version": self.version,
+            "transformations": self._raw_transforms,
+            "rules": self._raw_rules,
+        }
+
+        return "Policy:\n\n" + yaml.dump(d, sort_keys=False)
+
+
+def apply_policy(policy: Policy, df, inplace=False):
     """Applies a Policy to some DataFrame.
 
     This function is responsible for inferring the type of the DataFrame, preparing the
@@ -75,40 +185,12 @@ def apply_policy(policy: data.Policy, df, inplace=False):
             a Transformation or NamedTransformation that is unrecognized in the
             Transformation registry.
     """
-    if isinstance(df, pd.DataFrame):
-        registry = pandas_lib.registry
-        transformer = pandas_lib.transformer
-        dtypes = pandas_lib.dtypes
-        if not inplace:
-            result_df = df.copy()
-        else:
-            result_df = df
-    elif not spark_lib.is_available():
-        raise exceptions.DependencyError
-    elif isinstance(df, spark_lib.DataFrame):
-        if inplace:
-            raise ValueError(
-                "Spark does not support DataFrame mutation, so inplace=True is invalid."
-            )
-        registry = spark_lib.registry
-        transformer = spark_lib.transformer
-        dtypes = spark_lib.dtypes
-        result_df = df
-    else:
-        raise ValueError(f"Expected df to be a DataFrame, found {type(df)}.")
-    for rule in policy.rules:
-        result_df = _do_transformations(
-            policy, rule, result_df, registry, transformer, dtypes
-        )
-
-    policy.logger.audit_log(APPLY_POLICY_EVENT, policy.id, "policy", policy.label)
-
-    return result_df
+    return policy.apply(df, inplace)
 
 
 def parse_policy(
     p: Union[str, Dict[Any, Any]], logger: AuditLogger = AuditLogger()
-) -> data.Policy:
+) -> Policy:
     """Parses a policy YAML file.
 
     The passed in string can either be a path to a local file,
@@ -133,7 +215,7 @@ def parse_policy(
     else:
         policy = p
 
-    return data.Policy(logger=logger, **policy)
+    return Policy(logger=logger, **policy)
 
 
 def _maybe_replace_dtype_arg(args, dtypes):
@@ -143,7 +225,7 @@ def _maybe_replace_dtype_arg(args, dtypes):
 
 
 def _get_transformation(
-    policy: data.Policy, transform: data.Transform, registry: types.ModuleType, dtypes,
+    policy: Policy, transform: data.Transform, registry: types.ModuleType, dtypes,
 ):
     """Looks up the correct transform class.
 
@@ -186,7 +268,7 @@ def _get_transformation(
 
 
 def _do_transformations(
-    policy: data.Policy,
+    policy: Policy,
     rule: data.Rule,
     df,
     registry: types.ModuleType,
@@ -229,7 +311,7 @@ def _do_transformations(
 
 
 def _load_named_transform(
-    policy: data.Policy, transformLabel: str, registry: types.ModuleType, dtypes,
+    policy: Policy, transformLabel: str, registry: types.ModuleType, dtypes,
 ):
     """Attempts to load a named transform from the top level policy.
 
@@ -275,7 +357,7 @@ def _load_named_transform(
     return initTransform
 
 
-def reverse(policy: data.Policy) -> data.Policy:
+def reverse(policy: Policy) -> Policy:
     """Turns reversible tokenizations into token reversers
 
     If any named transformations contain a reversible tokenization transformation
