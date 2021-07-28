@@ -16,3 +16,4 @@ validators~=0.15.0
 pyspark[sql]~=3.0.0
 pyarrow~=0.17.1
 pycryptodome~=3.9.8
+urllib3>=1.26.5 # not directly required, pinned by Snyk to avoid a vulnerability
