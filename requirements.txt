@@ -1,7 +1,7 @@
 requests~=2.23.0
 pandas~=1.0.3
 numpy~=1.18.1
-pyyaml~=5.3.1
+pyyaml~=5.4
 responses~=0.10.15
 pytest~=5.4.3
 pytest-cov~=2.10.0
@@ -16,3 +16,4 @@ validators~=0.15.0
 pyspark[sql]~=3.0.0
 pyarrow~=0.17.1
 pycryptodome~=3.9.8
+urllib3>=1.26.5 # not directly required, pinned by Snyk to avoid a vulnerability
