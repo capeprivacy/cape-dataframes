@@ -111,28 +111,13 @@ print(df.head())
 
 You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or in our [documentation](https://docs.capeprivacy.com).
 
-## About Cape Privacy and Cape Python
-
-[Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
+## About Cape Python
 
 Cape Python brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files.
 
-### Cape architecture
-
-Cape is comprised of multiples services and libraries. You can use Cape Python as a standalone library, or you can integrate it with the Coordinator in [Cape Core](https://github.com/capeprivacy/cape/), which supports user and policy management.
-
 ### Project status and roadmap
 
-Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and developed, alongside other elements of the Cape ecosystem.
-
-**Upcoming features:**
-
-* Reversible tokenisation: allow reversing of tokenization to reveal the raw value.
-* Policy audit logging: create logging hooks to allow audit logs for policy downloads and usage in Cape Python.
-* Expand pipeline integrations: add Apache Beam, Apache Flink, Apache Arrow Flight or Dask integration as another pipeline we can support, either as part of Cape Python or in its own separate project.
-
-The goal is a complete data management ecosystem. Cape Privacy provides [Cape Coordinator](https://docs.capeprivacy.com/cape-core/coordinator/), to manage policy and users. This will interact with the Cape Privacy libraries (such as [Cape Python](https://docs.capeprivacy.com/libraries/cape-python/)) through a workers interface, and with your own data services through an API.
-
+Cape Python 0.1.1 was released 24th June 2020. THIS PROJECT IS NOT ACTIVELY MAINTAINED.
 
 ## Help and resources
 
