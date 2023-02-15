@@ -31,22 +31,6 @@ endif
 endif
 endif
 
-PYTHON_MATCHED := $(shell [[ `python -V 2>&1` =~ 3.[6-8] ]] && echo matched)
-
-pythoncheck:
-ifndef PYTHON_MATCHED
-ifeq (,$(BYPASS_PYTHON_CHECK))
-	$(error "Python version 3.6+ is required.")
-endif
-endif
-
-pipcheck:
-ifeq (,$(PIP_PATH))
-ifeq (,$(BYPASS_PIP_CHECK))
-	$(error "Pip must be installed")
-endif
-endif
-
 pydep-upgrade:
 	pip install -U pip-tools
 	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/base.txt requirements/base.in --resolver=backtracking
@@ -54,7 +38,7 @@ pydep-upgrade:
 	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/dev.txt requirements/dev.in --resolver=backtracking
 	pip install -r requirements/base.txt -r requirements/spark.txt -r requirements/dev.txt
 
-bootstrap: pythoncheck pipcheck
+bootstrap:
 	pip install -U pip setuptools
 	pip install -r requirements/base.txt -r requirements/spark.txt
 	pip install -e .
@@ -64,17 +48,17 @@ bootstrap: pythoncheck pipcheck
 #
 # Rules for running our tests and for running various different linters
 # ###############################################
-test: pythoncheck
+test:
 	pytest
 
 CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy cape_privacy/coordinator
 
-lint: pythoncheck
+lint:
 	flake8 .
 
 ci: lint test coverage
 
-fmt: pythoncheck
+fmt:
 	isort --atomic .
 	black .
 
