@@ -1,6 +1,7 @@
 pandas>=1.0
+numpy>=1.22
 pycryptodome
-pyyaml
+pyyaml>=5.4
 requests
 rfc3339
 validators
