@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 [![codecov](https://codecov.io/gh/capeprivacy/cape-python/branch/master/graph/badge.svg?token=L9A8HFAJK5)](https://codecov.io/gh/capeprivacy/cape-python)
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
-![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)
+[![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)](https://discord.gg/nQW7YxUYjh)
 
 A Python library supporting data transformations and collaborative privacy policies, for data science projects in Pandas and Apache Spark
 
@@ -131,7 +131,7 @@ If you need help using Cape Dataframes, you can:
 
 * View the [documentation](https://github.com/capeprivacy/cape-dataframes/tree/master/docs/).
 * Submit an issue.
-* Talk to us on our ![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)
+* Talk to us on the [Cape Community Discord](https://discord.gg/nQW7YxUYjh) [![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)](https://discord.gg/nQW7YxUYjh)
 
 Please file [feature requests](https://github.com/capeprivacy/cape-dataframes/issues/new?template=feature_request.md) and 
 [bug reports](https://github.com/capeprivacy/cape-dataframes/issues/new?template=bug_report.md) as GitHub issues.
