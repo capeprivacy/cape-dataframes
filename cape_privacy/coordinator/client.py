@@ -97,7 +97,8 @@ class Client:
         """
 
         r = self.s.post(
-            f"{self.host}/v1/query", json={"query": query, "variables": variables},
+            f"{self.host}/v1/query",
+            json={"query": query, "variables": variables},
         )
 
         # attempt to get json so we can get the errors

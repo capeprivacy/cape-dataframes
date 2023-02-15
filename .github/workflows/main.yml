@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.8, 3.9, "3.10"]
     steps:
       - name: Setup python ${{ matrix.python-version }} Environment
         uses: actions/setup-python@v1
@@ -20,21 +20,21 @@ jobs:
           # This path is specific to Ubuntu
           path: ~/.cache/pip
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('requirements/base.txt', 'requirements/spark.txt') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.python-version }}-pip-
             ${{ runner.os }}-
-      - name: Install Dependencies
+      - name: Install All Dependencies
         run: |
-          make bootstrap
+          make pydep
       - name: Run CI
         run: |
           make ci
-      - if: matrix.python-version == 3.7
+      - if: matrix.python-version == 3.9
         name: Docker build
         run: |
           make docker
-      - if: matrix.python-version == 3.7
+      - if: matrix.python-version == 3.9
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:

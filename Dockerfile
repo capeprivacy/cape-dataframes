@@ -1,6 +1,9 @@
-FROM jupyter/minimal-notebook:29f53f8b9927
+FROM python:3.9-slim-buster
 
-COPY Makefile requirements.txt setup.py README.md ./
+RUN apt-get update && apt-get install -y build-essential
+COPY Makefile setup.py README.md ./
+RUN mkdir requirements
+COPY requirements/base.txt requirements/spark.txt ./requirements/
 
 RUN make bootstrap
 
