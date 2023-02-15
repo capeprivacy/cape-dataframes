@@ -2,7 +2,7 @@
 
 Cape Dataframes allows you to write data privacy policies and data transformations to integrate with [Pandas](https://pandas.pydata.org/) and [Spark](https://spark.apache.org/).
 
-You can view the source code in the [Cape Python GitHub Repository](https://github.com/capeprivacy/cape-dataframes).
+You can view the source code in the [Cape Dataframes GitHub Repository](https://github.com/capeprivacy/cape-dataframes).
 
 ## Use cases
 
