@@ -1,15 +1,14 @@
-# Cape Python
+# Cape Dataframes
 
 ![](https://github.com/capeprivacy/cape-python/workflows/Main/badge.svg) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 [![codecov](https://codecov.io/gh/capeprivacy/cape-python/branch/master/graph/badge.svg?token=L9A8HFAJK5)](https://codecov.io/gh/capeprivacy/cape-python)
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
-[![Chat on Slack](https://img.shields.io/badge/chat-on%20slack-7A5979.svg)](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA)
-
+[![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)](https://discord.gg/nQW7YxUYjh)
 
 A Python library supporting data transformations and collaborative privacy policies, for data science projects in Pandas and Apache Spark
 
-See below for instructions on how to get started or visit the [documentation](https://docs.capeprivacy.com/).
+See below for instructions on how to get started or visit the [documentation](https://github.com/capeprivacy/cape-dataframes/tree/master/docs/).
 
 ## Getting started
 
@@ -22,7 +21,7 @@ See below for instructions on how to get started or visit the [documentation](ht
 
 ### Install with pip
 
-Cape Python is available through PyPi.
+Cape Dataframes is available through PyPi.
 
 ```sh
 pip install cape-privacy
@@ -41,13 +40,13 @@ We recommend running it in a virtual environment, such as [venv](https://docs.py
 It is possible to install the library from source. This installs all dependencies, including Apache Spark:
 
 ```sh
-git clone https://github.com/capeprivacy/cape-python.git
-cd cape-python
+git clone https://github.com/capeprivacy/cape-dataframes.git
+cd cape-dataframes
 make bootstrap
 ```
 ### Usage example
 
-*This example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-python/tree/master/examples/tutorials)*
+*This example is an abridged version of the tutorial found [here](https://github.com/capeprivacy/cape-dataframes/tree/master/examples/tutorials)*
 
 
 ```python
@@ -109,17 +108,13 @@ print(df.head())
 # 1  2e586494b2   63 1963-05-10
 ```
 
-You can see more examples and usage [here](https://github.com/capeprivacy/cape-python/tree/master/examples/) or in our [documentation](https://docs.capeprivacy.com).
+You can see more [examples and usage](https://github.com/capeprivacy/cape-dataframes/tree/master/examples/) or read our [documentation](https://github.com/capeprivacy/cape-dataframes/tree/master/docs/).
 
-## About Cape Privacy and Cape Python
+## About Cape Privacy and Cape Dataframes
 
-[Cape Privacy](https://capeprivacy.com) helps teams share data and make decisions for safer and more powerful data science. Learn more at [capeprivacy.com](https://capeprivacy.com).
+[Cape Privacy](https://capeprivacy.com) empowers developers to easily encrypt data and process it confidentially. No cryptography or key management required.. Learn more at [capeprivacy.com](https://capeprivacy.com).
 
-Cape Python brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files.
-
-### Cape architecture
-
-Cape is comprised of multiples services and libraries. You can use Cape Python as a standalone library, or you can integrate it with the Coordinator in [Cape Core](https://github.com/capeprivacy/cape/), which supports user and policy management.
+Cape Dataframes brings Cape's policy language to Pandas and Apache Spark. The supported techniques include tokenization with linkability as well as perturbation and rounding. You can experiment with these techniques programmatically, in Python or in human-readable policy files.
 
 ### Project status and roadmap
 
@@ -128,26 +123,18 @@ Cape Python 0.1.1 was released 24th June 2020. It is actively maintained and dev
 **Upcoming features:**
 
 * Reversible tokenisation: allow reversing of tokenization to reveal the raw value.
-* Policy audit logging: create logging hooks to allow audit logs for policy downloads and usage in Cape Python.
-* Expand pipeline integrations: add Apache Beam, Apache Flink, Apache Arrow Flight or Dask integration as another pipeline we can support, either as part of Cape Python or in its own separate project.
-
-The goal is a complete data management ecosystem. Cape Privacy provides [Cape Coordinator](https://docs.capeprivacy.com/cape-core/coordinator/), to manage policy and users. This will interact with the Cape Privacy libraries (such as [Cape Python](https://docs.capeprivacy.com/libraries/cape-python/)) through a workers interface, and with your own data services through an API.
-
+* Expand pipeline integrations: add Apache Beam, Apache Flink, Apache Arrow Flight or Dask integration as another pipeline we can support, either as part of Cape Dataframes or in its own separate project.
 
 ## Help and resources
 
-If you need help using Cape Python, you can:
+If you need help using Cape Dataframes, you can:
 
-* View the [documentation](https://docs.capeprivacy.com/).
+* View the [documentation](https://github.com/capeprivacy/cape-dataframes/tree/master/docs/).
 * Submit an issue.
-* Talk to us on our [community Slack](https://join.slack.com/t/capecommunity/shared_invite/zt-f8jeskkm-r9_FD0o4LkuQqhJSa~~IQA).
+* Talk to us on the [Cape Community Discord](https://discord.gg/nQW7YxUYjh) [![Cape Community Discord](https://img.shields.io/discord/1027271440061435975)](https://discord.gg/nQW7YxUYjh)
 
-Please file [feature requests](https://github.com/capeprivacy/cape-python/issues/new?template=feature_request.md) and 
-[bug reports](https://github.com/capeprivacy/cape-python/issues/new?template=bug_report.md) as GitHub issues.
-
-## Community
-
-[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/0)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/0)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/1)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/1)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/2)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/2)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/3)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/3)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/4)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/4)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/5)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/5)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/6)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/6)[![](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/images/7)](https://sourcerer.io/fame/justin1121/capeprivacy/cape-python/links/7)
+Please file [feature requests](https://github.com/capeprivacy/cape-dataframes/issues/new?template=feature_request.md) and 
+[bug reports](https://github.com/capeprivacy/cape-dataframes/issues/new?template=bug_report.md) as GitHub issues.
 
 ### Contributing
 
