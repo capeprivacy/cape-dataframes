@@ -24,17 +24,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.python-version }}-pip-
             ${{ runner.os }}-
-      - name: Install Dependencies
+      - name: Install All Dependencies
         run: |
-          make bootstrap
+          make pydep
       - name: Run CI
         run: |
           make ci
-      - if: matrix.python-version == 3.7
+      - if: matrix.python-version == 3.9
         name: Docker build
         run: |
           make docker
-      - if: matrix.python-version == 3.7
+      - if: matrix.python-version == 3.9
         name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:

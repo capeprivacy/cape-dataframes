@@ -38,6 +38,10 @@ pydep-upgrade:
 	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/dev.txt requirements/dev.in --resolver=backtracking
 	pip install -r requirements/base.txt -r requirements/spark.txt -r requirements/dev.txt
 
+
+pydep:
+	pip install -r requirements/base.txt -r requirements/spark.txt -r requirements/dev.txt
+
 bootstrap:
 	pip install -U pip setuptools
 	pip install -r requirements/base.txt -r requirements/spark.txt
