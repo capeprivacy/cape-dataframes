@@ -61,7 +61,9 @@ def test_login():
 
     my_id = "thisisanid"
     responses.add(
-        responses.POST, f"{host}/v1/query", json={"data": {"me": {"id": my_id}}},
+        responses.POST,
+        f"{host}/v1/query",
+        json={"data": {"me": {"id": my_id}}},
     )
 
     c = Client(host)
@@ -75,7 +77,9 @@ def test_login():
 def test_me():
     my_id = "thisisanid"
     responses.add(
-        responses.POST, f"{host}/v1/query", json={"data": {"me": {"id": my_id}}},
+        responses.POST,
+        f"{host}/v1/query",
+        json={"data": {"me": {"id": my_id}}},
     )
 
     c = Client(host)

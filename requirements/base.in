@@ -1,0 +1,6 @@
+pandas>=1.0
+pycryptodome
+pyyaml
+requests
+rfc3339
+validators

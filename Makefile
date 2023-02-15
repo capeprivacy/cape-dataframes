@@ -47,9 +47,16 @@ ifeq (,$(BYPASS_PIP_CHECK))
 endif
 endif
 
+pydep-upgrade:
+	pip install -U pip-tools
+	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/base.txt requirements/base.in --resolver=backtracking
+	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/spark.txt requirements/spark.in --resolver=backtracking
+	CUSTOM_COMPILE_COMMAND="make pydep-upgrade" pip-compile --output-file requirements/dev.txt requirements/dev.in --resolver=backtracking
+	pip install -r requirements/base.txt -r requirements/spark.txt -r requirements/dev.txt
+
 bootstrap: pythoncheck pipcheck
 	pip install -U pip setuptools
-	pip install -r requirements.txt
+	pip install -r requirements/base.txt -r requirements/spark.txt
 	pip install -e .
 
 # ###############################################
@@ -63,13 +70,13 @@ test: pythoncheck
 CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy cape_privacy/coordinator
 
 lint: pythoncheck
-	flake8 ${CI_FILES}
+	flake8 .
 
 ci: lint test coverage
 
 fmt: pythoncheck
-	isort --atomic ${CI_FILES}
-	black ${CI_FILES}
+	isort --atomic .
+	black .
 
 coverage:
 	pytest --cov-report=xml --cov=cape_privacy ${CI_FILES}
@@ -91,6 +98,6 @@ examples:
 	done;
 
 docker:
-	docker build -t capeprivacy/cape-python .
+	docker build -t capeprivacy/cape-dataframes .
 
 .PHONY: lint fmt test coverage examples

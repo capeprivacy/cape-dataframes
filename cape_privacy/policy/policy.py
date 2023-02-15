@@ -143,7 +143,10 @@ def _maybe_replace_dtype_arg(args, dtypes):
 
 
 def _get_transformation(
-    policy: data.Policy, transform: data.Transform, registry: types.ModuleType, dtypes,
+    policy: data.Policy,
+    transform: data.Transform,
+    registry: types.ModuleType,
+    dtypes,
 ):
     """Looks up the correct transform class.
 
@@ -229,7 +232,10 @@ def _do_transformations(
 
 
 def _load_named_transform(
-    policy: data.Policy, transformLabel: str, registry: types.ModuleType, dtypes,
+    policy: data.Policy,
+    transformLabel: str,
+    registry: types.ModuleType,
+    dtypes,
 ):
     """Attempts to load a named transform from the top level policy.
 

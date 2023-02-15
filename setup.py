@@ -1,9 +1,8 @@
 """Installing with setuptools."""
 import setuptools
 
-
 with open("README.md", "r", encoding="utf8") as fh:
-  long_description = fh.read()
+    long_description = fh.read()
 
 setuptools.setup(
     name="cape-privacy",
@@ -18,13 +17,11 @@ setuptools.setup(
     author="Cape Privacy",
     author_email="contact@capeprivacy.com",
     install_requires=[
-        "requests~=2.23.0",
-        "pandas~=1.0.3",
-        "numpy~=1.18.1",
-        "pyyaml~=5.3.1",
-        "validators~=0.18.0",
-        "pycryptodome~=3.9.8",
-        "rfc3339~=6.2",
+        "pandas",
+        "pycryptodome",
+        "pyyaml",
+        "requests",
+        "rfc3339",
     ],
     extras_require={
         "spark": ["pyspark >=2.4", "pyarrow >=0.15.1"],
@@ -36,5 +33,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Security :: Cryptography",
-    ]
+    ],
 )

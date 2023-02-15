@@ -84,7 +84,10 @@ class DatePerturbation(base.Transformation):
     type_signature = "col->col"
 
     def __init__(
-        self, frequency: StrTuple, min: IntTuple, max: IntTuple,
+        self,
+        frequency: StrTuple,
+        min: IntTuple,
+        max: IntTuple,
     ):
         super().__init__(dtypes.Date)
         self._frequency = _check_freq_arg(frequency)

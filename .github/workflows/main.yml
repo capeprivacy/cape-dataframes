@@ -20,7 +20,7 @@ jobs:
           # This path is specific to Ubuntu
           path: ~/.cache/pip
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('requirements/base.txt', 'requirements/spark.txt') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.python-version }}-pip-
             ${{ runner.os }}-

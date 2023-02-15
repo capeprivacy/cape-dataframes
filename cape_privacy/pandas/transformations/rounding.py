@@ -108,4 +108,9 @@ def _check_freq_arg(arg):
     freq_options = ["year", "month", "day", "hour", "minute", "second"]
 
     if arg not in freq_options:
-        raise ValueError("Frequency {} must be one of {}.".format(arg, freq_options,))
+        raise ValueError(
+            "Frequency {} must be one of {}.".format(
+                arg,
+                freq_options,
+            )
+        )

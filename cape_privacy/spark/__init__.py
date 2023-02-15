@@ -8,7 +8,6 @@ if importlib.util.find_spec("pyspark") is None:
     __all__ = ["is_available"]
 
 else:
-
     from pyspark.sql import DataFrame
 
     from cape_privacy.spark import dtypes

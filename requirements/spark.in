@@ -1,0 +1,4 @@
+-c base.txt
+packaging
+pyarrow
+pyspark[sql]>=3.0

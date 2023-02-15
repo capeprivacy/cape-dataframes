@@ -128,7 +128,10 @@ def test_reversible_tokenizer():
     pdt.assert_frame_equal(tokenized, tokenized_expected)
 
     recovered = _apply_tokenizer(
-        sess, tokenized, tkn.TokenReverser(key=key), col_to_rename="from_token(name)",
+        sess,
+        tokenized,
+        tkn.TokenReverser(key=key),
+        col_to_rename="from_token(name)",
     )
     pdt.assert_frame_equal(recovered, plaintext)
 
