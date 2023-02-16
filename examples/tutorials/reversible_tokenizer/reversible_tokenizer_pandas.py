@@ -7,8 +7,8 @@
 
 import pandas as pd
 
-from cape_privacy.pandas.transformations import ReversibleTokenizer
-from cape_privacy.pandas.transformations import TokenReverser
+from cape_dataframes.pandas.transformations import ReversibleTokenizer
+from cape_dataframes.pandas.transformations import TokenReverser
 
 # The `ReversibleTokenizer` and `TokenReverser` classes both take a `key` as input.
 # For the `TokenReverser` to be able to reverse the tokens produced by the

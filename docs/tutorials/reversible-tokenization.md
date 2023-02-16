@@ -11,8 +11,8 @@ The `ReversibleTokenizer` can be used in conjunction with the `TokenReverser` to
 The `ReversibleTokenizer` and `TokenReverser` classes can be found in the `pandas.transformations` package.
 
 ```python
-from cape_privacy.pandas.transformations import ReversibleTokenizer
-from cape_privacy.pandas.transformations import TokenReverser
+from cape_dataframes.pandas.transformations import ReversibleTokenizer
+from cape_dataframes.pandas.transformations import TokenReverser
 ```
 
 In this example, we will simply hide the names within our dataset.

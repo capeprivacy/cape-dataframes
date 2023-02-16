@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-import cape_privacy as cape
+import cape_dataframes as cape
 
 policy = cape.parse_policy("policy/perturb_value_field.yaml")
 

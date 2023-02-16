@@ -55,7 +55,7 @@ bootstrap:
 test:
 	pytest
 
-CI_FILES=cape_privacy/pandas cape_privacy/spark cape_privacy/policy cape_privacy/coordinator
+CI_FILES=cape_dataframes/pandas cape_dataframes/spark cape_dataframes/policy cape_dataframes/coordinator
 
 lint:
 	flake8 .
@@ -67,7 +67,7 @@ fmt:
 	black .
 
 coverage:
-	pytest --cov-report=xml --cov=cape_privacy ${CI_FILES}
+	pytest --cov-report=xml --cov=cape_dataframes ${CI_FILES}
 	coverage report --fail-under=90
 
 examples:

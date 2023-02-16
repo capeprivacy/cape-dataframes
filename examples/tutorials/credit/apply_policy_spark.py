@@ -1,7 +1,7 @@
 from pyspark import sql
 from pyspark.sql import functions
 
-import cape_privacy as cape
+import cape_dataframes as cape
 
 # Set up your SparkSession as usual, but configure it for use with Cape.
 # We do this because some transformations expect Arrow to be enabled.

@@ -1,6 +1,6 @@
 # Policies
 
-The data policy defines the data you want to change, and the [transformations](/libraries/cape-dataframes/transformations/) or [redactions](/libraries/cape-dataframes/redactions/) you want to apply.
+The data policy defines the data you want to change, and the [transformations](./transformations) or [redactions](./redactions) you want to apply.
 
 Cape Dataframes requires data policies in YAML format. This example describes all the available YAML objects:
 
