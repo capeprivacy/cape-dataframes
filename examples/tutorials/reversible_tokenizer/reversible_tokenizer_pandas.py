@@ -1,21 +1,25 @@
-## This is a pure python version of the notebook from this directory
+# This is a pure python version of the notebook from this directory
 
-# Here we show an example of how you can use the `ReversibleTokenizer` to tokenize data within a pandas dataframe.
-# The `ReversibleTokenizer` will tokenize the input data so it can be used in a privacy preserving manner.
-# The `ReversibleTokenizer` can be used in conjunction with the `TokenReverser` to recover the original data.
+# Here we show an example of how you can use the `ReversibleTokenizer` to tokenize data
+# within a pandas dataframe. The `ReversibleTokenizer` will tokenize the input data so
+# it can be used in a privacy-preserving manner. The `ReversibleTokenizer` can be used
+# in conjunction with the `TokenReverser` to recover the original data.
+
+import pandas as pd
 
 from cape_privacy.pandas.transformations import ReversibleTokenizer
 from cape_privacy.pandas.transformations import TokenReverser
 
-import pandas as pd
-
 # The `ReversibleTokenizer` and `TokenReverser` classes both take a `key` as input.
-# For the `TokenReverser` to be able to reverse the tokens produced by the `ReversibleTokenizer`, you must use the same key.
+# For the `TokenReverser` to be able to reverse the tokens produced by the
+# `ReversibleTokenizer`, you must use the same key.
 
-key=b"5" * 32
+key = b"5" * 32
 
 # In this example, we will simply hide the names within our dataset.
-plaintext_data = pd.DataFrame({'name': ["Alice", "Bob", "Carol"], "# friends": [100, 200, 300]})
+plaintext_data = pd.DataFrame(
+    {"name": ["Alice", "Bob", "Carol"], "# friends": [100, 200, 300]}
+)
 print("plantext data")
 print(plaintext_data)
 print("\n")

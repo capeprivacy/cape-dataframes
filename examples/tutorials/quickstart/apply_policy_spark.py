@@ -1,15 +1,13 @@
-import cape_privacy as cape
-import pandas as pd
+from dataset import load_dataset
 from pyspark import sql
 
-from dataset import load_dataset
-
+import cape_privacy as cape
 
 # Set up your SparkSession as usual, but configure it for use with Cape.
 # We do this because some transformations expect Arrow to be enabled.
-sess = sql.SparkSession.builder \
-    .appName("cape.tutorial.maskPersonalInformation") \
-    .getOrCreate()
+sess = sql.SparkSession.builder.appName(
+    "cape.tutorial.maskPersonalInformation"
+).getOrCreate()
 sess = cape.spark.configure_session(sess)
 
 # Load a Spark DataFrame

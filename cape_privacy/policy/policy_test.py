@@ -44,7 +44,12 @@ def test_named_transform_not_found():
         Loader=yaml.FullLoader,
     )
 
-    df = pd.DataFrame(np.ones(5,), columns=["test"])
+    df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
 
     p = data.Policy(**d)
     tfm = p.rules[0].transformations[0]
@@ -91,7 +96,12 @@ def test_apply_policy_pandas():
     pandas_lib.registry.register("plusN", test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
 
-    df = pd.DataFrame(np.ones(5,), columns=["test"])
+    df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
 
     expected_df = df + 3
 
@@ -106,7 +116,12 @@ def test_missing_column():
     pandas_lib.registry.register("plusN", test_utils.PlusN)
     d = yaml.load(fixtures.y, Loader=yaml.FullLoader)
 
-    df = pd.DataFrame(np.ones(5,), columns=["boat"])
+    df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["boat"],
+    )
 
     expected_df = df
 
@@ -151,7 +166,12 @@ def test_named_transformation_pandas():
     pandas_lib.registry.register("plusN", test_utils.PlusN)
     d = yaml.load(fixtures.named_y, Loader=yaml.FullLoader)
 
-    df = pd.DataFrame(np.ones(5,), columns=["test"])
+    df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
 
     expected_df = df + 3
 
@@ -172,7 +192,12 @@ def test_column_redact_pandas():
 
     new_df = policy_lib.apply_policy(p, df)
 
-    expected_df = pd.DataFrame(np.ones(5,), columns=["test"])
+    expected_df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
 
     expected_df = expected_df + 3
 
@@ -181,7 +206,12 @@ def test_column_redact_pandas():
 
 def test_apply_policy_spark():
     sess = spark_lib.utils.make_session("test.policy.applyPolicies")
-    pd_df = pd.DataFrame(np.ones(5,), columns=["test"])
+    pd_df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
     expected_df = pd_df + 3
     df = sess.createDataFrame(pd_df)
 
@@ -227,7 +257,12 @@ def test_apply_complex_policies_spark():
 
 def test_named_transformation_spark():
     sess = spark_lib.utils.make_session("test.policy.namedTransformations")
-    pd_df = pd.DataFrame(np.ones(5,), columns=["test"])
+    pd_df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
     expected_df = pd_df + 3
     df = sess.createDataFrame(pd_df)
 
@@ -243,7 +278,12 @@ def test_named_transformation_spark():
 def test_column_redaction_spark():
     sess = spark_lib.utils.make_session("test.policy.redaction")
     pd_df = pd.DataFrame(np.ones((5, 2)), columns=["test", "apple"])
-    expected_df = pd.DataFrame(np.ones(5,), columns=["test"])
+    expected_df = pd.DataFrame(
+        np.ones(
+            5,
+        ),
+        columns=["test"],
+    )
     expected_df = expected_df + 3
     df = sess.createDataFrame(pd_df)
 

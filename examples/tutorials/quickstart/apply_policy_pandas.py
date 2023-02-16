@@ -1,8 +1,6 @@
-import cape_privacy as cape
-import pandas as pd
-
 from dataset import load_dataset
 
+import cape_privacy as cape
 
 # Load the Pandas DataFrame
 df = load_dataset()

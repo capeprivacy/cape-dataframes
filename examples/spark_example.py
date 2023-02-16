@@ -1,7 +1,8 @@
-import cape_privacy as cape
 import numpy as np
 import pandas as pd
 from pyspark import sql
+
+import cape_privacy as cape
 
 sess_builder = sql.SparkSession.builder
 sess_builder = sess_builder.appName("cape.examples.rounding")
