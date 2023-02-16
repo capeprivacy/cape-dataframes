@@ -1,4 +1,4 @@
-from cape_privacy.utils import base64
+from cape_dataframes.utils import base64
 
 SECRET_BYTES = 16
 VERSION = b"\x01"

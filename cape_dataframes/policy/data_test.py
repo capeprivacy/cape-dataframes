@@ -1,9 +1,8 @@
 import yaml
 
-from cape_privacy.utils import base64
-
-from .data import Policy
-from .policy_test_fixtures import named_with_secret_y
+from cape_dataframes.policy.data import Policy
+from cape_dataframes.policy.policy_test_fixtures import named_with_secret_y
+from cape_dataframes.utils import base64
 
 y = """label: test_policy
 version: 1

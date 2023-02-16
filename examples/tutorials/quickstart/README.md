@@ -6,7 +6,7 @@ In this short tutorial, we will show you how you can prototype a masking policy 
 
 ## Experiment with masking techniques without a policy file
 
-In order to get familiar with the different masking techniques and identify which one would fit your needs, you can apply these transformations directly on a Pandas DataFrame through the `cape_privacy.pandas.transformations` API without having to write the policy in a yaml file. 
+In order to get familiar with the different masking techniques and identify which one would fit your needs, you can apply these transformations directly on a Pandas DataFrame through the `cape_dataframes.pandas.transformations` API without having to write the policy in a yaml file. 
 
 For this example, we will use a mock dataset with the following PII fields: name, age, birthdate, salary and SSN. In order to obfuscate these different fields we will apply the following transformations:
 
@@ -22,7 +22,7 @@ You can experiment with these transformations on a Pandas DataFrame by running t
 python experiment_pandas.py
 ```
 
-You can also experiment with these transformations on Spark DataFrame with the `cape_privacy.spark.transformations` API.
+You can also experiment with these transformations on Spark DataFrame with the `cape_dataframes.spark.transformations` API.
 
 ```sh
 python experiment_spark.py
@@ -61,8 +61,8 @@ rules:
 ## Apply the policy to your Spark DataFrame
 
 You are now ready to apply the policy to your Spark DataFrame. You just need to add two methods to your PySpark job:
-- `cape_privacy.parse_policy`: load and parse the policy defined in the `yaml` file.
-- `cape_privacy.apply_policy`: apply the policy to a DataFrame.
+- `cape_dataframes.parse_policy`: load and parse the policy defined in the `yaml` file.
+- `cape_dataframes.apply_policy`: apply the policy to a DataFrame.
 
 To mask your data in a Spark job:
 

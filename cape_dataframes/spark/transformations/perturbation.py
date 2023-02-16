@@ -7,9 +7,9 @@ import pandas as pd
 from pyspark import sql
 from pyspark.sql import functions
 
-from cape_privacy.spark import dtypes
-from cape_privacy.spark.transformations import base
-from cape_privacy.utils import typecheck
+from cape_dataframes.spark import dtypes
+from cape_dataframes.spark.transformations import base
+from cape_dataframes.utils import typecheck
 
 _FREQUENCY_TO_DELTA_FN = {
     "YEAR": lambda noise: pd.to_timedelta(noise * 365, unit="days"),

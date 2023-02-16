@@ -1,6 +1,6 @@
 # Cape Dataframes
 
-![](https://github.com/capeprivacy/cape-python/workflows/Main/badge.svg) 
+[![](https://github.com/capeprivacy/cape-dataframes/workflows/Main/badge.svg)](https://github.com/capeprivacy/cape-dataframes/actions/workflows/main.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 [![codecov](https://codecov.io/gh/capeprivacy/cape-python/branch/master/graph/badge.svg?token=L9A8HFAJK5)](https://codecov.io/gh/capeprivacy/cape-python)
 [![PyPI version](https://badge.fury.io/py/cape-privacy.svg)](https://badge.fury.io/py/cape-privacy)
@@ -24,13 +24,13 @@ See below for instructions on how to get started or visit the [documentation](ht
 Cape Dataframes is available through PyPi.
 
 ```sh
-pip install cape-privacy
+pip install cape-dataframes
 ```
 
 Support for Apache Spark is optional.  If you plan on using the library together with Apache Spark, we suggest the following instead:
 
 ```sh
-pip install cape-privacy[spark]
+pip install cape-dataframes[spark]
 ```
 
 We recommend running it in a virtual environment, such as [venv](https://docs.python.org/3/library/venv.html).
@@ -147,5 +147,3 @@ Our [code of conduct](https://capeprivacy.com/conduct/) is included on the Cape 
 ## License
 
 Licensed under Apache License, Version 2.0 (see [LICENSE](https://github.com/capeprivacy/cape-python/blob/master/LICENSE) or http://www.apache.org/licenses/LICENSE-2.0). Copyright as specified in [NOTICE](https://github.com/capeprivacy/cape-python/blob/master/NOTICE).
-
-

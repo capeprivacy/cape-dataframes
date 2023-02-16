@@ -43,13 +43,13 @@ import requests
 import validators
 import yaml
 
-from cape_privacy import pandas as pandas_lib
-from cape_privacy import spark as spark_lib
-from cape_privacy.audit import APPLY_POLICY_EVENT
-from cape_privacy.audit import AuditLogger
-from cape_privacy.pandas import transformations
-from cape_privacy.policy import data
-from cape_privacy.policy import exceptions
+from cape_dataframes import pandas as pandas_lib
+from cape_dataframes import spark as spark_lib
+from cape_dataframes.audit import APPLY_POLICY_EVENT
+from cape_dataframes.audit import AuditLogger
+from cape_dataframes.pandas import transformations
+from cape_dataframes.policy import data
+from cape_dataframes.policy import exceptions
 
 
 def apply_policy(policy: data.Policy, df, inplace=False):
@@ -61,7 +61,7 @@ def apply_policy(policy: data.Policy, df, inplace=False):
 
     Args:
         policy: The `Policy` object that the transformed DataFrame will conform to, e.g.
-            as returned by `cape_privacy.parse_policy`.
+            as returned by `cape_dataframes.parse_policy`.
         df: The DataFrame object to transform according to `policies`. Must be of type
             pandas.DataFrame or pyspark.sql.DataFrame.
         inplace: Whether to mutate the `df` or produce a new one. This argument is only

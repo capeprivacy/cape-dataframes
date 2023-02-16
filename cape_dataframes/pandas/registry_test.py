@@ -1,5 +1,5 @@
-from cape_privacy.pandas import registry
-from cape_privacy.pandas.transformations import test_utils
+from cape_dataframes.pandas import registry
+from cape_dataframes.pandas.transformations import test_utils
 
 
 def test_get():

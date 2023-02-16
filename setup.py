@@ -5,12 +5,12 @@ with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="cape-privacy",
+    name="cape-dataframes",
     version="0.3.0",
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     license="Apache License 2.0",
-    url="https://github.com/capeprivacy/cape-python",
+    url="https://github.com/capeprivacy/cape-dataframes",
     description="Cape manages secure access to all of your data.",
     long_description=long_description,
     long_description_content_type="text/markdown",

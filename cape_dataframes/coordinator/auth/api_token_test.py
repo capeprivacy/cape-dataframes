@@ -1,4 +1,4 @@
-from cape_privacy.coordinator.auth.api_token import create_api_token
+from cape_dataframes.coordinator.auth.api_token import create_api_token
 
 
 def test_api_token():

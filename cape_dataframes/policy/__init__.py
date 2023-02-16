@@ -1,8 +1,8 @@
-from cape_privacy.policy.data import Policy
-from cape_privacy.policy.exceptions import NamedTransformNotFound
-from cape_privacy.policy.exceptions import TransformNotFound
-from cape_privacy.policy.policy import parse_policy
-from cape_privacy.policy.policy import reverse
+from cape_dataframes.policy.data import Policy
+from cape_dataframes.policy.exceptions import NamedTransformNotFound
+from cape_dataframes.policy.exceptions import TransformNotFound
+from cape_dataframes.policy.policy import parse_policy
+from cape_dataframes.policy.policy import reverse
 
 __all__ = [
     "parse_policy",

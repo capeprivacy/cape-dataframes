@@ -3,11 +3,11 @@ import json
 import pytest
 import responses
 
-from cape_privacy.audit import APPLY_POLICY_EVENT
-from cape_privacy.coordinator.auth.api_token import create_api_token
-from cape_privacy.coordinator.client import Client
-from cape_privacy.coordinator.client import GraphQLException
-from cape_privacy.policy import parse_policy
+from cape_dataframes.audit import APPLY_POLICY_EVENT
+from cape_dataframes.coordinator.auth.api_token import create_api_token
+from cape_dataframes.coordinator.client import Client
+from cape_dataframes.coordinator.client import GraphQLException
+from cape_dataframes.policy import parse_policy
 
 host = "http://localhost:8080"
 

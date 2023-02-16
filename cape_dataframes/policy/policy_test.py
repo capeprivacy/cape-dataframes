@@ -7,13 +7,13 @@ import pytest
 import requests
 import yaml
 
-from cape_privacy import pandas as pandas_lib
-from cape_privacy import spark as spark_lib
-from cape_privacy.pandas.transformations import test_utils
-from cape_privacy.policy import data
-from cape_privacy.policy import exceptions
-from cape_privacy.policy import policy as policy_lib
-from cape_privacy.policy import policy_test_fixtures as fixtures
+from cape_dataframes import pandas as pandas_lib
+from cape_dataframes import spark as spark_lib
+from cape_dataframes.pandas.transformations import test_utils
+from cape_dataframes.policy import data
+from cape_dataframes.policy import exceptions
+from cape_dataframes.policy import policy as policy_lib
+from cape_dataframes.policy import policy_test_fixtures as fixtures
 
 
 def test_parse_policy(tmp_path):

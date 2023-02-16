@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 from pyspark.sql import functions
 
-from cape_privacy.spark import dtypes
-from cape_privacy.spark import utils
-from cape_privacy.spark.transformations import rounding as rnd
+from cape_dataframes.spark import dtypes
+from cape_dataframes.spark import utils
+from cape_dataframes.spark.transformations import rounding as rnd
 
 
 # Utils

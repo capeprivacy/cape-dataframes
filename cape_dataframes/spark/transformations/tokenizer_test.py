@@ -3,8 +3,8 @@ import pandas.testing as pdt
 import pytest
 from pyspark.sql import functions
 
-from cape_privacy.spark import utils
-from cape_privacy.spark.transformations import tokenizer as tkn
+from cape_dataframes.spark import utils
+from cape_dataframes.spark.transformations import tokenizer as tkn
 
 
 def _apply_tokenizer(sess, df, tokenizer, col_to_rename):

@@ -1,5 +1,5 @@
-from cape_privacy.spark import registry
-from cape_privacy.spark.transformations import base
+from cape_dataframes.spark import registry
+from cape_dataframes.spark.transformations import base
 
 
 class MockTransformation(base.Transformation):

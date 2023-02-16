@@ -1,6 +1,6 @@
 import abc
 
-from cape_privacy.spark import dtypes
+from cape_dataframes.spark import dtypes
 
 
 class AbstractTransformation(metaclass=abc.ABCMeta):

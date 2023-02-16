@@ -2,9 +2,9 @@ import datetime
 
 import pandas as pd
 
-from cape_privacy.pandas import dtypes
-from cape_privacy.pandas.transformations import base
-from cape_privacy.utils import typecheck
+from cape_dataframes.pandas import dtypes
+from cape_dataframes.pandas.transformations import base
+from cape_dataframes.utils import typecheck
 
 
 class NumericRounding(base.Transformation):

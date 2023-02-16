@@ -5,9 +5,9 @@ import pandas as pd
 from Crypto.Cipher import AES
 from pyspark.sql import functions
 
-from cape_privacy.spark import dtypes
-from cape_privacy.spark.transformations import base
-from cape_privacy.utils import typecheck
+from cape_dataframes.spark import dtypes
+from cape_dataframes.spark.transformations import base
+from cape_dataframes.utils import typecheck
 
 
 class Tokenizer(base.Transformation):

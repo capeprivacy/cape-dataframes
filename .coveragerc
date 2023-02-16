@@ -1,4 +1,4 @@
 [report]
 omit=
-    cape_privacy/spark/examples/*
+    cape_dataframes/spark/examples/*
     *test.py

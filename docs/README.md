@@ -6,7 +6,7 @@ You can view the source code in the [Cape Dataframes GitHub Repository](https://
 
 ## Use cases
 
-Review the [transformations](transformations.md) and decide which are a good fit for your data science needs. 
+Review the [transformations](./transformations) and decide which are a good fit for your data science needs. 
 
 The 0.1.0 release includes five transformations that provide some common privacy protections. 
 

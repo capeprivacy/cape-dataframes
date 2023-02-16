@@ -6,9 +6,9 @@ from typing import Union
 import numpy as np
 import pandas as pd
 
-from cape_privacy.pandas import dtypes
-from cape_privacy.pandas.transformations import base
-from cape_privacy.utils import typecheck
+from cape_dataframes.pandas import dtypes
+from cape_dataframes.pandas.transformations import base
+from cape_dataframes.utils import typecheck
 
 _FREQUENCY_TO_DELTA_FN = {
     "YEAR": lambda noise: pd.to_timedelta(noise * 365, unit="days"),

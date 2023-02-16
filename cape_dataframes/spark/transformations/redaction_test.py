@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import pandas.testing as pdt
 
-from cape_privacy.spark import utils
-from cape_privacy.spark.transformations import redaction as rdc
+from cape_dataframes.spark import utils
+from cape_dataframes.spark.transformations import redaction as rdc
 
 
 def test_column_redact():

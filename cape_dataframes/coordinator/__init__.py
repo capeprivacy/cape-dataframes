@@ -1,3 +1,3 @@
-from cape_privacy.coordinator.client import Client
+from cape_dataframes.coordinator.client import Client
 
 __all__ = ["Client"]

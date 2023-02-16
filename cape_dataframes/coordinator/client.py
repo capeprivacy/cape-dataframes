@@ -5,10 +5,10 @@ from typing import Dict
 import requests
 import rfc3339
 
-from cape_privacy.coordinator.auth.api_token import APIToken
-from cape_privacy.policy import parse_policy
-from cape_privacy.policy.data import Policy
-from cape_privacy.utils import base64
+from cape_dataframes.coordinator.auth.api_token import APIToken
+from cape_dataframes.policy import parse_policy
+from cape_dataframes.policy.data import Policy
+from cape_dataframes.utils import base64
 
 
 class GraphQLError:

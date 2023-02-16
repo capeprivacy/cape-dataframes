@@ -2,9 +2,9 @@ import pandas as pd
 import pandas.testing as pdt
 import pytest
 
-from cape_privacy.pandas.transformations import ReversibleTokenizer
-from cape_privacy.pandas.transformations import Tokenizer
-from cape_privacy.pandas.transformations import TokenReverser
+from cape_dataframes.pandas.transformations import ReversibleTokenizer
+from cape_dataframes.pandas.transformations import Tokenizer
+from cape_dataframes.pandas.transformations import TokenReverser
 
 
 def test_tokenizer():

@@ -10,12 +10,12 @@ if importlib.util.find_spec("pyspark") is None:
 else:
     from pyspark.sql import DataFrame
 
-    from cape_privacy.spark import dtypes
-    from cape_privacy.spark import registry
-    from cape_privacy.spark import transformations
-    from cape_privacy.spark.transformer import transformer
-    from cape_privacy.spark.utils import configure_session
-    from cape_privacy.spark.utils import make_session
+    from cape_dataframes.spark import dtypes
+    from cape_dataframes.spark import registry
+    from cape_dataframes.spark import transformations
+    from cape_dataframes.spark.transformer import transformer
+    from cape_dataframes.spark.utils import configure_session
+    from cape_dataframes.spark.utils import make_session
 
     def is_available():
         return True

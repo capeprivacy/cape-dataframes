@@ -1,11 +1,11 @@
 from dataset import load_dataset
 
-from cape_privacy.pandas import dtypes
-from cape_privacy.pandas.transformations import ColumnRedact
-from cape_privacy.pandas.transformations import DatePerturbation
-from cape_privacy.pandas.transformations import NumericPerturbation
-from cape_privacy.pandas.transformations import NumericRounding
-from cape_privacy.pandas.transformations import Tokenizer
+from cape_dataframes.pandas import dtypes
+from cape_dataframes.pandas.transformations import ColumnRedact
+from cape_dataframes.pandas.transformations import DatePerturbation
+from cape_dataframes.pandas.transformations import NumericPerturbation
+from cape_dataframes.pandas.transformations import NumericRounding
+from cape_dataframes.pandas.transformations import Tokenizer
 
 # Load Pandas DataFrame
 df = load_dataset()

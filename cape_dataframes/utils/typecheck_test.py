@@ -1,4 +1,4 @@
-from cape_privacy.utils import typecheck
+from cape_dataframes.utils import typecheck
 
 
 def _make_args_and_types():

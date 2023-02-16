@@ -1,9 +1,9 @@
 from pyspark import sql
 from pyspark.sql import functions
 
-from cape_privacy.spark import dtypes
-from cape_privacy.spark.transformations import base
-from cape_privacy.utils import typecheck
+from cape_dataframes.spark import dtypes
+from cape_dataframes.spark.transformations import base
+from cape_dataframes.utils import typecheck
 
 
 class NumericRounding(base.Transformation):

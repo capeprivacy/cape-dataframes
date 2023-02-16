@@ -2,13 +2,13 @@ from dataset import load_dataset
 from pyspark import sql
 from pyspark.sql import functions
 
-import cape_privacy as cape
-from cape_privacy.spark import dtypes
-from cape_privacy.spark.transformations import ColumnRedact
-from cape_privacy.spark.transformations import DatePerturbation
-from cape_privacy.spark.transformations import NumericPerturbation
-from cape_privacy.spark.transformations import NumericRounding
-from cape_privacy.spark.transformations import Tokenizer
+import cape_dataframes as cape
+from cape_dataframes.spark import dtypes
+from cape_dataframes.spark.transformations import ColumnRedact
+from cape_dataframes.spark.transformations import DatePerturbation
+from cape_dataframes.spark.transformations import NumericPerturbation
+from cape_dataframes.spark.transformations import NumericRounding
+from cape_dataframes.spark.transformations import Tokenizer
 
 # Set up your SparkSession as usual, but configure it for use with Cape.
 # We do this because some transformations expect Arrow to be enabled.

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pandas.testing as pdt
 
-from cape_privacy.pandas.transformations import ColumnRedact
+from cape_dataframes.pandas.transformations import ColumnRedact
 
 
 def test_column_redact():

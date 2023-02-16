@@ -1,5 +1,5 @@
-from cape_privacy.utils.base64 import Base64
-from cape_privacy.utils.base64 import from_string
+from cape_dataframes.utils.base64 import Base64
+from cape_dataframes.utils.base64 import from_string
 
 
 def test_base64():

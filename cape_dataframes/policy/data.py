@@ -18,8 +18,8 @@ from typing import List
 
 import yaml
 
-from cape_privacy.audit import AuditLogger
-from cape_privacy.utils import base64
+from cape_dataframes.audit import AuditLogger
+from cape_dataframes.utils import base64
 
 
 class Transform:
